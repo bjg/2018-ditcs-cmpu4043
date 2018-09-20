@@ -1,0 +1,33 @@
+header, h1 {
+  font-family: arial;
+}
+
+h1 {
+  font-style: italic;
+}
+
+#content, #sidebar {
+  border: 1px solid;
+  float: left;
+  padding: 5px;
+  position: relative;
+}
+
+#content {
+  height: 250px;
+  width: 300px;
+}
+
+#sidebar {
+  float: left;
+  margin-left: 10px;
+  width: 100px;
+}
+
+ul {
+  list-style: none;
+}
+
+footer {
+  width: 300px;
+}
