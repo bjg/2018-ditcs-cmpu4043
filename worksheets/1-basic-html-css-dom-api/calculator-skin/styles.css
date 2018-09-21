@@ -1,0 +1,37 @@
+#calculator {
+    width: 50vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 5px outset #696969;
+    border-radius: 25px;
+    background-color: #949594;
+}
+
+#screen {
+    width: 95%;
+    height: 15%;
+    font-size: 64px;
+    text-align: right;
+    color: #2F4F4F;
+    border: 5px inset gray;
+    border-radius: 25px;
+    background-color: #C0C0C0;
+}
+
+#keypad {
+    width: 95%;
+    height: 60%;
+    display: grid;
+    grid: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+#keypad > button {
+    font-size: 200%;
+    font-weight: bolder;
+    border: 2px gray outset;
+    border-radius: 10px;
+}
