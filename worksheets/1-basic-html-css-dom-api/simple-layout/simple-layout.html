@@ -1,0 +1,121 @@
+<header>
+    <h1>
+        Title
+    </h1>
+  </header>
+  <section id="content">
+    <header>
+      Article title
+    </header>
+    <section>
+      <p>Article para1 ...</p>
+    </section>
+  </section>
+  <aside id="sidebar">
+    <header>
+      Aside
+    </header>
+    <ul>
+      <li>
+        Item 1
+      </li>
+      <li>
+        Item 2
+      </li>
+    </ul>
+  </aside>
+  <footer>
+    <address>
+      Kevin St, Dublin 8
+    </address>
+  </footer>
+
+
+  <style>
+
+    /*
+    #######################################################
+
+    When setting the style for this html, I was unsure how to judge the proportions. 
+    i.e I did not know whether to develop in fullscreen and adjust the font size, or to develop the layout
+    relative to the size of the worksheet document image. I decided to develop relative to the size of the document image in the worksheet. 
+    for this reason, the proportions of the layout may appear off when viewed in fullscreen. If the window is adjusted to the same width
+    and height of the image in the worksheet, the proportions will be accurate. 
+
+    #######################################################
+    */
+
+
+
+    /*###################      HEADER SECTION      #######################*/
+    header {
+      width: 100%;
+      margin-top: 0em;
+      margin-left: 1em;
+      margin-bottom: 0em;
+      padding-bottom: 0em;
+      font-family: Arial, sans-serif;
+      font-style: italic;
+      font-weight:900;
+      font-size: 1em;
+    }
+    /*####################################################################*/
+
+
+
+    /*###################      MAIN CONTENT SECTION      #################*/
+    #content {
+      width: 60%;
+      height: 70%;
+      margin-left: 1em;
+      border: 1px solid black;
+      float: left;
+    }
+
+    #content > header {
+      margin-left: 0.2em;
+      margin-top: 0.5em;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    #content > section > p {
+      margin-left: 0.2em;
+      font-weight: 500;
+    }
+    /*###################################################################*/
+
+
+    /*####################      ASIDE SECTION      ######################*/
+    #sidebar {
+      width: 23%;
+      height: 30%;
+      border: 1px solid black;
+      float: right;
+      margin-right: 3.5em;
+    }
+
+    #sidebar > header {
+      margin-left: 0.2em;
+      margin-top: 0.5em;
+      font-weight: 600;
+    }
+
+    #sidebar > ul > li{
+      list-style: none;
+      font-weight: 600;
+    }
+    /*###################################################################*/
+
+
+    /*###################      FOOTER SECTION      ######################*/
+    footer {
+      position: absolute;
+      bottom: 1.5em;
+      left: 1.2em;
+      margin-top: 0.1em;
+      font-weight: 600;
+    }
+    /*###################################################################*/
+  </style>
+  
