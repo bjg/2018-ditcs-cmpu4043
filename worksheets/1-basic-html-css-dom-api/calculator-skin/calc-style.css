@@ -1,5 +1,8 @@
 #calculator {
+    display: block;
     border: 0.1em solid black;
+    min-width: 432px !important;
+    min-height: 502.55px !important;
     border-radius: 5%;
     width: 55vw;
     height: 90vh;
@@ -10,6 +13,8 @@
 #display { 
     background-color: #FFF;
     border-radius: 15px;
+    min-width: 371.2px !important;
+    min-height: 90px !important;
     width: 50vw;
     height: 15vh;
     margin: 0 auto;
@@ -25,6 +30,8 @@
 }
 
 #button-grid {
+    min-width: 393.6px !important;
+    min-height: 320px !important;
     width: 50vw;
     height: 55vh;
     margin: 0 auto;
@@ -35,13 +42,15 @@
 
 .btn {
     display: inline-block;
+    min-width: 92.1px !important;
+    min-height: 59px !important;
     width: 11.7vw;
     height: 9.5vh;
     margin: 0.5vh 0.1vw;
     font-size: 150%;
     border-radius: 15px;
     background-color: #C0C0C0;
-    box-shadow: 5px 5px #6C6C6C;
+    box-shadow: 3px 3px 0px 1px #6C6C6C,inset 5px 3px 0px 1px #C0C0C0;
 }
 
 div > span.btn-text {
