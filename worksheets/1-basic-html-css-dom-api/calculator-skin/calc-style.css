@@ -23,15 +23,16 @@
 }
 
 #display-text {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 6em;
     float: right;
-    margin: 0 0.1em 0 0;
+    margin: 0.05em 0.1em 0 0;
     color: #A9A9A9;
 }
 
 #button-grid {
     min-width: 393.6px !important;
-    min-height: 320px !important;
+    min-height: 322px !important;
     width: 50vw;
     height: 55vh;
     margin: 0 auto;
@@ -55,9 +56,10 @@
 
 div > span.btn-text {
     display: flex;
+    font-family: Arial, Helvetica, sans-serif;
     justify-content: center;
     align-content: center;
     flex-direction: row;
     margin: 1em 0 0 0;
-    font-weight: 900;
+    font-weight: 600;
 }
