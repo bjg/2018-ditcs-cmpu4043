@@ -1,0 +1,33 @@
+#calculator{
+    margin:auto;
+    width:40%;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#screen{
+    margin:auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height:5%;
+    width:88%;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 150%;
+    text-align: right;
+}
+
+#buttons{
+    width:88%;
+    margin:auto;
+    padding:1px;
+}
+
+button{
+    width:24%;
+    height:25;
+    margin:auto;
+    border-radius: 5px
+}
+
