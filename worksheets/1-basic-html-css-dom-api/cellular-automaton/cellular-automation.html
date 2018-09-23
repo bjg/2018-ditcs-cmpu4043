@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cellular Automation</title>
+    </head>
+    <body>
+        <script>
+            const num_cols = 101;
+            const num_rows = 50;
+            const cell_width = 8;
+            const cell_height = 8;
+            const active = "active";
+            const inactive = "inactive";
+            const green = "#2DC14F"; 
+            const white = "#FFF";
+    
+
+            function generate_cell(state) {
+                cell = document.createElement('div');
+                cell.style.width = cell_width.toString()+"px";
+                cell.style.height = cell_height.toString()+"px";
+                cell.style.border = "1px solid black";
+                cell.style.display = "inline-block";
+                cell.style.margin = "0 1px 0 1px";
+                if(state === active) {
+                    cell.style.backgroundColor = green;
+                }
+                else {
+                    cell.style.backgroundColor = white;
+                }
+    
+                return cell;
+            }
+
+
+            function get_random_state() {
+                if(Math.random() < 0.5) {
+                    return active;
+                }
+                else return inactive;
+            }
+
+
+            function row_template() {
+                row = document.createElement('div');
+                row.width = (num_cols * cell_width).toString()+"px";
+                row.height = cell_height.toString()+"px";
+                return row;
+            }
+
+
+            function init_row() {
+                row = row_template();
+                for(i=0; i<num_cols; i++) {
+                    cell = generate_cell(get_random_state());
+                    row.appendChild(cell);
+                }
+                return row;
+            }
+
+
+            function get_new_cell_state(left_cell, middle_cell, right_cell) {
+                if(
+                    (left_cell.background === green && middle_cell.background === white && right_cell.background === green)
+                    ||
+                    (left_cell.background === green && middle_cell.background === white && right_cell.background === white)
+                    ||
+                    (left_cell.background === white && middle_cell.background === green && right_cell.background === green) 
+                    ||
+                    (left_cell.background === white && middle_cell.background === green && right_cell.background === white)
+                  ) 
+                {
+                    return active;
+                }
+                else 
+                {
+                    return inactive;
+                }
+            }
+
+
+            function get_next_row(prev_row) {
+                prev_cells = prev_row.querySelectorAll('div');
+                console.log(prev_cells[0].backgroundColor);
+                new_row = row_template();
+                for(index=0; index<num_cols; index++) {
+                    direct_ancestor_index = index;
+                    direct_ancestor_left_index = index-1;
+                    direct_ancestor_right_index = index+1;
+                    if(direct_ancestor_left_index === -1) {
+                        direct_ancestor_left_index = num_cols-1;
+                    }
+                    if(direct_ancestor_right_index === num_cols-1) {
+                        direct_ancestor_right_index = 0;
+                    }
+                    cell_state = get_new_cell_state(prev_cells[direct_ancestor_left_index], prev_cells[direct_ancestor_index], prev_cells[direct_ancestor_right_index]);
+                    cell = generate_cell(cell_state);
+                    new_row.appendChild(cell);
+                }
+
+                return new_row;
+            }
+    
+
+            j=0;
+            first_row = init_row();
+            next_row = get_next_row(first_row);
+            document.body.appendChild(first_row);
+            document.body.appendChild(next_row);
+        </script>
+    </body>
+</html>
