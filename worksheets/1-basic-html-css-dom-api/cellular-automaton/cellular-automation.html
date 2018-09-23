@@ -32,7 +32,7 @@
 
 
             function get_random_state() {
-                if(Math.random() < 0.5) {
+                if(Math.random() < 0.9) {
                     return active;
                 }
                 else return inactive;
@@ -65,7 +65,7 @@
                     ||
                     (left_cell.style.backgroundColor === 'white' && middle_cell.style.backgroundColor === 'green' && right_cell.style.backgroundColor === 'green') 
                     ||
-                    (left_cell.style.backgroundColor === 'white' && middle_cell.style.backgroundColor === 'green' && right_cell.style.background === 'white')
+                    (left_cell.style.backgroundColor === 'white' && middle_cell.style.backgroundColor === 'green' && right_cell.style.backgroundColor === 'white')
                   ) 
                 {
                     return active;
