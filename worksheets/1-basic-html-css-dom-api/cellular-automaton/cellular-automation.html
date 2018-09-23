@@ -100,13 +100,22 @@
 
                 return new_row;
             }
-    
 
-            j=0;
+
+            function generate_grid(p_row, r_count) {
+                if(r_count === num_rows) {
+                    return;
+                }
+                else {
+                    n_row = get_next_row(p_row);
+                    document.body.appendChild(n_row);
+                    generate_grid(n_row, r_count+1);
+                }
+            }
+    
             first_row = init_row();
-            next_row = get_next_row(first_row);
             document.body.appendChild(first_row);
-            document.body.appendChild(next_row);
+            generate_grid(first_row, 1);
         </script>
     </body>
 </html>
