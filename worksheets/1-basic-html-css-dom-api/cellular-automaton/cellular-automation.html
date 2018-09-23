@@ -11,8 +11,6 @@
             const cell_height = 8;
             const active = "active";
             const inactive = "inactive";
-            const green = "#2DC14F"; 
-            const white = "#FFF";
     
 
             function generate_cell(state) {
@@ -86,11 +84,11 @@
                     direct_ancestor_index = index;
                     if(direct_ancestor_index === 0) {
                         direct_ancestor_left_index = num_cols-1;
-                        direct_ancestor_right_index = index+1;
+                        direct_ancestor_right_index = 1;
                     }
                     else if(direct_ancestor_index === num_cols-1) {
                         direct_ancestor_right_index = 0;
-                        direct_ancestor_left_index = index-1;
+                        direct_ancestor_left_index = num_cols-2;
                     }
                     else {
                         direct_ancestor_left_index = index-1;
@@ -116,10 +114,8 @@
                     generate_grid(n_row, r_count+1);
                 }
             }
-    
-            first_row = init_row();
-            document.body.appendChild(first_row);
-            generate_grid(first_row, 1);
+
+            generate_grid(init_row(), 1);
         </script>
     </body>
 </html>
