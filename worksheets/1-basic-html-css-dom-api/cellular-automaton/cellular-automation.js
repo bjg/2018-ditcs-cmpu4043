@@ -1,10 +1,15 @@
+//variables abstracted for code reusability
 const num_cols = 101;
 const num_rows = 50;
-//can be changed more easily if desired
-cell_width = 8;
-cell_height = 8;
-//I find variable names more readable than string values
-active = "active";
+//cell dimensions are ints as used to calculate row dimensions
+const cell_width = 8;
+const cell_height = 8;
+const active = "active";
+//active color must be string value else code breaks
+const active_color = "green";
+const cell_border = "1px solid black";
+const cell_margin = "0 1px 0 1px";
+const cell_display = "inline-block";
 
 
 //creates and returns a new state coloured either green or white depending on the value of state (if the cell should be active or not)
@@ -12,11 +17,11 @@ function generate_cell(state) {
     cell = document.createElement('div');
     cell.style.width = cell_width.toString()+"px";
     cell.style.height = cell_height.toString()+"px";
-    cell.style.border = "1px solid black";
-    cell.style.display = "inline-block";
-    cell.style.margin = "0 1px 0 1px";
+    cell.style.border = cell_border;
+    cell.style.display = cell_display;
+    cell.style.margin = cell_margin;
     if(state === active) {
-        cell.style.backgroundColor = 'green';
+        cell.style.backgroundColor = active_color;
     }
     return cell;
 }//end generate_cell()
@@ -24,7 +29,7 @@ function generate_cell(state) {
 
 //determines if a cell is active or not depending on its background colour
 function is_active(cell) {
-    return cell.style.backgroundColor === 'green';
+    return cell.style.backgroundColor === active_color;
 }//end is_active_cell()
 
 
