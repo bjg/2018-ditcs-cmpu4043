@@ -5,7 +5,6 @@ cell_width = 8;
 cell_height = 8;
 //I find variable names more readable than string values
 active = "active";
-inactive = "inactive";
 
 
 //creates and returns a new state coloured either green or white depending on the value of state (if the cell should be active or not)
@@ -29,12 +28,12 @@ function is_active(cell) {
 }//end is_active_cell()
 
 
-    //used to generate the first row. ~50% chance of generating an active cell. Fun to play with the value of the if condition
+//used to generate the first row. ~50% chance of generating an active cell. 
 function get_random_state() {
     if(Math.random() < 0.5) {
         return active;
     }
-    else return inactive;
+    else return null;
 }//end get_random_state()
 
 
@@ -74,7 +73,7 @@ function get_new_cell_state(left_cell, middle_cell, right_cell) {
     }
     else 
     {
-        return inactive;
+        return null;
     }
 }//end get_new_cell_state()
 
@@ -102,7 +101,6 @@ function get_next_row(prev_row) {
         cell = generate_cell(cell_state);
         new_row.appendChild(cell);
     }
-
     return new_row;
 }//end get_next_row()
 
