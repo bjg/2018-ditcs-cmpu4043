@@ -1,7 +1,7 @@
 #box {
     border-radius: 25px;
     width: 350px;
-    height: 600px;
+    height: 450px;
     padding: 5px;
     border: 2px solid black;
     margin: 0;
@@ -10,13 +10,19 @@
 #screen{
     border-radius: 25px;
     width: 300px;
-    height: 50px;
+    height: 30px;
     padding: 20px;
     border: 2px solid black;
-    margin: 0;
+    margin-top: 20px;
     text-align: right;
     margin-bottom: 20px;
+    
 
+}
+
+#result{
+    font-size: 40px;
+    color: grey;
 }
 
 #column{
@@ -28,12 +34,19 @@
 
 
 #button{
-    border-radius: 25px;
-    width: 35px;
-    height: 35px;
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
+    background-color: grey;
+    border-radius: 15px;
+    width: 30px;
+    height: 5px;
     border: 3px solid grey;
     margin-bottom: 5px;
-    text-align: center;
+    margin-left: 5px;
+    box-shadow: 2px 2px;
+    
 
+}
+
+#KeyNumber{
+    text-align: center;
 }
