@@ -1,0 +1,43 @@
+.wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px 100px;
+	grid-gap: 10px;
+	background-color: #fff;
+	color: #444;
+}
+
+.box {
+	background-color: #444;
+	color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	text-align: center;
+}
+
+.result {
+	height: 50px;
+	grid-row: 1;
+	grid-column: 1 / span 4;
+	font-size: 200%;
+	text-align: right;
+}
+
+.left-parent {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.right-parent {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.plus-min {
+	grid-column: 3;
+	grid-row: 2;
+}
+
+.divide {
+	grid-column: 4;
+	grid-row: 2;
+}
