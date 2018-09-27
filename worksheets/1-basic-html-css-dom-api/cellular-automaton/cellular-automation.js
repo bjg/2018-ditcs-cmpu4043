@@ -10,11 +10,11 @@ const active_color = "green";
 const cell_border = "1px solid black";
 const cell_margin = "0 1px 0 1px";
 const cell_display = "inline-block";
-
+sss
 
 //creates and returns a new state coloured either green or white depending on the value of state (if the cell should be active or not)
 function generate_cell(state) {
-    cell = document.createElement('div');
+    var cell = document.createElement('div');
     cell.style.width = cell_width.toString()+"px";
     cell.style.height = cell_height.toString()+"px";
     cell.style.border = cell_border;
@@ -44,7 +44,7 @@ function get_random_state() {
 
 //returns an empty div (row) to be populated with cells
 function row_template() {
-    row = document.createElement('div');
+    var row = document.createElement('div');
     row.width = (num_cols * cell_width).toString()+"px";
     row.height = cell_height.toString()+"px";
     return row;
@@ -53,7 +53,7 @@ function row_template() {
 
 //generates the first row of cells whos active states are randomly generated
 function init_row() {
-    row = row_template();
+    var row = row_template();
     for(i=0; i<num_cols; i++) {
         cell = generate_cell(get_random_state());
         row.appendChild(cell);
@@ -86,12 +86,13 @@ function get_new_cell_state(left_cell, middle_cell, right_cell) {
 //gets the next row in the grid with cell active states depending on the active states of the cells in the previous rows
 function get_next_row(prev_row) {
     //get all cells from previous row
-    prev_cells = prev_row.querySelectorAll('div');
-    new_row = row_template();
+    var prev_cells = prev_row.querySelectorAll('div');
+    var new_row = row_template();
+    var left_index, right_index;
     for(index=0; index<num_cols; index++) {
         if(index === 0) {
-            left_index = num_cols-1;
-            right_index = 1;
+            var left_index = num_cols-1;
+            var right_index = 1;
         }
         else if(index === num_cols-1) {
             right_index = 0;
@@ -102,8 +103,8 @@ function get_next_row(prev_row) {
             right_index = index+1;
         }
         //abstracted cell state here for readability and to reduce complexity
-        cell_state = get_new_cell_state(prev_cells[left_index], prev_cells[index], prev_cells[right_index]);
-        cell = generate_cell(cell_state);
+        var cell_state = get_new_cell_state(prev_cells[left_index], prev_cells[index], prev_cells[right_index]);
+        var cell = generate_cell(cell_state);
         new_row.appendChild(cell);
     }
     return new_row;
@@ -117,7 +118,7 @@ function generate_grid(p_row, r_count) {
     }
     else {
         document.body.appendChild(p_row);
-        n_row = get_next_row(p_row);
+        var n_row = get_next_row(p_row);
         generate_grid(n_row, r_count+1);
     }
 }//end generate_grid()
