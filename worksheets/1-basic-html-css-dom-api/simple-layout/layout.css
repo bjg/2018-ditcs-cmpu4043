@@ -25,14 +25,14 @@ li:last-child {
 }
 
 #content {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 230px;
   vertical-align: top;
   display: inline-block;
   outline-style: solid;
   padding: 5px;
-  margin: 10px;
-  margin-right: 0px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 #sidebar {
