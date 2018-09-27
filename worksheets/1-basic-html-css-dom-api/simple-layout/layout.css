@@ -1,15 +1,27 @@
 h1 {
   font-style: italic;
+  font-family: Verdana;
+  margin: 10px;
 }
 
 aside {
   display: inline-block;
   padding: 5px;
+  padding-right: 25px;
 }
 
 header {
+  font-family: Verdana;
   font-style: italic;
-  font-size: 20px;
+  font-size: 16px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li:last-child {
+    text-transform: lowercase;
 }
 
 #content {
@@ -19,8 +31,15 @@ header {
   display: inline-block;
   outline-style: solid;
   padding: 5px;
+  margin: 10px;
+  margin-right: 0px;
 }
 
 #sidebar {
+  margin: 10px;
   outline-style: solid;
+}
+
+address {
+  font-weight: bold;
 }
