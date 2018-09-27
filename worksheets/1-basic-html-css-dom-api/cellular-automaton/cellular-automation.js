@@ -10,7 +10,7 @@ const active_color = "green";
 const cell_border = "1px solid black";
 const cell_margin = "0 1px 0 1px";
 const cell_display = "inline-block";
-sss
+
 
 //creates and returns a new state coloured either green or white depending on the value of state (if the cell should be active or not)
 function generate_cell(state) {
