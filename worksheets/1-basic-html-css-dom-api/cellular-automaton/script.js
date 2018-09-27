@@ -3,9 +3,12 @@ var inactive='white';
 var max = 100;
 var min = 1;
 var grid = [];
-var parent = document.getElementById('grid');
 var width = 101;
 var height = 50;
+var body = document.getElementsByTagName("BODY")[0];
+var parent = document.createElement("div");
+parent.id = "grid";
+body.appendChild(parent);
 
 function drawCells() {
 	console.log(grid);
@@ -15,6 +18,11 @@ function drawCells() {
 		for (var j = 0; j < width; j++) { 
 	    	var div = document.createElement("div");
 			div.classList.add('cell');
+			div.style.display = 'inline-block';
+			div.style.width = '8px';
+			div.style.height ='8px';
+			div.style.border = '1px solid gray';
+
 			if (grid[i][j] == 1)
 				div.style.backgroundColor = active;
 			else 
