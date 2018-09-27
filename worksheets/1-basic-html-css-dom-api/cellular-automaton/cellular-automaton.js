@@ -1,3 +1,13 @@
+function createCell(color){
+    var div = document.createElement("div");
+    div.style.width = "5px";
+    div.style.height = "5px";        
+    div.style.border= "1px solid black";
+    div.style.float= "left";
+    div.style.background = color;
+    return div;
+}
+
 //Inits the first row of cells
 //
 function loadCells(){
@@ -6,21 +16,17 @@ function loadCells(){
     row.id = "row0"
     document.getElementById("main").appendChild(row);
     for(i = 0; i < 101; i++){
-        var div = document.createElement("div");
-        div.style.width = "5px";
-        div.style.height = "5px";
+        var div;
         
         if((Math.floor(Math.random() * 10) + 1) > 5){
-            div.style.background = "black";
+            div = createCell("black");
             cells[i] = 1;
         }
         else{
-            div.style.background = "white";
+            div = createCell("white");
             cells[i] = 0;
         }
         
-        div.style.border= "1px solid black";
-        div.style.float= "left";
         document.getElementById("row0").appendChild(div);
     }
     
@@ -48,20 +54,15 @@ function runCells(cells, rowNum){
     newCells = new Array()
 
     for(i = 0; i < 101; i++){
-        var div = document.createElement("div");
-        div.style.width = "5px";
-        div.style.height = "5px";        
-        div.style.border= "1px solid black";
-        div.style.float= "left";
         newCells[i] = cellRules(cells[(((i - 1) % 101) + 101) % 101],
                                cells[i],
                                cells[(((i + 1) % 101) + 101) % 101]);
         
         if(newCells[i] == 1){
-            div.style.background = "black";
+            var div = createCell("black");
         }
         else{
-            div.style.background = "white";
+            var div = createCell("white");
         }
         document.getElementById("row" + rowNum).appendChild(div);
     }
