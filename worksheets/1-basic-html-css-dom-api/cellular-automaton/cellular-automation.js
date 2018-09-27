@@ -54,7 +54,7 @@ function row_template() {
 //generates the first row of cells whos active states are randomly generated
 function init_row() {
     var row = row_template();
-    for(i=0; i<num_cols; i++) {
+    for(var i=0; i<num_cols; i++) {
         cell = generate_cell(get_random_state());
         row.appendChild(cell);
     }
@@ -89,10 +89,10 @@ function get_next_row(prev_row) {
     var prev_cells = prev_row.querySelectorAll('div');
     var new_row = row_template();
     var left_index, right_index;
-    for(index=0; index<num_cols; index++) {
+    for(var index=0; index<num_cols; index++) {
         if(index === 0) {
-            var left_index = num_cols-1;
-            var right_index = 1;
+            left_index = num_cols-1;
+            right_index = 1;
         }
         else if(index === num_cols-1) {
             right_index = 0;
