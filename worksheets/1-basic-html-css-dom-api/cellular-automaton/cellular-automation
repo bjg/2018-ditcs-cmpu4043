@@ -1,0 +1,118 @@
+<!-- 
+    Keith Chambers (c15324461)
+    
+-->
+
+<html>
+  <head>
+  </head>
+  <body>
+  
+    <script>
+        var boardXCells = 101;
+        var boardYCells = 50;
+        var blockSizeX = 8;
+        var blockSizeY = 8;
+        
+        var random = 2343;
+        
+        var boardState = []
+        
+        var activeColour = "black";
+        var inactiveColour = "white";
+    
+        setup();
+        generateBoard();
+        
+        //printBoard();
+        
+        function determineState(x, y, board)
+        {
+            if(y == 0) 
+            {
+                // Had issues with Math.random so used this instead to generate a random number
+                random = ((new Date().valueOf()) + random) % 99999999;
+                return (random % 2) == 1;
+            }
+            
+            /*
+                Since I am using a 1D array to store the board, 
+                I can calulcate the index of the direct ancester
+                and subtract 1 to find the index of the left ancester
+                (even from a cell of column 0),
+                instead of dealing with x and y indexes. 
+            */
+            var directIndex = ((y - 1) * boardXCells) + x;
+            var directAncester = boardState[directIndex];
+            var leftAncester = boardState[directIndex - 1];
+            
+            // I noticed that the right ancester was redunant and only the direct and left are needed
+            if(leftAncester && directAncester)
+                return false;
+            if(leftAncester && !directAncester)
+                return true;
+            if(!leftAncester && directAncester)
+                return true;
+            if(!leftAncester && !directAncester)
+                return false;
+        }
+        
+        // Helper function, not being used atm
+        function printBoard()
+        {
+            for(var row = 0; row < boardYCells; row++)
+                for(var col = 0; col < boardXCells; col++)
+                    console.log(row.toString() + ":" + col.toString() + " = " + boardState[(row * boardXCells) + col]);
+        }
+        
+        // Defines how I want to generate the board
+        function generateBoard()
+        {
+            for(var row = 0; row < boardYCells; row++)
+                for(var col = 0; col < boardXCells; col++)
+                    setBlock(col, row, determineState);
+        }
+        
+        /*  Defines how I want to set each block.
+            
+            Notice, I pass in a function for determining whether a block
+            should be marked as active or inactive. I think this adds some 
+            flexibility to the script. 
+            
+            If I wanted to generate the grid based on completely different rules,
+            I could just swap out determineStateFunc for another
+        */
+        function setBlock(x, y, determineStateFunc)
+        {
+            var determinedState = determineStateFunc(x, y, boardState);
+            boardState.push(determinedState);
+            
+            var block = document.createElement("div");
+            block.style.width = blockSizeX.toString() + "px";
+            block.style.height = blockSizeY.toString() + "px";
+            block.style.display = "inline-block";
+            block.style.background = (determinedState) ? activeColour : inactiveColour;
+
+            document.getElementById("container-div").appendChild(block);
+        }
+        
+        function setup()
+        {
+            console.log("Enter Setup");
+            
+            var boardXSize = boardXCells * blockSizeX;
+            var boardYSize = boardYCells * blockSizeY;
+        
+            // Create container DIV
+            var containerDiv = document.createElement("div");
+            containerDiv.id = "container-div";
+            containerDiv.style.width = boardXSize.toString() + "px";
+            containerDiv.style.height = boardYSize.toString() + "px";
+            containerDiv.style.background = "grey";
+            containerDiv.style.border = "1px solid black";
+
+            document.getElementsByTagName("Body")[0].appendChild(containerDiv);
+        }
+    </script>
+  </body>
+</html>
