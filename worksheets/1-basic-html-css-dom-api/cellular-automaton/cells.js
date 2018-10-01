@@ -1,7 +1,13 @@
 let cells = [];
 let rows = 50;
 let cols = 101;
-fillArray(cells, rows, cols);
+
+for (let i = 0; i < rows; i++) {
+    cells.push([0])
+    for (let j = 0; j < cols; j++) {
+        cells[i][j] = 0;
+    }
+}
 
 window.onload = function() {
     let maxWidth = (cols * 8);
@@ -22,8 +28,7 @@ window.onload = function() {
     }
 }
 
-function renderCell(active)
-{
+function renderCell(active) {
     let cell = document.createElement("div");
 	cell.style.width = "8px";
 	cell.style.height = "8px";
@@ -44,6 +49,8 @@ function createCell(r, c) {
     let mid = c;
     let prevRow = r-1;
 
+    let cellStatus = 0;
+
     if (c==0) {
         left = cols-1;
         right = c + 1;
@@ -58,36 +65,29 @@ function createCell(r, c) {
     }
 
     if (cells[prevRow][left]==1 && cells[prevRow][mid]==1 && cells[prevRow][right]==1) {
-        return 0;
+        cellStatus = 0;
     }
     else if (cells[prevRow][left]==1 && cells[prevRow][mid]==1 && cells[prevRow][right]==0) {
-        return 0;
+        cellStatus = 0;
     }
     else if (cells[prevRow][left]==1 && cells[prevRow][mid]==0 && cells[prevRow][right]==1) {
-        return 1;
+        cellStatus = 1;
     }
     else if (cells[prevRow][left]==1 && cells[prevRow][mid]==0 && cells[prevRow][right]==0) {
-        return 1;
+        cellStatus = 1;
     }
     else if (cells[prevRow][left]==0 && cells[prevRow][mid]==1 && cells[prevRow][right]==1) {
-        return 1;
+        cellStatus = 1;
     }
     else if (cells[prevRow][left]==0 && cells[prevRow][mid]==1 && cells[prevRow][right]==0) {
-        return 1;
+        cellStatus = 1;
     }
     else if (cells[prevRow][left]==0 && cells[prevRow][mid]==0 && cells[prevRow][right]==1) {
-        return 0;
+        cellStatus = 0;
     }
     else if (cells[prevRow][left]==0 && cells[prevRow][mid]==0 && cells[prevRow][right]==0) {
-        return 0;
+        cellStatus = 0;
     }
-}
 
-function fillArray(arr, r, c){
-    for (let i = 0; i < r; i++) {
-        arr.push([0])
-        for (let j = 0; j < c; j++) {
-            arr[i][j] = 0;
-        }
-    }
+    return cellStatus;
 }
