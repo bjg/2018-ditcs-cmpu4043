@@ -1,0 +1,9 @@
+.cell {
+	width: 8px;
+	height: 8px;
+	background-color: grey;
+}
+
+.active {
+	background-color: red;
+}
