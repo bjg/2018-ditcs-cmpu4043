@@ -1,0 +1,51 @@
+
+*
+{
+	background-color:light-grey;
+}
+
+header
+{
+	font-style: italic;
+}
+
+/* Style the header */
+h1
+{
+	clear:left;
+    
+}
+
+#content
+{
+	float:left;
+	border: 1px solid black;
+	 width: 60%;
+	 height:400px;
+
+	
+}
+
+#sidebar
+{
+	float: right;
+	width: 25%;
+    height:200px;
+	padding-left:50px;
+	border: 1px solid black;
+
+}
+
+footer
+{
+	clear:left;
+	padding-top:50px;
+	
+}
+li
+{
+  list-style-type:none;
+}
+
+
+
