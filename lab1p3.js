@@ -1,67 +1,69 @@
+//Lab 1 part 3 
+//Anatasya O'Connell C13365696
+//28/09/18
+
+
+
 //creating variable of button
 var btn1 = document.querySelector('#B1');
 
-//console.log("parent node is : ", btn1.parentNode); //To check parent node
 
-
-//btn1.addEventListener('click', removeButton); //when button is clicked remove button
-btn1.addEventListener('click', myFunction); //when button is clicked create grid
+btn1.addEventListener('click', init_row); //when button is clicked create grid
+btn1.addEventListener('click', removeButton); //when button is clicked remove button
 
 
 
 //func to remove the button
-function removeButton(btn1) {
-	
-    btn1.parentNode.removechild(btn1);
+function removeButton() {
+    var elem = document.querySelector('#B1');
+    elem.parentNode.removeChild(elem);
+   }
 
-    //Uncaught TypeError: Cannot read property 'removechild' of undefined
-    //at HTMLButtonElement.removeButton 
-    //error message
-}
-
-//function to create the grid
-/*function createGrid() {
-
-	var divArray = [];//create an array of 100 to be used to create divs
-    var temp;
-    var var1; //boolean
-    
-  for (i = 0; i < 101; i++) { //run through array using for loop, 
-	  temp = document.createElement('div'); //create div element for each array value
-	  temp.className = "divGrid"; //add class name to each div
-	  temp.style.border = "thin solid black"; //style of divs
-	  temp.style.width = "8px";
-	  temp.style.height = "8px";
-	  temp.style.position = "relative"
-	  temp.innerHTML = divArray[i];*/
-
-
-function myFunction() {
+//function to create first row of cells
+function init_row() {
 
     var row = document.getElementById("myRow");
+    var grid =[];
 
     for (i = 0; i < 101; i++) { 
-    var x = row.insertCell(0);
-    x.style.border = "thin solid black"; //style of divs
+      var x = row.insertCell(0);
+      x.style.border = "thin solid black"; //style of divs
 	  x.style.width = "8px";
 	  x.style.height = "8px";
+	  for(j = 0; j < 101; j++){
+          grid[j] = x;
+	  } 
+	  determineState(x);
+    }//end for
+}//end init_row
 
-  
-  var1 = Math.random(); //random number between 1 and 0
 
-  if (var1 > 0.5) {
-  	x.style.backgroundColor = "yellow";
-}
+
+   function determineState(x){
+ 	var1 = Math.random(); //random number between 1 and 0
+ 	var state;
+
+      if (var1 > 0.5) {
+     	x.style.backgroundColor = "black";
+      }//end if
  
- else {
- 	x.style.backgroundColor = "green"
+     else {
+ 	    x.style.backgroundColor = "white"
+      }//end else
+ }//end determineState
+
+
+ function createGrid(grid){
+
+        
+
  }
 
-}
+
   
  
 	    
-}
+
 
 
 
