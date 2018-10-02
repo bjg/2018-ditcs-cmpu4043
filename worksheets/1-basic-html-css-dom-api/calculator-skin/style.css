@@ -1,0 +1,36 @@
+/*-------------------------------------------*\
+    style.css
+    Style sheet in response to Lab Question 1.2
+
+    Author: Ciarán O'Brien
+    Lecture: Brian Gillespie
+    Student Number: C15765215
+    Date: 20/09/18
+\*-------------------------------------------*/
+#calculator{
+  padding:10px;
+  width:15%;
+  border: 2px solid black;
+  border-radius: 15px;
+  
+}
+
+#calculation{
+  color: grey;
+  direction:rtl;
+  font-size: 50px;
+  padding-right:10px;
+  border-style:inset;
+  border: 1px solid grey;
+  border-radius: 15px;
+  height:relative;
+  box-shadow: -1px -1px 1px 1px grey;
+  
+}
+
+button{
+  border-radius: 8px;
+  width: 20%;
+  box-shadow:1px 1px 1px 1px #ccc;
+  margin: 5px 5px 5px 5px;
+}
