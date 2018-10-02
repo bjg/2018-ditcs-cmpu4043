@@ -1,6 +1,6 @@
 let cells = [];
-let rows = 50;
-let cols = 101;
+const rows = 50;
+const cols = 101;
 
 for (let i = 0; i < rows; i++) {
     cells.push([0])
@@ -12,6 +12,7 @@ for (let i = 0; i < rows; i++) {
 window.onload = function() {
     let maxWidth = (cols * 8);
     let maxHeight = (rows * 8);
+
     document.body.style.width  = maxWidth + "px";
     document.body.style.height  = maxHeight + "px";
 
