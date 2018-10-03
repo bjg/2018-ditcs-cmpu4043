@@ -48,6 +48,7 @@ function calculateColor(divs, prevRow, currCol) {
 	var left;
 	var middle;
 	// var right;
+	
 	// Left
 	if (currCol == 0) {
 		left = divs[prevRow][divs[prevRow].length - 1].style.backgroundColor;
