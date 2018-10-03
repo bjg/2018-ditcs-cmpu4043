@@ -7,7 +7,7 @@
 	Function that generates blacks divs with inline-block
 */
 function generateDiv(){
-	var div = document.createElement("div");
+	let div = document.createElement("div");
 	div.style.width = "8px";
 	div.style.height = "8px";
 	div.style.margin = "0";
@@ -50,9 +50,9 @@ function generateDiv(){
 				The active div is made black
 */
 function calculateColor(divs, prevRow, currCol) {
-	var left;
-	var middle;
-	// var right;
+	let left;
+	let middle;
+	// let right;
 
 	// Left
 	if (currCol == 0) {
@@ -85,14 +85,14 @@ function calculateColor(divs, prevRow, currCol) {
 document.body.style.margin = "0";
 
 // Initalising 2-D array
-var divs = new Array();
+let divs = new Array();
 divs[0] = new Array();
 
 /*
 	Loop that creates the first line of cells
 */
-for (var i = 0; i < 101; i++) {
-	var div = generateDiv();
+for (let i = 0; i < 101; i++) {
+	let div = generateDiv();
 	divs[0].push(div);
 	div.style.backgroundColor = "#000000";
 	
@@ -114,10 +114,10 @@ document.body.appendChild(document.createElement("BR"));
 	Loop that generates divs and passes each div to a function
 	that will calculate its colour
 */
-for (var rows = 1; rows < 50; rows++) {
+for (let rows = 1; rows < 50; rows++) {
 	divs[rows] = new Array();
-	for (var cols = 0; cols < 101; cols++) {
-		var div = generateDiv();
+	for (let cols = 0; cols < 101; cols++) {
+		let div = generateDiv();
 		div.style.backgroundColor = calculateColor(divs, rows - 1, cols);
 		divs[rows].push(div);
 		document.body.appendChild(divs[rows][cols]);
