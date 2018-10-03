@@ -51,6 +51,7 @@ body, html {
 	margin-bottom: : 7px;
 	height: 74%;
 	text-align: center;
+    /*Flex box to order buttons correctly*/
     display: flex;
     flex-wrap: wrap;
 }
@@ -67,5 +68,6 @@ button {
 	border-radius: 8px;
     border-width: 4px;
 	font-size: x-large;
+    /*Buttons display in a row*/
     display: inline-block;
 }

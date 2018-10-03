@@ -47,3 +47,8 @@ footer {
 ul {
   list-style: none;
 }
+
+/*Pushes list items back to the left*/
+li {
+    margin-left: -10px;
+}
