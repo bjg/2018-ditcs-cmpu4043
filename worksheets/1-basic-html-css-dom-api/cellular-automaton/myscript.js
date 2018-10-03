@@ -28,20 +28,6 @@ function generateBlackCell(){
     return cell;
 }
 
-//Not used: DELETE
-function generateGrid(){
-
-    for(i = 0; i < grid_height; i++){  
-        var x_row = document.createElement("div"); 
-            
-        for(j = 1; j <= grid_width; j++){
-            var cell = generateWhiteCell();
-            x_row.appendChild(cell);   
-        }
-        document.body.appendChild(x_row);
-    }
-}
-
 
 function drawRowFromArray(arr){
 

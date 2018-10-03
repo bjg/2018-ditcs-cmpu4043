@@ -21,9 +21,10 @@ header {
 #sidebar{
     float: left;
     height: 125px;
+    width: 200px;
     padding: 10px;
     border: 2px solid grey;
-    margin-left: 50;
+    margin-left: 10;
 
 }
 

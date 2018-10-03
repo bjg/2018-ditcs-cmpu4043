@@ -1,7 +1,7 @@
 #box {
     border-radius: 25px;
     width: 350px;
-    height: 450px;
+    height: 400px;
     padding: 5px;
     border: 2px solid black;
     margin: 0;
@@ -33,20 +33,18 @@
 
 
 
-#button{
+.NumberButton{
     padding: 20px 20px 20px 20px;
     background-color: grey;
     border-radius: 15px;
-    width: 30px;
+    width: 75px;
     height: 5px;
     border: 3px solid grey;
     margin-bottom: 5px;
     margin-left: 5px;
     box-shadow: 2px 2px;
+    font-size: small;
     
 
 }
 
-#KeyNumber{
-    text-align: center;
-}
