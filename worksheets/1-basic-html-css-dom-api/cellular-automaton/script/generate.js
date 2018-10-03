@@ -101,6 +101,7 @@ for (var i = 0; i < 101; i++) {
 	document.body.appendChild(divs[0][i]);
 }
 
+// Adding a break after each row
 document.body.appendChild(document.createElement("BR"));
 
 /*
@@ -115,5 +116,6 @@ for (var rows = 1; rows < 50; rows++) {
 		divs[rows].push(div);
 		document.body.appendChild(divs[rows][cols]);
 	}
+	// Adding a break after each row
 	document.body.appendChild(document.createElement("BR"));
 }
