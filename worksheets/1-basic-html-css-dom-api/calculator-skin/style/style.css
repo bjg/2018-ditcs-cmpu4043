@@ -1,48 +1,48 @@
 /*
-    Name: Robert Vaughan
-    StudentNo: C15341261
+	Name: Robert Vaughan
+	StudentNo: C15341261
 */
 
 body, html {
-    height: 99%;
-    margin: 0;
-    margin-top: .1%;
+	height: 99%;
+	margin: 0;
+	margin-top: .1%;
 }
 
 /*
-    Aligns the wrapper div of the calculator to the center
+	Aligns the wrapper div of the calculator to the center
 */
 .center {
-    margin: auto;
-    width: 60%;
-    border: 1px solid #000000;
-    height: 100%;
-    border-radius: 25px;
-    text-align: center;
-    overflow: hidden;
-    /*Ensures a fixed height for repsonsive windows*/
-    min-height: 375px;
+	margin: auto;
+	width: 60%;
+	border: 1px solid #000000;
+	height: 100%;
+	border-radius: 25px;
+	text-align: center;
+	overflow: hidden;
+	/*Ensures a fixed height for repsonsive windows*/
+	min-height: 375px;
 }
 
 /*
-    Renders the calculators textbox
+	Renders the calculators textbox
 */
 #textbox {
-    width: 88%;
-    margin: auto;
-    height: 10%;
-    float: center;
-    font-size: 40px;
-    margin-top: 30px;
-    text-align: right;
-    border-radius: 8px;
-    border-width: thick;
-    color: #BFBFBF;
-    font-weight: bold;
+	width: 88%;
+	margin: auto;
+	height: 10%;
+	float: center;
+	font-size: 40px;
+	margin-top: 30px;
+	text-align: right;
+	border-radius: 8px;
+	border-width: thick;
+	color: #BFBFBF;
+	font-weight: bold;
 }
 
 /*
-    Establishing of the div container for the buttons
+	Establishing of the div container for the buttons
 */
 .buttons-area {
 	width: 90%;
@@ -51,14 +51,14 @@ body, html {
 	margin-bottom: : 7px;
 	height: 74%;
 	text-align: center;
-    /*Flex box to order buttons correctly*/
-    display: flex;
-    flex-wrap: wrap;
+	/*Flex box to order buttons correctly*/
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /*
-    Rendering of the buttons and setting their margins
-    and curved borders
+	Rendering of the buttons and setting their margins
+	and curved borders
 */
 button {
 	width: 24%;
@@ -66,8 +66,8 @@ button {
 	height: 18%;
 	margin-top: 1%;
 	border-radius: 8px;
-    border-width: 4px;
+	border-width: 4px;
 	font-size: x-large;
-    /*Buttons display in a row*/
-    display: inline-block;
+	/*Buttons display in a row*/
+	display: inline-block;
 }
