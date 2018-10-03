@@ -25,9 +25,9 @@ body, html {
 }
 
 /*
-	Renders the calculators textbox
+	Renders the calculators numberbox
 */
-#textbox {
+#numberbox {
 	width: 88%;
 	margin: auto;
 	height: 10%;
