@@ -1,0 +1,37 @@
+.body{
+	border: 1px solid black;
+	width:375px;
+	height:335px;
+  border-radius: 10px;
+	background-color: #f5f5f0;
+}
+.screen{
+	height:50px;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px;
+	font-size: 50px;
+  text-align: right;
+	letter-spacing: 3px;
+	box-shadow: -2px -2px #888888;
+	background-color: #fff;
+}
+ul{
+	list-style-type: none;
+	margin : 1px;
+	padding: 6px;
+	display: inline-block;
+	height: 275px;
+}
+li{
+	border: 1px solid black;
+	padding: 8px;
+	margin:4px;
+	width: 50px;
+	height: 25px;
+  border-radius: 10px;
+  text-align: center;
+	box-shadow: 2px 2px #888888;
+	background-color: #e0e0d1;
+}
