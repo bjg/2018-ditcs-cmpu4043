@@ -1,0 +1,28 @@
+#content {
+	position: absolute;
+	border-style: solid;
+	width: 50%;
+	height:30%
+}
+
+#sidebar {
+	position: absolute;
+	left: 55%;
+	border-style: solid;
+	width: 20%;
+	height: 20%;
+}
+
+ul{
+	list-style:none;
+}
+
+header{
+	font-family: sans-serif;
+	font-style: italic;
+}
+
+footer {
+	position: absolute;
+	bottom: 55%
+}
