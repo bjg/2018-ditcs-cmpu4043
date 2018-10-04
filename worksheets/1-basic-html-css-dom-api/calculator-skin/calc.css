@@ -3,8 +3,10 @@
 }
 
 #frame {
-	border: 1px solid black;
-	width: 60%;
+	border: 3px solid black;
+	border-radius: 6px;
+	width: 480px;
+	height: 280px;
 }
 
 button {
@@ -32,5 +34,7 @@ button:hover {
 	height: 65px;
 	width: 80%;
 	font-size: 35px;
-	box-shadow: 3px 3px #999;
+	box-shadow: 3px 3px #999, 2px 2px #777 inset;
+	margin-left: 50px;
+	margin-top: 5px;
 }

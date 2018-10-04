@@ -12,6 +12,10 @@ header {
 	margin-left: 10px;
 }
 
+#content header {
+	margin-left: 0px;
+}
+
 #sidebar {
 	border: 1px solid black;
 	float: left;
