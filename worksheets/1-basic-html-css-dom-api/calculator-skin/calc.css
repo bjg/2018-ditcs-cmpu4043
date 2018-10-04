@@ -1,0 +1,36 @@
+#body {
+	display: inline-block;
+}
+
+#frame {
+	border: 1px solid black;
+	width: 60%;
+}
+
+button {
+	margin-left: 10px;
+	margin-top: 10px;
+	text-align: center;
+	height: 30px;
+	width: 100px;
+	background-color: #A9A9A9;
+	color: black;
+	border-radius: 6px;
+	font-size: 20px;
+	box-shadow: 3px 3px #999;
+}
+
+button:hover {
+	background-color: #5F6A6A;
+	box-shadow: 3px 3px #5B5A59;
+}
+
+#screen {
+	color: #C7C7C7;
+	position: center;
+	text-align: right;
+	height: 65px;
+	width: 80%;
+	font-size: 35px;
+	box-shadow: 3px 3px #999;
+}
