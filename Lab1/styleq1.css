@@ -1,0 +1,38 @@
+html{
+	background-color: #F0EEEE;
+	padding-left: 10px;
+}
+	
+h1{
+	font-style: italic;
+	font-weight: bold;
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+header{
+	font-style: italic;
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+#content {
+	border-style: solid;
+	border-width: thin;
+	position: static;
+	left: 20px;
+	width: 500px;
+	height: 200px;
+	padding-left: 3px;
+}
+#sidebar {
+	border-style: solid;
+	border-width: thin;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 530px;
+	top: 79px;
+	padding-left: 3px;
+}
+ul{
+	list-style: none;
+}
