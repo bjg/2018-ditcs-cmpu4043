@@ -1,69 +1,54 @@
-//Lab 1 part 3 
-//Anatasya O'Connell C13365696
-//28/09/18
+document.addEventListener('DOMContentLoaded', () => 
+{
 
+    var rows = [];
+    var rowNum = 50;
+    var colNum = 101;
+    var cellNum = 8;
 
+    for(let i = 0; i < rowNum; i++) 
+    {
+        rows[i] = new Array(); // for every var in the row - create a new array
 
-//creating variable of button
-var btn1 = document.querySelector('#B1');
+        for(let j = 0; j < colNum; j++){
+            if(i === 0){
+                rows[i][j] = Math.random() < 0.5 ? true : false;
+            }
+            else{
+                if(j === 0) {
+                    rows[i][j] = checkAncestors(i-1,j,j+100,j+1);
+                }
+                else if (j === 100){
+                    rows[i][j] = checkAncestors(i-1,j,j-1,j-100);
+                }
+                else{
+                    rows[i][j] = checkAncestors(i-1,j,j-1,j+1);
+                }
+            }
+            console.log(rows[i][j]);
+        }
+    }
 
+   
 
-btn1.addEventListener('click', init_row); //when button is clicked create grid
-btn1.addEventListener('click', removeButton); //when button is clicked remove button
-
-
-
-//func to remove the button
-function removeButton() {
-    var elem = document.querySelector('#B1');
-    elem.parentNode.removeChild(elem);
-   }
-
-//function to create first row of cells
-function init_row() {
-
-    var row = document.getElementById("myRow");
-    var grid =[];
-
-    for (i = 0; i < 101; i++) { 
-      var x = row.insertCell(0);
-      x.style.border = "thin solid black"; //style of divs
-	  x.style.width = "8px";
-	  x.style.height = "8px";
-	  for(j = 0; j < 101; j++){
-          grid[j] = x;
-	  } 
-	  determineState(x);
-    }//end for
-}//end init_row
-
-
-
-   function determineState(x){
- 	var1 = Math.random(); //random number between 1 and 0
- 	var state;
-
-      if (var1 > 0.5) {
-     	x.style.backgroundColor = "black";
-      }//end if
- 
-     else {
- 	    x.style.backgroundColor = "white"
-      }//end else
- }//end determineState
-
-
- function createGrid(grid){
-
-        
-
- }
-
-
-  
- 
-	    
-
-
-
-
+    function checkAncestors(row, ancestor, left, right){
+        if(rows[row][ancestor] === false &&
+            rows[row][left] === false &&
+            rows[row][right]=== false){
+            return false;
+        }
+        else if(rows[row][ancestor]=== true &&
+            rows[row][left]=== true &&
+            rows[row][right]=== false){
+            return false;
+        }
+        else if(rows[row][ancestor]=== true &&
+            rows[row][left]=== false &&
+            rows[row][right]=== true){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+});
