@@ -4,15 +4,15 @@ document.addEventListener('DOMContentLoaded', () =>
     var rows = [];
     var rowNum = 50;
     var colNum = 101;
-    var cellNum = 8;
+    var cellSize = 8;
 
     for(let i = 0; i < rowNum; i++) 
     {
-        rows[i] = new Array(); // for every var in the row - create a new array
+        rows[i] = new Array(); // for every var in the row create a new array
 
-        for(let j = 0; j < colNum; j++){
+        for(let j = 0; j < colNum; j++){ 
             if(i === 0){
-                rows[i][j] = Math.random() < 0.5 ? true : false;
+                rows[i][j] = Math.random() < 0.5 ? true : false; 
             }
             else{
                 if(j === 0) {
@@ -28,6 +28,24 @@ document.addEventListener('DOMContentLoaded', () =>
             console.log(rows[i][j]);
         }
     }
+
+
+    block = document.createElement("div");
+    block.style.width = `${colNum * cellSize}px`;
+    block.style.height = `${rowNum * cellSize}px`;
+
+    for(i = 0; i < rowNum; i++ ){
+        for(j = 0; j < colNum; j++){
+            blockChild = document.createElement("div");
+            blockChild.style.width = `${cellSize}px`;
+            blockChild.style.height = `${cellSize}px`;
+            blockChild.style.float = "left";
+            blockChild.style.background = rows[i][j] ? "black" : "white";
+            block.appendChild(blockChild);
+        }
+    }
+
+    document.body.appendChild(block);
 
    
 
