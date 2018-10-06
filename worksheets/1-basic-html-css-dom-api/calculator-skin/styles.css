@@ -56,3 +56,9 @@ ul {
     font-weight: bold;
     font-size: 18px;
 }
+
+.button:active {
+    border-style: inset;
+    border-color: #bfbfbf;
+    background-color: #b6b6b6;
+}
