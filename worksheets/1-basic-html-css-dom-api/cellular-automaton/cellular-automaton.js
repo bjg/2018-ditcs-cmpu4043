@@ -1,3 +1,4 @@
+//Creates each cell
 function createCell(color){
     var div = document.createElement("div");
     div.style.width = "5px";
@@ -8,8 +9,7 @@ function createCell(color){
     return div;
 }
 
-//Inits the first row of cells
-//
+//Inits the first row of cells randomly
 function loadCells(){
     var cells = new Array()
     var row = document.createElement("div");
@@ -17,7 +17,6 @@ function loadCells(){
     document.getElementById("main").appendChild(row);
     for(i = 0; i < 101; i++){
         var div;
-        
         if((Math.floor(Math.random() * 10) + 1) > 5){
             div = createCell("black");
             cells[i] = 1;
@@ -54,6 +53,11 @@ function runCells(cells, rowNum){
     newCells = new Array()
 
     for(i = 0; i < 101; i++){
+        /*
+        In Javascript % returns the remainder instead of the modulus
+        meaning it returns negative numbers, this a work around.
+        Reference:https://stackoverflow.com/a/4467559
+        */
         newCells[i] = cellRules(cells[(((i - 1) % 101) + 101) % 101],
                                cells[i],
                                cells[(((i + 1) % 101) + 101) % 101]);
