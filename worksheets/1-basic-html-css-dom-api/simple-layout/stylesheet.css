@@ -1,52 +1,33 @@
-html{
-  background-color: #F0EEEE;
-  padding-left: 10px;
+header, h1 {
+  font-family: arial;
 }
 
 h1 {
   font-style: italic;
-  font-weight: bold;
+}
 
+#content, #sidebar {
+  border: 1px solid;
+  float: left;
+  padding: 5px;
+  position: relative;
 }
 
 #content {
-  margin-left: inherit;
-  width: 500px;
-  height: 300px;
-  padding: 10px;
-  border: 1px solid black;
+  height: 250px;
+  width: 300px;
 }
 
 #sidebar {
-  margin-left: 605px;
-  margin-top: -302px;
-  width: 70px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid black;
-
+  float: left;
+  margin-left: 10px;
+  width: 100px;
 }
 
-header{
-  font-style: italic;
-  font-size: 20px;
-  font-family: "Arial";
-  margin:5px;
-
-}
-
-p{
-
-}
-
-footer
-{
-  margin-left: 515px
-  margin-top: -302px;
-
-}
-
-ul{
-
+ul {
   list-style: none;
+}
+
+footer {
+  width: 300px;
 }
