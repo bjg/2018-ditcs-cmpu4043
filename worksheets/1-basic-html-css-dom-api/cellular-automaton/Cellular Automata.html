@@ -1,0 +1,105 @@
+<html>
+	<body>
+		<script>
+		
+		//C15469578 Daniel Vegera
+		
+		const width = 101;
+		const height = 50;
+		let color = ["#FFFFFF","#000000"];
+		let currentRow = [];
+		let previousRow = [];
+
+		//Draw first row of cells, and randomise their active states
+		function drawFirstRow()
+		{
+			for(let i=0;i<width;i++)
+			{
+                currentRow[i]=randomActive();
+			    document.body.appendChild(createCell(currentRow[i]));
+			}
+            console.log(currentRow);
+            document.body.appendChild(document.createElement("BR"));
+
+			return drawOtherRows();
+		}
+
+
+		//Draw the rest of the rows using the ruleset to set their active states
+		function drawOtherRows()
+		{
+		    for(let j=1;j<height;j++)	{
+                previousRow=currentRow;
+
+			    for(let i=0;i<width;i++)
+				{
+					currentRow[i]=calculateActive(i);
+                    document.body.appendChild(createCell(currentRow[i]));
+				}
+				console.log(currentRow);
+                document.body.appendChild(document.createElement("BR"));
+			}
+		}
+		
+		//Checking if given values match the ruleset
+		function calculateActive(i)
+		{
+		    let left,middle,right;
+
+		    //Assign the cell states from previous row to compare
+            if(i==0) {
+                left	=	previousRow[previousRow.length-1];
+				middle	=	previousRow[i];
+				right	=	previousRow[i+1];
+            }
+            else if(i==width-1) {
+                left	= 	previousRow[i-1];
+				middle	=	previousRow[i];
+				right	=	previousRow[0];
+            }
+            else {
+                left	=	previousRow[i-1];
+				middle	=	previousRow[i];
+				right	=	previousRow[i+1];
+            }
+
+            if (left == 1 && middle == 1 && right == 1) return 0;
+            else if (left == 1 && middle == 1 && right == 0) return 0;
+            else if (left == 1 && middle == 0 && right == 1) return 1;
+            else if (left == 1 && middle == 0 && right == 0) return 1;
+            else if (left == 0 && middle == 1 && right == 1) return 1;
+            else if (left == 0 && middle == 1 && right == 0) return 1;
+            else if (left == 0 && middle == 0 && right == 1) return 0;
+            else if (left == 0 && middle == 0 && right == 0) return 0;
+		}
+
+        function createCell(active) {
+            let cell = document.createElement("div");
+            cell.style.width = "8px";
+            cell.style.height = "8px";
+            cell.style.borderWidth = "1px";
+            cell.style.borderStyle = "solid";
+            cell.style.margin = "0";
+            cell.style.display = "inline-block";
+            if (active == 0)
+            {
+                cell.style.backgroundColor = color[0];
+        	}
+        	else if (active == 1)
+            {
+                cell.style.backgroundColor = color[1];
+			}
+
+            return(cell);
+        }
+		
+		function randomActive()
+		{
+			return [Math.floor(Math.random() * (1 - 0 + 1)) + 0];
+		}
+		
+		drawFirstRow();
+		
+		</script>
+	</body>
+</html>
