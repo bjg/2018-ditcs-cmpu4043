@@ -5,7 +5,7 @@
     var width     = window.innerWidth;
     var height    = window.innerHeight;
     //active, green/ inactive, yellow colours
-    var colors    = ["green", "yellow"];
+    var colors    = ["white", "black"];
     
     // set first line
     
