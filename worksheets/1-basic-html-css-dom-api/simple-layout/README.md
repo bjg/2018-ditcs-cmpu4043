@@ -1,3 +1,3 @@
 # Simple Layout
 
-![a](https://user-images.githubusercontent.com/23337553/46582846-5f95b100-ca45-11e8-87fa-bc3d77d4b8e4.jpg)
+![simplelayout](https://user-images.githubusercontent.com/23337553/46582995-9c62a780-ca47-11e8-9da5-b1269e2e54a3.png)
