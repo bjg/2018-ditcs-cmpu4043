@@ -1,0 +1,34 @@
+.calculator{
+			background-color: grey;
+			border-color: black;
+			border-width: 2px;
+			border-style: solid;
+			padding-bottom: 5%;  /*extends calc div by the bottom */
+			margin: 15%; /*surrounding area is compressed */
+			padding-left: 5%;
+}
+
+.screen{
+		border-color: black;
+		border-style: solid;
+		border-width: 1px;
+		background-color: white;
+		margin: 5%;
+		width: 77%;
+		float: left;
+}
+
+p{
+	float: right;
+	font-size: 30px;
+}
+
+.btn{
+	 width: 95%;
+	 margin: 5%;
+	 padding-right: 10%;
+}
+			
+			
+
+		

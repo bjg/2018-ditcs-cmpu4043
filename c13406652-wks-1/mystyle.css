@@ -1,0 +1,28 @@
+#content{
+			
+			margin: 12px;
+			width: 75%;
+			height: 200px;
+			border-color: black;
+			border-style: solid;
+			border width: 1px;
+			padding bottom: 25%;
+			float: left;
+		}
+		
+#sidebar {
+			
+			width: 20%;
+			height: 20%;
+			float: right;
+			border-color: black;
+			border-style: solid;
+			border-width: 1px;
+			
+
+		 }
+		 
+footer {
+			
+				padding-top: 40%;
+		 
