@@ -1,0 +1,28 @@
+#calc {
+	margin-top: 5px;
+	width:5000px;
+	border: 5px;
+	
+}
+
+form{
+	width:100%;
+}
+
+#content{
+	margin:auto;
+	border-radius: 25px;
+    background: #f9f9f9;
+    padding: 2%;
+    width: 25%;
+    height:450px; 
+}
+
+input[type=textfield] {
+    width: 90%;
+	
+}
+
+input[type=button] {
+	width: 19%;
+}
