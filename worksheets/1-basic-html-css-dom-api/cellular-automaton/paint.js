@@ -73,7 +73,14 @@ function patternGen() {
 			}
 
 			use = left + right + center;
-
+			
+			// Main piece of logic for determining whether a cell is on or not.
+			// If a cell has three corresponding cells on the above line that are on, the cell in question is off
+			// Or if the three cells above are all off, the cell in question is also off
+			// Or if the total number of cells above include two that are on and the right most is off, the cell in question is off
+			// Or if the cell has one total above cells one and it is also the right cell, the cell in question is off
+			// ALL other cases, the cell in question is on.
+			
 			if( use === 3 || use === 0 || (use === 2 && right === 0) || (use === 1 && right === 1) )
 			{
 				div.style.background = "#D3D3D3";
