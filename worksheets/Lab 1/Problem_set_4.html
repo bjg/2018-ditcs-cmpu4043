@@ -4,7 +4,7 @@
 
     <div id="Page">
     </div>
-    
+
 
 <style>
 
@@ -25,33 +25,33 @@ div
 </style>    
 <script>
 //part A
-var num_colour = [];
+let num_colour = [];
 
-for (var i=0; i < 101; i++)
+for (let i=0; i < 101; i++)
 {
-        num_colour[i] = Math.floor(Math.random() * 2);
-        document.getElementById("Page").appendChild(document.createElement("div")).style.backgroundColor = num_colour[i] == 0 ? 'black' : 'white';
+    num_colour[i] = Math.floor(Math.random() * 2);
+    document.getElementById("Page").appendChild(document.createElement("div")).style.backgroundColor = num_colour[i] == 0 ? 'black' : 'white';
 }
 
 //Part B
-for (var i=0; i < 49; i++)
+for (let i=0; i < 49; i++)
 {
-    
-    for (var s = 0; s < 101; s++)
-    {
-        if(num_colour[s] == 1 && num_colour[s + 1] == 1)
-        {
-            document.getElementById("Page").appendChild(document.createElement("div")).style.backgroundColor = num_colour[s + 1] == 0 ? 'white' : 'white';
-        }
-        else
-        {
-            document.getElementById("Page").appendChild(document.createElement("div")).style.backgroundColor = num_colour[s + 1] == 1 ? 'black' : 'black';
 
-        }
+for (let s = 0; s < 101; s++)
+{
+    if(num_colour[s] == 1 && num_colour[s + 1] == 1)
+    {
+        document.getElementById("Page").appendChild(document.createElement("div")).style.backgroundColor = num_colour[s + 1] == 0 ? 'white' : 'white';
+    }
+    else
+    {
+        document.getElementById("Page").appendChild(document.createElement("div")).style.backgroundColor = num_colour[s + 1] == 1 ? 'black' : 'black';
 
     }
-    //i want this to print a new line and i cant seem to get it to work
-    document.write("<br>");
+
+}
+//i want this to print a new line and i cant seem to get it to work
+document.write("<br>");
 
 }
 
