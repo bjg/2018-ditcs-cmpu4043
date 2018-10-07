@@ -1,0 +1,53 @@
+<!--I'm afraid I didn't get this task finished. 
+I am not that familiar with Javascript and the learning curve 
+combined with the time I had available for this lab worked against me-->
+
+<html>
+<head>
+	<title>Automaton</title>
+</head>
+<body>
+
+	<script>
+		function start()
+		{
+
+			var column = 101;
+			var row = 50;
+			var colors = ["black", "white"];
+
+			var table = document.createElement("table");
+
+			for (var i = 0; i < row; i++)
+			{
+					var row = document.createElement("tr");
+
+					for (var k = 0; j < column; k++)
+					{
+							var element = document.createElement("td");
+							element.style.width = '8px';
+							element.style.height = '8px';
+							element.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+							element.addEventListener("load", load);
+							row.appendChild(element);
+					}
+
+					table.appendChild(row);
+			}
+
+			document.body.appendChild(table);
+
+			generateNewColour();
+
+		}
+
+	function auomatonRules()
+		{
+			
+			
+		}	
+		
+	</script>
+ 
+</body>
+</html>
