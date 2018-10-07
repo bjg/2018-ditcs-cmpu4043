@@ -1,3 +1,4 @@
+//Declartion of variables
 let cols = 101;
 let rows = 50;
 var currentRow = [];
