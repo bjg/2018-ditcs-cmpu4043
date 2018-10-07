@@ -1,0 +1,45 @@
+
+#address {
+	float: right;
+}
+
+
+#content {
+    border: 0.5px solid black;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-bottom: 150px;
+	width: 65%;
+	float: left;
+	margin-right: 1%;
+	margin-bottom: 5px;
+}
+
+#sidebar {
+    border: 0.5px solid black;
+    padding-top: 5px;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	padding-right: 1%;
+	width: 24%;
+	float:left;
+}
+
+h1 {
+    font-weight: 9000;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+	 font-style: italic;
+}
+
+footer {
+	float:left;
+	width:100%;
+	bottom: 0;
+	margin-bottom: 620px;
+}

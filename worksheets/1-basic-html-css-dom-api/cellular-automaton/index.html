@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+<script id ="cell_automation">
+        
+var rows = 50, cols = 101;
+var i,j;
+var firstRow = [];
+var nextRow = [];
+
+
+
+//creates the first row
+for(j = 0; j <  cols; j++){
+    firstRow[j] = (Math.round(Math.random()));
+}
+    //pushes the first row in the nextRow array
+    nextRow.push(firstRow);
+
+    for ( i = 1; i < rows; i ++){
+        var current = [];
+        for( j = 0; j < cols; j++){
+            
+            //vars for the columns above the current one
+            var left = j - 1;
+            var middle = j;
+            var right = j + 1;
+
+
+            //RULES
+            //if first col check the prev one as it doesn’t have a left 
+            //sibling to use the row’s last cell’s state in this case
+            if (j == 0){
+                left = cols - 1;
+            }
+            if (j == cols - 1){
+                right = 0;
+            }
+            //rule1110
+            if(((nextRow[i - 1][left] == 1) && nextRow[i - 1][middle] == 1) && (nextRow[i - 1][right] == 1)){
+                current[j] = 0;
+            }    
+            //rule1100
+            if ((nextRow[i - 1][left] == 1) && (nextRow[i - 1][middle] == 1) && (nextRow[i - 1][right] == 0)){
+                current[j] = 0;
+              }
+            //rule1011
+            if ((nextRow[i - 1][left] == 1) && (nextRow[i - 1][middle] == 0) && (nextRow[i - 1][right] == 1)){
+                current[j] = 1;
+            }
+            //rule1001
+            if ((nextRow[i - 1][left] == 1) && (nextRow[i - 1][middle] == 0) && (nextRow[i - 1][right] == 0)){
+                current[j] = 1;
+            }
+            //rule0111
+            if ((nextRow[i - 1][left] == 0) && (nextRow[i - 1][middle] == 1) && (nextRow[i - 1][right] == 1)){
+                current[j] = 1;
+            }
+            //rule0101
+            if ((nextRow[i - 1][left] == 0) && (nextRow[i - 1][middle] == 1) && (nextRow[i - 1][right] == 0)){
+                current[j] = 1;
+            }
+            //rule0010
+            if ((nextRow[i - 1][middle] == 0) && (nextRow[i - 1][left] == 0) && (nextRow[i - 1][right] == 1)){
+                current[j] = 0;
+            }
+            //rule0000
+            if ((nextRow[i - 1][left] == 0) && (nextRow[i - 1][middle] == 0) && (nextRow[i - 1][right] == 0)){
+                current[j] = 0;
+            }
+        }
+        nextRow.push(current);
+    }
+
+    //creates each row
+    for (i = 0; i < rows; i ++){
+        var gridContainer = document.createElement('div');
+        gridContainer.style.display = "inline-block";
+        gridContainer.style.borderWidth = "1px";
+        gridContainer.style.borderColor = "white";
+        
+        //create each cols
+        for (j = 0; j < cols; j++){
+            var cells = document.createElement('div');
+            //set styles
+            cells.style.height = "8px";
+            cells.style.width = "8px";
+            cells.style.margin = "1px";
+
+            //if "active"(1) set to green
+            if(nextRow[i][j].toString() == "1"){
+                cells.style.backgroundColor = "grey";
+                gridContainer.appendChild(cells);
+            }
+            //else set to white
+            else{
+                cells.style.backgroundColor = "white";
+                gridContainer.appendChild(cells);
+            }
+        }
+        //append to the html body
+        document.body.appendChild(gridContainer);
+    }
+
+</script>
+
+</body>
+</html>
