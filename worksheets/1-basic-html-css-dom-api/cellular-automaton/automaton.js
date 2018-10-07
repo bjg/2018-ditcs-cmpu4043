@@ -15,13 +15,15 @@ document.body.style.margin="auto";
 storeGrid();
 createRows();
 
+/* Storing the rows and columns(a 2D array) into the grid */
 function storeGrid() {
-  // Storing the rows and columns in
+
   for(let i = 0; i < cols; i++) {
       grid[i] = [rows];
   }
 }
 
+/* Function that creates the whole set of rows */
 function createRows() {
   //creating the initial set of grid in a row
   for (let i = 0; i < cols; i++)
@@ -30,7 +32,7 @@ function createRows() {
   	createCells(grid[i][0]);
   }
 
-  //creating the rest of the rows with the rule implemented
+  //generating the rest of the rows with the rule 60 implemented
   for (let i = 1; i < rows; i++)
   {
      for (let j = 0; j < cols; j++)
@@ -41,11 +43,15 @@ function createRows() {
   }
 }
 
+
+/* This function is used for generating random state of cells for the first row */
 function getRandomInt() {
   return Math.floor(Math.random() * 2);
 }
 
 
+/* This function consists of checking its ancestor rows and its neighbours where
+   the rule 60 is eventually implemented */
 function generateNextState(cellCol, cellRow)
 {
 	if (cellCol === 0)     // checking first cell of the row
@@ -80,7 +86,7 @@ function generateNextState(cellCol, cellRow)
 }
 
 
-
+/* This function is used for rendering the object cell and appending it towards the body */
 function createCells(colour) {
   let cell = document.createElement("div");
   cell.style.width = (cellSize).toString() + "px";
