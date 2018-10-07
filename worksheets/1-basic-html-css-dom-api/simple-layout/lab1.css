@@ -1,0 +1,38 @@
+h1 {    /** header { **/
+    background-color: #F1F1F1;
+    text-align: left;
+    padding: 20px;
+    font-family: arial;
+}
+
+header {
+    font-family: arial;
+    font-style: italic;
+}
+
+#content {
+  margin-left: inherit;
+  width: 300px;
+  height: 220px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+#sidebar {
+  margin-top: -240px;
+  margin-left: 400px;
+  outline: 1px solid black;
+  width: 100px;
+  height: 80px;
+  padding: 10px;
+  position: absolute;
+}
+
+ul {
+  list-style: none;
+}
+
+footer {
+  text-align: left;
+  margin-bottom: 200px;
+}
