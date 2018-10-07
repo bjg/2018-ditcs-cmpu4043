@@ -1,0 +1,52 @@
+html{
+  background-color: #F0EEEE;
+  padding-left: 10px;
+}
+
+h1 {
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+#content {
+  margin-left: inherit;
+  width: 500px;
+  height: 300px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+#sidebar {
+  margin-left: 605px;
+  margin-top: -302px;
+  width: 70px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid black;
+
+}
+
+header{
+  font-style: italic;
+  font-size: 20px;
+  font-family: "Arial";
+  margin:5px;
+
+}
+
+p{
+
+}
+
+footer
+{
+  margin-left: 515px
+  margin-top: -302px;
+
+}
+
+ul{
+
+  list-style: none;
+}
