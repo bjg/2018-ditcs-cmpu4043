@@ -5,7 +5,8 @@
 
 
 #content {
-    border: 0.5px solid black;
+	border: 0.5px solid black;
+	border-radius: 8px ;
 	padding-top: 5px;
 	padding-left: 5px;
 	padding-bottom: 150px;
@@ -16,7 +17,8 @@
 }
 
 #sidebar {
-    border: 0.5px solid black;
+	border: 0.5px solid black;
+	border-radius: 8px ;
     padding-top: 5px;
 	padding-left: 5px;
 	padding-bottom: 10px;
