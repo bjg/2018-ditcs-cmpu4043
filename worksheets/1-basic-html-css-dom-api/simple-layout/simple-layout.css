@@ -1,0 +1,93 @@
+html , body{
+    background-color: #F7F7F7;
+    height: 98%;
+}
+
+/* Header */
+
+header {
+    font-family: Arial, sans-serif;
+    font-style: italic;
+}
+
+h1 {
+    font-size:260%;
+    margin-left: 4%;
+}
+
+/* ************** */
+
+
+/* Content */
+
+#content {
+    border: 1px solid grey;
+    float: left;
+    height: 65%;
+    margin: 1.5% 0 1% 4%;
+    padding: 1% 0 0 1%;
+    width: 62%;
+}
+
+/* ************** */
+
+
+/* Sidebar */
+
+#sidebar {
+    border: 1px solid grey;
+    float: right;
+    height: 33%;
+    margin: 1.5% 4% 0 0;
+    padding: 1% 0 0 1%;
+    width: 22%;
+}
+
+#sidebar > ul > li{
+    list-style: none;
+    margin-left: 40%;
+}
+
+/* ************** */
+
+
+/* Footer */
+
+footer {
+    clear: both;
+    margin-left:4%;
+}
+
+
+/* ************** */
+
+
+/* Media Queries */
+
+@media screen and (max-width: 510px){
+    #sidebar > ul > li{
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 360px), (max-height: 213px){
+    #sidebar > ul > li{
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 360px), (max-height:190px){
+    #sidebar > ul > li{
+        font-size: 60%;
+    }
+
+    #sidebar > header{
+        font-size: 80%;
+    }
+}
+
+/* references 
+
+https://html-color-codes.info/colors-from-image/# - to retrieve correct color from image
+
+*/
