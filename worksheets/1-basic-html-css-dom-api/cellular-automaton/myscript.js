@@ -103,3 +103,4 @@ while(y_counter < grid_height){
     drawGrid();
     y_counter++;
 }
+
