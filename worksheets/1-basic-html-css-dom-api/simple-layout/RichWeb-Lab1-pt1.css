@@ -1,0 +1,47 @@
+* {
+    background-color: #e5e5e5;   
+}
+
+h1 {
+    font-style: italic;
+    font-family: sans-serif;
+    margin: 1%;
+}
+
+#content {
+    border-color: #3d3d3d;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    width: 60%;
+    height: 40%;
+    padding: 10px;
+    margin: 1%;
+}
+
+#content header {
+    font-family: sans-serif;
+}
+
+#sidebar {
+    border-color: #3d3d3d;
+    border-style: solid;
+    border-width: 1px;
+    float: right;
+    width: 30%;
+    padding: 10px;
+    margin: 1%
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+#sidebar header {
+    font-family: sans-serif;
+}
+
+footer {
+    position: absolute;
+    bottom: 35%;
+}
