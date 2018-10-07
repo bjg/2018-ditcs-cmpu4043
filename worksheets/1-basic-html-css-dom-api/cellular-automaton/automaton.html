@@ -1,0 +1,135 @@
+<html>
+<head>
+  <style>
+/*      class div for 8x8 pixel, displayed vertically*/
+    .row div {
+      height: 8px;
+      display: inline-block;
+      width: 8px;
+    }
+/*      active div will have colour black*/
+    .row div.active {
+      background-color: black;
+    }
+/*      inactive div will be white*/
+    .row div.inactive {
+      background-color: white;
+    }
+    body {
+      margin: 0
+    }
+  </style>
+</head>
+<body>
+<!--    automaton class contains the row-->
+  <div class="automaton">
+<!--      html row class for structure and duplication-->
+    <div class="row"></div>
+  </div>
+  <script>
+      //to set the initial state of the pixels to be random
+    function randomBinary() {
+      let max = 1
+      let min = 0
+      return Math.floor(
+        Math.random() * (max - min + 1)
+      )
+    }
+      //for loop to append a div element to row class
+    for (let i = 0; i < 101; i++) {
+      let div = document.createElement('div')
+      document.querySelector('.row').appendChild(div)
+    }
+      //randomizes div row for each child node
+    function randomizeRow(rowDiv) {
+      for (let i = 0; i < rowDiv.childNodes.length; i++) {
+        let div = rowDiv.childNodes[i]
+        //sets random binary state if active or inactive
+        div.classList
+          .add(randomBinary() ? 'active' : 'inactive')
+      }
+    }
+    randomizeRow(document.querySelector('.row'))
+      
+      //duplicate each row
+    function duplicateRow() {
+      let allRows = document.querySelectorAll('.row')
+      let lastRow = allRows[allRows.length - 1]
+      let clone = lastRow.cloneNode(true)
+      //to duplicate row we duplicate each row we clone autamaton div
+      //this way the inital parent div is separate from the rest
+      //of the rows to be duplicated
+      document
+        .querySelector('.automaton')
+        .appendChild(clone)
+      processRow(clone, lastRow)
+    }
+      //process row function will encapsulate previous generations which inclue previous self, left sibling and right sibling for each new generation
+    function processRow(rowDiv, parentRowDiv) {
+      for (let i = 0; i < rowDiv.childNodes.length; i++) {
+        let target = rowDiv.childNodes[i]
+        let prevSelf = parentRowDiv.childNodes[i]
+        let leftSibling =
+          prevSelf.previousElementSibling ||
+          parentRowDiv.childNodes[
+            parentRowDiv.childNodes.length - 1]
+        let rightSibling =
+          prevSelf.nextElementSibling ||
+          parentRowDiv.childNodes[0]
+        //binds or maps toggleclass to rules defined in the setActiveIfMatchesRule function below
+        let toggleClass = setActiveIfMatchesRule
+          .bind(
+            null,
+            target,
+            leftSibling,
+            prevSelf,
+            rightSibling
+          )
+        //toggleClass is bound by rules in function, each index refers to previous generation's active state and boolean value is determinated by values in previous generation.
+        toggleClass([1,1,1], false)
+        toggleClass([1,1,0], false)
+        toggleClass([1,0,1], true)
+        toggleClass([1,0,0], true)
+        toggleClass([0,1,1], true)
+        toggleClass([0,1,0], true)
+        toggleClass([0,0,1], false)
+        toggleClass([0,0,0], false)
+      }
+    }
+      //function to match rule and set pixel active
+    function setActiveIfMatchesRule(
+      target,
+      leftSibling,
+      prevSelf,
+      rightSibling,
+      rule,
+      ruleValue
+    ) {
+      let matchesRule =
+        state(leftSibling) === rule[0] &&
+        state(prevSelf) === rule[1] &&
+        state(rightSibling) === rule[2]
+      if(matchesRule)
+        setIsActive(target, ruleValue)
+    }
+      //sets or initalizes the state of cellDivs 
+    function state(cellDiv) {
+      return cellDiv.classList.contains('active') ? 1 : 0
+    }
+      //toggles divs/pixels on and off and changes their state between active and inactive
+    function setIsActive(cellDiv, isActive) {
+      if (!!isActive) {
+        cellDiv.classList.remove('inactive')
+        cellDiv.classList.add('active')
+      } else {
+        cellDiv.classList.remove('active')
+        cellDiv.classList.add('inactive')
+      }
+    }
+      //function to duplicate row upto 50
+    for(i = 0; i < 50; i++) {
+        duplicateRow()
+    }
+  </script>
+</body>
+</html>
