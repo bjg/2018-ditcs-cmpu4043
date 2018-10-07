@@ -1,0 +1,67 @@
+/***
+ *	Name: Gabriel Grimberg
+ *	Module: Rich Web Applications
+ *	Lab: 1
+ *	Question: 2
+ *	Type: Main CSS for file "calculator-skin.html"
+ ***/
+
+/* Everything in Form:
+	- Distance from Top, Bottom, Left and Right: 25px
+*/
+form
+{
+	margin-top: 25px;
+	margin-bottom: 25px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+/* Everything in Div:
+	- Border for Calculator: 2px Solid Line
+	- Radius for the Border: 25px
+	- Position of the Calculator: Left side
+	- Allignment of "0" placeholder: Center
+*/
+div
+{
+	border: 2px solid;
+	border-radius: 25px;
+	display: inline-block;
+	text-align: center;
+}
+
+/* Everything in Input with Type Button:
+	- Font Size: 15px
+	- Font Family: Times New Roman, Times, Serif
+	- Border Radius of Buttons: 5px
+	- Button Text Font: Bold
+	- Buttons Background Colour: Light Grey
+	- Width and Height of Buttons: 74x40
+*/
+input[type="button"]
+{
+	font-size: 15px;
+	font-family: "Times New Roman", Times, serif;
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: lightgrey;
+	width: 74px;
+	height: 40px;
+}
+
+/* Everything in Input with Type Textfield:
+	- Font Size: 30px
+	- Text Align for the "0": Right
+	- Border Radius: 5px
+	- Width and Height: 300x50
+*/
+input[type="textfield"]
+{
+	font-size: 30px;
+	text-align: right;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	width: 300px;
+	height: 50px;
+}

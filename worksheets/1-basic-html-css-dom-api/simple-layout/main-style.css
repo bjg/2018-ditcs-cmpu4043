@@ -1,0 +1,94 @@
+/***
+ *	Name: Gabriel Grimberg
+ *	Module: Rich Web Applications
+ *	Lab: 1
+ *	Question: 1
+ *	Type: Main CSS for file "simple-layout.html"
+ ***/
+
+/* Everything in Body:
+	- Change background colour: White Smoke
+*/
+body {
+	
+	background-color: #F5F5F5;
+}
+
+
+/* Everything in Header needs to be:
+	- Font : Arial
+	- Font Style: Italic
+	- Spacing from Top: 5px
+	- Spacing from Left: 5px
+*/
+header {
+	
+	font-family: Arial;
+	font-style: italic;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+/* Everything in IDs "Content" and "Sidebar":
+	- Border for the Boxes: 1px Solid
+	- Vertical Align: Start from the Top so the 2 boxes are alligned together
+	- Display: Inline to each other
+	- Spacing from Left: 15px
+*/
+#content, #sidebar {
+	
+	border: 1px solid;
+	vertical-align: top;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+/* Size of left Box (Big Box)
+	- Width: 600px
+	- Height: 400px
+*/
+#content {
+	
+	width: 600px;
+	height: 400px;
+}
+
+/* Size of right Box (Small Box)
+	- Width: 125px
+	- Height: 125px
+*/
+#sidebar {
+	
+	width: 125px;
+	height: 125px;
+}
+
+/* Move the words in <p> in ID Content
+	- Move to the left: 5px
+*/
+#content p {
+	
+	padding-left: 5px;
+}
+
+/* Everything that is in <li>
+	- Remove the bullet points
+	- Move it to the left by: 15px
+*/
+li {
+	
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+/* Everything in footer.
+	- Make the font: Bold
+	- Move it to the left: 5px
+	- Move it from the top: 5px
+*/
+footer {
+	
+	font-weight: bold;
+	padding-left: 5px;
+	margin-top: 5px;
+}
