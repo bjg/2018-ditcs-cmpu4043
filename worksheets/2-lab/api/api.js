@@ -1,7 +1,6 @@
 function api() {
 	// 1 & 2. List of user objects with Username, City and Zipcode in each.
 	httpRequest('GET', 'http://jsonplaceholder.typicode.com/users').then((data) => {
-		var num_users = 0;
 		// Loop through users
 		data.map((user, index) => {
 			console.log('User: '+index);
@@ -9,24 +8,20 @@ function api() {
 			console.log('City: '+user['address']['city']);
 			console.log('Zipcode: '+user['address']['zipcode']);
 			console.log('');
-
-			if(user['address']['zipcode'].charAt(0) == '2' || user['address']['zipcode'].charAt(0) == '5') {
-				num_users += 1;
-			}
 		});
 
-		console.log('Num of users with zipcode starting with 2 or 5: '+num_users);
+		// After we have printed it, filter the data set so only zip codes that have 2 and 5 as the first char are left
+		const resultZips = data.filter(user => user['address']['zipcode'].charAt(0) == '2' || user['address']['zipcode'].charAt(0) == '5');
+
+		console.log('Num of users with zipcode starting with 2 or 5: '+resultZips.length);
 	});
 
 	// 3. List all posts with titles having more than 6 characters
 	httpRequest('GET', 'http://jsonplaceholder.typicode.com/posts').then((data) => {
-		// Loop through posts
-		data.map((post) => {
-			if(post['title'].split(' ').length > 6) {
-				console.log(post);
-				
-				console.log(getFrequencyMap(post['body']));
-			}
+
+		// Filter the data set
+		data.filter(data => data['title'].split(' ').length > 6).map((data) => {
+			console.log(data);
 		});
 	});
 }
@@ -65,7 +60,6 @@ function httpRequest(type, url) {
 		// Send
 		xhttp.send();
 	});
-
 }
 
 window.onload = api;

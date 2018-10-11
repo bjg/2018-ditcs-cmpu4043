@@ -1,14 +1,10 @@
 function setup() {
 	const buttons = ['(', ')', '&plusmn;', '&divide;', 7, 
-	8, 9, 'X', 4, 5, 
+	8, 9, 'x', 4, 5, 
 	6, '-', 1, 2, 3, 
 	'+', 0, '.', 'C', '='];
 
-	var calculation = {
-		'first': '',
-		'second': '',
-		'operation': '',
-	};
+	var new_calc = '';
 
 	// Get the buttons div
 	buttonDiv = document.getElementById('buttons');
@@ -27,37 +23,31 @@ function setup() {
 		// Add listener to this button
 		button.addEventListener('click', () => {
 
-			if(!isNaN(buttons[button.id])) {
-				if(!calculation['first'] || !calculation['operation']) {
-					calculation['first'] += buttons[button.id];
-					document.getElementById('screen').innerHTML ='<h1 class="screen-text">'+calculation['first']+'</h1>';
-				} else {
-					calculation['second'] += buttons[button.id];
-					document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+calculation['second']+'</h1>';
-				}
-			} else if(buttons[button.id] == 'C') {
-				calculation['first'] = calculation['second'] = calculation['operation'] = '';
+			if(buttons[button.id] == 'C') {
+				new_calc = '';
 				document.getElementById('screen').innerHTML ='<h1 class="screen-text">0</h1>';
-				console.log(calculation['operation']);
 			} else if(buttons[button.id] != '=') {
-				calculation['operation'] = buttons[button.id];
+				new_calc += buttons[button.id];
+				document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+new_calc+'</h1>';
 			} else {
-				calculate(calculation['first'], calculation['second'], calculation['operation']);
+				calculate(new_calc);
 			}
 			console.log(calculation);
 		});
 	});
 };
 
-function calculate(first, second, operation) {
-	
-	if(operation == '&divide;') {
-		operation = '/';
-	} else if(operation == 'X') { 
-		operation = '*';
-	}
+function calculate(new_calc) {
+	new_calc = new_calc.replace('x', '*');
+	new_calc = new_calc.replace('&divide;', '/');
 
-	document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+eval(first+operation+second)+'</h1>';
+	try {
+		document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+eval(new_calc)+'</h1>';
+	} catch(err) {
+		if(err instanceof SyntaxError) {
+			document.getElementById('screen').innerHTML = '<p class="screen-text">SyntaxError</p>';
+		}
+	}
 };
 
 window.onload = setup;

@@ -10,6 +10,23 @@
 
 	</head>
 	<body>
-		<h1>GitHub Profile - API</h1>
+		<div class="top">
+			<h2>GitHub Profile <small>By Mark Barrett</small></h2>
+		</div>
+		<div id="messages">
+		</div>
+		<div class="container">
+			<input class="text-input" placeholder="GitHub Username" type="text" id="github-username" name="github-username">
+			<button class="button-default" id="submit-username">Search</button>
+			<br/>
+			<div class="profile" id="profile" style="visibility: hidden;">
+				<div class="left-side" id="left-side">
+					<h3>User Profile</h3>
+				</div>
+				<div class="right-side" id="right-side">
+					<h3>User Repos</h3>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
