@@ -63,8 +63,8 @@
 				right = rowOne[j+1]
 			}
 			
-			if((left == "active" && above == "active" && right == "active") || 
-			   (left == "inactive" && above == "inactive" && right == "inactive")){
+			if((right == "active" && above == "active" && right == "active") || 
+			   (right == "inactive" && above == "inactive" && left == "inactive")){
 			
 				black = "black";
 				rowTwo[j] = "active" ;
