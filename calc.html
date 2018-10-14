@@ -6,28 +6,28 @@
 	<link rel="stylesheet" href="calc.css">
 </head>
 <body>
-	<div class="wrapper">
-		<div class="box result">0</div>
-		<div class="box left-parent">(</div>
-		<div class="box right-parent">)</div>
-		<div class="box plus-min">+-</div>
-		<div class="box divide">/</div>
-		<div class="box">7</div>
-		<div class="box">8</div>
-		<div class="box">9</div>
-		<div class="box">*</div>
-		<div class="box">4</div>
-		<div class="box">5</div>
-		<div class="box">6</div>
-		<div class="box">-</div>
-		<div class="box">1</div>
-		<div class="box">2</div>
-		<div class="box">3</div>
-		<div class="box">+</div>
-		<div class="box">0</div>
-		<div class="box">.</div>
-		<div class="box">C</div>
-		<div class="box">=</div>
-	</div>
+	<form id="calc" class="wrapper" method="POST">
+		<input class="box result" name="result" type="text" value="0">
+		<input class="box left-parent" type="button" value="(">
+		<input class="box right-parent" type="button" value=")">
+		<input class="box plus-min" type="button" value="+-">
+		<input class="box divide" type="button" value="/">
+		<input class="box" type="button" value="7">
+		<input class="box" type="button" value="8">
+		<input class="box" type="button" value="9">
+		<input class="box" type="button" value="*">
+		<input class="box" type="button" value="4">
+		<input class="box" type="button" value="5">
+		<input class="box" type="button" value="6">
+		<input class="box" type="button" value="-">
+		<input class="box" type="button" value="1">
+		<input class="box" type="button" value="2">
+		<input class="box" type="button" value="3">
+		<input class="box" type="button" value="+">
+		<input class="box" type="button" value="0">
+		<input class="box" type="button" value=".">
+		<input class="box" type="button" value="C">
+		<input class="box" type="submit" value="=">
+	</form>
 </body>
 </html>
