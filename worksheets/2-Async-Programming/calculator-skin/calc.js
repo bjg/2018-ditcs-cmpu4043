@@ -3,14 +3,17 @@ var numDisplay = [];
 var operator= [];
 var displayNumber = 0;
 
+decimalFlag = 0;
+
 // to change the number in the screen
 // document.getElementById("screen").innerHTML = clickedId;
 
 function listen(clickedId)
 {
+
 	var usedNumber = 0;
 	var clickedCheck = parseInt(clickedId, 10);
-	
+
 	if(!(isNaN(clickedCheck)))
 	{
 		numDisplay.push(parseInt(clickedCheck, 10));	
@@ -70,8 +73,10 @@ function nonNumber(clickedId)
 				displayCurrentNum(displayNumber);
 				clearNumDisplay();
 				clearNumStore();
+				clearOperator();
 				break;
 			case "plusMinus":
+				plusMinus();
 				break;
 			case "(":
 				break;
@@ -109,11 +114,21 @@ function equals()
 		if(typeof useOper != "string")
 		{
 			displayCurrentNum(answer);
+			clearNumDisplay();
 			clearNumStore();
 			clearOperator();
 			displayNumber = answer;
+
 		}
 	}
+}
+
+//Needs to be used after the negative number is pressed
+function plusMinus()
+{
+	numStore[numStore.length - 1] *= -1;
+	displayNumber *= -1;
+	displayCurrentNum(displayNumber);
 }
 
 function cleanUp()
