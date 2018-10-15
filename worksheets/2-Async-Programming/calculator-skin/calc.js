@@ -126,7 +126,7 @@ function equals()
 //Needs to be used after the negative number is pressed
 function plusMinus()
 {
-	numStore[numStore.length - 1] *= -1;
+	//numStore[numStore.length - 1] *= -1;
 	displayNumber *= -1;
 	displayCurrentNum(displayNumber);
 }
