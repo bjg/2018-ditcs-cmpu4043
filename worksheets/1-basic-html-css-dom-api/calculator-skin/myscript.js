@@ -5,6 +5,7 @@ let operand = "";
 let RUNNING_TOTAL = 0;
 
 //NOTE: Limit array to 9 digit
+//USE A STACK?????
 
 function calculateNumberFromBuffer(){
     var total = 0;
@@ -61,6 +62,11 @@ function equals(){
     console.log(RUNNING_TOTAL);
     //reset total
     RUNNING_TOTAL = 0;
+}
+
+
+function handleKeyOperand(objButton){
+    console.log(objButton.value);
 }
 
 
