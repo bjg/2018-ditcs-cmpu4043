@@ -14,15 +14,26 @@ function main()
 function objectsNameCityZip()
 {
 	//list objects with a Username, City and Zipcode
-	// fetch('https://jsonplaceholder.typicode.com/')
-	// 	.then(response => response.json())
-	// 	.then(json => console.log(json))
-	// 	;
+	fetch('https://jsonplaceholder.typicode.com/users/')
+		.then(response => response.json())
+		.then(json => console.log(json))
+		;
 
-	var foo = fetch('https://jsonplaceholder.typicode.com/users/')
-			  .then(response => response.json())
-			  .then(json => console.log(json))
-			  ;
+	// const foo = fetch('https://jsonplaceholder.typicode.com/users/');
+	// foo
+	// 	.then((response) => {
+	// 		if(response.ok) {
+	// 			var useable = response.json();
+	// 			useable = JSON.stringify(useable);
+	// 			console.log(useable);
+
+	// 		} else {
+	// 			//something else
+	// 		}
+	// 	})
+	// 	.catch((error) => {
+	// 		console.log('Error + ' + error.message);
+	// 	});
 
 	
 	// var bar = foo.filter(response => response.json.Username)
