@@ -24,20 +24,17 @@ function objectsNameCityZip()
 		})
 		.then(data => {
 
-			var names = data.map(nameFunc);
+			var names = data.map(function(obj)
+			{
+				let ans = obj.username + " " + obj.address.city + " " + obj.address.zipcode;
+				return ans;
+			});
 
-			console.log(names);
-
+			names.every(console.log)
 		})
 		.catch((error) => {
 			console.log('Error: ' + error.message);
 		});
-}
-
-function nameFunc(obj)
-{
-	let ans = obj.username + " " + obj.address.city + " " + obj.address.zipcode;
-	return ans;
 }
 
 //part 2
@@ -50,24 +47,15 @@ function twoOrFive()
 			return response.json();
 		})
 		.then(data => {
-			console.log(data.reduce(addition))
+			
+			let zips = data.map(function(obj)
+			{
+				return obj.
+			});
 		})
 		.catch((error) => {
 			console.log('Error: ' + error.message);
 		});
-}
-
-function addition(accum, currentVal)
-{
-	return accum + currentVal;
-	// if(obj.address.zipcode.charAt(0) == 2 || obj.address.zipcode.charAt(0) == 5)
-	// {
-	// 	return accum + currentVal;
-	// }
-	// else
-	// {
-	// 	return accum;
-	// }
 }
 
 //part 3
