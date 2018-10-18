@@ -2,6 +2,7 @@ function main(){
     part1();
     part2();
     part3();
+    part4();
 }
 
 function part1(){
@@ -51,4 +52,15 @@ function part3(){
         })
 
     })  
+}
+
+function part4(){
+    fetch('http://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json().then(function(json){
+        words = {}
+        json.forEach(post => post.body.split(" ").map(x => words[x] == null? words[x]=1: words[x]++))
+        
+        console.log("part4")
+        console.log(words);
+    }))
 }
