@@ -1,0 +1,44 @@
+<html>
+<head>
+<link rel="stylesheet" href="calculator-skin.css"/>
+<script src="calculator.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="calculator">
+        <div id="screen"><input type="text" id="screen_contents"/></div>
+        <div id="buttons">
+            <div>
+                <button id="leftBracket" onclick="append('(')">&lpar;</button>
+                <button id="rightBracket" onclick="append(')')">&rpar;</button>
+                <button id="plusminus" onclick="append('-')">&pm;</button>
+                <button id="divide" onclick="append('/')">&divide;</button>
+            </div>
+            <div>
+                <button id="7" onclick="append('7')">7</button>
+                <button id="8" onclick="append('8')">8</button>
+                <button id="9" onclick="append('9')">9</button>
+                <button id="multiply" onclick="append('*')">x</button>
+            </div>
+            <div>
+                <button id="4" onclick="append('4')">4</button>
+                <button id="5" onclick="append('5')">5</button>
+                <button id="6" onclick="append('6')">6</button>
+                <button id="minus" onclick="append('-')">&minus;</button>
+            </div>
+            <div>
+                <button id="1" onclick="append('1')">1</button>
+                <button id="2" onclick="append('2')">2</button>
+                <button id="3" onclick="append('3')">3</button>
+                <button id="plus" onclick="append('+')">&plus;</button>
+            </div>
+            <div>
+                <button id="0" onclick="append('0')">0</button>
+                <button id="point" onclick="append('.')">.</button>
+                <button id="clear" onclick="clearScreen()">C</button>
+                <button id="equals" onclick="evalScreen()">&equals;</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
