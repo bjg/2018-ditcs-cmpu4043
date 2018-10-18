@@ -6,6 +6,28 @@ function setup() {
 
 	var new_calc = '';
 
+	// Add event listener to Keydown
+	document.addEventListener('keydown', (event) => {
+		console.log(new_calc);
+
+		if(!isNaN(event.key) || event.key == '+' || event.key == '-' || event.key == '*' || event.key == '/') {
+			console.log(event.key);
+			// Add whatever is entered to the new_calc
+			new_calc += event.key
+
+			document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+new_calc+'</h1>';
+		}
+
+		if(event.key == 'Enter') {
+			new_calc = calculate(new_calc);
+		}
+
+		if(event.key == 'Backspace') {
+			new_calc = new_calc.slice(0,-1);
+			document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+new_calc+'</h1>';
+		}
+	});	
+
 	// Get the buttons div
 	buttonDiv = document.getElementById('buttons');
 
@@ -30,7 +52,7 @@ function setup() {
 				new_calc += buttons[button.id];
 				document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+new_calc+'</h1>';
 			} else {
-				calculate(new_calc);
+				new_calc = calculate(new_calc);
 			}
 			console.log(calculation);
 		});
@@ -42,7 +64,10 @@ function calculate(new_calc) {
 	new_calc = new_calc.replace('&divide;', '/');
 
 	try {
-		document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+eval(new_calc)+'</h1>';
+		new_calc = eval(new_calc);
+		document.getElementById('screen').innerHTML = '<h1 class="screen-text">'+new_calc+'</h1>';
+		
+		return new_calc;
 	} catch(err) {
 		if(err instanceof SyntaxError) {
 			document.getElementById('screen').innerHTML = '<p class="screen-text">SyntaxError</p>';

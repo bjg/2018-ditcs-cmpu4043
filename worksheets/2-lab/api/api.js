@@ -22,6 +22,9 @@ function api() {
 		// Filter the data set
 		data.filter(data => data['title'].split(' ').length > 6).map((data) => {
 			console.log(data);
+
+			// Frequency map
+			console.log(getFrequencyMap(data['body']));
 		});
 	});
 }
@@ -29,6 +32,7 @@ function api() {
 function getFrequencyMap(string) {
 	// Take in a string and convert it to a JSON object with each word and the occurance of each one
 	var words = string.replace(/[.]/g, '').split(/\s/);
+
 	var frequencyMap = {};
 
 	// Map the values
