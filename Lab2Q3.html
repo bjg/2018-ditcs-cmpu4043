@@ -1,0 +1,192 @@
+<style>
+    .container{
+        width: 560px;
+        height: auto;
+        border: 5px groove green;
+        margin-left: 50px;
+    }
+    .row{
+        display: block;
+		padding: 10px 10px 0px 10px;
+    }
+    .username{
+        display: inline-block;
+        height: 25px;
+        width: 250px;
+        border: 1px groove black;
+        margin-right: 25px;
+    }
+    .search{
+        display: inline-block;
+        height: 25px;
+        width: 250px;
+        border-radius: 50px;
+        border: 1px groove black;
+    }
+    .user_profile {
+        display: inline-block;
+        width: 45%;
+        font-weight: bold;
+        height: 35px;
+		text-align: center
+    }
+	.user_repos{
+        display: inline-block;
+        width: 51.5%;
+        font-weight: bold;
+        height: 35px;
+		text-align: center
+    }
+    .col{
+        display: inline-block;
+        width: 150px;
+        padding: 0 20px 20px 0px;
+        vertical-align: top;
+    }
+    body > div > div:nth-child(3) > div:nth-child(2){
+        padding: 0;
+        margin-left: 60px;
+    }
+    .blockTwo{
+        width: 100%;
+        border: 1px groove black;
+		padding: 1px 1px 1px 1px;
+    }
+    .block{
+        width: 198px;
+        border: 1px groove black;
+		padding: 1px 1px 1px 1px;
+    }
+    .text{
+        display: block;
+        padding: 5px 0 0 5px;
+    }
+    .image{
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 190px;
+    }
+    .repos_area{
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 300px;
+        height: 350px;
+		border: 1px groove black;
+    }
+</style>
+<html>
+    <body>
+        <div class="container">
+            <div class="row">
+                <input class="username" id="inputUser" placeholder="   Username"></input>
+                <button class="search" onclick="look_up_data()"> Search</button>
+            </div>
+            <div class="row">
+                <div class="user_profile">User Profile
+                </div>
+                <div class="user_repos">User Repos
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img class="image" id="pic" src="https://images.unsplash.com/photo-1530041653543-6b9fad4f9c6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b7fb839d5c9ba762ee7e487bb5ba0554&w=1000&q=80/">
+                    <div class="block"><span class="text" id="name">Name</span></div>
+                    <div class="block"><span class="text" id="username">Username</span></div>
+                    <div class="block"><span class="text" id="email">E-mail</span></div>
+                    <div class="block"><span class="text" id="location">Location</span></div>
+                    <div class="block"><span class="text" id="gists">Number of Gists</span></div>
+                </div> 
+				<!--> </!-->
+                <div id="repos_area" class="col repos_area">
+                        <div class="blockTwo" id="blockOne" ><span class="text" id="nameOne">Name</span><span class="text" id="descOne">Description</span></div>
+                        <div class="blockTwo" id="blockTwo"><span class="text" id="nameTwo">Name</span><span class="text" id="descTwo">Description</span></div>
+                        <div class="blockTwo" id="blockThree"><span class="text" id="nameThree">Name</span><span class="text" id="descThree">Description</span></div>
+                        <div class="blockTwo" id="blockFour"><span class="text" id="nameFour">Name</span><span class="text" id="descFour">Description</span></div>
+                        <div class="blockTwo" id="blockFive"><span class="text" id="nameFive">Name</span><span class="text" id="descFive">Description</span></div>
+                        <div class="blockTwo" id="blockSix"><span class="text" id="nameSix">Name</span><span class="text" id="descSix">Description</span></div>
+						<div class="blockTwo" id="blockSeven"><span class="text" id="nameSeven">Name</span><span class="text" id="descSix">Description</span></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    function get_user(username){
+        
+        let user_url = 'https://api.github.com/users/'+username;
+        let repo_url = user_url+'/repos';
+        
+        // getting user data
+        fetch(user_url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('username').innerHTML = data['login'];
+            document.getElementById('name').innerHTML = data['name'];
+            document.getElementById('pic').src = data['avatar_url'];
+            if(data['email'] == null) data['email'] = "null";
+            document.getElementById('email').innerHTML = data['email'];
+            document.getElementById('location').innerHTML = data['location'];
+            document.getElementById('gists').innerHTML = data['public_gists'];
+            
+            console.log(data) // Prints output from `response.json()` to getRequest
+        })
+        .catch(error => console.error(error))
+        // getting repo data
+        fetch(repo_url)
+        .then(response => response.json())
+        .then(data2 => {
+            let repo_area= document.getElementById('repos_area');
+                
+            document.getElementById('blockOne').parentNode.removeChild(document.getElementById('blockOne'));
+            document.getElementById('blockTwo').parentNode.removeChild(document.getElementById('blockTwo'));
+            document.getElementById('blockThree').parentNode.removeChild(document.getElementById('blockThree'));
+            document.getElementById('blockFour').parentNode.removeChild(document.getElementById('blockFour'));
+            document.getElementById('blockFive').parentNode.removeChild(document.getElementById('blockFive'));
+            document.getElementById('blockSix').parentNode.removeChild(document.getElementById('blockSix'));
+			document.getElementById('blockSeven').parentNode.removeChild(document.getElementById('blockSeven'));
+			// Deleting the placeholders in order for the new data to come in
+
+            for(let i=0; i<data2.length; i++){
+                // Creating blocks to hold both the spans
+                let index = i + 1;
+                let element = document.createElement("div");
+                element.classList +="block";
+                element.id="block"+index;
+                repo_area.appendChild(element);
+                
+                let text1 = document.createElement("div");
+                let text2 = document.createElement("div");
+                text1.classList.add("text");
+                text2.classList.add("text");
+                text1.id="name"+index;
+                text2.id="desc"+index;
+                element.appendChild(text1);
+                element.appendChild(text2);
+
+                if(data2[i]['description']){
+                    text1.innerHTML=data2[i]['name'];
+                    text2.innerHTML=data2[i]['description'];
+                }else{
+                    text1.innerHTML=data2[i]['name'];
+                    text2.innerHTML="Description missing";
+                }
+				
+				// if data is there, it will input it in, if it not, it will set it to what the user specified for the user and description missing for the desc
+            }
+
+        })
+        .catch(error => console.error(error))
+    }
+    function look_up_data(){
+        let inputName= document.getElementById('inputUser').value;
+        if(inputName){
+            get_user(inputName);
+        }else{
+            alert("Please enter in something.");
+        }  
+    }
+	// If user enters in data, it will use it to search, if not a prompt will appear to ask the user to enter in something
+</script>
