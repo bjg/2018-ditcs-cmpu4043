@@ -2,18 +2,20 @@ function getUserCallback(){
     if(this.readyState == 4 && this.status == 200){
         var user = JSON.parse(this.responseText);
         var div = document.getElementById("name");
-        div.innerHTML = user.name;
+        div.innerHTML = "<b>Name</b> " + user.name;
         div = document.getElementById("user_name");
-        div.innerHTML = user.login
+        div.innerHTML = "<b>UserName</b> " + user.login
         div = document.getElementById("email");
-        div.innerHTML = user.email != null? user.email : "Unkown";
+        div.innerHTML = "<b>Email</b> ";
+        div.innerHTML += user.email != null? user.email : "Unkown";
         div = document.getElementById("location");
-        div.innerHTML = user.location != null? user.location : "Unkown";
+        div.innerHTML = "<b>Location</b> ";
+        div.innerHTML += user.location != null? user.location : "Unkown";
         div = document.getElementById("gists");
-        div.innerHTML = user.public_gists
+        div.innerHTML = "<b>Number of Gists</b> ";
+        div.innerHTML += user.public_gists;
         div = document.getElementById("user_image");
         div.src = user.avatar_url
-        alert(url + username + "/repos")
         repoRequest.open("GET", url + user.login + "/repos", true)
         repoRequest.send()
 
@@ -31,12 +33,14 @@ function displayRepo(name, desc){
     descDiv.innerHTML = "<b>Description</b> " + desc;
     div.appendChild(nameDiv);
     div.appendChild(descDiv);
+    div.className = "repo";
     return div;
 }
 
 function getReposCallback(){
         if(this.readyState == 4 && this.status == 200){
-            var userRepos = document.getElementById("user_repos");
+            var userRepos = document.getElementById("repos");
+            userRepos.innerHTML = "";
             var repos = JSON.parse(this.responseText);
             for(var i = 0; i < repos.length; i++){
                 userRepos.appendChild(displayRepo(repos[i].name, repos[i].description));

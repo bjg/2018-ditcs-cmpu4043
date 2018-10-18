@@ -4,6 +4,7 @@ body{
 }
 #search_toolbar{
     margin:auto;
+    clear:both;
 }
 
 #search_text{
@@ -23,10 +24,19 @@ body{
 
 #user_repos{
     width:40%;
-    float:right;
+    float:right; 
+}
+
+#repos{
+    height:50%;
+    overflow: scroll;
 }
 .profile{
     margin:auto;
+    border: 1px solid black;
+}
+
+.repo{
     border: 1px solid black;
 }
 
