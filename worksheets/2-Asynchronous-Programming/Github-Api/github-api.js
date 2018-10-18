@@ -16,7 +16,7 @@ function getUserCallback(){
         div.innerHTML += user.public_gists;
         div = document.getElementById("user_image");
         div.src = user.avatar_url
-        repoRequest.open("GET", url + user.login + "/repos", true)
+        repoRequest.open("GET", user.repos_url, true)
         repoRequest.send()
 
     }
