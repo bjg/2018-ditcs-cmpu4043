@@ -1,79 +1,61 @@
 //fetch user data
-fetch('https://jsonplaceholder.typicode.com/users').then(response => 
+fetch('https://jsonplaceholder.typicode.com/users').then(response =>
 {
   return response.json();
 })
-.then(data => 
+.then(data =>
 {
   let users = [data.length];
-  let zeroOrFiveCount = 0;
 
+  //create users array, using classes is not necessary for this solution, as the information can be printed directly
+  //this is just a clean visual way of storing the information
   data.forEach(function(item, index)
-  { 
+  {
     users[index] = new User(item.username, item.address.city, item.address.zipcode);
   });
 
-  users.forEach(function(item)
-  { 
-    console.log("Username: "+item.username);
-    console.log("City: "+item.city);
-    console.log("Zipcode: "+item.zipcode);
-    console.log("");
+  //list all required user info
+  users.map(user => console.log("Username: "+user.username+"\nCity: "+user.city+"\nZipcode: "+user.zipcode+"\n"));
 
-    if(item.zipcode.charAt(0) === '2' || item.zipcode.charAt(0) === '5')
-    {
-      zeroOrFiveCount++;
-    }
-  });
-
-  console.log(zeroOrFiveCount+" users have only zipcodes starting with the number 2 or the number 5");
-  console.log("");
+  //list the count of users where aving only zipcodes starting with the number 2 or the number 5
+  let zeroOrFiveCount = users.filter(user => user.zipcode.charAt(0) === '2' || user.zipcode.charAt(0) === '5').length;
+  console.log(zeroOrFiveCount+" users have only zipcodes starting with the number 2 or the number 5\n");
 })
-.catch(err => 
+.catch(err =>
 {
   console.log(err);
 });
 
 //fetch post data
-fetch('https://jsonplaceholder.typicode.com/posts').then(response => 
+fetch('https://jsonplaceholder.typicode.com/posts').then(response =>
 {
   return response.json();
 })
-.then(data => 
+.then(data =>
 {
-  let wordMap = {};
-  let wordArray = [];
-  data.forEach(function(item)
-  { 
-    let words = item.title.split(" ");
-    if(words.length > 6)
-    {
-      console.log(item.title);
-    }
-    //concat current array of words to the words array
-    wordArray = wordArray.concat(words);
-  });
+  let wordMap = new Map();
 
-  console.log("");
-  
-  //create wordmap
-  wordArray.forEach(function (item) 
-  {
-    //if there is a key associated with this current word, increment the count
-    if (wordMap[item] !== undefined) 
+  //print post titles that have a length greater than 6
+  data.map(post => post.title.split(" ")).filter(title => title.length > 6).map(title => console.log(title.join(" ")));
+
+  //get every word from every body from every post, splitting by newline and space, flatting the array in the end
+  let wordArray = data.map(post => post.body.split(/[\n\s]+/)).flat();
+
+  //check if each word is in the map or not, if not, set value to 1, else increase current value by 1
+  wordArray.map(word => {
+    if(wordMap.get(word) !== undefined)
     {
-      wordMap[item]++;
-    } 
-    //else, set it to one
-    else 
+      wordMap.set(word, wordMap.get(word)+1);
+    }
+    else
     {
-      wordMap[item] = 1;
+      wordMap.set(word, 1);
     }
   });
 
   console.log(wordMap);
 })
-.catch(err => 
+.catch(err =>
 {
   console.log(err);
 });
