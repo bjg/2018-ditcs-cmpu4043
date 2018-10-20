@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <link rel="stylesheet" href="style.css">
+	  <script src="q3.js"></script>
+	</head>
+	<body>
+	  	<div class="wrapper">
+		    <div class="grid">
+		        <div class="container" id="search-container">
+	      			<div class="search_box">
+	      				<div class="search_text">
+	      					<!-- <form> -->
+	      						 <input type="text" name="username" placeholder="Username" id="inputUser"/>
+	      						 <button type="submit" class="search_button" id="submit-username" onclick="search_data()">Search</button>
+	      					<!-- </form> -->
+	      				</div>
+	      			</div>
+		        </div>
+
+		  		<!--profile container-->
+		  		<div class="container" id="profile-container">
+		  			<h1>User Profile</h1>
+		  			<!--Name-->
+		  			<div id="profile-inner-container">
+		  				<div id="profile-image-container">
+		  					<div id="inner-profile-image-container">
+		  						<img class="avatar" id="profile_pic" src="sample.jpg" alt="Avatar" height="290px" width="340px">
+		  					</div>
+		  				</div>
+		  			</div>
+		           	<!--Name-->
+		  				<div class="profile-info"><span class="text" id="name">Name</span></div>
+		  			<!--Username-->
+		  				<div class="profile-info"><span class="text" id="username">Username</span></div>
+		  			<!--Email-->
+		  				<div class="profile-info"><span class="text" id="email">Email</span></div>
+		  			<!--Location-->
+		  				<div class="profile-info"><span class="text" id="location">Location</span></div>
+		  			<!--Number of Gist-->
+		  				<div class="profile-info"><span class="text" id="gists">Gists</span></div>
+		  		</div>
+
+		  		<!--repo container-->
+		        <div class="container" id="repo-container">
+		        	<h1>User repos</h1>
+		        	<div class="repo-inner-container">
+								<div class="block" id="repo_block1"><span class="text" id="name1">Project Name</span><span class="text" id="desc1">Project Description</span></div>
+								<div class="block" id="repo_block2"><span class="text" id="name2">Project Name</span><span class="text" id="desc2">Project Description</span></div>
+								<div class="block" id="repo_block3"><span class="text" id="name3">Project Name</span><span class="text" id="desc3">Project Description</span></div>
+								<div class="block" id="repo_block4"><span class="text" id="name4">Project Name</span><span class="text" id="desc4">Project Description</span></div>
+								<div class="block" id="repo_block5"><span class="text" id="name5">Project Name</span><span class="text" id="desc5">Project Description</span></div>
+								<div class="block" id="repo_block6"><span class="text" id="name6">Project Name</span><span class="text" id="desc6">Project Description</span></div>
+		        	</div>
+	        	</div>
+	    	</div>
+		</div>
+	</body>
+</html>
