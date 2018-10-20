@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="calculator.css">
+  <title>Calculator</title>
+</head>
+<body onkeypress="getKey(event.key)">
+<div class="main">
+
+  <div id="input" class="screen">0</div>
+
+  <div class="buttons">
+    <button value="(" class = "button" onclick="getValue(this.value)">(</button>
+    <button value=")" class = "button" onclick="getValue(this.value)">)</button>
+    <button value="±" class = "button" onclick="plusMinus()">±</button>
+    <button value="÷" class = "button" onclick="getValue(this.value)">÷</button>
+
+    <button value="7" class = "button" onclick="getValue(this.value)">7</button>
+    <button value="8" class = "button" onclick="getValue(this.value)">8</button>
+    <button value="9" class = "button" onclick="getValue(this.value)">9</button>
+    <button value="x" class = "button" onclick="getValue(this.value)">x</button>
+
+    <button value="4" class = "button" onclick="getValue(this.value)">4</button>
+    <button value="5" class = "button" onclick="getValue(this.value)">5</button>
+    <button value="6" class = "button" onclick="getValue(this.value)">6</button>
+    <button value="-" class = "button" onclick="getValue(this.value)">-</button>
+
+    <button value="1" class = "button" onclick="getValue(this.value)">1</button>
+    <button value="2" class = "button" onclick="getValue(this.value)">2</button>
+    <button value="3" class = "button" onclick="getValue(this.value)">3</button>
+    <button value="+" class = "button" onclick="getValue(this.value)">+</button>
+
+
+    <button value="0" class = "button" onclick="getValue(this.value)">0</button>
+    <button value="." class = "button" onclick="getValue(this.value)">.</button>
+    <button value="C" class = "button" onclick="clearScreen()">C</button>
+    <button value="=" class = "button" onclick="calculate()">=</button>
+
+
+  </div>
+
+ </div>
+</body>
+<script  type="text/javascript" src="calculator.js"> </script>
+</html>
