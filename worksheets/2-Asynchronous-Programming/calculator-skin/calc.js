@@ -89,15 +89,16 @@ function append_to_display(value) {
     //took this code out of here to clean things up a bit
     handle_sign_operator(end_of_display());
   }
-  else if( ( is_operator(value) || is_decimal_point(value) ) && value === end_of_display() ) 
+  else if((is_operator(value) || is_decimal_point(value)) && value === end_of_display()) 
   {
     //ensure nothing happens if user tries to sidechain identical operators or decimal points
   }
   else if(is_decimal_point(value) && contains_decimal(last_num_in_display()) && !is_new_display() && !is_operator(end_of_display())) 
   {
     //ensure nothing happens if user tries to put 2 decimal points in same number
+    //if value is decimal point and the last number in the expression is a decimal number where this is not a new expression and last char of the display is not an operator
   }
-  else if( is_operator(value) && is_operator(end_of_display()) ) 
+  else if(is_operator(value) && is_operator(end_of_display())) 
   {
     //switch to last inputed operator value
     display_string = display_string.replace(end_of_display(), value);
@@ -105,14 +106,11 @@ function append_to_display(value) {
   else if(is_decimal_point(value) &&  !is_digit(end_of_display())) 
   {
     //fractions of one as decimals should always start with a 0
-    value = "0.";
-    display_string += value;
+    display_string += "0.";
   }
-  else if(display_string == "error" || (is_new_display() && !is_decimal_point(value) && !is_operator(value))) 
+  else if(display_string == "error" || (is_new_display() && is_digit(value))) 
   {
     //start of a new equation. display string should just be assigned the given value. 
-    //if value is decimal point and is_new_display() is true, then value should be handled by condition on line 84
-    //if value is operator and is_new_display() is true then operator should just be appended to allow operations on 0. handled by line 118
     display_string = value;
     display_is_answer = false;
   }
@@ -120,7 +118,7 @@ function append_to_display(value) {
   {
     //if no user error, just append the value to the display string
     display_string += value;
-    //need to also ensure this gets switched off here in case of appending expression to answer (else next number value after operator will trigger line 110)
+    //need to also ensure this gets switched off here in case of appending expression to answer (else next number value after operator will trigger line 111)
     display_is_answer = false;
   }//end if-else chain
   update_display();
