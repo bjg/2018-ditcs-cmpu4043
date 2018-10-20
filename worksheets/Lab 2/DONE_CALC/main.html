@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<meta name="robots" content="noindex">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Calculator</title>
+
+</head>
+<body>
+  <div id="calculator">
+    <input id = "screen" type="text" readonly="readonly" placeholder="0">
+    <div>
+      <button >(</button>
+      <button >)</button>
+      <button >±</button>
+      <button >/</button>
+      <button >7</button>
+      <button >8</button>
+      <button >9</button>
+      <button >*</button>
+      <button >4</button>
+      <button >5</button>
+      <button >6</button>
+      <button >-</button>
+      <button >1</button>
+      <button >2</button>
+      <button >3</button>
+      <button >+</button>
+      <button >0</button>
+      <button >.</button>
+      <button >C</button>
+      <button >=</button>
+    </div>
+  </div>
+<script id="jsbin-javascript">
+var selection = document.querySelectorAll("button");
+var screen = document.getElementById("screen");
+let bool = true;  
+
+// Add on click events
+for (var i = 0; i < selection.length; i++) 
+{
+  selection[i].onclick = function(e) 
+  {
+    evaluate(this.innerHTML);
+  }
+}
+
+document.onkeypress = function(e) 
+{
+
+  let allowed_keys = ["1", "2", "3", "4", "5", "6", "7","8", "9", "0",
+                       "(", ")", "/", "*", "-","+","=","C","c", "."];
+  var input = String.fromCharCode(e.keyCode);
+  console.log(input);
+  
+  if(allowed_keys.includes(input))
+ {
+  evaluate(input);
+ }
+  
+}
+function evaluate(val) 
+{
+
+  console.log(bool);
+  var screen_value = screen.value;
+
+  try {
+    if(val == "C" || val == "c") 
+     {
+        screen.value = '';
+     }
+    else if(val == "±")
+      {
+		if(bool === true)
+		{
+		console.log("cant do this here");
+          
+		}
+		else
+		{
+			screen.value = -screen_value;
+		}
+      }
+    else if(val == "=") 
+    {
+      var equation = screen_value;
+        try 
+        {
+          screen.value = eval(equation); 
+        } 
+        catch (e) 
+        {
+          if (e instanceof SyntaxError) 
+          {
+             alert(e.message);
+          }
+        }
+    }
+    else 
+    {
+      let operaters = ["*", "-", "/","+"];
+      
+      if (operaters.includes(val))
+        {
+          if(bool === true )
+             {
+               console.log("already added");
+             }
+          else
+            {
+              screen.value += val;
+              bool = true;
+            }
+        }
+      else
+        {
+           screen.value += val;
+           bool = false;     
+        }
+    }
+  }
+ catch(error) 
+  {
+    console.log("Error" + error);
+  }
+}
+
+
+</script>
+</body>
+</html>
