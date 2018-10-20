@@ -15,7 +15,12 @@ calculator {
 	margin: auto;
 }
 
-displayport {
+svg { 
+	width: 100%;
+	viewBox="0 0 70 18"
+}
+
+displayport { 
 	display: block;
 	width: 90%;
 	height: 10%;
@@ -33,6 +38,7 @@ number {
 	color: gray;
 	margin: 0 1%;
 	float: right;
+	max-width: 100%;
 }
 
 buttons {	
@@ -59,3 +65,7 @@ button {
 	border-color: lightgray gray gray lightgray;
 }
 
+button:active {
+	background-color: darkgray;
+	border-color: gray darkgray darkgray gray;
+}
