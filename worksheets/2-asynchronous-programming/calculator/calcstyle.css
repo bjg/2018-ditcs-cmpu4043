@@ -1,0 +1,35 @@
+.grid-container {
+  display: grid;
+  border-radius: 25px;
+  border: 2px solid black;
+  grid-column-gap:10px;
+  grid-row-gap:10px;
+  padding: 20px;
+  width: 40%;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 5px;
+  border-radius: 20px;
+  border-style: outset;
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.display{
+	grid-column: 1/5;
+	font-family: sans-serif;
+	border: 5px;
+	border-radius: 20px;
+	border-style: inset;
+	padding: 10px;
+  height: 25px;
+	font-size: 30px;
+	text-align: right;
+	color: grey;
+}

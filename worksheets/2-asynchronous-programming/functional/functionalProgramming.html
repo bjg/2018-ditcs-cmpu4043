@@ -1,0 +1,57 @@
+<!-- Oisin Redmond - C15492202, DT228/4
+     Rich Web Application Technology Lab 2 Exercise 2 -->
+
+<body>
+  <script language="javascript" type="text/javascript">
+
+    // Fetching json data from API returns a promise object, to which are attached multiple callback methods, as seen below.
+    const users = fetch("https://jsonplaceholder.typicode.com/users");
+    const posts = fetch("https://jsonplaceholder.typicode.com/posts");
+
+    // json() method reads and parses the API's json response (named data)
+    users.then(data => data.json())
+    // Callback method used to perform array operations on user data
+    .then(data=>{
+      let result = data.filter(item=>{
+        return item.hasOwnProperty("username") && item.address.hasOwnProperty("city") && item.address.hasOwnProperty("zipcode");
+      });  // end data.filter()
+
+      console.log("Items containing username, city and zipcode attributes:\n",result);
+
+      result = data.filter(item => {
+        return item.address.zipcode.startsWith("2") || item.address.zipcode.startsWith("5");
+      });  // end data.filter()
+
+      console.log("Items with zipcode starting with 2 or 5:\ns", result);
+    });  // end .then()
+
+    posts.then(data => data.json())
+    .then(data => {
+      let result = data.filter(item => {
+        if(item.title.split(' ').length > 6){
+          return item;
+        }
+      }); // end data.filter()
+
+      console.log("Post titles with more than six words:\n", result);
+
+      // Creating empty map for word frequency results
+      result = {};
+
+      data.map(item => {
+        let body = item.body.split(/\n| /);  // Splitting body string on newline and space characters using a regular expression
+        body.map(word => {
+          // if word is alread in map, increment, else add entry to map with value of 1
+          if(result.hasOwnProperty(word)){
+            result[word] = result[word] +1;
+          }
+          else{
+            result[word] = 1;
+          }
+        })  //end body.foreach()
+      }); //end data.map()
+
+      console.log("Frequency map of words in post bodies:\n", result);
+    });  // end posts.then()
+  </script>
+</body>
