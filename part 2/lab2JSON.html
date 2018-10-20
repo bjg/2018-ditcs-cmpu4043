@@ -1,0 +1,54 @@
+<head>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+
+const users = fetch("http://jsonplaceholder.typicode.com/users");
+const posts = fetch("http://jsonplaceholder.typicode.com/posts");
+
+users.then(data => data.json())//reads JSON API
+
+//Question 1
+.then(data =>{
+  let result = data.filter(item=>{ //passing in a function to return the properties listed below CALL BACK method
+    return item.hasOwnProperty("username") && item.address.hasOwnProperty("city") && item.address.hasOwnProperty("zipcode");
+  });
+  console.log("All returned items with a username, city and Zipcode:\n",result);
+  //Question 2
+
+  result = data.filter(item =>{
+    return item.address.zipcode.startsWith("2") || item.address.zipcode.startsWith("5");
+  })
+  console.log("All returned items with zipcodes that start with a 2 or a 5 \n", result);
+});
+
+
+posts.then(data => data.json())
+.then(data => {
+  let result = data.filter(item =>{
+    if(item.title.split(' ').length > 6){
+      return item;
+    }
+  })
+console.log(result);
+
+result = {};
+
+data.map(item =>{
+  let body = item.body.split(/\n| /);
+  body.map(word => {
+    if(result.hasOwnProperty(word)){
+      result[word] = result[word] + 1;
+    }
+    else {
+      {
+        result[word] = 1;
+      }
+    }
+  })
+})
+console.log(result);
+})
+
+</script>

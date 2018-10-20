@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+}
+
+.pageTop{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 0px;
+  float: left;
+  width:40%;
+}
+
+#userNameInput
+{
+    width: 60%;
+}
+
+#searchButton {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#searchButton:hover {background-color: black}
+
+#searchButton:active {
+  background-color: darkgrey;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.container{
+  color:black;
+  font-family: sans-serif;
+  margin: auto;
+}
+
+.column{
+  float: left;
+  width: 20%;
+  padding: 15px;
+}
+
+.grid-container{
+  padding: 5px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 200px 50px 50px 50px 50px 50px;
+
+}
+
+img{
+    width: 100%;
+    height: 100%;
+  }
+
+
+.grid-container2{
+  padding: 5px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows:auto auto auto auto auto auto;
+
+}
+.grid-container2
+{
+  height:455px;
+}
+
+.grid-container2
+{
+  overflow:hidden;
+  overflow-y:scroll;
+}
+
+.item{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.repos {
+    padding: 5px;
+    border: 2px solid black;
+}
