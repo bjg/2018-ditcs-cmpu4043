@@ -1,0 +1,61 @@
+/*-------------------------------------------*\
+    style.css
+    CSS in response to Lab Question 2.3
+
+    Author: Ciarán O'Brien
+    Lecture: Brian Gillespie
+    Student Number: C15765215
+    Date: 04/10/18
+\*-------------------------------------------*/
+.container {
+  display: grid;
+  grid-template-columns:5% 40% auto 40% 5%;
+  place-self:center;
+}
+.search-container{
+	display: grid;
+	grid-template-columns: 5% 60% auto 20% 5%;
+	min-height: 30px;
+}
+.search-username{
+	grid-column:2;
+}
+.userSearch{
+	grid-column:4;
+	border-radius: 15px;
+}
+
+.user-repos-container{
+	grid-column:4;
+	grid-row:2;
+}
+.repos-info-container{
+	grid-column:4;
+	grid-row:3;
+	overflow-y: scroll;
+	max-height: 60%;
+}
+
+.repo_descriptions{
+	grid-column:2;
+}
+.repoDescriptor{
+	grid-column:2;
+	height: 50px;
+}
+
+.user-profile-container{
+	grid-column:2;
+	grid-row:2;
+	max-height: 20px;
+	max-width: 450px;
+	display: grid;
+}
+
+.profile_text{		grid-row:1; }
+.image_container{ 	grid-row:2; }
+.name {				grid-row:3; }
+.username {			grid-row:4; }
+.email {			grid-row:5; }
+.location {		 	grid-row:6; }
+.num_of_gists {		grid-row:7;	}

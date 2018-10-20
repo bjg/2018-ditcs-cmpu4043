@@ -53,6 +53,9 @@ function add_row(indexes){
   let left_ancestor;
   let top_ancestor = indexes[0];
   let right_ancestor = indexes[1];
+  // var linebreak = document.createElement("div");
+  // linebreak.style.clear = "both";
+  // document.body.appendChild(linebreak);
   let br = document.createElement("br");
 
   document.body.appendChild(br);  
