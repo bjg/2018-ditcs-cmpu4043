@@ -31,9 +31,15 @@ function main() {
             document.getElementById('avatar').src = user.avatar_url;
             
     })
-        .catch(function(error) {
-        
-    })
+       
+    var repos_list = document.getElementById("repos_list");
+    
+    // remove previous users repos
+    if(repos_list.hasChildNodes) {
+        while(repos_list.firstChild) {
+            repos_list.removeChild(repos_list.firstChild);
+        }
+    }
     
     // fetch the users repos
     fetch(repos_endpoint)
@@ -46,22 +52,11 @@ function main() {
                 
                 list_item.innerHTML = '<b>Name:</b> ' + repo.name + '<br><br> <b>Description:</b> <br>' + repo.description;
                 
-                document.getElementById('repos_list').appendChild(list_item);
+                repos_list.appendChild(list_item);
                 
             })
         
         
     })
-        .catch(function(error) {
-        
-    })
     
-}
-
-function remove_repos(repos_list) {
-    if(repos_list.hasChildNodes) {
-        for(let i = 0; i < repos_list.childElementCount; i++) {
-            repos_list.removeChild();
-        }
-    }
 }
