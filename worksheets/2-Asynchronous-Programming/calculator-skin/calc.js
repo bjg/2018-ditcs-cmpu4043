@@ -252,6 +252,7 @@ function add_keyboard_functionality() {
         case 'Backspace':
           display_string = display_string.slice(0,display_string.length-1);
           update_display();
+          break;
         default:
           break;
       }//end switch
