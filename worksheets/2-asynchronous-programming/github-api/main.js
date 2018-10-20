@@ -32,7 +32,7 @@ function main() {
             
     })
        
-    var repos_list = document.getElementById("repos_list");
+    let repos_list = document.getElementById("repos_list");
     
     // remove previous users repos
     if(repos_list.hasChildNodes) {
