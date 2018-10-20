@@ -1,0 +1,3 @@
+'strict'
+
+calculator = new Calculator();
