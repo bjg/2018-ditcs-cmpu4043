@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script src="eventhandler.js"></script>
+</head>
+
+<!-- Calculator grid -->
+<div class="calculator" onkeypress="myFunction()">
+
+       <input type="textfield" value="" placeholder="0" id="calc">
+       <div class="calculator-buttons">
+
+         <button class="calc-button" onclick='v("(")'>(</button>
+         <button class="calc-button" onclick='v(")")'>)</button>
+         <button class="calc-button" onclick='v(&#177;)'>&#177;</button>
+         <button class="calc-button" onclick='v("/")'>&#247;</button>
+
+         <button class="calc-button" onclick='v("7")'>7</button>
+         <button class="calc-button" onclick='v("8")'>8</button>
+         <button class="calc-button" onclick='v("9")'>9</button>
+         <button class="calc-button" onclick='v("*")'>*</button>
+
+         <button class="calc-button" onclick='v("4")'>4</button>
+         <button class="calc-button" onclick='v("5")'>5</button>
+         <button class="calc-button" onclick='v("6")'>6</button>
+         <button class="calc-button" onclick='v("-")'>-</button>
+
+         <button class="calc-button" onclick='v("1")'>1</button>
+         <button class="calc-button" onclick='v("2")'>2</button>
+         <button class="calc-button" onclick='v("3")'>3</button>
+         <button class="calc-button" onclick='v("+")'>+</button>
+
+         <button class="calc-button" onclick='v("0")'>0</button>
+         <button class="calc-button" onclick='v(".")'>.</button>
+         <button class="calc-button" onclick='c("")'>C</button>
+         <button class="calc-button" onclick='e("=")'>=</button>
+
+       </div>
+ </div>
