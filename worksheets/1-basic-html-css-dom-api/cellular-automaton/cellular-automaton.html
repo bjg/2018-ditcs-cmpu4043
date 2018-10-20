@@ -1,0 +1,82 @@
+<script>
+
+  var width = 101;
+  var height = 0;
+  var squares = [];
+  var ruleset = [0, 0, 1, 1, 1, 1, 0, 0];
+
+  initialize();
+
+  //
+  function initialize(){
+    for(var i = 0; i < width; i++)
+    {
+      squares[i] = Math.floor(Math.random() *2);
+    }
+    draw();
+  }
+
+  function draw(){
+    document.write("<p style=\"line-height:0px;margin:0px;\"><br>");
+
+    for(var i = 0; i < width; i++)
+    {
+      if(squares[i]==0)
+      {
+        document.write("<div style=\"border:solid 1px black; background-color:white; height:8px; width:8px;float:left;\"></div>");
+      }
+      else {
+        document.write("<div style=\"border:solid 1px black;background-color:black; height:8px; width:8px; float:left;\"></div>");
+      }
+    }
+
+    document.write("</p>");
+    if(height<50){
+      generate();
+    }
+  }
+
+  function generate(){
+    var nextRow = Array(squares.length);
+    var left;
+    var current;
+    var right;
+
+    for(var i = 0; i < squares.length-1;i++)
+    {
+      if(i==0)
+      {
+        left = squares[100];
+        current = squares[i];
+        right = squares[i+1];
+      }
+      else if(i==100)
+      {
+        right = squares[0];
+        current = squares[i];
+        left = squares[i-1];
+      }
+      else {
+         left = squares[i -1];
+         current = squares[i];
+         right = squares[i +1];
+      }
+      nextRow[i] = rules(left,current,right);
+    }
+    squares = nextRow;
+    height++;
+    draw();
+  }
+
+  function rules(a,b,c){
+    if(a==1&&b==1&&c==1) return ruleset[0];
+    if(a==1&&b==1&&c==0) return ruleset[1];
+    if(a==1&&b==0&&c==1) return ruleset[2];
+    if(a==1&&b==0&&c==0) return ruleset[3];
+    if(a==0&&b==1&&c==1) return ruleset[4];
+    if(a==0&&b==1&&c==0) return ruleset[5];
+    if(a==0&&b==0&&c==1) return ruleset[6];
+    if(a==0&&b==0&&c==0) return ruleset[7];
+    return 0;
+  }
+</script>
