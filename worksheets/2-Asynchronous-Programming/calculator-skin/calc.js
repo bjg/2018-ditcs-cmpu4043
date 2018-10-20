@@ -11,6 +11,8 @@
 
  //global variable manipulated by almost every function
 let display_string = "0";
+//use to handle start new expression or append new expression to answer
+let display_is_answer = false;
 
 //true if function parameter is operator 
 const is_operator = value =>  value === 'x' || value === '÷' || value === '+' || value === '-'; 
@@ -19,10 +21,10 @@ const is_digit = value => value >= '0' && value <= '9';
 //true if function parameter is decimal point
 const is_decimal_point = value => value === '.';
 //true if new display (for new equation)
-const is_new_display = () => display_string === "0";
+const is_new_display = () => display_string === "0" || display_is_answer;
 //used to display error message if display text goes beyond display div width
 const wider_than = (el1, el2) => parseFloat(getComputedStyle(el1).width) > parseFloat(getComputedStyle(el2).width);
-//used to handle multiplication by brackets. (ref: line 140)
+//used to handle multiplication by brackets. (ref: line 145)
 const push_mult_symbol = char => '*'+char;
 //regex pattern to return last number in the display string. includes sign value
 const last_num_in_display = () => display_string.match(/(-)?(\+)?\d+(\.)?(\d+)?(?=\D*$)/g)[0];
@@ -45,7 +47,7 @@ function update_display() {
 
 //called when plus/minus button pressed
 function handle_sign_operator(val) {
-  //usually (ref: line 88) last character of the display string determines how sign function should be implemented (exception for case 0. ref: line 68)
+  //usually (ref: line 90) last character of the display string determines how sign function should be implemented (exception for case 0. ref: line 70)
   switch(val) {
     //if mult, divide or brackets simply append the minus symbol
     case 'x':
@@ -110,13 +112,16 @@ function append_to_display(value) {
   {
     //start of a new equation. display string should just be assigned the given value. 
     //if value is decimal point and is_new_display() is true, then value should be handled by condition on line 84
-    //if value is operator and is_new_display() is true then operator should just be appended to allow operations on 0. handled by line 102
+    //if value is operator and is_new_display() is true then operator should just be appended to allow operations on 0. handled by line 118
     display_string = value;
+    display_is_answer = false;
   }
   else 
   {
     //if no user error, just append the value to the display string
     display_string += value;
+    //need to also ensure this gets switched off here in case of appending expression to answer (else next number value after operator will trigger line 110)
+    display_is_answer = false;
   }//end if-else chain
   update_display();
 }//end append_to_display()
@@ -175,11 +180,12 @@ function solve() {
   if(display_string !== "error") {
     //convert to string to compute length
     display_string = String(eval(display_string));
-    //handle long decimal or recurring decimal answers e.g 1/9 (ref: line 31 & 32)
+    //handle long decimal or recurring decimal answers e.g 1/9 (ref: line 33 & 34)
     if(display_string.length > 10 && contains_decimal(display_string)) {
           display_string = format_decimal_answer(display_string);
     }
   }
+  display_is_answer = true;
   update_display();
 }//end solve()
 
