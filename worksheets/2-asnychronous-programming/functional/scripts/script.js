@@ -14,7 +14,7 @@ function parseUserInfo(json_obj) {
 
 	zips = users.filter(x => 
 		x["zip"].charAt(0) === '2' || x["zip"].charAt(0) === '5');
-	console.log("User: " + zips.length);
+	console.log("Users with zip codes starting with 2 or 5: " + zips.length);
 }
 
 /*
