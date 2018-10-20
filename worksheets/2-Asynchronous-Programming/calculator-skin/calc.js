@@ -261,7 +261,7 @@ function add_keyboard_functionality() {
 }//end add_keyboard_functionality()
 
 
-//runs code. Had forgotten in front-end to set display overflow to hidden so handle it here
+//runs code. Had forgotten in css to set display overflow to hidden so handle it here
 function go() {
   var display = document.querySelector('#display');
   display.style.overflow = 'hidden';
