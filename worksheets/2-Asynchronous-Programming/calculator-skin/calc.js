@@ -215,7 +215,7 @@ function set_button_handlers() {
 //allows input from keyboard
 function add_keyboard_functionality() {
   let keyboard_input_vals = ['0','1','2','3','4','5','6','7','8','9','.', '+', '-', 'x', '(', ')'];
-  let keyboard_operator_vals = ['*', '/', '=', 'Enter', 'c', 'C'];
+  let keyboard_operator_vals = ['*', '/', '=', 'Enter', 'c', 'C', 'Backspace'];
   
   document.addEventListener('keydown', function(event) {
     if(event.key === '-' && event.altKey) {
@@ -249,6 +249,9 @@ function add_keyboard_functionality() {
         case 'Enter':
           solve();
           break;
+        case 'Backspace':
+          display_string = display_string.slice(0,display_string.length-1);
+          update_display();
         default:
           break;
       }//end switch
