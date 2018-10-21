@@ -1,9 +1,9 @@
 /* VARIABLES */
 
 // global variables
-let operator = '';				// most recent operator
-let equation = [];				// the equation to be calculated
-let result = '';					// result of calculation
+let operator = '';		// most recent operator
+let equation = [];		// the equation to be calculated
+let result = '';		// result of calculation
 let error_flag = false;		// check for errors in calculation
 
 // array to store buttons.innerHTML
@@ -33,7 +33,9 @@ for (let i = 0; i < btns.length; i++)
 console.log(buttons);
 
 // populate the operators array
-for (let i = 0; i < ops.length; i++)
+// need to include '/' for keyboard input
+operators[0] = '/';
+for (let i = 1; i < ops.length; i++)
 {
 	operators[i] = ops[i].innerHTML;
 }
@@ -54,7 +56,7 @@ console.log(symbols);
 document.addEventListener('keypress', function(event)
 {
 	let pressed = String.fromCharCode(event.keyCode);
-
+	
 	if(pressed === '=')
 	{
 		equals();
@@ -64,6 +66,18 @@ document.addEventListener('keypress', function(event)
 		clearDisplay();
 	}
 	else if (buttons.includes(pressed))
+	{
+		displayInput(pressed);
+	}
+	else if (operators.includes(pressed))
+	{
+		if(pressed === '/')
+		{
+			pressed = '÷';
+		}
+		displayOperator(pressed);
+	}
+	else if (symbols.includes(pressed))
 	{
 		displayInput(pressed);
 	}
@@ -148,7 +162,7 @@ function displayInput(symbol)
 		input.innerHTML = input.innerHTML + symbol;
 	}
 
-}
+}	// end function displayInput()
 
 // clear the global variables
 function clearVariables()
@@ -172,18 +186,16 @@ function clearDisplay()
 // function to handle the mathematical operators
 function displayOperator(symbol)
 {
-	// fix font size for display purposes
-  symbol = symbol.toLowerCase();
-
-  // update the global operator
-  operator = symbol;
+	// update the global operator
+	operator = symbol;
 
 	// add the operator to the equation
 	equation.push(operator);
 
-  // add the operator to the input box display
+	// add the operator to the input box display
 	input.innerHTML = input.innerHTML + symbol;
-}
+
+}	// end function displayOperator()
 
 // function to perform the calculation
 function equals()
@@ -224,7 +236,7 @@ function equals()
 	catch(err)
 	{
 		// give feedback
-    input.innerHTML = "ERROR";
+		input.innerHTML = "ERROR";
 
 		// clear the global variables
 		clearVariables();
@@ -232,7 +244,7 @@ function equals()
 		// set the error flag
 		error_flag = true;
 	}
-}
+}	// end function equals()
 
 // to switch the last number entered to positive/negative
 function changeSign()

@@ -3,134 +3,134 @@
 
 body
 {
-  font-family: sans-serif;
+        font-family: sans-serif;
 }
 
 #search_inputs, #body
 {
-  min-width: 800px;
+        min-width: 800px;
 }
 
 #input, #search, #userRepos
 {
-  margin-bottom: 5px;
+        margin-bottom: 5px;
 }
 
 #input, #search, #left, #right, #name, #uname, #email, #location, #gists
 {
-  display: inline-block;
-	vertical-align: top;
+        display: inline-block;
+        vertical-align: top;
 }
 
 #input_box, #search, #userHeader, #userRepos, .user_info
 {
-  font-weight: bold;
+        font-weight: bold;
 }
 
 #input_box
 {
-  height: 30px;
+        height: 30px;
 }
 
 #search, #box1, #box2, #repos
 {
-  border: 1px solid grey;
+        border: 1px solid grey;
 }
 
 #search
 {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 80px;
-  text-align: center;
-  margin-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 80px;
+        text-align: center;
+        margin-left: 10px;
 }
 
 #left, #right
 {
-  max-height: 364px;
-  width: 300px;
+        max-height: 364px;
+        width: 300px;
 }
 
 #userHeader, #userRepos, #box1
 {
-  margin-top: 5px;
+        margin-top: 5px;
 }
 
 #userHeader, #userRepos, #box1, #box2, #box3, .user_data
 {
-  max-width: inherit;
+        max-width: inherit;
 }
 
 #box1, #box2, .user_data, .repo
 {
-  padding: 5px;
+        padding: 5px;
 }
 
 #box1
 {
-  max-height: 200px;
-  padding-bottom: 20px;
+        max-height: 200px;
+        padding-bottom: 20px;
 }
 
 #box2, #search
 {
-  border-radius: 5px;
+        border-radius: 5px;
 }
 
 #box2, #box3
 {
-  max-height: inherit;
+        max-height: inherit;
 }
 
 #box3
 {
-  box-sizing: border-box;
+        box-sizing: border-box;
 }
 
 #avatar
 {
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 100%;
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
 }
 
 .user_data
 {
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  height: 40px;
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+        height: 40px;
 }
 
 .user_data, .repo
 {
-  border-bottom: 1px solid grey;
+        border-bottom: 1px solid grey;
 }
 
 .user_info
 {
-  margin-right: 5px;
+        margin-right: 5px;
 }
 
 #name, #uname, #email, #location, #gists
 {
-  height: 27px;
-  word-wrap: break-word;
+        height: 27px;
+        word-wrap: break-word;
 }
 
 #right
 {
-  margin-left: 15px;
+        margin-left: 15px;
 }
 
 #repos
 {
-  max-height: 480px;
+        max-height: 480px;
 }
 
 .repo
 {
-  width: inherit;
-  height: 69px;
+        width: inherit;
+        height: 69px;
 }

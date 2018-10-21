@@ -11,9 +11,9 @@
 {
 	height: 50px;
 	position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    border: 1px solid black;
-    display: block;
+	top: 0; right: 0; bottom: 0; left: 0;
+	border: 1px solid black;
+	display: block;
 }
 
 
@@ -63,5 +63,5 @@
 
 #calculator, .sym, .op, #change, #eq, #clr, .num
 {
-    padding: 5px;
+	padding: 5px;
 }

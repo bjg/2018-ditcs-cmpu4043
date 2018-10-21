@@ -31,15 +31,15 @@ document.addEventListener('keydown', function(event)
 // listener to handle clicks: search_button
 document.onclick = function(event)
 {
-  // get the clicked element
+	// get the clicked element
 	let target = event.target || event.srcElement;
 
 	// if the clicked element is the search_button
-  if(target.innerHTML === search_button.innerHTML)
-  {
+	if(target.innerHTML === search_button.innerHTML)
+	{
 		// try to fetch the user's data
-    tryFetch();
-  }
+		tryFetch();
+	}
 };  // end onclick
 
 // function to try fetch user's data
@@ -49,13 +49,13 @@ function tryFetch()
 	input = document.getElementById("input_box");
 
 	// get the user's inputted value
-  search_string = input.value;
+	search_string = input.value;
 
 	// create the argument for the fetch method
-  fetch_str = "https://api.github.com/users/" + search_string;
+	fetch_str = "https://api.github.com/users/" + search_string;
 
 	// fetch the data associated with the username entered as search parameter; check the response
-  const userData = fetch(fetch_str).then(function(response)
+	const userData = fetch(fetch_str).then(function(response)
 	{
 		// ensure that fetch returns OK i.e. not an error
 		if(!response.ok)
@@ -71,84 +71,86 @@ function tryFetch()
 	});	// end fetch(user)
 
 	userData
-    .then(data =>	// start parsing the returned data
-      {
-				// handle undefined values
-				for(value in data)
+	.then(data =>	// start parsing the returned data
+		{
+			// handle undefined values
+			for(value in data)
+			{
+				// if a value is null
+				if(data[value] === null)
 				{
-					// if a value is null
-					if(data[value] === null)
-					{
-						// change its value to explain to the user
-						data[value] = "Not Available";
-					}
+					// change its value to explain to the user
+					data[value] = "Not Available";
 				}
+			}
 
-        // display the user's avatar
-        document.getElementById("avatar").src = data.avatar_url;
+			// display the user's avatar
+			document.getElementById("avatar").src = data.avatar_url;
 
-				// display the user's information
-				name.innerHTML = data.name;
-        uname.innerHTML = data.login;
-        email.innerHTML = data.email;
-        locate.innerHTML = data.location;
-        gists.innerHTML = data.public_gists;
+			// display the user's information
+			name.innerHTML = data.name;
+			uname.innerHTML = data.login;
+			email.innerHTML = data.email;
+			locate.innerHTML = data.location;
+			gists.innerHTML = data.public_gists;
 
-				// clear the divs from the original html to make room for the user's repos
-				resetRepos();
+			// clear the divs from the original html to make room for the user's repos
+			resetRepos();
 
-        // fetch the user's repos
-        const repoData = fetch(data.repos_url);
+			// fetch the user's repos
+			const repoData = fetch(data.repos_url);
 
-        repoData
-          .then(repo_data => repo_data.json())	// parse returned value as JSON data
-          .then(repo_data =>										// parse the JSON data
-            {
-							// filter the user's repos one at a time
-              repo_data.map(repo =>
-                {
-                  // create a new div element
-                  let div = document.createElement("div");
+			repoData
+			.then(repo_data => repo_data.json())	// parse returned value as JSON data
+			.then(repo_data =>			// parse the JSON data
+				{
+					// filter the user's repos one at a time
+					repo_data.map(repo =>
+						{
+							// create a new div element
+							let div = document.createElement("div");
 
-									// set the class value for the div, to ensure CSS styling is applied
-                  div.classList.add('repo');
+							// set the class value for the div, to ensure CSS styling is applied
+							div.classList.add('repo');
 
-									// set the div height to adjust dynamically depending on the length of the repo's details
-									div.style.height = 'auto';
+							// set the div height to adjust dynamically depending on the length of the repo's details
+							div.style.height = 'auto';
 
-									// add the repo details to the innerHTML of the div
-                  div.innerHTML = "Name: " + repo.name + "<br /><br />Description: " + repo.description;
+							// add the repo details to the innerHTML of the div
+							div.innerHTML = "Name: " + repo.name + "<br /><br />Description: " + repo.description;
 
-									// append the new div to the document
-                  userRepos.appendChild(div);
+							// append the new div to the document
+							userRepos.appendChild(div);
 
-									// check if the number of repos is > 5
-									if(repo_data.length > 5)
-									{
-										// if true, set the new div's parent element to scroll vertically
-										userRepos.style.overflowY = 'scroll';
-									}
-
-                });  //end repo.map()
-            }); // end data parsing
-      });  // end JSON parsing
+							// check if the number of repos is > 5
+							if(repo_data.length > 5)
+							{
+								// if true, set the new div's parent element to scroll vertically
+								userRepos.style.overflowY = 'auto';
+							}
+						}
+					);  //end repo.map()
+				}
+			); // end data parsing
+		}
+	);  // end JSON parsing
 }	// end function tryFetch()
 
 // function to clear the initial blank divs from the document
 // - they will be replaced dynamically by divs containing data from the repo_url
 function resetRepos()
 {
-  // get all the repo class elements; returns HTMLCollection
-  let repos = document.getElementsByClassName("repo");
+	// get all the repo class elements; returns HTMLCollection
+	let repos = document.getElementsByClassName("repo");
 
 	// convert the HTMLCollection to an array
-  repos = Array.from(repos);
+	repos = Array.from(repos);
 
 	// loop through each repo element
-  repos.map(old_repo =>
-    {
+	repos.map(old_repo =>
+		{
 			// remove the repo element
-      old_repo.parentNode.removeChild(old_repo);
-    }
-  );	// end repos.map()
+			old_repo.parentNode.removeChild(old_repo);
+		}
+	);	// end repos.map()
 }	// end function resetRepos();

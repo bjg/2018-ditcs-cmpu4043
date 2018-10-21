@@ -47,101 +47,101 @@ postData
   .then(post_data => post_data.json())
   .then(post_data =>
     {
-      // Question 3:
-      console.log("Q3. List of post titles having more than six words: ");
+            // Question 3:
+            console.log("Q3. List of post titles having more than six words: ");
 
-      // to number the post titles
-      let count = 1;
+            // to number the post titles
+            let count = 1;
 
-      // List all of the post titles having more than six words
-      post_data.map(post =>
-      {
-        // check the title is not empty
-        if (post.title !== '')
-        {
-          // get a single title string
-          let title = post.title;
+            // List all of the post titles having more than six words
+            post_data.map(post =>
+                    {
+                            // check the title is not empty
+                            if (post.title !== '')
+                            {
+                                    // get a single title string
+                                    let title = post.title;
 
-          // split the string into temp_arr
-          let temp_arr = title.split(' ');
+                                    // split the string into temp_arr
+                                    let temp_arr = title.split(' ');
 
-          // get the length of temp_arr i.e. how many words are in the title
-          let result = temp_arr.length;
+                                    // get the length of temp_arr i.e. how many words are in the title
+                                    let result = temp_arr.length;
 
-          // if there are more than 6 words in the title
-          if (result > 6)
-          {
-            // print the title
-            console.log(count + ": " + post.title + " ; No.Words: " + result);
+                                    // if there are more than 6 words in the title
+                                    if (result > 6)
+                                    {
+                                            // print the title
+                                            console.log(count + ": " + post.title + " ; No.Words: " + result);
 
-            // increment the post counter
-            count = count + 1;
-          }
-        }
-        else    // title is blank
-        {
-          // print feedback
-          console.log("Title attribute is empty.");
-        }
-      });
+                                            // increment the post counter
+                                            count = count + 1;
+                                    }
+                            }
+                            else    // title is blank
+                            {
+                                    // print feedback
+                                    console.log("Title attribute is empty.");
+                            }
+                });
 
-      // blank line for easy reading
-      console.log('');
+                // blank line for easy reading
+                console.log('');
 
-      // Question 4:
-      console.log("Q4. Word frequency map for all of the body contents of the posts: ");
+                // Question 4:
+                console.log("Q4. Word frequency map for all of the body contents of the posts: ");
 
-      //new Map object
-      let myMap = new Map();
+                //new Map object
+                let myMap = new Map();
 
-      // array to store each unique key
-      let unique = [];
+                // array to store each unique key
+                let unique = [];
 
-      // map to parse the post body and clean it up
-      post_data.map(post =>
-      {
-        if (post.body !== '')
-        {
-          // get the title for each post
-          let xbody = post.body;
+                // map to parse the post body and clean it up
+                post_data.map(post =>
+                        {
+                                if (post.body !== '')
+                                {
+                                        // get the title for each post
+                                        let xbody = post.body;
 
-          // clean the newline char (\n) from the body
-          let body = xbody.replace(/\n/g, '')
+                                        // clean the newline char (\n) from the body
+                                        let body = xbody.replace(/\n/g, '')
 
-          // value to be added to the map as the key-value pair
-          let value = 0;
+                                        // value to be added to the map as the key-value pair
+                                        let value = 0;
 
-          // split the title into an array
-          let temp_arr = body.split(' ');
+                                        // split the title into an array
+                                        let temp_arr = body.split(' ');
 
-          // filter the temp_arr array
-          temp_arr.filter(post =>
-          {
-            // if the key is not in the array already
-            if(!unique.includes(post))
-            {
-              // add the (string) key to the array
-              unique.push(post);
+                                        // filter the temp_arr array
+                                        temp_arr.filter(post =>
+                                                {
+                                                        // if the key is not in the array already
+                                                        if(!unique.includes(post))
+                                                        {
+                                                                // add the (string) key to the array
+                                                                unique.push(post);
 
-              // initial value for the first occurence is 1
-              value = 1;
-            }
-            else   // the key is not unique
-            {
-              // get the current value from the Map
-              let key_value = myMap.get(post);
+                                                                // initial value for the first occurence is 1
+                                                                value = 1;
+                                                        }
+                                                        else   // the key is not unique
+                                                        {
+                                                                // get the current value from the Map
+                                                                let key_value = myMap.get(post);
 
-              // increment the value for the key
-              value = key_value + 1;
-            }
+                                                                // increment the value for the key
+                                                                value = key_value + 1;
+                                                        }
 
-            // add the (string) key and (occurence) value to the Map
-            myMap.set(post, value);
+                                                        // add the (string) key and (occurence) value to the Map
+                                                        myMap.set(post, value);
 
-          });  // temp_array.filter
-        }   // if (post_data[key].title !== '')
-      });  // post_data.map
+                                                });  // temp_array.filter
+                                        }   // if (post_data[key].title !== '')
+                                });  // post_data.map
 
-      // print the map
-      console.log(myMap);
-    });  // post_data.JSON - outer bracket - okay
+                                // print the map
+                                console.log(myMap);
+                        });  // post_data.JSON - outer bracket - okay
