@@ -1,3 +1,5 @@
+/*Having some layout issues. Ran out of time*/
+
 * {
     margin: 0;
     padding: 0;
@@ -33,11 +35,19 @@ h1 {
     overflow-y: auto;
 }
 
-.repo-item {
+.list-item {
     margin: auto;
     border: 1px solid black;
     padding: 1px 5px;
     width: 100%;
+}
+
+.user-item {
+    margin: auto;
+    align-self: flex-start;
+    border: 1px solid black;
+    padding: 1px 5px;
+    width: 50%;
 }
 
 #s-input {
@@ -55,7 +65,10 @@ h1 {
 }
 
 #user-profile {
+    display: flex;
+    flex-direction: column;
     align-self: flex-start;
+    width: 520px;
 }
 
 #avatar {
