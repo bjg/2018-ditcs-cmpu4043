@@ -1,0 +1,78 @@
+/***** search bar ******/
+.searchinput{
+	text-align: center;
+	margin-top: 5px;
+}
+
+#toSearch {
+	width: 500px;
+	height: 30px;
+	font-size: 15px;
+	vertical-align: bottom;
+	border: 1px solid black;
+}
+
+ #search {
+	margin-left: 30px;
+	width: 130px;
+	height: 36px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 12px;
+}
+
+/*****  profile pic ******/
+ #profilepic {
+	width: 250px;
+	height: 250px;
+	display: block;
+    margin: 0 auto;
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+
+/***** split screen ******/
+ .container {
+	text-align: left;
+	width: 665px;
+	margin-top: 15px;
+}
+
+ .screen {
+	float: left;
+	width: 330px;
+}
+
+ .leftside {
+	border: 1px solid black;
+	padding: 10px;
+	margin-top: 15px;
+	height: 440px;
+	margin-right: 20px;
+}
+
+ .rightside {
+	border: 1px solid black;
+	padding: 10px;
+	margin-top: 15px;
+	height: 440px;
+	overflow: auto;
+}
+ 
+/***** fonts ******/
+ h4 {
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ hr { 
+	float: left;
+	margin-left: -10px;
+	width: 308px;
+	border-style: inset;
+}
