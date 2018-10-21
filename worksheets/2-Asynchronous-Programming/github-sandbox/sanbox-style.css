@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+#search, #user-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 2em auto;
+}
+
+#search{
+    justify-content: space-around;
+}
+
+#user-wrapper {
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.repos {
+    display: flex;
+    list-style-type: none;
+    text-align: left;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.repo-item {
+    margin: auto;
+    border: 1px solid black;
+    padding: 1px 5px;
+    width: 100%;
+}
+
+#s-input {
+    width: 60%;
+    line-height: 2.5em;
+    border-radius: 1em;
+    padding-left: 2em;
+    font-size: 1em;
+}
+
+#s-btn {
+    width: 15%;
+    height: 2.8em;
+    border-radius: 1em;
+}
+
+#user-profile {
+    align-self: flex-start;
+}
+
+#avatar {
+    width: 250px;
+    height: 250px;
+}

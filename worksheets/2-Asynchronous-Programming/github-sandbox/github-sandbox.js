@@ -18,7 +18,8 @@ const get_repo_object = repo => {
 }
 
 function build_user_profile_div(object) {
-    return `<img src="${object.avatar}" alt="Profile Picture id="avatar>
+    return `<h2>User Profile</h2>
+            <img src="${object.avatar}" alt="Profile Picture" id="avatar">
             <h4>Name</h4>
             <p>${object.Name}</p>
             <h4>Username</h4>
@@ -35,9 +36,9 @@ function build_user_profile_div(object) {
 function build_user_repo_div(array_of_repo_objects) {
     let temp_str = ``;
     array_of_repo_objects.forEach(object => {
-            temp_str += `<li><h4>Name</h4><p>${object.name}</p><h4>Description</h4><p>${object.description}</p></li>`;
+            temp_str += `<li class="repo-item"><h4>Name</h4><p>${object.name}</p><hr><h4>Description</h4><p>${object.description}</p></li>`;
     })
-    let final_str = `<ul>`+temp_str+`</ul>`;
+    let final_str = `<h2>User Repos</h2><ul class="repos">`+temp_str+`</ul>`;
     return final_str;
 }
 
