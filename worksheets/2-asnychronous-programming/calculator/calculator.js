@@ -13,7 +13,7 @@ const clearInput = () => {
 
 
 const updateInput = (value) => {
-    window.input.value = value
+    input.value = value
     removeError()
 }
 
