@@ -1,4 +1,16 @@
-#calc {
+#disp{
+  display:block;
+  height:52px;
+  background-color:white;
+  margin:8px;
+  font-size:45px;
+  text-align:right;
+  overflow:auto;
+}
+
+
+
+#calculator {
 	position: relative;
 	width: 40%;
 	height: 70vh;

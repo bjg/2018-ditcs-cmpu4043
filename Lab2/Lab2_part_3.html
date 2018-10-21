@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Lab2_part_3.css">
+</head>
+<body>
+
+
+<form>
+  <input type="text" name="username" id = "use" placeholder="Username">
+  <input type="button" class="submit_but" value="Submit" onclick="FindUser()">
+</form> 
+
+<div id = "profile">
+  <h1 > User Profile </h1>
+  <img  id="userimg" src=""  width="200" height="200">
+  <div class = "d">
+      <p class="a">Name : </p>
+      <p class="b" id = "names"></p>
+
+  </div>
+  <div class = "d">
+      <div class="a" >Username : </div>
+      <div class="b" id  = "usernames"></div>
+  </div>
+  <div class = "d">
+      <p class="a">Email : </p>
+      <p class="b" id = "emails"></p>
+  </div>
+  <div class = "d">
+      <p class="a">Location : </p>
+      <p class="b" id = "locations"></p>
+  </div>
+    <div class = "d">
+      <p class="a">Number of Gists : </p>
+      <p class="b" id = "numofG"></p>
+    </div>
+</div>
+<div id="repo">
+  <h1 > User Repos </h1>
+  <div id = "repoinfo">
+
+  </div>
+</div>
+</body>
+<script src="Lab2_part_3.js"></script>
+</html>
