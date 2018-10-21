@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="apiScript.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pageTop">
+        <input id="usernameInp" type="text" placeholder="Username">
+      </div>
+      <div class="pageTop">
+        <button id="searchButton" onclick="search()">Search</button>
+      </div>
+      <div class="collumn">
+        <h4>User Profile</h4>
+        <div class="grid-container">
+          <div class="item" ><img src="" id="pic"> </div>
+          <div class="item" id="name"></div>
+          <div class="item" id="userName"></div>
+          <div class="item" id="email"></div>
+          <div class="item" id="location"></div>
+          <div class="item" id="gists"></div>
+        </div>
+      </div>
+      <div class="collumn">
+          <h4>User Repos</h4>
+          <div class="grid-container2" id="gdCont">
+          </div>
+      </div>
+    </div>
+
+  </body>
+</html>
