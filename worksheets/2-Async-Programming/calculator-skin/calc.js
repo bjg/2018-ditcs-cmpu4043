@@ -5,8 +5,46 @@ var displayNumber = 0;
 
 decimalFlag = 0;
 
-// to change the number in the screen
-// document.getElementById("screen").innerHTML = clickedId;
+document.addEventListener("keydown", keyDownTextField, false);
+
+function keyDownTextField(key) {
+	let keyCode = key.keyCode;
+	switch(keyCode)
+	{
+		case 48:
+			listen(0);
+			break;
+		case 49:
+			listen(1);
+			break
+		case 50:
+			listen(2);
+			break;
+		case 51:
+			listen(3);
+			break;
+		case 52:
+			listen(4);
+			break;
+		case 53:
+			listen(5);
+			break;
+		case 54:
+			listen(6);
+			break;
+		case 55:
+			listen(7);
+			break;
+		case 56:
+			listen(8);
+			break;
+		case 57:
+			listen(9);
+			break;
+		default:
+			break;
+	}
+}
 
 function listen(clickedId)
 {
