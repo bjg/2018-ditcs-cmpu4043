@@ -10,43 +10,47 @@ https://www.toptal.com/designers/htmlarrows/symbols/
 
 
 <html>
+<header>
+	<link rel="stylesheet" type="text/css" href="calculator.css">		 
+</header> 
 
 <body>
-	<header>
-		<link rel="stylesheet" type="text/css" href="calculator.css">
-		0 
-		 
-	</header> 
-	<!-- buttons -->
-	<input type="Submit" value="(">
-	<input type="Submit" value=")">
-	<input type="Submit" value="&#177;">
-	<input type="Submit" value="&#247;">
+<center>
+	<form name="Calculator">
+	<input name="display" placeholder = "0" />
+	<br>
+	<!-- "button"s -->
+	
+	<input type ="button" name="btnLeftParent" value="(" onClick="document.Calculator.display.value+='('"/>
+	<input type ="button" name="btnRightParent" value=")" onClick="document.Calculator.display.value+=')'"/>
+	<input type ="button" name="btnMod" value="&#37;" onClick="document.Calculator.display.value+='&#37;'"/>
+	<input type ="button" name="btnDivide" value="&#247;" onClick="document.Calculator.display.value+='&#247;'"/>
 	<br>
 	
-	<input type="Submit" value="7">
-	<input type="Submit" value="8">
-	<input type="Submit" value="9">
-	<input type="Submit" value="&#215;">
+	<input type ="button" name="btn7" value="7" onClick="document.Calculator.display.value+='7'"/>
+	<input type ="button" name="btn8" value="8" onClick="document.Calculator.display.value+='8'"/>
+	<input type ="button" name="btn9" value="9" onClick="document.Calculator.display.value+='9'"/>
+	<input type ="button" name="btnMult" value="&#215;" onClick="document.Calculator.display.value+='&#215;'"/>
 	<br>
 		
-	<input type="Submit" value="4">
-	<input type="Submit" value="5">
-	<input type="Submit" value="6">
-	<input type="Submit" value="&#8722;">
+	<input type ="button" name="btn4" value="4" onClick="document.Calculator.display.value+='4'"/>
+	<input type ="button" name="btn5" value="5" onClick="document.Calculator.display.value+='5'"/>
+	<input type ="button" name="btn6" value="6" onClick="document.Calculator.display.value+='6'"/>
+	<input type ="button" name="btnsub" value="&#8722;" onClick="document.Calculator.display.value+='&#8722;'"/>
 	<br>
 	
-	<input type="Submit" value="1">
-	<input type="Submit" value="2">
-	<input type="Submit" value="3">
-	<input type="Submit" value="&#43;">
+	<input type ="button" name="btn1" value="1" onClick="document.Calculator.display.value+='1'"/>
+	<input type ="button" name="btn2" value="2" onClick="document.Calculator.display.value+='2'"/>
+	<input type ="button" name="btn3" value="3" onClick="document.Calculator.display.value+='3'"/>
+	<input type ="button" name="btnAdd" value="&#43;" onclick="document.Calculator.display.value+='&#43;'"/>
 	<br>
 		
-	<input type="Submit" value="0">
-	<input type="Submit" value="&#8729;">
-	<input type="Submit" value="C">
-	<input type="Submit" value="&#61;">
-	
+	<input type ="button" name="btn0" value="0" onClick="document.Calculator.display.value+='0'"/>
+	<input type ="button" name="btnClear" value="C" onclick="document.Calculator.display.value+=''"/>
+	<input type ="button" name="btnPoint" value="&#46;" onclick="document.Calculator.display.value+='.'"/>
+	<input type ="button" name="btnEqul" value="&#61;" onclick="document.Calculator.display.value = eval(document.Calculator.display.value)"/>
+	</form>
+	</center>
 </body> 
 
 </html>

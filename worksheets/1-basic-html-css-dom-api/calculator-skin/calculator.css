@@ -11,19 +11,9 @@ body {
 	padding: 10px;
 	background-color:#e6e6e6; 
 }
-header {
-	width: 95%;
-	border: 2px solid #b3b3b3;
-	border-radius: 10px;
-	box-shadow: 2px 2px #999999;
-	margin: 5px;
-	text-align: right;
-    font-size: 25px;
-	color: #a6a6a6;
-	padding: 5px;
-	background-color:#ffffff;
-	}
-input[type=Submit] {
+
+	
+input[type=button] {
 	width: 20%;
 	text-align: center;
     font-size: 15px;
@@ -33,6 +23,17 @@ input[type=Submit] {
 	border-radius: 15px;
 	margin: 5px;
 	box-shadow: 5px 5px #999999;
+	
 }
-
-
+input[name="display"] {
+	width: 254px;
+	height: 60px;
+	text-align: right;
+    font-size: 30;
+	background-color: #b3b3b3;
+    color: black;
+    border: 2px solid #b3b3b3;
+	border-radius: 8px;
+	margin: 3px;
+	box-shadow: 5px 5px #999999;*/
+}
