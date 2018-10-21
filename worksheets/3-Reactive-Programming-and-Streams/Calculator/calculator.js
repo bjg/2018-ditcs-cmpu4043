@@ -17,11 +17,24 @@ function clearScreen(){
 }
 
 function evalScreen(){
-    expression = eval(expression);
+    try{
+        expression = eval(expression);
+    }
+    catch(e){
+        
+    }
     display.value = expression;
 }
 
-document.addEventListener('keypress', function(event) {
+var keyPress = Rx.Observable.fromEvent(document, 'keypress').filter(event => "0123456789-+/*0.".indexOf(event.key) != -1 || event.key == 'c' || event.key == 'C' || event.key == '=');
+var click = Rx.Observable.fromEvent(document, 'click').map(function(event){
+    event.key = event.target.id;
+    return event;
+});
+
+var input = Rx.Observable.merge(keyPress, click);
+
+input.subscribe(function(event) {
     "0123456789-+/*0.".indexOf(event.key) != -1? append(event.key): null;
     event.key == 'c' || event.key == 'C' ? clearScreen() : null;
     event.key == '='? evalScreen(): null;
