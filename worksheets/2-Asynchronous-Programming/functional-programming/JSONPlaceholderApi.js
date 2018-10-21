@@ -12,7 +12,7 @@ const part_two = data => {
 
 //uses filter to build an array of objects that meet the requirements, then calls map to return the title parameter of every object in the new array
 const part_three = data => {
-    return data.filter(object => object.title.split(" ").length > 6).map(post => {return post.title});
+    return data.filter(object => object.title.split(/\s+/).length > 6).map(post => {return post.title});
 }
 
 //builds a js object of word frequency occurences from the body key associated with the data fed through the pipe, converts this object to 2d array, sorts and returns
