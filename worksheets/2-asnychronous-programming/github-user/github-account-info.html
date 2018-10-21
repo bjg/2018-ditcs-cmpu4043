@@ -1,0 +1,56 @@
+<!--
+Author: Gabriel Grimberg
+
+Module: Rich Web Application
+
+Type: Lab 2/5
+
+Question: 3/3
+
+Instructions: 
+	- Build a Web Application for Querying User Information from Github.  
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Linking to CSS-->
+		<link type="text/css" rel="stylesheet" href="main-style.css"/>
+		<meta charset="UTF-8">
+		<title>Rich Web - Lab 2/5</title>
+	</head>
+	<body>
+	
+	<script type="text/javascript" src="github-account-info.js"></script>
+	
+		<section>
+			<div class="rows">
+				<div class="columns">
+					<div class="button">
+						<input id="inputID" type="text" placeholder="Username">
+						<input onclick="submitButtonPressed()" id="submitID" type="button" value="Seach">
+					</div>
+				</div>
+			</div>
+			
+			<div class="rows">
+				<div class="columns">
+					<div><b>User Profile</b></div><br/>
+					<div class="profileSection">
+						<div><img id="profile-picture"/></div>
+						<div id="nameID">Name</div>
+						<div id="usernameID"> Username</div>
+						<div id="emailID"> Email</div>
+						<div id="locationID"> Location</div>
+						<div id="noOfGistID"> Number of Gists</div>
+					</div>
+				</div>
+				
+				<div class="columns">
+					<div><b>User Repos</b></div><br/>
+					<div class="repoSection" id="userRepoID" style="overflow-y: scroll; height:580px;"></div>
+				</div>
+			</div>
+		</section>
+		
+	</body>
+</html>
