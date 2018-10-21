@@ -176,10 +176,8 @@
         let size = fetch(gistsURL)
             .then(response => response.json())
             .then(function (gists) {
-                let arr = gists.map(x => x != null);
-                return arr;
-            })
-
+                return gists.map(x => x != null);
+            });
         return size.length;
     }
 
@@ -200,7 +198,6 @@
         } else {
             console.log("Error");
         }
-
     }
 </script>
 </html>
