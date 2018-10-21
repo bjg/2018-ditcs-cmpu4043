@@ -3,12 +3,31 @@ class Calculator {
     constructor() {
         this.prevInput = ' ';
         this.currInput = '0';
+        this.validInput = ['0','1','2','3','4','5','6','7','8','9', '+', '-', '*', '/', '.', 'c', '=', '(', ')'];
     }
     
     buttonClick(value) {
         this.currInput = value;
         this.prevInput += this.currInput;
         this.display();
+    }
+    
+    onKeyUp(event) {
+        
+        let key = event.key.toString();
+        
+        if(this.validInput.includes(key)) {
+            
+            if(key == 'c') {
+                this.clear();
+            } else if (key == '=') {
+                this.evaluate();
+            } else {
+                this.buttonClick(key);
+            }
+            
+        }
+        
     }
     
     clear() {
@@ -32,3 +51,7 @@ class Calculator {
 }
 
 calculator = new Calculator();
+
+document.addEventListener('keyup', (event) => {
+    calculator.onKeyUp(event);
+});
