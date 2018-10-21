@@ -1,0 +1,42 @@
+
+.gridList
+{
+
+	width:95%;
+
+
+}
+
+.gridBox
+{
+	width:95%;
+	border-style: solid;
+}
+
+.gridLabel
+{
+	display: inline-block;
+	font-weight: bold;
+	width:40%;
+}
+
+.gridContent
+{
+	display: inline-block;
+	width:40%;
+	vertical-align: middle;
+}
+
+#userProfileElement
+{
+	width: 50%;
+	/*background-color: red;*/
+	float:  left;
+}
+
+#userReposElement
+{
+	width: 50%;
+	/*background-color: green;*/
+	float:  right;
+}
