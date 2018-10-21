@@ -28,24 +28,17 @@ postData
     //part three of lab, List all of the post titles having more than six words
     Object.keys(data).forEach(function(key) {
 
-      //let numOfWords= WordCount(data[key].title);
       let numOfWords=(data[key].title).split(" ").length;
       if(numOfWords > 6)
       {
         console.log(data[key].title);
         i++;
       }
+    });
 
-      });
-      console.log("The number of tiltes that have more than 6 words: "+i);
-      console.log("");
+    console.log("The number of tiltes that have more than 6 words: "+i);
+    console.log("");
 
-
+    //part four Show a word frequency map for all of the body contents of the posts
+    let wordsArray;  
   });
-
-/*
-
-  function WordCount(string) {
-  return string.split(" ").length;
-}
-*/
