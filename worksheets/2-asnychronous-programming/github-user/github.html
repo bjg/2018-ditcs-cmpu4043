@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="github.css">
+</head>
+
+<body>
+
+<div>
+    <input id="searchInput" placeholder="username">
+    <button onclick="searchUsername()">Search</button>
+</div>
+
+<div id="homeContainer">
+    <img src="github-logo.png" style="width: 200px">
+    <h1>Search a user</h1>
+    <div style="display: none" id="loader"></div>
+</div>
+
+<div id="container" style="display: none">
+
+    <div class="wrapper">
+        <h4>User Profile</h4>
+        <div id="userProfile">
+            <img id="profilePicture">
+            <div id="userProfileInfo">
+                <div id="name">
+                    <h3>name:</h3>
+                    <p></p>
+                </div>
+
+                <div id="username">
+                    <h3>Username:</h3>
+                    <p>testing</p>
+                </div>
+
+                <div id="email">
+                    <h3>emaill:</h3>
+                    <p></p>
+
+                </div>
+
+                <div id="location">
+                    <h3> location:</h3>
+                    <p></p>
+                </div>
+
+                <div id="Number-of-Gists">
+                    <h3>Number of Gists:</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <h4>User Repos</h4>
+        <div id="repos"></div>
+    </div>
+</div>
+
+<script src="github.js"></script>
+</body>
+</html>
