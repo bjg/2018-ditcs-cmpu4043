@@ -1,0 +1,51 @@
+<script>
+    var user = fetch('https://jsonplaceholder.typicode.com/users');
+    var post = fetch('https://jsonplaceholder.typicode.com/posts');
+    
+    user.then((response) => {
+      response.json().then((users) => {
+    
+        // Displaying the info about the user
+        users.map(user =>
+        console.log('Username:', user.username, '\nCity:' ,user.address.city, '\nZipcode:', user.address.zipcode));
+        console.log('');
+    
+        // We filter the user's zipcode so it only gets the one starting with a 1 or a 5.
+        var filtered = users.filter( user => user.address.zipcode.startsWith('2') || user.address.zipcode.startsWith('5'));
+        console.log('Number of users with a Zipcode starting with 2 or 5: ', filtered.length);
+        console.log('');
+      })
+    });
+    
+    
+    post.then((response) => {
+      response.json().then((posts) => {
+    
+        //we split post titles into words, filtered to take the oens with more than 6 words
+        // we map it only to print the title
+        posts.filter(post => post.title.split(' ').length > 6)
+        .map(post => console.log(post.title));
+        console.log('');
+    
+        //getting the bodies of all posts and converting them to string. 
+        //Word are split if there is  a space, new line or comma.
+        var bodies = posts.map(post => post.body).toString();
+        var wordlist = bodies.split(/[\n, ]/g);
+    
+        //Reduce all words to have the frequency of each of them. Every time a new word is found
+        //is stored as a key in the object allWords with the value of one. Every time that word
+        //appers again, the frequency value is increased.
+        var wordMap = wordslist.reduce(function (allWords, word) {
+          console.log(allWords);
+          if (word in allWords) {
+            allWords[word]++;
+          }
+          else {
+            allWords[word] = 1;
+          }
+          return allWords;
+        }, {})
+        console.log(wordMap);
+      })
+    });
+    </script>
