@@ -1,0 +1,85 @@
+<style>
+body{
+			background:#edeeef;
+}
+#outer {	
+		    border-radius: 25px;
+			border: 2px solid black;
+			padding: 20px; 
+			width: 350px;
+			height: 300px; 
+}
+#screen {	
+			background:white;
+		    border-radius: 15px;
+			border: 5px inset;
+			margin-bottom:20px;
+			padding:10px;
+			width: 320px;
+			height: 50px;
+			text-align:right;
+}
+#screen h1{
+			font-family:Arial;
+			font-size:40px;
+			margin: 0;
+}
+button {
+			background:#d6d9db;
+		    border-radius: 5px;
+			border: 2px outset; 
+			width: 70px;
+			height: 30px;
+			text-align:center;
+			margin:5px;
+}
+p{
+			font-family:Arial;
+			font-size:20px;
+			margin: 0;
+}
+</style>
+
+<script src="script.js"></script>
+
+<html>
+<body>
+
+<div id="outer">
+
+	<div id="screen">
+		<h1 id="display">0</h1>
+	</div>
+	
+	<button id="button1" onclick="main(this.value)" value="("> <p>(</p> </button>
+	<button id="button2" onclick="main(this.value)" value=")"> <p>)</p> </button>
+	<button id="button3" onclick="main(this.value)" value="+-"> <p>±</p> </button>
+	<button id="button4" onclick="main(this.value)" value="/"> <p>÷</p> </button>
+
+	<button id="button5" onclick="main(this.value)" value="7"> <p>7</p> </button>
+	<button id="button6" onclick="main(this.value)" value="8"> <p>8</p> </button>
+    <button id="button7" onclick="main(this.value)" value="9"> <p>9</p> </button>
+	<button id="button8" onclick="main(this.value)" value="*"> <p>x</p> </button>
+
+	<button id="button9" onclick="main(this.value)" value="4"> <p>4</p> </button>
+	<button id="button10" onclick="main(this.value)" value="5"> <p>5</p> </button>
+	<button id="button11" onclick="main(this.value)" value="6"> <p>6</p> </button>
+	<button id="button12" onclick="main(this.value)" value="-"> <p>-</p> </button>
+
+	<button id="button13" onclick="main(this.value)" value="1"> <p>1</p> </button>
+	<button id="button14" onclick="main(this.value)" value="2"> <p>2</p> </button>
+	<button id="button15" onclick="main(this.value)" value="3"> <p>3</p> </button>
+	<button id="button16" onclick="main(this.value)" value="+"> <p>+</p> </button>
+
+	<button id="button17" onclick="main(this.value)" value="0"> <p>0</p> </button>
+	<button id="button18" onclick="main(this.value)" value="."> <p>.</p> </button>
+	<button id="button19" onclick="clearAll()" value="clear"> <p>C</p> </button>
+	<button id="button20" onclick="equals(buffer1)" value="equals"> <p>=</p> </button>
+
+</div>
+
+<p id="console"></p>
+
+
+</body>
+</html>

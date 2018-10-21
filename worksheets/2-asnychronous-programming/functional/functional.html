@@ -1,0 +1,98 @@
+<script>
+    const url="http://jsonplaceholder.typicode.com/";
+
+    function userAttributes()
+    {
+        fetch(url+"users")
+            .then(response => response.json())
+            .then(data => {
+                let parseData = data;
+                let user = [];
+                console.log("Users with Username, City And Zipcode");
+                parseData.map(item => {
+                    //Go through the data and save only the username, city and zipcode
+                    user = {
+                        "Username": item.username, "City": item.address.city, "Zipcode": item.address.zipcode
+                    };
+                    console.log(user);
+                });
+            });
+    }
+
+    function userZip()
+    {
+        fetch(url+"users")
+            .then(response => response.json())
+            .then(data => {
+                let parseData = data;
+                console.log("Amount of users with zipcode starting with 2 or 5");
+                //Filter the data only if the zipcode starts with 2 or 5
+                let users = parseData.filter(item => item.address.zipcode.startsWith('2')|| item.address.zipcode.startsWith('5'));
+
+                console.log(users.length);
+            });
+    }
+
+    function postTitles()
+    {
+        fetch(url+"posts")
+            .then(response => response.json())
+            .then(data => {
+                let parseData = data;
+                console.log("Post Titles that have more than 6 words");
+                let posts = parseData.filter(item => {
+                    //Split the post titles by spaces and filter only the ones that have more than 6 words
+                    let post = item.title.split(" ");
+                    if(post.length>6)
+                    {
+                        return post;
+                    }
+                });
+                console.log(posts);
+            });
+    }
+
+    function postBodyFrequency()
+    {
+        fetch(url+"posts")
+            .then(response => response.json())
+            .then(data => {
+                let parseData = data;
+                let frequency = [];
+                console.log("Word frequency map of post body");
+                parseData.map(item => {
+                    //Replace all newline chars with spaces and split string by space
+                    let postBody = item.body.replace( /\n/g, " " ).split(" ");
+                    /*Map through the new postBody words array and add words which have not been encountered yet as a new element to the frequency array
+					and increment any elements where the word has already been encountered
+					*/
+                        postBody.map(item => {
+                            if(frequency[item] !=null)
+							{
+                                frequency[item]+=1;
+                            }
+                            else
+							{
+                                frequency[item]=1;
+                            }
+                    })
+                });
+                console.log(frequency);
+            });
+    }
+
+    userAttributes();
+    userZip();
+    postTitles();
+    postBodyFrequency();
+
+
+</script>
+
+
+<html>
+<body>
+
+
+</body>
+</html>
