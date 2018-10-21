@@ -1,30 +1,8 @@
-
 function searchUser(){
   var searchValue = document.getElementById("search").value;
   fetchUserDetails(searchValue);
  
 }
-
-/*
-function fetchUserDetails(userName){
-  fetch('https://api.github.com/users/' + userName)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(json => fillUserProfile(json))
-  .then(json => countGists(json))
-  .then(json => setImage(json))
-  .then(json => {
-    //fetch repos
-    return fetch(json.repos_url);
-  })
-  .then(response => response.json())
-  .then(json => {
-    getRepoDetails(json);
-  })
-  .catch(err => handleError(err)); 
-}
-*/
 
 function fetchUserDetails(userName){
   fetch('https://api.github.com/users/' + userName)
