@@ -1,0 +1,38 @@
+#search
+{
+    width: 50%;
+}
+
+#username
+{
+    width: 70%;
+}
+
+#submit
+{
+    width: 20%;
+    float: right;
+    border-radius: 10px;
+}
+
+#information
+{
+    width: 50%;
+    margin-top: 1em;
+}
+
+#profile
+{
+    float: left;
+}
+
+#repos
+{
+    float: right;
+}
+
+img 
+{
+    max-width: 100%;
+    max-height: 100%;
+}

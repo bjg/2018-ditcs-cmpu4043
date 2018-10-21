@@ -1,0 +1,38 @@
+body
+{
+    background-color: lightgrey;
+}
+
+#container
+{
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#output
+{
+    border-radius: 10px;
+    width: 90%;
+    text-align: right;
+    font-size: 4em;
+    box-shadow: inset 3px 3px grey;
+    margin-bottom: 20px;
+}
+
+.button
+{
+    border-radius: 10px;
+    background-color: darkgrey;
+    margin-bottom: 10px;
+    margin-right: 1px;
+    margin-left: 1px;
+    width: 21%;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 3px 3px black;
+}
