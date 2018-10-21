@@ -38,21 +38,25 @@
   </div>
 <script id="jsbin-javascript">
 var selection = document.querySelectorAll("button");
+//html buttons
 var screen = document.getElementById("screen");
+//html screen
 let bool = true;  
-
-// Add on click events
+//bool for knowing if there is an operator or not
+	
+//On click of button
 for (var i = 0; i < selection.length; i++) 
 {
   selection[i].onclick = function(e) 
   {
-    evaluate(this.innerHTML);
+	//Will send the HTML element of the button clicked e.g 1,2,*,+ to evaluate fxn
+    	evaluate(this.innerHTML);
   }
 }
 
 document.onkeypress = function(e) 
 {
-
+   //keys allowed for typing input	
   let allowed_keys = ["1", "2", "3", "4", "5", "6", "7","8", "9", "0",
                        "(", ")", "/", "*", "-","+","=","C","c", "."];
   var input = String.fromCharCode(e.keyCode);
@@ -60,7 +64,7 @@ document.onkeypress = function(e)
   
   if(allowed_keys.includes(input))
  {
-  evaluate(input);
+  evaluate(input);//calls evaluate fxn which will display to screen
  }
   
 }
@@ -74,17 +78,19 @@ function evaluate(val)
     if(val == "C" || val == "c") 
      {
         screen.value = '';
+	//clears screen
      }
     else if(val == "±")
       {
 		if(bool === true)
 		{
-		console.log("cant do this here");
-          
-		}
+			console.log("cant do this here");
+			//cannot +- an evaluator
+          	}
 		else
 		{
 			screen.value = -screen_value;
+			//change the value to minus the screen value
 		}
       }
     else if(val == "=") 
@@ -92,34 +98,40 @@ function evaluate(val)
       var equation = screen_value;
         try 
         {
+	//Will do eval if equation is correct
           screen.value = eval(equation); 
         } 
         catch (e) 
         {
           if (e instanceof SyntaxError) 
           {
+		//throws error if syntax is wrong
              alert(e.message);
           }
         }
     }
     else 
     {
+       // Makes sure only one operater can be displayed at a time
       let operaters = ["*", "-", "/","+"];
       
       if (operaters.includes(val))
         {
           if(bool === true )
              {
+	       //true means operator is already added
                console.log("already added");
              }
           else
             {
+	    //adds operater to screen and sets bool false as it is now an operater
               screen.value += val;
               bool = true;
             }
         }
       else
         {
+	   //adds number to screen and sets bool false as it is now a number	
            screen.value += val;
            bool = false;     
         }
