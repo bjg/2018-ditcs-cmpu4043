@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<style>
+  #content {
+      float: left;
+      width: 80%;
+      height: 800px;
+      border: 2px solid black;
+      padding: 25px;
+      margin: 25px;
+  }
+
+  #content1 {
+      float: left;
+      width: 50%;
+      height: 575px;
+      border: 2px solid black;
+      margin: 25px;
+  }
+
+  #content2 {
+      float: right;
+      width: 30%;
+      height: 400px;
+      border: 2px solid black;
+      margin: 25px;
+      overflow: auto;
+  }
+
+  #searchBox {
+              float: left;
+              width: 500px;
+              height: 20px;
+              border: 1px solid black;
+              padding: 5px;
+          }
+
+  #searchButton {
+              border-radius: 10px;
+              float: left;
+              margin-left: 40px;
+              width: 150px;
+              height: 32px;
+              border: 1px solid black;
+          }
+
+
+  table {
+              width:100%;
+          }
+table, th, td {
+              
+              border: 1px solid black;
+              border-collapse: collapse;
+}
+</style>
+
+<body>
+        <section id="content">
+            <form id="SearchForm">
+                <input type="text" id="searchBox">
+                <input type="submit" id="searchButton" value="Search"/>
+            </form>
+        <br/>
+
+            <h1 style="margin-left:25px;"> User Profile </h1> 
+        <section id="content1">
+                
+                <table>
+                        <tr>
+                            <img src="" id="img1" style="width:350px;height:250px;padding:30px;margin-left: 100px;" /> 
+                            <td><p id="p1">Name :</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="p2">Username :</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="p3">Email :</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="p4">Location :</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="p5">Number of Gists :</p></td>
+                        </tr>
+                </table>
+
+        </section>
+            <div id="content2">
+                
+                <nav>
+                    <table id="table1">
+                           
+                    </table>
+                </nav>
+            </div>
+
+        </section>
+</body>
+</html>
+
+<script>
+
+    //const gary = document.getElementById('searchBox').value;
+    //console.log(gary);
+
+    var event = document.getElementById('SearchForm');
+    if(event.addEventListener)
+    {
+        event.addEventListener("submit", callback);
+    }
+
+    function callback(e)
+    {
+        e.preventDefault();
+        //fetch('https://api.github.com/users')
+        //.then(response => response.json())
+        //.then(json => console.log(json))
+
+        fetch('https://api.github.com/users')
+        .then(response => {return response.json()})
+        .then(data => {var users = data
+
+        
+        //console.log(user);
+        //document.getElementById('p1').innerHTML = user;
+
+        const logins = users.map(findUser);
+        console.log("User Logins", logins);
+        })
+
+        function findUser(users)
+        {
+            var details = [users.login];
+            const user = document.getElementById('searchBox').value;
+
+            if(users.login == user)
+            {
+                document.getElementById('p2').innerHTML = "Username : " + user;
+                document.getElementById('img1').src = users.avatar_url;
+
+                fetch(users.url)
+                .then(response => {return response.json()})
+                .then(data => {var details = data
+
+                document.getElementById('p4').innerHTML = "Location : " + details.location;
+                document.getElementById('p3').innerHTML = "Email : " + details.email;
+                document.getElementById('p1').innerHTML = "Name : " + details.name;
+                document.getElementById('p5').innerHTML = "Number of Gists : " + details.public_gists;
+
+                })
+                
+                fetch(users.repos_url)
+                    .then(response => {return response.json()})
+                    .then(data => {var repos = data
+                    
+                    const names = repos.map(findRepo);
+                    console.log("Repo Names", names);
+
+                    
+                    function findRepo(repos)
+                    {
+                            var table = document.getElementById('table1');
+                            var test = [repos.name,repos.description];
+
+                            var tr = document.createElement('tr');
+                            var td = document.createElement('td');
+                            var br = document.createElement('br')
+                            td.appendChild(document.createTextNode("Name : " + repos.name));
+                            td.appendChild(br);
+                            td.appendChild(document.createTextNode("Description : " + repos.description));
+                            tr.appendChild(td);
+                            table.appendChild(tr);
+
+                            
+                            //table.innerHTML = "";
+
+                        return test
+                    }
+                })
+                
+            }
+            return details
+        }
+    }
+    
+</script>

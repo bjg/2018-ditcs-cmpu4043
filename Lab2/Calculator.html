@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+        input[type=button] {
+            background: lightGray;
+            height: 50px;
+            width: 20%;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 7px;
+            margin-left: 13px;
+            margin-top: 30px;
+            }
+
+          #content {
+              float: left;
+              border-radius: 25px;
+              width: 500px;
+              height: 550px;
+              border: 2px solid black;
+              padding: 25px;
+              margin: 25px;
+          }
+        
+          #number {
+            float: left;
+              border-radius: 35px;
+              width: 370px;
+              height: 25px;
+              border: 2px solid black;
+              padding: 35px;
+              margin-left: 20px;
+              margin-bottom: 25px;
+          }
+</style>
+
+<head>
+    <title>Gary's Calculator</title>
+</head>
+
+<body>        
+    <!-- The outer layer of the calculator --> 
+    <div id="content"> 
+        <!-- Using a form because a form allows us to take in user input -->
+        <form name="screen">
+            <!-- A text box to display the numbers on the calculator -->
+            <input name="number" id="number" type="text"/> 
+
+                <!-- Creating the buttons -->
+
+                    <input id="(" type="button" value="("/>
+                    <input id=")" type="button" value=")"/>
+                    <input id="±" type="button" value="±"/> 
+                    <input id="." type="button" value="."/>
+                    <input id="1" type="button" value="1"/>
+                    <input id="2" type="button" value="2"/>
+                    <input id="3" type="button" value="3"/> 
+                    <input id="+" type="button" value="+"/>
+                    <input id="4" type="button" value="4"/>
+                    <input id="5" type="button" value="5"/>
+                    <input id="6" type="button" value="6"/>
+                    <input id="-" type="button" value="-"/>
+                    <input id="7" type="button" value="7"/>
+                    <input id="8" type="button" value="8"/>
+                    <input id="9" type="button" value="9"/>
+                    <input id="x" type="button" value="*"/>
+                    <input id="c" type="button" value="c"/>
+                    <input id="0" type="button" value="0"/>
+                    <input id="=" type="button" value="="/>
+                    <input id="/" type="button" value="/"/>
+
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    window.onload = function() {
+
+    //Left Bracket
+    document.getElementById('(').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('(').value;
+    });
+    //Right Bracket
+    document.getElementById(')').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById(')').value;
+    });
+    //Changes single values between + and - by multiplying the value by -1
+    document.getElementById('±').addEventListener('click', function(){
+        const backspace = document.getElementById('number').value;
+        document.getElementById('number').value = document.getElementById('number').value * -1;
+    });
+    //Decimal point for float numbers
+    document.getElementById('.').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('.').value;
+    });
+    //Number 1
+    document.getElementById('1').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('1').value;
+    });
+    //Number 2
+    document.getElementById('2').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('2').value;
+    });
+    //Number 3
+    document.getElementById('3').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('3').value;
+    });
+    //Number 4
+    document.getElementById('4').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('4').value;
+    });
+    //Number 5
+    document.getElementById('5').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('5').value;
+    });
+    //Number 6
+    document.getElementById('6').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('6').value;
+    });
+    //Number 7
+    document.getElementById('7').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('7').value;
+    });
+    //Number 8
+    document.getElementById('8').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('8').value;
+    });
+    //Number 9
+    document.getElementById('9').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('9').value;
+    });
+    //Number 0
+    document.getElementById('0').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('0').value;
+    });
+    //Minus symbol
+    document.getElementById('-').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('-').value;
+    });
+    //Plus symbol
+    document.getElementById('+').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('+').value;
+    });
+    //Multiply symbol
+    document.getElementById('x').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('x').value;
+    });
+    //divide symbol
+    document.getElementById('/').addEventListener('click', function(){
+        document.getElementById('number').value = document.getElementById('number').value + document.getElementById('/').value;
+    });
+    //Equal symbol
+    document.getElementById('=').addEventListener('click', function(){
+        document.getElementById('number').value = eval(document.getElementById('number').value);
+    });
+    //Clear symbol
+    document.getElementById('c').addEventListener('click', function(){
+        document.getElementById('number').value = "";
+    });
+
+}
+</script>
+
