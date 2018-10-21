@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="skin.css">
+  <title>Calculator Skin</title>
+</head>
+<body>
+
+  <script src="calculator_js.js"> </script>
+
+  <div id="border-edge">
+	<input id="output" type="text" value="0">
+
+    <div id="row0">
+    <button onclick="listen(this.id)" id="(">)">(</button>
+	  <button onclick="listen(this.id)" id=")">)</button>
+	  <button onclick="listen(this.id)" id="±">±</button>
+	  <button onclick="listen(this.id)" id="÷">÷</button>
+	</div>
+
+	<div id="row1">
+	  <button onclick="listen(this.id)" id="7">7</button>
+	  <button onclick="listen(this.id)" id="8">8</button>
+	  <button onclick="listen(this.id)" id="9">9</button>
+	  <button onclick="listen(this.id)" id="x">x</button>
+	</div>
+
+	<div id="row2">
+	  <button onclick="listen(this.id)" id="4">4</button>
+	  <button onclick="listen(this.id)" id="5">5</button>
+	  <button onclick="listen(this.id)" id="6">6</button>
+	  <button onclick="listen(this.id)" id="-">-</button>
+	</div>
+
+	<div id="row3">
+	  <button onclick="listen(this.id)" id="1">1</button>
+	  <button onclick="listen(this.id)" id="2">2</button>
+	  <button onclick="listen(this.id)" id="3">3</button>
+	  <button onclick="listen(this.id)" id="+">+</button>
+	</div>
+
+	<div id="row4">
+	  <button onclick="listen(this.id)" id="0">0</button>
+	  <button onclick="listen(this.id)" id=".">.</button>
+	  <button onclick="listen(this.id)" id="C">C</button>
+	  <button onclick="listen(this.id)" id="=">=</button>
+	</div>
+  </div>
+
+</body>
+</html>

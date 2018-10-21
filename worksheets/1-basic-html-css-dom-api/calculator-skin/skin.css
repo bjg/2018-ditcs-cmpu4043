@@ -1,0 +1,32 @@
+#border-edge {
+  border: 2px solid black;
+  border-radius: 25px;
+  width: 435px;
+  height: 320px;
+}
+
+input[type=text] {
+  
+  margin-left: 15px;
+  margin-top: 30px;
+  padding: 10px;
+  height: 40px;
+  width: 380px;
+  font-size: 40px;
+  color: #A6A6A6;
+  text-align: right;
+  border-radius: 5px;
+}
+
+button {
+  
+  margin-left: 20px;
+  margin-top: 10px;
+  text-align: center;
+  height: 30px;
+  width: 80px;
+  background-color: #A9A9A9;
+  border-radius: 7px;
+  font-size: 20px;
+  box-shadow: 3px 3px #666666;
+}

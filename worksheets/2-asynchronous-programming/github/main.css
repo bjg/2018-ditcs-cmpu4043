@@ -1,0 +1,58 @@
+body {
+    background-color: #e6e6e6;
+}
+
+.container {
+    position: relative;
+    margin: auto;
+    width: 800px;
+}
+
+.user_profile {
+    float: left;
+    width: 47%;
+}
+
+.user_repos {
+    float: right;
+    width: 47%;
+}
+
+.username {
+    float: left;
+    width: 65%;
+    height: 25px;
+    margin-right: 5%;
+    border: 1px solid black;
+}
+
+.btn_search {
+    float: right;
+    height: 30px;
+    width: 20%;
+    border-radius: 5px;
+}
+
+.user_info div {
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 5px 0 5px 10px;
+}
+
+.repos div {
+    border: 1px solid black;
+    padding: 5px 0 5px 10px;
+}
+
+.repos {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid black;
+}
+
+div img {
+    width: auto;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+}
