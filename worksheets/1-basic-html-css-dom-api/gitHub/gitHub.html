@@ -1,0 +1,206 @@
+<!--
+    Rich Web Applications lab 2 part 3
+    Git Hub API
+    Author: Dimiter Dinkov
+    Student Number: C15334276
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Layout of the  web page -->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css for the layout-->
+    <style>
+        .wrapper {
+            margin: auto;
+            padding: 10px;
+            width: 80%;
+        }
+
+        .search-bar {
+            margin: auto;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .search-bar form {
+            padding: 10px;
+        }
+
+        .profileInfo {
+            margin: auto;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .userProfile {
+            padding: 10px;
+            width: 40%;
+            float: left;
+        }
+
+        .userRepos {
+            padding: 10px;
+            width: 40%;
+            float: left;
+        }
+
+        .imageWrapper {
+            border: 1px solid black;
+        }
+
+        .infoWrapper {
+            border: 1px solid black;
+        }
+
+        .reposWrapper {
+            border: 1px solid black;
+            height: 298px;
+            overflow: scroll;
+        }
+
+        #image {
+            height: 200px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="search-bar">
+        <!--Search bar
+            On button pressed populate the layout with about a user
+            from the github api
+            -->
+        <input id="searchValue" type="text">
+        <button type="button" onclick="getData()">Search</button>
+    </div>
+    <div class="profileInfo">
+        <div class="userProfile">
+            <label>User Profile:</label>
+            <div class="imageWrapper">
+                <img src="img.png" id="image">
+            </div>
+            <div class="infoWrapper">
+                <label>Name:</label><span id="name"></span> <br/>
+                <label>Username:</label><span id="username"></span><br/>
+                <label>E-mail:</label><span id="email"></span><br/>
+                <label>Location:</label><span id="location"></span><br/>
+                <label>Number Of Gists:</label><span id="numOfGists"></span><br/>
+            </div>
+        </div>
+        <div class="userRepos">
+            <label>User Repos</label>
+            <div class="reposWrapper" id="repos">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    //function to populate the webpage witht he user's repositories
+    //Pass in the api url to get the users repos
+    function populateRepos(repoURL) {
+        //Get the child nodes of the repos section
+        //and clear them.
+        let myNode = document.getElementById("repos");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+        //Using the users repository api link get a json
+        //array of repository objects
+        fetch(repoURL)
+            .then(response => response.json())
+            .then(function (repos) {
+                //for each repo object in the json array repos
+                for (let repo in repos) {
+                    //create a new div element that will store the name and description of the repository
+                    //also create two span elements that will contain the name and description of the repo
+                    let row = document.createElement("div");
+                    let nameSpan = document.createElement("span");
+                    let descriptionSpan = document.createElement("span");
+
+                    //get the repo name and description and assign it to the span elements
+                    let name = repos[repo].name;
+                    let description = repos[repo].description;
+                    nameSpan.innerHTML = "<b>Name: </b>" + name + "<br/>";
+                    descriptionSpan.innerHTML = "<b>Description: </b>" + description + "<br/>";
+
+                    //append the span elements too the wrapper div
+                    row.appendChild(nameSpan);
+                    row.appendChild(descriptionSpan);
+                    //add some css to the wrapper div and append it to the main repository wrapper element
+                    row.style.border = "1px solid black";
+                    row.style.padding = "2px";
+                    document.getElementById("repos").appendChild(row);
+                }
+            })
+    }
+
+    //Attach the acquired data from the github api to the corresponding elements
+    //Pass the json response from the getDataFunction
+    function attachData(data) {
+        //reference all existing elements that will store the data
+        let image = document.getElementById("image");
+        let name = document.getElementById("name");
+        let username = document.getElementById("username");
+        let email = document.getElementById("email");
+        let location = document.getElementById("location");
+        let numberOfGits = document.getElementById("numOfGists");
+        //Here we just remove the last 10 characters from the gists url
+        let gistURL = data.gists_url.slice(0, data.gists_url.length - 10);
+        let gists = countGists(gistURL);
+
+        //attach all the data to their corresponding elements
+        image.src = data.avatar_url;
+        name.innerText = data.name;
+        username.innerText = data.login;
+        email.innerText = data.email;
+        location.innerText = data.location;
+        numberOfGits.innerText = gists;
+
+        //call a function to populate the repository section of the web page
+        //pass the users unique repository link
+        populateRepos(data.repos_url);
+
+    }
+
+    //count the number of gists for the user
+    //pass the users unique gists url
+    function countGists(gistsURL) {
+        let size = fetch(gistsURL)
+            .then(response => response.json())
+            .then(function (gists) {
+                let arr = gists.map(x => x != null);
+                return arr;
+            })
+
+        return size.length;
+    }
+
+    //get the data for a user.
+    //searching by username
+    function getData() {
+        //get the username from the input element of the DOM
+        let search = document.getElementById("searchValue").value;
+        //if the search value is null or an empty string then display error
+        //else get data from git api.
+        if (search != null || search === '') {
+            fetch("https://api.github.com/users/" + search)
+                .then(response => response.json())
+                .then(function (data) {
+                    console.log(data);
+                    attachData(data);
+                })
+        } else {
+            console.log("Error");
+        }
+
+    }
+</script>
+</html>
