@@ -1,0 +1,94 @@
+body{
+  
+  width: 10%;
+  height: 10%;
+
+}
+.container{
+  
+  margin: auto;
+  height: 38px;
+  width: 600px;
+  border-width: 1px;
+}
+
+.top{
+ 
+  margin-top: 30px;
+  margin-left: 100px;
+  
+}
+.input{
+  height: 25px;
+  width: 400px;
+  border-style: solid;
+  border-width: 2px;
+  border-style: solid;
+  border-width: 2px;
+}
+.button{
+  
+  height: 35px;
+  width: 60px;
+  
+}
+
+.Click{
+  
+ height: 35px;
+  width: 285px;
+      
+}
+
+.tables-body{
+  
+  margin-top: 10px;
+  
+}
+
+.left{
+  float: left;
+  width: 47%;
+  height: 400px;
+  border-width: 1px;
+}
+
+img#avatar{
+ 
+  width: 100%;
+  height: 40%;
+  border-width: 2px;
+  border-radius:4px; 
+  border-width: 2px;
+  border:1px solid;
+
+}
+
+.right{
+  
+  float: right;
+  width: 47%;
+  height: 600px;
+   
+}
+
+table{
+  
+  width:101% ;
+  height: 62%;
+  border-style: solid;
+  border-width: 1px;} 
+  
+}
+
+.Userrepostable{
+  
+  height: 100%;
+  border:1px solid black;
+  
+}
+td{
+  
+  border-style: solid;
+  border-width: 2px;
+} 
