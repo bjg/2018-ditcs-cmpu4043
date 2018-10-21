@@ -1,5 +1,6 @@
 let buffer1="";
 
+//Add a listener to get keyboard inputs
 document.addEventListener('keypress', function(event)
 {
     let key = event.keyCode;
@@ -18,12 +19,14 @@ document.addEventListener('keypress', function(event)
     }
 });
 
+//See which value was pressed and then add it to the buffer
 function main(value)
 {
     buffer1+=value;
     update(buffer1);
 }
 
+//Function to equate whats in the buffer, with a try/catch for error checking
 function equals(buffer)
 {
     try
@@ -38,12 +41,14 @@ function equals(buffer)
     }
 }
 
+//Update the screen HTML with the buffer data
 function update(buffer)
 {
     document.getElementById("display").innerHTML = buffer;
     document.getElementById("console").innerText="";
 }
 
+//Clear the buffer
 function clearAll()
 {
     buffer1="";

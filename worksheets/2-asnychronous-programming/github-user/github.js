@@ -15,7 +15,7 @@ function fetchUserInfo(username)
                 }
                 else {
                     alert("User not found!");
-                    throw Error(`Request rejected with status ${response.status}`);
+                    throw Error("Request rejected with status ${response.status}");
                 }
             })
             .then(response => response.json())
@@ -34,7 +34,7 @@ function fetchUserInfo(username)
                     .then(response => response.json())
                     .then(data => {
                         let repos = data;
-                        //Use a loop to go through each element in the repo object and add the info tho the repo table
+						//Enable scrolling if theres more than 5 repos shown
                         if(repos.length>5)
                         {
                             document.getElementById("userRepos").style.overflowY= "auto";
@@ -43,6 +43,7 @@ function fetchUserInfo(username)
                         {
                             document.getElementById("userRepos").style.overflowY= "hidden";
                         }
+						//Use a loop to go through each element in the repo object and add the info tho the repo table
                         for (let repo in repos) {
                             document.getElementById("repoTable").innerHTML += "<tr>" + "<td>" + "<b>" +
                                 "Repo Name: " + "</b>" + repos[repo].name + "<br>" + "<br>"
