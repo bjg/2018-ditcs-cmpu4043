@@ -1,0 +1,74 @@
+html * {
+   	font-size: 20px !important;
+   	font-family: Arial !important;
+}
+
+body {
+	width: 30%;
+}
+
+.search {
+	width: 100%;
+}
+
+input {
+	width: 65%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+#searchButton {
+	padding: 5px 25px 5px 25px;
+	float: right;
+}
+
+img {
+	width: 50%;
+}
+
+.profile {
+	width: 45%;
+	height: 465px;
+	float: left;
+	margin-top: 20px;
+	border: 1px;
+	border-style: solid;
+	overflow: hidden;
+}
+
+#repos {
+	float: right;
+}
+
+#repo-list {
+	max-height: 435px;
+    overflow:auto;
+}
+
+#repo-list div{ 
+	border-bottom: 1px solid;
+	font-size: 18px !important;
+	padding: 5px;
+}
+
+#info > div {
+	border-bottom: 1px solid;
+	font-size: 18px !important;
+	padding: 5px;
+}
+
+.section {
+	color: rgb(2, 0, 138);
+	font-size: 26px !important;
+	font-style: italic;
+}
+
+a {
+	text-decoration: none;
+	color: maroon;
+}
+
+a:hover {
+	color: brown;
+}

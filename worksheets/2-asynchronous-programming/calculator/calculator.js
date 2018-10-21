@@ -23,7 +23,14 @@ window.onload = function() {
 window.onkeypress = function(e) {
     let x = e.which || e.keyCode;
     let key = String.fromCharCode(x);
-    if (isNaN(key) && !isAlpha(key)){
+
+    if (x == 13) {
+        calculate();
+    }
+    else if (x == 8) {
+        clearScreen();
+    }
+    else if (isNaN(key) && !isAlpha(key)){
         addToScreenOps(key);
     }
     else {
