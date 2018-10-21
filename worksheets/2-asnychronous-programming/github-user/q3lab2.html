@@ -1,0 +1,51 @@
+<html>
+
+	<!--external css -->
+	<link rel="stylesheet" href="q3lab2.css">
+	
+	<!-- external js file -->
+	
+	<script src="q3lab2.js"></script>
+	<body>
+		<div class="container">
+			<div class="row">
+			<!--search bar-->
+				<input class="user-search" id="user-input" placeholder="Search user"></input>
+				<button onclick="search_data()" class="search">Search!</button>
+			</div>
+			
+			<div class="row">
+				<div class="profile_header">
+					<h2>User Profile</h2>
+				</div>
+				<div class="repos_header">
+					<h2>User Repos</h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col">
+					<img id="profile-pic" src="http://res.cloudinary.com/sagacity/image/upload/c_crop,h_800,w_616,x_0,y_0/c_scale,w_640/v1419879339/iVegJ35_xfjlfu.gif">
+						<!-- column of user details -->
+						<div class="col_one"><span id="name" class="text">Name</span></div>
+						<div class="col_one"><span id="username" class="text">Username</span></div>
+						<div class="col_one"><span id="email" class="text">Email</span></div>
+						<div class="col_one"><span id="location" class="text">Location</span></div>
+						<div class="col_one"><span id="no_gists" class="text">Number of Gists</span></div>
+				</div>
+						<!-- repo column -->
+				<div id="repo_section" class="repos_section">
+					<div id="first_repo" class="col_two"><span id="titleOne">Name</span><span id="infoOne" class="text">Description</span></div>
+					<div id="second_repo" class="col_two"><span id="titleTwo">Name</span><span id="infoTwo" class="text">Description</span></div>
+					<div id="third_repo" class="col_two"><span id="titleTres">Name</span><span id="infoTres" class="text">Description</span></div>
+					<div id="fourth_repo" class="col_two"><span id="titleFour">Name</span><span id="infoFour" class="text">Description</span></div>
+					<div id="fifth_repo" class="col_two"><span id="titleFive">Name</span><span id="infoFive" class="text">Description</span></div>
+					<div id="sixth_repo" class="col_two"><span id="titleSix">Name></span><span id="infoSix" class="text">Description</span></div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

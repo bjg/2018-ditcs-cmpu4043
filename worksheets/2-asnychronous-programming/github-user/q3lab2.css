@@ -1,0 +1,90 @@
+.user-search
+{
+	height:30px;
+	width:300px;
+	border:1px solid black;
+	display:inline-block;
+	margin-right:30px;
+}
+
+.container
+{
+	width: 550px;
+	height:auto;
+	margin-left:60px;
+	border:3px solid blue;
+}
+
+.search
+{
+	height:30px;
+	width:300px;
+	border:1px solid black;
+	display:inline-block;
+}
+
+.row
+{
+	padding: 10px 10px 0px 10px;
+	display:block;
+}
+
+.profile_header
+{
+	width:40%;
+	text-align:center;
+	display:inline-block;
+}
+
+.repos_header
+{
+	width:50%;
+	text-align:center;
+	display:inline-block;
+}
+
+.repos_section
+{
+	width:300px;
+	height:300px;
+	border:1px solid black;
+
+}
+
+.col
+{
+	display:inline-block;
+	padding:0px 20px 20px 0px;
+	vertical-aligh:top;
+	width:150px;
+}
+
+.col_one
+{
+	width:200px;
+	border:1px solid black;
+	padding:2px 2px 2px 2px;
+}
+
+.col_two
+{
+	width:100%;
+	border: 1px solid black;
+	padding:2px 2px 2px 2px;
+}
+
+.text
+{
+	display:block;
+	padding:5px 0 0 5px;
+}
+
+#profile-pic
+{
+	border:2px groove black;
+	padding:12px;
+	margin-bottom:5px;
+	width:200px;
+	height:200px;
+}
+

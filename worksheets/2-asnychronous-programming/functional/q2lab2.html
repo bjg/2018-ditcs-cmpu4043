@@ -1,0 +1,63 @@
+<script>
+	// question 1
+	fetch('https://jsonplaceholder.typicode.com/users')
+			  .then(response => response.json())
+			  .then( json =>
+			  {
+					// goes through each person in the array and retrieve their attributes
+					json.map(function(details)
+					{
+						var name = details.name
+						var username = details.username
+						var city = details.address.city
+						var zipcode = details.address.zipcode
+						
+						// displays the list of names and their corresponding attributes in the console
+						console.log("%s \nUsername: %s \nCity: %s \nZipcode: %s \n\n", name, 
+							username, city, zipcode);
+					})
+			
+					
+			})
+	
+	
+</script>
+
+<script>
+		//question 2
+		fetch('https://jsonplaceholder.typicode.com/users')
+			.then(response => response.json())
+			.then( json =>
+				{
+					// map function to go through the array, checks for zipcodes with 2 or 5 at string index 0
+					const result = json.map(e=>e.address.zipcode).filter(e=>e.search("2")==0 || e.search("5")==0);
+					
+					// print out result
+					console.log("There are %d zipcodes sstarting with 2 and 5", result.length);
+					
+				})
+	
+</script>
+
+<script>
+	//question 3
+	fetch('https://jsonplaceholder.typicode.com/posts')
+			  .then(response => response.json())
+			  .then( json =>
+			  {
+					// splits every title into words and proceeds to word count
+					const result = json.map(e=>e.title).filter(e=>e.split(" ").length>6);
+					
+					// extra
+					console.log("There are %d titles with more than six words", result.length);
+					
+					//displays all (42) titles in an array
+					console.log(result);
+				
+					
+			})
+	
+	
+</script>
+
+
