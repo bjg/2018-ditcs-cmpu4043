@@ -12,7 +12,7 @@ function append(char){
 }
 
 function clearScreen(){
-    expression = " ";
+    expression = "";
     display.value = expression;
 }
 
@@ -22,7 +22,7 @@ function evalScreen(){
 }
 
 document.addEventListener('keypress', function(event) {
-    "0123456789-+/*0.".indexOf(event.key) != -1? append(event.key): null;
-    event.key == 'c' || event.key == 'C' ? clearScreen() : null;
-    event.key == '='? evalScreen(): null;
+    if("0123456789-+/*0.".indexOf(event.key) != -1) append(event.key);
+    if(event.key == 'c' || event.key == 'C') clearScreen();
+    if(event.key == '=') evalScreen();
 });
