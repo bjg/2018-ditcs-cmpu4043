@@ -1,0 +1,368 @@
+<!--
+Student Name: Lauren Keenan Brennan
+Student Number: C15434102
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="calculator.css">
+		<script>
+			var thisnum =0;
+			var input = [];
+			var outputs = [];
+			var result = 0;
+			var opencount = 0;
+			var closecount = 0;
+			
+			function printToView(){
+				var view = document.getElementById("view");
+				view.innerHTML = null;
+				for(var i =0; i<outputs.length ; i++){
+					view.innerHTML += outputs[i];
+				}
+			}
+			
+			function clearView(){
+				input.length = 0;
+				outputs.length = 0;
+				thisnum = 0;
+				document.getElementById("view").innerHTML = "0";
+			}
+			
+			function buttonCheck(event){
+				var x = event.which || event.keyCode;
+				switch(x) {
+					case 37:
+						divide();
+						break;
+					case 40:
+						openbracket();
+						break;
+					case 41:
+						closebracket();
+						break;
+					case 42:
+						multiply();
+						break;
+					case 43:
+						add();
+						break;
+					case 45:
+						subtract();
+						break;
+					case 46:
+						decimal();
+						break;
+					case 47:
+						divide();
+						break;
+					case 48:
+						number0Buttons();
+						break;
+					case 49:
+						number1Buttons();
+						break;
+					case 50:
+						number2Buttons();
+						break;
+					case 51:
+						number3Buttons();
+						break;
+					case 52:
+						number4Buttons();
+						break;
+					case 53:
+						number5Buttons();
+						break;
+					case 54:
+						number6Buttons();
+						break;
+					case 55:
+						number7Buttons();
+						break;
+					case 56:
+						number8Buttons();
+						break;
+					case 57:
+						number9Buttons();
+						break;
+					case 61:
+						equals();
+						break;
+					case 88:
+						multiply();
+						break;
+					case 120:
+						multiply();
+						break;
+				}
+			}
+			
+			function backspaceCheck(){
+				const key = event.key;
+				if (key === "Backspace" || key === "Delete") {
+					clearView();
+				}
+			}
+			
+			function number1Buttons(){
+					y = "1";
+					numberPush(y)
+			}
+			function number2Buttons(){
+					y = "2";
+					numberPush(y)
+			}
+			function number3Buttons(){
+					y = "3";
+					numberPush(y)
+			}
+			function number4Buttons(){
+					y = "4";
+					numberPush(y)
+			}
+			function number5Buttons(){
+					y = "5";
+					numberPush(y)
+			}
+			function number6Buttons(){
+					y = "6";
+					numberPush(y)
+			}
+			function number7Buttons(){
+					y = "7";
+					numberPush(y)
+			}
+			function number8Buttons(){
+					y = "8";
+					numberPush(y)
+			}
+			function number9Buttons(){
+					y = "9";
+					numberPush(y)
+			}
+			function number0Buttons(){
+					y = "0";
+					numberPush(y)
+			}
+			
+			function numberPush(y){
+				outputs.push(y);
+				thisnum += y;
+				printToView();
+			}
+			
+			function decimal(){
+				y = ".";
+				var counter = 0;
+				for(i=0;i<thisnum.length;i++){
+					if(thisnum[i] == "."){
+						counter = 1;
+					}
+				}
+				if(outputs[outputs.length-1] == '.'){
+					 outputs[outputs.length-1] = y;
+				}
+				else{
+					if(counter == 0){
+						outputs.push(y);
+						thisnum += y;
+						printToView();
+					}
+				}
+			}
+			
+			function openbracket(){
+				y = "(";
+				opencount++;
+				if(outputs[outputs.length-1] == '+' || outputs[outputs.length-1] == '-' ||  outputs[ outputs.length-1] =='x' ||  outputs[ outputs.length-1] == '%' ||  outputs[ outputs.length-1] == "±"){
+					outputs[outputs.length-1] = "x";
+					outputs.push(y);
+					input[input.length-1] = "x";
+					input.push(y);
+					printToView();
+				}
+				else{
+					outputs.push('x');
+					outputs.push(y);
+					input.push(parseFloat(thisnum));
+					input.push('x');
+					input.push(y);
+					thisnum = 0;
+					printToView();
+				}
+			}
+			
+			function closebracket(){
+				y = ")";
+				closecount++;
+					outputs.push(y);
+					input.push(parseFloat(thisnum));
+					input.push(y);
+					printToView();
+			}
+			
+			function divide(){
+				y = "%";
+				operand(y);
+			}
+			
+			function multiply(){
+				y = "x";
+				operand(y);
+			}
+			
+			function add(){
+				y = "+";
+				operand(y);
+			}
+			
+			function subtract(){
+				y = "-";
+				operand(y);
+			}
+			
+			function plusorminus(){
+				y = "±";
+				if(outputs[outputs.length-2] == '+'){
+					outputs[outputs.length-2] = '-';
+					input[input.length-2] = '-';
+					console.log(outputs[outputs.length-2]);
+					console.log(input[input.length-2]);
+					printToView();
+				}
+				else if(outputs[outputs.length-2] == '-'){
+					outputs[outputs.length-2] = '+';
+					input[input.length-2] = '+';
+					console.log(outputs[outputs.length-2]);
+					console.log(input[input.length-2]);
+					printToView();
+				}
+			}
+			
+			function operand(y){
+				if( outputs[ outputs.length-1] == '+' ||  outputs[ outputs.length-1] == '-' ||  outputs[ outputs.length-1] =='x' ||  outputs[ outputs.length-1] == '%'){
+					outputs[outputs.length-1] = y;
+					input[input.length-1] = y;
+					printToView();
+				}else{
+					outputs.push(y);
+					//operators.push(y);
+					input.push(parseFloat(thisnum));
+					input.push(y);
+					thisnum = 0;
+					printToView();
+				}
+			}
+			
+			function equals(){
+				if( outputs[ outputs.length-1] == '+' ||  outputs[ outputs.length-1] == '-' ||  outputs[ outputs.length-1] =='x' ||  outputs[ outputs.length-1] == '%' ||  outputs[ outputs.length-1] == "±"){
+					outputs.length =  outputs.length-1;
+					printToView();
+					result=getResult(input);
+				}else{
+					input.push(parseFloat(thisnum));
+					result = getResult(input);
+					outputs.length = 0;
+					input.length = 0;
+					thisnum = result;
+					outputs.push(result);
+					printToView();
+				}
+			}
+			
+			function getResult(sumarray){
+				console.log(sumarray);
+				var priority = 1;
+				while(priority!=4){
+					//console.log(input.length);
+					for(i=0;i<sumarray.length;i++){
+						console.log(i + ":" + sumarray[i]);
+						if(sumarray[i] == 'x' && priority==2){
+							sumarray[i] = sumarray[i-1] * sumarray[i+1];
+							//console.log(sumarray[i]);
+							sumarray.splice(i-1,1);
+							sumarray.splice(i,1);
+							break;
+						}
+						if(sumarray[i] == '%' && priority==2){
+							sumarray[i] = sumarray[i-1] / sumarray[i+1];
+							//console.log(sumarray[i]);
+							sumarray.splice(i-1,1);
+							sumarray.splice(i,1);
+							break;
+						}
+						if(sumarray[i] == '+' && priority==3){
+							sumarray[i] = sumarray[i-1] + sumarray[i+1];
+							//console.log(sumarray[i]);
+							sumarray.splice(i-1,1);
+							sumarray.splice(i,1);
+							break;
+						}
+						if(sumarray[i] == '-' && priority==3){
+							sumarray[i] = sumarray[i-1] - sumarray[i+1];
+							//console.log(sumarray[i]);
+							sumarray.splice(i-1,1);
+							sumarray.splice(i,1);
+							break;
+						}
+						if(sumarray[i] == "(" && priority==1){
+							var x=i+1;
+							var brarray = [];
+							while(sumarray[x]!=')'){
+								//console.log(brarray[x]);
+								brarray.push(sumarray[x]);
+								sumarray.splice(x,1);
+								
+							}
+							result = getResult(brarray);
+							sumarray[x] = result;
+							sumarray.splice(x-1,1);
+							console.log(sumarray)
+							break;
+						}
+						if(sumarray.length-1 == i){
+							priority++;
+						}
+					}
+				}
+				return sumarray[0];
+			}
+		</script>
+	</head>
+	<body onkeypress="buttonCheck(event)" onkeydown="backspaceCheck()">
+		<div id="calculator">
+			<div id="view">0</div>
+			<div class="row">
+				<div class="column" id="(" onclick="openbracket()">(</div>
+				<div class="column" id=")" onclick="closebracket()">)</div>
+				<div class="column" id="±" onclick="plusorminus()">±</div>
+				<div class="column" id="%" onclick="divide()">÷</div>
+			</div>
+			<div class="row">
+				<div class="column" id="7" onclick="number7Buttons()">7</div>
+				<div class="column" id="8" onclick="number8Buttons()">8</div>
+				<div class="column" id="9" onclick="number9Buttons()">9</div>
+				<div class="column" id="x" onclick="multiply()">x</div>
+			</div>
+			<div class="row">
+				<div class="column" id="4" onclick="number4Buttons()">4</div>
+				<div class="column" id="5" onclick="number5Buttons()">5</div>
+				<div class="column" id="6" onclick="number6Buttons()">6</div>
+				<div class="column" id="-" onclick="subtract()">-</div>
+			</div>
+			<div class="row">
+				<div class="column" id="1" onclick="number1Buttons()">1</div>
+				<div class="column" id="2" onclick="number2Buttons()">2</div>
+				<div class="column" id="3" onclick="number3Buttons()">3</div>
+				<div class="column" id="+" onclick="add()">+</div>
+			</div>
+			<div class="row">
+				<div class="column" id="0" onclick="number0Buttons()">0</div>
+				<div class="column" id="." onclick="decimal()">.</div>
+				<div class="column" id="C" onclick="clearView()"> C </div>
+				<div class="column" id="=" onclick="equals()">=</div>
+			</div>
+		</div>
+	</body>
+</html>
