@@ -5,6 +5,7 @@ function search()
 	
 	let x;
 	x = document.getElementById("search_bar").value;
+	//was using this to test it worked
 	//x = "chooolie";
 	let site= 'https://api.github.com/users/'+x;
 	let repo_site = 'https://api.github.com/users/'+x+'/repos';
@@ -32,14 +33,16 @@ function search()
     gists = data.public_gists;
 	avatar= data.avatar_url;
     //console.log(username,name,email,location);
+    //get details from API
+    //call functions to display it to screen
     users_name(name);
     users_email(email);
     users_username(username);
     users_location(location) ;
     no_of_gists(gists);
-	users_avatar(avatar);
+    users_avatar(avatar);
 	
-	
+//All the functions to add the details to left 	part of HTML
 			function users_name(name) 
 		{
 		  //console.log(name);
@@ -66,6 +69,7 @@ function search()
 
 		function users_avatar(avatar) 
 		{
+			//Different one for images - change the src rather then innerHTML
 		  //console.log(name);
 		  var x = document.createElement("IMG");	
 		  document.getElementById("fill_avatar").src = avatar;
@@ -74,7 +78,7 @@ function search()
 		 
    }
 
-		
+		//Site where the repos are
 		let site2 = 'https://api.github.com/users/'+x+'/repos';
 		console.log(site2);
 		let request2 = new XMLHttpRequest();
@@ -82,6 +86,7 @@ function search()
 		request2.responseType = 'json';
 		request2.send();
 		let names;
+		//get rid of the column placeholder
 		old_cols = document.getElementById("container1");
 		old_cols.innerHTML= "";
 		
@@ -102,13 +107,13 @@ function search()
 			 let description = [];
 				description = [obj.description];
 				console.log(description);
-				repo_name_desc(names,description);
+				repo_name_desc(names,description);//call fxn and send the name and desctiption of repo
 				
 			});
 		
 			function repo_name_desc(name,description) 
 		{
-			
+			//create the divs in javascript
 			let where = document.getElementById('fill_repos');
   			let item = document.createElement("li");
 			var linebreak = document.createElement("div");
@@ -120,6 +125,7 @@ function search()
 			item.style.listStyleType = "none";
 			let create_div = document.createElement("div"); 
 			//create_div.id = "right_side";
+			//add the name and description
 			let text1 = document.createTextNode("Name:"+ name ); 
 			let text2 = document.createTextNode(" Desciption:"+ description); 
 			
