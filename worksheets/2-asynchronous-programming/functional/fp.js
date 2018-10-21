@@ -18,7 +18,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
 //  List all of the post titles having more than six words
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
-    .then(data => console.log(data.filter(attribute => attribute.title.split(' ').length > 6)))
+    .then(data => console.log(data.filter(attribute => attribute.title.split(' ').length > 6).map(attribute => attribute.title)))
 
 
 //  Show a word frequency map for all of the body contents of the posts
