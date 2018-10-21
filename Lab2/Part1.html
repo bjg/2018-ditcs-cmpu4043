@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width">
+	 <title>Calculator</title>
+		
+<style>
+
+.body{
+	 
+	height: 380px;
+	width: 435px;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 1px;
+	padding: 5%
+		}
+
+.screen{
+
+	font-size: 400%;
+	text-align: right;
+	margin: 12px; 
+	height: 70px;
+	width: 400px;
+	border-style: inset;
+	border-width: 2px;
+	border-radius: 5px;
+			
+		
+	}
+
+.row1{
+
+	display: flex;
+	height: 35px;
+	width: 400px;
+	margin-left: 20px;
+	margin-right: 20px ;
+
+		}
+.row2{
+
+	display: flex;
+	margin: 20px; 
+	height: 35px;
+	width: 400px;
+
+		}
+.row3{
+
+	display: flex;		 
+	height: 35px;
+	width: 400px;
+	margin-left: 20px;
+	margin-right: 20px ;
+
+	}
+.row4{
+
+	display: flex;
+	margin: 20px; 
+	height: 35px;
+	width: 400px;
+
+
+	}
+.row5{
+
+	display: flex;
+	margin: 21px; 
+	width: 400px; 
+
+	}
+
+.button{
+
+	text-align: center;
+	height: 50px;
+	width: 290px;
+	border-radius: 5px;
+		 
+		}
+
+.button1 {background-color: #008CBA;}
+.button2 {background-color: #f44336;} 
+.button3 {background-color: green;} 
+.button4 {background-color: #555555;} 
+.button5 {background-color: blue;} 
+.button20{margin: 1px 1px;}
+
+				
+</style>
+
+		
+</head>
+<body>
+		
+
+	<div class="body"> 
+		
+		<div class="screen" id="screen"> </div>
+
+		<div class="row1"> 
+				<button class="button button20" onclick="cal('(')">(</button>
+				<button class="button button20" onclick="cal(')')">)</button>
+				<button class="button button20" onclick="cal('±')">±</button>
+				<button class="button button1 button20" onclick="cal('/')">/</button>
+
+		</div>
+
+
+		<div class="row2"> 
+				<button class="button button20" onclick="cal('7')">7</button>
+				<button class="button button20" onclick="cal('8')">8</button>
+				<button class="button button20" onclick="cal('9')">9</button>
+				<button class="button button2 button20" onclick="cal('x')">x</button>
+		</div>
+
+
+		<div class="row3"> 
+				<button class="button button20" onclick="cal('4')">4</button>
+				<button class="button button20" onclick="cal('5')">5</button>
+				<button class="button button20" onclick="cal('6')">6</button>
+				<button class="button button3 button20" onclick="cal('-')">-</button>
+		</div>
+
+
+		<div class="row4"> 
+				<button class="button button20" onclick="cal('1')">1</button>
+				<button class="button button20" onclick="cal('2')">2</button>
+				<button class="button button20" onclick="cal('3')">3</button>
+				<button class="button button4 button20" onclick="cal('+')">+</button>
+		</div>
+
+
+		<div class="row5"> 
+				<button class="button button20" onclick="cal('0')">0</button>
+				<button class="button button20" onclick="cal('.')">.</button>
+				<button class="button button20" onclick="cal('c')">C</button>
+				<button class="button button1 button20 " onclick="cal('=')">=</button>
+		</div>
+
+	</div>
+	
+	<script type="text/javascript" src="Part1.js"></script>
+	
+</body>
+</html>
+	
+	
+	
