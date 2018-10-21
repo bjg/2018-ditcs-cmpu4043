@@ -1,0 +1,63 @@
+
+<script type="text/javascript" >
+	//users url
+let users = fetch("https://jsonplaceholder.typicode.com/users");
+users.then(response => {response.json()
+.then((data) => {
+
+	data.map((user) => 
+		//part 1
+		console.log( "username: " + user["username"] + "\n" , "city: " + user["address"]["city"] + "\n" , "zipcode: " + user["address"]["zipcode"] + "\n" ));
+		console.log(" ");
+
+
+		//part 2
+		let filter = data.filter( user => user.address.zipcode.startsWith("2") || user.address.zipcode.startsWith("5"));
+		console.log("Number of users with zipcode starting with 2 or 5: ", filter.length, filter);
+		console.log(" ");
+	
+	});
+});
+
+
+
+//post url
+let posts = fetch("https://jsonplaceholder.typicode.com/posts");
+posts.then(response => {response.json()
+.then((data) => {
+	//part 3
+	let filter = data.filter( post => {
+		if (post.title.split(" ").length > 6) {
+			return post;
+		}
+     
+	});
+
+ 	console.log("Titles with more than 6 words: ", filter.length, filter);
+	console.log(" ");
+
+
+	//part 4
+	filter = {};
+	data.map(post => {
+		let body = post.body.split(" ");
+	
+		body.map(word => {
+			if(filter.hasOwnProperty(word)){
+				filter[word] += 1;
+			}
+			else{
+				filter[word] = 1;
+			}
+
+		})
+    	//return filter;
+
+	});
+	console.log("Frequency map of words: \n", filter);
+	}); 
+
+});
+
+
+</script>

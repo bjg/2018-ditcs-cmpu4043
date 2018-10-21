@@ -1,0 +1,47 @@
+<html lang="en">
+<link rel = "stylesheet" type="text/css" href="pt1.css">
+
+ <meta charset="utf-8">
+<section id="container">
+ 
+          <form name="calculator">
+            
+            <input type="text" id = "display" name="display"  readonly/>
+            </br>
+
+
+            <input type="button"  value=" ( " class = "btn op" onclick="calculator.display.value += '('"/>
+            <input type="button" value=" ) " class = "btn op"  onclick="calculator.display.value += ')'"/>
+            <input type="button"  value=" &plusmn "  class = "btn op" onclick="calculator.display.value += '&plusmn'"/>
+            <input type="button"  value=" / " class = "btn op" onclick="calculator.display.value += '/ '"/>
+            </br>
+            
+
+            <input type="button"  value=" 7 " class = "btn num" onclick="calculator.display.value += '7'"/>
+            <input type="button"  value=" 8 "class = "btn num" onclick="calculator.display.value += '8'"/>
+            <input type="button"  value=" 9 " class = "btn num" onclick="calculator.display.value += '9'"/>
+            <input type="button"  value=" x " class = "btn op" onclick="calculator.display.value += ' * '"/>
+            </br>
+
+            <input type="button" value=" 4 " class = "btn num" onclick="calculator.display.value += '4'"/>
+            <input type="button" value=" 5 " class = "btn num" onclick="calculator.display.value += '5'"/>
+            <input type="button" value=" 6 " class = "btn num" onclick="calculator.display.value += '6'"/>
+            <input type="button" value=" - " class = "btn op" onclick="calculator.display.value += ' - '"/>
+            </br>
+
+            <input type="button" value=" 1 " class = "btn num" onclick="calculator.display.value += '1'"/>
+            <input type="button" value=" 2 " class = "btn num" onclick="calculator.display.value += '2'"/>
+            <input type="button" value=" 3 " class = "btn num" onclick="calculator.display.value += '3'"/>
+            <input type="button" value=" + " class = "btn op" onclick="calculator.display.value += ' + '"/>
+            <br/>
+         
+        
+            <input type="button"  value=" C " id ="clear" class="btn op" onclick="calculator.display.value = ' '"/>
+            <input type="button" value=" . " class= "btn op" onclick="calculator.display.value += '.'" />
+            <input type="button"  value=" 0 " class = "btn num" onclick="calculator.display.value += '0'"/>
+            <input type="button" value=" = " class = "btn op" onclick="calculator.display.value = eval(calculator.display.value)" />
+            </br>
+    
+          </form>
+
+</section>
