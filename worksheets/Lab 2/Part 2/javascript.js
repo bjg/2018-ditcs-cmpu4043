@@ -24,6 +24,7 @@ request.onload = function()
 	//console.log(get_information);
 	//Part 2
 	//Show the number of users having only zipcodes starting with the number 2 or the number 5
+	//filter acts as a loop to the data so I did not need to use a for loop and therefore could do the equation in one line
 	const startswith2 = data.filter(data => (data.address.zipcode[0] == 2 || data.address.zipcode[0] ==5));
 	//console.log(startswith2.length);
 }
@@ -43,7 +44,9 @@ request2.onload = function()
 	data = request2.response;
 
 	const filter_data = data.filter(data => (data.title.split(' ').length >6));
-	
+	//again using filter to loop through the data 
+	//i then use split() to filter it by spaces so it knows to take each word
+	//then with length more then 6
 	let get_information = filter_data.map(function(obj) 
 	{ 
 		let title = [obj.title];
@@ -61,17 +64,22 @@ request2.onload = function()
 	//data2 = request2.response;
 	//console.log(typeof data);
 	let filter_data2 = data.map(data => (data.body.toString().split(" ")));
-	//let filter_data2 = data.map(data => (data.body.toString()));
 	filter_data2 = filter_data2.flat();
-	console.log(filter_data2);
-	//could not get to work
+	//console.log(filter_data2);
 	let freqMap= [];
-	
-	filter_data2.forEach(function(word) {
-             if (!freqMap[word]) {
-                 freqMap[word] = 0
+	//used a for each to loop through the words this time
+	filter_data2.forEach(function(word) 
+	{
+             if (!freqMap[word])
+	     {
+                 freqMap[word] = 0; 
+		 //if the word has not been in freMap yet - add to array
              }
-             freqMap[word] += 1
+	     else
+	     {
+             	freqMap[word] += 1;
+		//if the word is in the map add to counter
+	     }
         });
 	console.log(freqMap);
 	
