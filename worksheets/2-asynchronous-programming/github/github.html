@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css">
+    <title>Github</title>
+</head>
+
+
+<body>
+    <script src="gitAPI.js"></script>
+
+    <div class="container">
+        <input class="username" id="input_user" type="text" placeholder="Plase enter a Username">
+        <button class="btn_search" type="submit" name="search" onclick="search()">Search</button>
+        <div class="user_page">
+            <div class="user_profile">
+                <h3>User Profile</h3>
+                <div class="user_info">
+                    <div><img id="img" src="no_img.png" alt="No profile picture"></div>
+                    <div id="nameID">Name: </div>
+                    <div id="usernameID">Username:</div>
+                    <div id="emailID">Email:</div>
+                    <div id="locationID">Location:</div>
+                    <div id="numGists">Number of Gists:</div>
+                </div>
+            </div>
+            <div class="user_repos">
+                <h3>User Repos</h3>
+                <div class="repos" id="repositories">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
