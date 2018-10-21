@@ -35,6 +35,8 @@ function handleProfile(profile) {
 	var rightSide = document.getElementById('right-side');
 	profileDiv.setAttribute('style', 'visibility: visible;');
 
+	console.log(profile);
+
 	// Set their image
 	leftSide.innerHTML += "<img class='profile-image' src='"+profile['avatar_url']+"'/>";
 
@@ -42,13 +44,22 @@ function handleProfile(profile) {
 
 	leftSide.innerHTML += "<p>"+profile['email']+"<br/>"+profile['location']+"<br/><i>Number of Gists: "+profile['public_gists']+"</i></p>";
 
-	// Get the repos
-	httpRequest('GET', 'https://api.github.com/users/'+profile['login']+'/repos').then((data) => {
-		data.map((repo) => {
-			rightSide.innerHTML += "<div class='repo'><h3>"+repo['full_name']+"</h3><p>"+repo['description']+"</p></div>";
-		});
-	});
+	// Before we continue we need to check and see if the number of repos is greater then 30, if so we have to make more than 1 query as the GitHub API will only display first 30 repos.
+	const noOfRequests = Math.ceil(profile['public_repos']/30);
+		
+	if(profile['public_repos'] > 5) {
+		document.getElementById('right-side').style.height = '700px';
+		document.getElementById('right-side').style.overflow = 'auto';
+	}
 
+	for(let i=0; i<noOfRequests; i++) { 
+		// Get the repos
+		httpRequest('GET', 'https://api.github.com/users/'+profile['login']+'/repos').then((data) => {
+			data.map((repo) => {
+				rightSide.innerHTML += "<div class='repo'><h3>"+repo['full_name']+"</h3><p>"+repo['description']+"</p></div>";
+			});
+		});
+	}
 }
 
 function displayMessage(type, message) {
