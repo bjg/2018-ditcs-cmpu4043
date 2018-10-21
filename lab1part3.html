@@ -1,0 +1,81 @@
+<html>
+<head></head>
+<body>
+
+</body>
+<script>
+//Reyan Jaimon - C15487408
+// 2-Dimensional Array of size 50x101
+var x = new Array(50);
+for (var i = 0; i < x.length; i++) {
+  x[i] = new Array(101);
+}
+
+var first = 0; //to get point to first i.e. 0th element
+var last = 101; //to point to last i.e. 101th element
+var height = x.length // it is 50 here 
+//Initialize 1st row with random values 0 or 1
+for (i=first; i< last; i++)
+x[first][i] = Math.round(Math.random()); // Math.random creates random value between 0 and 1. Math.round rounds the value to nearest i.e. 0 or 1 here
+
+//Start applying the rules
+// 0 - inactive
+// 1 - active
+for (i = first+1; i< height; i++){ // iterate through all the rows i.e. 50
+for (j = first; j< last; j++){ // iterate through all the columns i.e. 101
+	//First element of the row
+	if(j==first){ 
+	if(x[i-1][j] == 1 && x[i-1][j+1] == 1 && x[i-1][last-1] == 1){ //as per rule, if first, the right of first and last element is 1 then makes the corresponding element 0 else make it 1
+		x[i][j] = 0
+	}
+	else{
+		x[i][j] = 1
+	}
+	}
+	//Last element of the row
+	else if (j == last-1){
+	if(x[i-1][j] == 1 && x[i-1][j-1] == 1 && x[i-1][first] == 1){//as per rule, if last, the left of last and first element is 1 then makes the corresponding element 0 else make it 1
+		x[i][j] = 0
+	}
+	else{
+		x[i][j] = 1
+	}
+	}
+	else {
+	if(x[i-1][j] == 1 && x[i-1][j-1] == 1 && x[i-1][j+1] == 1){//as per rule, if the element, the right of it and left of it is 1 then makes the corresponding element 0 else make it 1
+		x[i][j] = 0
+	}
+	else{
+		x[i][j] = 1
+	}
+	}
+}
+}
+
+for (i = first; i< height; i++){
+	for (j = first; j< last; j++){
+		var div = document.createElement("div"); // used to create "div" element for HTML
+		div.style.width = "8px";
+		div.style.height = "8px";
+		div.style.float = "left";
+		div.style.margin = "0px";
+		var active = x[i][j]
+		if (active){
+			div.style.background = "black";
+			}
+			else{
+			div.style.background = "red";
+			}
+		document.body.appendChild(div); //to append it to the body tag in the file
+
+	}
+	var div1 = document.createElement("div"); // created for showing the seperation between rows
+	div1.style.width = "8px";
+	div1.style.height = "8px";
+	document.body.appendChild(div1); //appended after every row
+}
+
+</script>
+
+</html>
+
