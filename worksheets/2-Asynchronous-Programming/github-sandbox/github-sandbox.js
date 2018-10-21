@@ -82,24 +82,3 @@ function show_user_info(e) {
         console.log(repos);
     });
 }
-
-
-
-const list_all_user_attributes = data => {
-    console.log(data);
-}
-
-
-function fetch_api_data(url, callback, return_variable) {
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        return_variable.push(callback(data));
-    })
-    .catch(error => console.log(error.message));
-}
-
-user = [];
-fetch_api_data("https://api.github.com/users/insomniac807", list_all_user_attributes, []);
-fetch_api_data("https://api.github.com/users/insomniac807", get_user_object, user);
-//console.log(user);
