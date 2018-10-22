@@ -1,0 +1,246 @@
+<!--
+    Auther: Keith Chambers (c15324461)
+    Rich Web Technologies: labsheet 1, exercise 2
+		Basic working calculater
+-->
+
+<html>
+	<head></head>
+	<body>
+		<style>
+
+			#calculater
+			{
+				height: 400px;
+				width: 400px;
+				border: 1px solid black;
+				border-radius: 15px;
+				margin: auto;
+				background-color: #cccccc;
+			}
+
+			#search-bar-container
+			{
+				height: 60px;
+				width: 350px;
+				border: 1px solid black;
+				border-radius: 5px;
+				margin: auto;
+				margin-top: 30px;
+				box-shadow: inset 4px 4px 2px 0px grey;
+				margin-bottom: 30px;
+			}
+
+			#input-bar
+			{
+                margin-top: 3px;
+                margin-left: 3px;
+				height: 57px;
+				width: 347px;
+				/* direction:RTL; */
+				font-size: 30px;
+			}
+
+			.row
+			{
+				height: 50px;
+				width: 345px;
+				margin: auto;
+			}
+
+			.column
+			{
+				height: 35px;
+				width: 82px;
+				border-radius: 8px;
+				background-color: #f2f2f2;
+				box-sizing: border-box;
+				box-shadow: inset -1px -1px 1px 0px grey;
+			}
+
+		</style>
+		<div id="calculater">
+			<div id="search-bar-container">
+				<input id="input-bar" type="text"/>
+			</div>
+
+			<div class="row">
+				<button class="column">(</button>
+				<button class="column">)</button>
+				<button class="column">±</button>
+				<button class="column">÷</button>
+			</div>
+			<div class="row">
+				<button class="column">7</button>
+				<button class="column">8</button>
+				<button class="column">9</button>
+				<button class="column">x</button>
+			</div>
+			<div class="row">
+				<button class="column">4</button>
+				<button class="column">5</button>
+				<button class="column">6</button>
+				<button class="column">-</button>
+			</div>
+			<div class="row">
+				<button class="column">1</button>
+				<button class="column">2</button>
+				<button class="column">3</button>
+				<button class="column">+</button>
+			</div>
+			<div class="row">
+				<button class="column">0</button>
+				<button class="column">.</button>
+				<button class="column">C</button>
+				<button class="column">=</button>
+			</button>
+
+		</div>
+
+		<script>
+
+			// Generate Key Map
+			var keyCodeMap = new Map();
+
+			// Maps char to their keyCode to emulate a keypress
+			// This is so the handleKey() function can be used in both cases
+			keyCodeMap.set('0', 48);
+			keyCodeMap.set('1', 49);
+			keyCodeMap.set('2', 50);
+			keyCodeMap.set('3', 51);
+			keyCodeMap.set('4', 52);
+			keyCodeMap.set('5', 53);
+			keyCodeMap.set('6', 54);
+			keyCodeMap.set('7', 55);
+			keyCodeMap.set('8', 56);
+			keyCodeMap.set('9', 57);
+			keyCodeMap.set('(', 40);
+			keyCodeMap.set(')', 41);
+			keyCodeMap.set('÷', 47);
+			keyCodeMap.set('x', 42);
+			keyCodeMap.set('=', 61);
+			keyCodeMap.set('+', 43);
+			keyCodeMap.set('-', 45);
+			keyCodeMap.set('.', 46);
+			keyCodeMap.set('C', 99);
+			keyCodeMap.set('±', -1);
+
+			function setElementOnClick(elementName, className, onClickFunction)
+			{
+				var allElements = document.getElementsByTagName(elementName);
+
+				console.log("Found " + allElements.length + " elements for " + className);
+
+		        for(var i = 0; i < allElements.length; i++) {
+		        	if(className === allElements[i].className)
+		        		allElements[i].addEventListener('click', function(){ onClickFunction(this); });
+		        }
+
+		        console.log('setElementOnClick finished');
+	        }
+
+			function handleKeyboardInput(button)
+			{
+				var keyCode = keyCodeMap.get(button.innerHTML);
+				if(! keyCode)
+				{
+					console.log('Invalid keyCode obtained from mapping ' + button.innerHTML);
+					return;
+				}
+
+				handleKey(keyCode);
+			}
+
+			function handleKey(keyCode)
+			{
+				var inputBar = document.getElementById("input-bar");
+
+				if(! inputBar)
+				{
+					console.log("Failed to get input bar");
+					return;
+				}
+
+				switch(keyCode)
+					{
+						case 0: // backspace
+							if(inputBar.value.length > 0)
+								inputBar.value = inputBar.value.slice(0, -1);
+							break;
+						case 48:
+							inputBar.value += '0';
+							break;
+						case 49:
+							inputBar.value += '1';
+							break;
+						case 50:
+							inputBar.value += '2';
+							break;
+						case 51:
+							inputBar.value += '3';
+							break;
+						case 52:
+							inputBar.value += '4';
+							break;
+						case 53:
+							inputBar.value += '5';
+							break;
+						case 54:
+							inputBar.value += '6';
+							break;
+						case 55:
+							inputBar.value += '7';
+							break;
+						case 56:
+							inputBar.value += '8';
+							break;
+						case 57:
+							inputBar.value += '9';
+							break;
+						case 40:
+							inputBar.value += '(';
+							break;
+						case 41:
+							inputBar.value += ')';
+							break;
+						case 47:
+							inputBar.value += '/'; 
+							break;
+						case 42:
+							inputBar.value += '*';
+							break;
+						case 61:  // '='
+							inputBar.value = eval(inputBar.value).toString();
+							break;
+						case 43:
+							inputBar.value += '+';
+							break;
+						case 45:
+							inputBar.value += '-';
+							break;
+						case 46:
+							inputBar.value += '.';
+							break;
+						case 99:
+							inputBar.value = '';
+							break;
+						case -1:
+							inputBar.value += '±';
+							break;
+						default:
+							console.log('Invalid key pressed: ' + keyCode);
+							break;
+					}
+			}
+
+			window.onload = setElementOnClick('button', 'column', handleKeyboardInput);
+
+			window.addEventListener('keypress', function()
+				{
+					console.log("Key pressed");
+					handleKey(event.which);
+				});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!--
+    Auther: Keith Chambers
+    Filters out users by zip code
+-->
+
+<html>
+<body>
+  <script>
+
+  function filterZip(a)
+	{
+		return (a.zipcode[0] == '2' || a.zipcode[0] == '5');
+	}
+
+  fetch('https://jsonplaceholder.typicode.com/users/')
+  .then(response => response.json())
+  .then(result => result.map(result => user = {	username: result.username,
+                              city: result.address.city,
+                              zipcode: result.address.zipcode}))
+  .then(users => users.filter( user => filterZip(user)).length)
+  .then(result => document.write("Users: " + result));
+  </script>
+</body>
+</html>
