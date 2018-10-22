@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<script id ="api">
+  //fetching data from api
+  const data = fetch('http://jsonplaceholder.typicode.com/users');
+
+function question1(){
+data
+  .then(data => data.json())
+  //working on that set
+  .then(data => {
+    let result = data.filter(current => {
+      //if statement to check if the attributes exist
+      return current.username != undefined && current.address.city != undefined && current.address.zipcode != undefined;
+
+    })
+    console.log(result);
+  })
+  .catch(err => console.log(err));
+}
+
+
+function question2(){
+data
+
+  .then(data => data.json())
+  //working on that set
+  .then(data => {
+    //using filter to go through the objects using following requirements
+    let result = data.filter(current => {
+      return current.address.zipcode.startsWith("5") || current.address.zipcode.startsWith("2");
+    })
+    console.log(result);
+  })
+  .catch(err => console.log(err));  
+}
+
+const data2 = fetch('http://jsonplaceholder.typicode.com/posts');
+
+function question3(){
+
+  data2
+  .then(data2 => data2.json())
+  //using new set (data2 - the api for posts)
+  .then(data2 => {
+    let result = data2.filter(current => {
+      //using filter checks which title has more than 6 words
+      return current.title.split(' ').length > 6;
+
+    })
+    console.log(result);
+  })
+  .catch(err => console.log(err));
+}
+
+
+
+  data2
+  //using the data2 set again
+    .then(data2 => data2.json())
+    .then(data2 => {
+
+      //putting all the words into an array
+      let allWords = data2;
+      let result = allWords.map(word => {
+
+      let uniqueWords = word.body.split(' ');
+
+      //using reduce func to reduce the array and count the occurance for each word
+      return uniqueWords.reduce( (uniqueWords, word) => {
+        if(word in uniqueWords){
+          //using uniqueWords for each word and incrementing the word count
+          uniqueWords[word]++;
+        }else{
+          //starting the word count from 1
+          uniqueWords[word] = 1;
+        }
+        //returning all the unique words 
+        return uniqueWords;
+        },{});
+        });
+          console.log(result);
+    })
+  .catch(err => console.log(err));
+
+
+</script>
+
+</body>
+</html>
