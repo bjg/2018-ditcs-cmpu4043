@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+<body>
+   
+    <div class="search"> 
+        <input type="text" placeholder="Username" id="userName">
+        <button type="button" onclick="getUser()" id="searchButton">Search</button>
+    </div>
+
+    <div class="user">
+        <label id = "profile">User Profile:</label>
+            <div class="sect profile">
+                <div class="avatar">
+                    <img src="" id="userAvatar">
+                </div>
+                <div class="details">
+                    <div class="det name"><label>Name</label><span id="name"></span></div> 
+                    <div class="det username"><label>Username</label><span id="username"></span></div>
+                    <div class="det email"><label>Email</label><span id="email"></span></div>
+                    <div class="det location"><label>Location</label><span id="location"></span></div>
+                    <div class="det gists"><label>Number of Gists</label><span id="gists"></span></div>
+                </div>
+            </div>
+                
+        <label id="repos">User Repos:</label>
+            <div class="sect repos"> 
+                <div class="repos_list" id="user_repos"></div>
+            </div>
+    </div>
+</body>
+    
+<script>
+    function getUser(){
+        var userName = document.getElementById('userName').value;
+        //fetch github acc data
+        fetch('http://api.github.com/users/' + userName)
+        .then(response => response.json())
+        //use the response to read all the following data
+        .then(data => {
+            //console.log(data);
+            document.getElementById("userAvatar").src = data.avatar_url;
+            document.getElementById("name").innerHTML = data.name;
+            document.getElementById("username").innerHTML = data.login;
+            document.getElementById("email").innerHTML = data.email;
+            document.getElementById("location").innerHTML = data.location;
+            document.getElementById("gists").innerHTML = data.public_gists;
+        });
+            
+        //fetch all repos
+        fetch('http://api.github.com/users/' + userName + '/repos')
+        //uses the response as json
+        .then(response => response.json())
+        //performs following actions on the response
+        .then(data => {
+            //for every result
+            for(let x in data){
+                //create div for every repo
+                var list = document.createElement("DIV");
+                //styling
+                list.innerHTML = '<h3>' 
+                                 + data[x].name + 
+                                '</h3>' + 
+                                data[x].description;
+                //appending to the html
+                document.getElementById('user_repos').appendChild(list);
+            }
+        });
+    }
+</script>
+
+</html> 

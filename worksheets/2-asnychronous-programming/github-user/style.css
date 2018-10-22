@@ -1,0 +1,70 @@
+body{
+    height: 100%;
+    width: 800px;
+}
+
+#searchButton{
+    margin: 4%;
+    width: 15%;
+    border-radius: 5px;
+    background: #ffffff;
+    height: 30px;
+}
+
+#userName{
+    width: 70%;
+    margin-left: 5%;
+    height: 30px;
+}
+
+.repos{
+	left: 407px;
+	margin-left: 20px;
+}
+
+.repos_list{
+	max-height: 600px;
+	overflow-y: auto;
+	
+}
+
+#repos{
+	margin-left: 40%;
+}
+
+.sect{
+	border : 1px solid black;
+	min-height: 600px;
+	width: 400px;
+	position: fixed;
+	padding-top: 20px;
+}
+
+label{
+	font: Arial;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom : 35px;
+	margin-top: 10px;
+	width: 250px;
+	height: 250px;
+}
+
+.details{
+	margin-top: 15px;
+}
+
+.det{
+	border-top: 1px solid;
+	padding: 20px;
+}
+
+span{
+	margin-left: 5px;
+}
