@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="git.css">
+</head>
+<body>
+    
+<div class="top">
+
+        <div class="search">
+                <input type="text" placeholder="Username" id="searchuser">
+                <button id="submit" onclick="getUser()">Search</button>
+        </div>
+
+
+        <div class="repos">
+                <h4>User Repos</h4>
+                    <div>
+                        <div id="listrepos"></div>
+                    </div>
+            </div>  
+
+            <div id="UserProfile">
+                <h4>User Profile</h4>
+                    <div id="image">
+                        <img id="profile" src=" ">
+                    </div>
+            </div>
+            <div class="User">
+                    <div id="name">Name</div>
+                    <div id="username">Username</div>
+                    <div id="email">Email</div>
+                    <div id="location">Location</div>
+                    <div id="public_gists">Number Of Gists</div>
+            </div>
+</div>
+</body>
+</html>
+
+<script src="git.js" type="text/javascript"></script>

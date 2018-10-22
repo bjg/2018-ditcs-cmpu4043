@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <title>
+            Calculator Front End
+        </title>
+    </head>
+    <body>
+        <div class="calculator">
+           <form id="calculator">
+               <input id="screen" name="screen" type="text" readonly="readonly" placeholder="0">
+           </form>
+            <button class="button leftbracket" id="leftbracket" onclick="clicks('(')">(</button>
+            <button class="button rightbracket" id="rightbracket" onclick="clicks(')')">)</button>
+            <button class="button plusminus" id="plusminus" onclick="plusminus()">+/−</button>
+            <button class="button division" id="division" onclick="clicks('/')">÷</button>
+            <button class="button seven" id="seven" onclick="clicks(7)">7</button>
+            <button class="button eight" id="six" onclick="clicks(8)">8</button>
+            <button class="button nine" id="nine" onclick="clicks(9)">9</button>
+            <button class="button multiply" id="mutiply" onclick="clicks('*')">x</button>
+            <button class="button four" id="four" onclick="clicks(4)">4</button>
+            <button class="button five" id="five" onclick="clicks(5)">5</button>
+            <button class="button six" id="6" onclick="clicks(6)">6</button>
+            <button class="button minus" id="minus" onclick="clicks('-')">-</button>
+            <button class="button one" id="one" onclick="clicks(1)">1</button>
+            <button class="button two" id="two" onclick="clicks(2)">2</button>
+            <button class="button three" id="three" onclick="clicks(3)">3</button>
+            <button class="button plus" id="plus" onclick="clicks('+')">+</button>
+            <button class="button zero" id="zero" onclick="clicks(0)">0</button>
+            <button class="button point" id="point" onclick="clicks('.')">.</button>
+            <button class="button clear" id="clear" onclick="whipe()">C</button>
+            <button class="button equals" id="equals" onclick="solution()">=</button>
+        </div>
+      
+    </body>
+</html>
+
+<style>
+    .calculator{
+        padding: 2%;
+        border: 0.1em solid #000000;
+        margin: auto;
+        width: 60%;
+        height: 50%;
+        border-radius: 10px;
+    }
+
+    #screen{
+        text-align: right;
+        font-family: Arial;
+        font-size: 2em;
+        color: #adacac;
+        padding: 3%;
+        width: 90%;
+        border: 0.1em solid #adacac;
+        border-radius: 10px;
+        box-shadow: inset 1px 2px 0px 0px #838282;
+    }
+
+    .button {
+        cursor: pointer;
+        font-family: Arial;
+        font-weight: bold;
+        margin-top: 0.5em;
+        padding: 1%;
+        display: inline-block;
+        border: 0.1em solid #808080;
+        width: 24%;
+        border-radius: 10px;
+        box-shadow: 1px 2px 0px 0px;
+    }
+
+</style>
+
+<script module src="calculator.js"></script> 
