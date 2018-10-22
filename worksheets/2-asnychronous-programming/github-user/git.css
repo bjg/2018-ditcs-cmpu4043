@@ -1,0 +1,35 @@
+.top{
+    padding: 1%;
+    border: 0.1em solid #000000;
+    margin: auto;
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+}
+
+.repos {
+    float: right;
+    width: 50%;
+   }
+
+img{
+    width: 30%;
+    height: 15%;
+}
+
+#UserProfile{
+    width: 50%;
+}
+
+.User{
+    width: 30%;
+}
+
+input[type=text]{
+    padding: 5px;
+}
+
+.search{
+    float: right;
+    width: 65%;
+}
