@@ -1,8 +1,6 @@
-<script>
-
 
 	// function to search by name
-    function search_json()
+    function search_data()
 	{
         let search_Name = document.getElementById('user-input').value;
         if(search_Name)
@@ -12,7 +10,7 @@
 	
     }
 	
-    function fetch_gituser(user_search)
+    function fetchgit_user(user_search)
 	{
         
         let gituser_url = 'https://api.github.com/users/'+user_search;
@@ -41,9 +39,10 @@
         .then(response => response.json())
         .then(json2 => 
 		{
-            let repos_section= document.getElementById('repo_section');
+            let repos_section = document.getElementById('repo_section');
             
 			// gather name and description of user's repos
+			
             document.getElementById('first_repo').parentNode.removeChild(document.getElementById('first_repo'));
             document.getElementById('second_repo').parentNode.removeChild(document.getElementById('second_repo'));
             document.getElementById('third_repo').parentNode.removeChild(document.getElementById('third_repo'));
@@ -52,15 +51,15 @@
             document.getElementById('sixth_repo').parentNode.removeChild(document.getElementById('sixth_repo'));
 			
 			
-			// replace placeholders
+			// replace placeholders for user info based on username searched
 			
-            for(let i=0; i< json2.length; i++){
+            for( let i=0; i< json2.length; i++ ){
                 
                 let index = i + 1;
-                let element = document.createElement("div");
-                element.classList +="col_one";
-                element.id="col_one"+index;
-                repos_section.appendChild(element);
+                let el = document.createElement("div");
+                el.classList +="col_one";
+                el.id="col_one"+index;
+                repos_section.appendChild(el);
                 
                 let first_text = document.createElement("div");
                 let scnd_text = document.createElement("div");
@@ -69,11 +68,11 @@
                 first_text.id="name"+index;
                 scnd_text.id="desc"+index;
 				
-                element.appendChild(first_text);
-                element.appendChild(scnd_text);
+                el.appendChild(first_text);
+                el.appendChild(scnd_text);
                 if(json2[i]['description'])
 				{
-                    .innerHTML=json2[i]['name'];
+                    innerHTML=json2[i]['name'];
                     scnd_text.innerHTML=json2[i]['description'];
                 }
 				else
@@ -84,8 +83,6 @@
 				
             }
         })
-        .catch(error => console.error(error))
+
     }
 	
-	
-</script>
