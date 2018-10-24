@@ -1,16 +1,16 @@
 {
-  "name": "lab3-streams-calculator",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.22.0",
-    "webpack-dev-server": "^3.1.10"
-  },
+  "name": "stream-calculator-lab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server"
+    "dev-server": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.22.0",
+    "webpack-dev-server": "^3.1.10"
   }
 }
