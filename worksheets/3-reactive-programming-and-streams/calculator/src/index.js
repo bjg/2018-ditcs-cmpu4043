@@ -1,3 +1,7 @@
+import "./styles/styles.css";
+
 var para = document.getElementById("pOne");
 
-para.append("WORKING");
+const arrowFunc = (name) => name;
+
+para.append(arrowFunc("Ronan"));
