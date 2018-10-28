@@ -1,5 +1,5 @@
-var display;
-var expression;
+let display;
+let expression;
 
 function init(){
     display = document.getElementById("screen_contents");
@@ -26,16 +26,14 @@ function evalScreen(){
     display.value = expression;
 }
 
-var keyPress = Rx.Observable.fromEvent(document, 'keypress').filter(event => "0123456789-+/*0.".indexOf(event.key) != -1 || event.key == 'c' || event.key == 'C' || event.key == '=');
-var click = Rx.Observable.fromEvent(document, 'click').map(function(event){
-    event.key = event.target.id;
-    return event;
-});
+const keyPress = Rx.Observable.fromEvent(document, 'keypress').map(event => event.key).filter(key => "0123456789-+/*0.()".indexOf(key) != -1 || key == 'c' || key == 'C' || key == '=');
 
-var input = Rx.Observable.merge(keyPress, click);
+const mouseClick = Rx.Observable.fromEvent(document, 'click').map(event => event.target.id);
 
-input.subscribe(function(event) {
-    "0123456789-+/*0.".indexOf(event.key) != -1? append(event.key): null;
-    event.key == 'c' || event.key == 'C' ? clearScreen() : null;
-    event.key == '='? evalScreen(): null;
+const input = Rx.Observable.merge(keyPress, mouseClick);
+
+input.subscribe(function(key) {
+    "0123456789-+/*0.".indexOf(key) != -1? append(key): null;
+    key == 'c' || key == 'C' ? clearScreen() : null;
+    key == '='? evalScreen(): null;
 });

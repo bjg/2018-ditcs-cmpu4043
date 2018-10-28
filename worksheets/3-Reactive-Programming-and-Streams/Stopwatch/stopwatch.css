@@ -1,0 +1,26 @@
+#stopwatch_div{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#stopwatch {
+    padding: 0;
+    margin: auto;
+    display: flex;
+    width: 400px;
+    height: 400px;
+}
+
+#digital{
+    text-align: center;
+}
+
+#controls{
+    margin:auto;
+    justify-content: center;
+}
