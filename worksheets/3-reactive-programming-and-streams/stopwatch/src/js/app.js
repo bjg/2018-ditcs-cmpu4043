@@ -131,68 +131,45 @@ timer.subscribe(seconds => {
             }            
         }
 
-        // If the stopwatch has not been started then set the value of everything to 0 and give the second and minute hand pointed at 12
+        ctx.beginPath();
+
+        // Draw the second hand
+        var secx_location = centerx + (radius - 40) * Math.cos(toRadians(((milliseconds * 6) / 10) - 90));
+        var secy_location = centery + (radius - 40) * Math.sin(toRadians(((milliseconds * 6) / 10) - 90));
+
+        ctx.beginPath();
+
+        // Draw the line
+        ctx.lineTo(centerx, centery);
+        ctx.lineTo(secx_location, secy_location);
+
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Set the minute hand locations to seconds % 60 (would be 1 if 90 seconds had elapsed)
+        var minx_location = centerx + (radius - 80) * Math.cos(toRadians(((milliseconds * 0.1) / 10) - 90));
+        var miny_location = centery + (radius - 80) * Math.sin(toRadians(((milliseconds * 0.1) / 10) - 90));
+
+        ctx.beginPath();
+
+        // Draw the line
+        ctx.lineTo(centerx, centery);
+        ctx.lineTo(minx_location, miny_location);
+
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        document.getElementById('time').innerHTML = Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop();
+
         if(stopwatchStarted == false) {
-
-            var secx_location = centerx + (radius - 40) * Math.cos(toRadians(((milliseconds * 6) / 10) - 90));
-            var secy_location = centery + (radius - 40) * Math.sin(toRadians(((milliseconds * 6) / 10) - 90));
-
-            var minx_location = centerx + (radius - 80) * Math.cos(toRadians(((milliseconds * 0.1) / 10) - 90));
-            var miny_location = centery + (radius - 80) * Math.sin(toRadians(((milliseconds * 0.1) / 10) - 90));
-
-            // Draw the seconds line
-            ctx.beginPath();
-            ctx.lineTo(centerx, centery);
-            ctx.lineTo(secx_location, secy_location);
-
-            ctx.lineWidth = 1;
-            ctx.stroke();
-
-            // Draw the minute line
-            ctx.beginPath();
-            ctx.lineTo(centerx, centery);
-            ctx.lineTo(minx_location, miny_location);
-
-            ctx.lineWidth = 5;
-            ctx.stroke();
-            
-            if(getSplit) {
+            if (getSplit) {
                 console.log(milliseconds);
-                document.getElementById('splits-list').innerHTML += '<li>'+ Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop() +'</li>';
+                document.getElementById('splits-list').innerHTML += '<li>' + Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop() + '</li>';
                 getSplit = false;
                 stopwatchStarted = true;
             }
         } else {
             milliseconds++;
-            ctx.beginPath();
-
-            // Draw the second hand
-            var secx_location = centerx + (radius - 40) * Math.cos(toRadians(((milliseconds * 6) / 10) - 90));
-            var secy_location = centery + (radius - 40) * Math.sin(toRadians(((milliseconds * 6) / 10) - 90));
-
-            ctx.beginPath();
-
-            // Draw the line
-            ctx.lineTo(centerx, centery);
-            ctx.lineTo(secx_location, secy_location);
-
-            ctx.lineWidth = 1;
-            ctx.stroke();
-
-            // Set the minute hand locations to seconds % 60 (would be 1 if 90 seconds had elapsed)
-            var minx_location = centerx + (radius - 80) * Math.cos(toRadians(((milliseconds * 0.1) / 10) - 90));
-            var miny_location = centery + (radius - 80) * Math.sin(toRadians(((milliseconds * 0.1) / 10) - 90));
-
-            ctx.beginPath();
-
-            // Draw the line
-            ctx.lineTo(centerx, centery);
-            ctx.lineTo(minx_location, miny_location);
-
-            ctx.lineWidth = 5;
-            ctx.stroke();
-
-            document.getElementById('time').innerHTML = Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop();
         }
     }
 });
