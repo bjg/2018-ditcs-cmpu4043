@@ -4,6 +4,9 @@ import { Observable, interval, switchMap } from 'rxjs';
 // Stopwatch Started to prevent the stopwatch from starting and then stopping it again
 let stopwatchStarted = false;
 
+// Boolean for getting split
+let getSplit = false;
+
 // Milliseconds counter used to only count time when the interval has started
 let milliseconds = 0;
 
@@ -26,30 +29,23 @@ var input = Observable.create(o => {
     });
 
     stop.addEventListener('click', () => {
-        o.next('stop');
+        stopwatchStarted = false;
     });
 
     split.addEventListener('click', () => {
-        o.next('split');
+       stopwatchStarted = false;
+       getSplit = true;
     });
 
     reset.addEventListener('click', () => {
-        o.next('reset');
+        stopwatchStarted = false;
+        milliseconds = 0;
+        document.getElementById('splits-list').innerHTML = ' ';
+        document.getElementById('time').innerHTML = '0:0:0';
     });
 });
 
 input.subscribe(value => console.log(value));
-
-
-/* Subscribe for split
-timer.subscribe(seconds => {
-    input.subscribe(value => {
-        if(value == 'split') {
-            console.log('Split');
-        }
-    });
-});
-*/
 
 // Subscribe for displaying everything
 timer.subscribe(seconds => {
@@ -137,12 +133,17 @@ timer.subscribe(seconds => {
 
         // If the stopwatch has not been started then set the value of everything to 0 and give the second and minute hand pointed at 12
         if(stopwatchStarted == false) {
-            document.getElementById('time').innerHTML = "0:0:0";
-            
+
+            var secx_location = centerx + (radius - 40) * Math.cos(toRadians(((milliseconds * 6) / 10) - 90));
+            var secy_location = centery + (radius - 40) * Math.sin(toRadians(((milliseconds * 6) / 10) - 90));
+
+            var minx_location = centerx + (radius - 80) * Math.cos(toRadians(((milliseconds * 0.1) / 10) - 90));
+            var miny_location = centery + (radius - 80) * Math.sin(toRadians(((milliseconds * 0.1) / 10) - 90));
+
             // Draw the seconds line
             ctx.beginPath();
             ctx.lineTo(centerx, centery);
-            ctx.lineTo(centerx, (radius-40));
+            ctx.lineTo(secx_location, secy_location);
 
             ctx.lineWidth = 1;
             ctx.stroke();
@@ -150,10 +151,17 @@ timer.subscribe(seconds => {
             // Draw the minute line
             ctx.beginPath();
             ctx.lineTo(centerx, centery);
-            ctx.lineTo(centerx, (radius-80));
+            ctx.lineTo(minx_location, miny_location);
 
             ctx.lineWidth = 5;
             ctx.stroke();
+            
+            if(getSplit) {
+                console.log(milliseconds);
+                document.getElementById('splits-list').innerHTML += '<li>'+ Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop() +'</li>';
+                getSplit = false;
+                stopwatchStarted = true;
+            }
         } else {
             milliseconds++;
             ctx.beginPath();

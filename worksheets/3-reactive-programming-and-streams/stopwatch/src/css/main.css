@@ -39,6 +39,13 @@ body {
 	float: right;
 }
 
+.splits {
+	display: block;
+	width: 40%;
+	float: right;
+	padding-left: 10px;
+}
+
 .button {
 	background-color: #4BCC76;
 	font-family: Montserrat;
