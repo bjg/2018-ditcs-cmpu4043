@@ -25,23 +25,28 @@ var reset = document.getElementById('reset');
 var input = Observable.create(o => {
 
     start.addEventListener('click', () => {
+        // Simply set the value to true
         stopwatchStarted = true;
     });
 
     stop.addEventListener('click', () => {
+        // Set it to false
         stopwatchStarted = false;
     });
 
     split.addEventListener('click', () => {
+        // For split, stop the stopwatch for a brief moment and set getSplit to true.
        stopwatchStarted = false;
        getSplit = true;
     });
 
     reset.addEventListener('click', () => {
+        // Reset by setting the stopwatch to false
         stopwatchStarted = false;
+        // Time back to 0
         milliseconds = 0;
+        // Get rid of everything in the splits list
         document.getElementById('splits-list').innerHTML = ' ';
-        document.getElementById('time').innerHTML = '0:0:0';
     });
 });
 
@@ -115,7 +120,6 @@ timer.subscribe(seconds => {
                 ctx.lineWidth = 3;
                 ctx.stroke();
             }
-
             /* The above condition can execute without effecting the next. If the degrees mod 6 is 0
                we can assume we are looking at a second hand as there is 6 degrees between each second hand. 
             */
@@ -159,16 +163,22 @@ timer.subscribe(seconds => {
         ctx.lineWidth = 5;
         ctx.stroke();
 
+        // Set the displayed time
         document.getElementById('time').innerHTML = Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop();
-
+        
+        // If the stop watch has stopped
         if(stopwatchStarted == false) {
+            // Check if the split is to be added
             if (getSplit) {
-                console.log(milliseconds);
+                // If so add it to the splits list
                 document.getElementById('splits-list').innerHTML += '<li>' + Math.floor((milliseconds / 10) / 60) + ":" + (Math.floor(milliseconds / 10)) % 60 + ":" + (milliseconds % 100).toString().split('').pop() + '</li>';
+                // Unlock the split by setting it back to false
                 getSplit = false;
+                // Start the stopwatch again by setting it to true
                 stopwatchStarted = true;
             }
         } else {
+            // If the stop watch has been started then increment the milliseconds counter.
             milliseconds++;
         }
     }

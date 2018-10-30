@@ -91,7 +91,6 @@ const calculate = exp => {
     try {
         exp = eval(exp);
         document.getElementById('screen').innerHTML = '<h1 class="screen-text">' + exp + '</h1>';
-
         return exp;
     } catch(err) {
         if (err instanceof SyntaxError) {
