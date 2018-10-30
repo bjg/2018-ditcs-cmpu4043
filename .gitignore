@@ -4,3 +4,4 @@ node_modules
 .vscode
 solutions
 .next
+/dist/main.js
