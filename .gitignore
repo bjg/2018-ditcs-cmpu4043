@@ -4,3 +4,7 @@ node_modules
 .vscode
 solutions
 .next
+.idea
+package-lock.json
+/node_modules
+/dist
