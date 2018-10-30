@@ -81,25 +81,6 @@ input.subscribe((value) => {
             expression = calculate(expression);
         }
     }
-    // If we are clearing the screen
-    
-    /*
-
-    if(value == 'C') {
-        expression = '';
-        document.getElementById('screen').innerHTML = '<h1 class="screen-text">0</h1>';
-    } else if (!isNaN(value) || value == '+' || value == '-' || value == '*' || value == '/') {
-        expression += value;
-        document.getElementById('screen').innerHTML = '<h1 class="screen-text">' + expression + '</h1>';
-    } else if(value == 'Enter') {
-        expression = calculate(expression);
-    } else if(value == 'Backspace') {
-        expression = expression.slice(0, -1);
-        document.getElementById('screen').innerHTML = '<h1 class="screen-text">' + expression + '</h1>';
-    } else {
-        expression = calculate(expression);
-    }
-    */
 });
 
 // Function for calculating the expression

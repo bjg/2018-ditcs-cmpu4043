@@ -13,3 +13,47 @@ body {
 	padding-left: 20px;
 	margin-bottom: 10px;
 }
+
+.analogue-stopwatch {
+	float: left;
+}
+
+.digital-stopwatch {
+	float: right;
+	display: block;
+	width: 40%;
+	text-align: left;
+}
+
+.time {
+	float: left;
+	text-align: left;
+	padding-top: 100px;
+	font-size: 50px;
+	display: block;
+}
+
+.buttons {
+	display: block;
+	width: 40%;
+	float: right;
+}
+
+.button {
+	background-color: #4BCC76;
+	font-family: Montserrat;
+	border-radius: 5px;
+	color: white;
+	padding: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-style: none;
+}
+
+.button:hover {
+	background-color: #6de094;
+	color: black;
+}
