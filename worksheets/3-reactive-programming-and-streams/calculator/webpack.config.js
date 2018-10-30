@@ -3,6 +3,8 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// Mini CSS Extract plugin because older ExtractTextWebpack does not support Webpack V4.
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 // Constant with our paths
 const paths = {
@@ -20,8 +22,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-        template: path.join(paths.SRC, 'index.html'),
+            template: path.join(paths.SRC, 'index.html'),
         }),
+        new MiniCSSExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
     ],
     module: {
         rules: [
@@ -32,6 +38,18 @@ module.exports = {
                     'babel-loader',
                 ],
             },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCSSExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
+                    "css-loader"
+                ]
+            }
         ],
     },
 };
