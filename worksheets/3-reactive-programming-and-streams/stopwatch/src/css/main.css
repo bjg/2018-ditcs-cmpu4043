@@ -1,0 +1,15 @@
+/* Import custom font from Google */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+	font-family: Montserrat;
+}
+
+.top {
+	background-color: #4BCC76;
+	margin: -10px;
+	color: #FFFFFF;
+	padding: 2px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+}
