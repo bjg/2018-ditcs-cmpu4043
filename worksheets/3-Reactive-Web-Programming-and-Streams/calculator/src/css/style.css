@@ -31,6 +31,8 @@
 }
 
 #button-grid {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
     min-width: 393.6px !important;
     min-height: 322px !important;
     width: 50vw;
@@ -38,11 +40,13 @@
     margin: 0 auto;
     margin-top: 5vh;
     padding: 0 0 0 1.5vw;
-    display: block;
+    display: grid;
+    grid: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-gap: 0.1em;
 }
 
 .btn {
-    display: inline-block;
+    font-weight: 500;
     min-width: 92.1px !important;
     min-height: 59px !important;
     width: 11.7vw;
@@ -51,15 +55,5 @@
     font-size: 150%;
     border-radius: 15px;
     background-color: #C0C0C0;
-    box-shadow: 3px 3px 0px 1px #6C6C6C,inset 5px 3px 0px 1px #C0C0C0;
-}
-
-div > span.btn-text {
-    display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    align-content: center;
-    flex-direction: row;
-    margin: 1em 0 0 0;
-    font-weight: 600;
+    box-shadow: 2px 2px 0px 1px #6C6C6C;
 }
