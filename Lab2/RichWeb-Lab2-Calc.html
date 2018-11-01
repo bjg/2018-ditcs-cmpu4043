@@ -1,0 +1,134 @@
+<DOCTYPE! html>
+    <html lang="en">
+        
+        <head>
+            <link rel="stylesheet" href="RichWeb-Lab2-Calc.css">
+        </head>
+            
+
+        
+        <body>
+            <script language="javascript">
+                var ans = [];
+                var sum = [];
+                var val;
+                var symb = ["(", ")", "+", "-", "*", "÷",  "±" ];
+                //this listens for keypresses
+                document.addEventListener("keypress", keyinput);
+                
+                //This adds the input into a string
+                function createString(val) {
+                    if(val=="C"){
+                        clear();
+                    }
+                    else if(val=="="){
+                        equals();
+                    }
+                    else if(val=="±"){
+                        symbols(val);
+                    }
+                    else {
+                        createSum(val);
+                    }    
+                }
+                
+                //this updates the screen to reflect the input
+                function updateScreen() {
+                        document.getElementById("screen").innerHTML = sum;
+                }
+                
+                //makes ± a negative
+                function symbols(val){
+                    for(var i=0; i<sum.length; i++){
+                        if(symb.includes(sum[i])){
+                            eval(sum);
+                            sum = ans;
+                        }
+                    }
+                    sum = sum * -1;
+     
+                    updateScreen();  
+                }
+                
+                //calculates the string using eval()
+                function equals(){
+                    ans = eval(sum);
+                    sum = ans;
+                    updateScreen();
+                }
+                
+                //adds the entered value to the string
+                function createSum(val) {
+                    sum += val;
+                    updateScreen();
+                }
+                
+                //clears all the strings
+                function clear() {
+                    ans = "";
+                    sum = "";
+                    updateScreen();
+                }
+                
+                //checks keyboard input for c,= and ±
+                function keyinput() {
+                    var key = event.keyCode;
+                    
+                    /*if(!event.shiftKey){
+                        if (key==187){
+                        equals();
+                        }   
+                    }
+                    */
+                    if (key==67){
+                        clear();
+                    }
+                    else if(event.shiftKey){
+                        if(key==192){
+                            symbols();
+                        }
+                    }
+                    else{
+                        var keyval = String.fromCharCode(key)
+                        createSum(keyval);
+                    }
+                    
+                }
+                
+                
+            </script>
+            
+            
+            <div class="grid-container">
+                
+                <div class="grid-item-screen" id="screen">0</div>
+                
+                <button class="grid-item" onclick="createString(this.value)" value="(">(</button>
+                <button class="grid-item" onclick="createString(this.value)" value=")">)</button>
+                <button class="grid-item" onclick="createString(this.value)" value="±">±</button>
+                <button class="grid-item" onclick="createString(this.value)" value="divide">÷</button>
+                
+                <button class="grid-item" onclick="createString(this.value)" value="7">7</button>
+                <button class="grid-item" onclick="createString(this.value)" value="8">8</button>
+                <button class="grid-item" onclick="createString(this.value)" value="9">9</button>
+                <button class="grid-item" onclick="createString(this.value)" value="*">x</button>
+                
+                <button class="grid-item" onclick="createString(this.value)" value="4">4</button>
+                <button class="grid-item" onclick="createString(this.value)" value="5">5</button>
+                <button class="grid-item" onclick="createString(this.value)" value="6">6</button>
+                <button class="grid-item" onclick="createString(this.value)" value="-">-</button>
+                
+                <button class="grid-item" onclick="createString(this.value)" value="1">1</button>
+                <button class="grid-item" onclick="createString(this.value)" value="2">2</button>
+                <button class="grid-item" onclick="createString(this.value)" value="3">3</button>
+                <button class="grid-item" onclick="createString(this.value)" value="+">+</button>
+                
+                <button class="grid-item" onclick="createString(this.value)" value="0">0</button>
+                <button class="grid-item" onclick="createString(this.value)" value=".">.</button>
+                <button class="grid-item" onclick="createString(this.value)" value="C">C</button>
+                <button class="grid-item" onclick="createString(this.value)" value="=">=</button>        
+                
+            </div>
+        </body>
+
+    </html>

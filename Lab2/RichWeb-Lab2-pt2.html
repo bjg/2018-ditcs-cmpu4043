@@ -1,0 +1,52 @@
+<DOCTYPE! html>
+    <html lang="en">
+        
+        <head>
+        </head>
+        
+        <body>
+            <script language="javascript">
+                //this fetch fills the 2 arrays below with dummy data
+                const users = fetch("http://jsonplaceholder.typicode.com/users");
+                const posts = fetch("http://jsonplaceholder.typicode.com/posts")
+                
+                //The following function is preformed on the users dataset and is run after the promise from the fetch for the user data is returned
+                users.then(data => data.json()).then(data => {
+                    
+                    //Question 1
+                    let product = data.filter(part1 => { return part1.hasOwnProperty("username") && part1.address.hasOwnProperty("city") && part1.address.hasOwnProperty("zipcode")});
+                    console.log(product);
+                    
+                    
+                    //Question 2
+                    product = data.filter(part2 => {return part2.address.zipcode.startsWith("2" || "5")});
+                    console.log(product);
+                });
+                
+                
+                //this fuction is preformed on the posts dataset, it's run after the promise for the fetch is returned
+                posts.then(data => data.json()).then(data => {
+                    
+                    //Question 3
+                    let product = data.filter(part3 =>{if(part3.title.split(" ").length > 6){return part3;}});
+                    console.log(product);
+                    
+                    
+                    //Question 4
+                    product = {};
+                    data.map(part4 => {
+                        let body = part4.body.split(/\n| /);
+                        body.map(word => {
+                            if (product.hasOwnProperty(word)){
+                                product[word] = product[word]+1;
+                            }
+                            else {
+                                product[word] = 1;
+                            }
+                        })});
+                    console.log(product);
+                });
+ 
+            </script> 
+        </body>
+    </html>

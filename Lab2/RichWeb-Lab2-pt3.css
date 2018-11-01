@@ -1,0 +1,102 @@
+input {
+    width: 80%;
+    height: 10%;
+    margin: 10px;
+    padding: 5px;
+    font-size: 30px; 
+}
+
+button {
+    background-color: #68a2ff;
+    border: none;
+    height: 10%;
+    margin: 10px;
+    width: 15%;
+    font-size: 30px;
+    border-radius: 8px;
+    color: white;
+}
+
+button:hover{
+    background-color: #5a8ddd;
+}
+
+.grid-container {
+    background-color: #d8d8d8;
+    float: left;
+    width: 45%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2%;
+    font-family: "ariel", sans-serif;
+    overflow: auto;
+    overflow-y: auto;
+}
+
+#grid-container2 {
+    background-color: #d8d8d8;
+    float: right;
+    width: 45%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2%;
+    font-family: "ariel", sans-serif;
+    overflow: auto;
+    overflow-y: auto;
+}
+
+#grid-container p {
+    font-weight: bold;
+}
+
+.grid-title {
+    text-align: center;
+    font-weight: normal;
+}
+
+.grid-title2 {
+    text-align: center;
+    font-weight: normal;
+}
+
+img {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-group {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+br {
+    display: block;
+    content: "";
+    margin-top: 0;
+}
+
+#reponame{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#indivname{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#descname {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#indivdesc {
+    font-size: 15px;
+    font-weight: normal;
+}
