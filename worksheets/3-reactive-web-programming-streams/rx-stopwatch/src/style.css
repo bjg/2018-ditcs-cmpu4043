@@ -7,28 +7,15 @@
     Student Number: C15765215
     Date: 20/09/18
 \*-------------------------------------------*/
-#calculator{
-  padding:10px;
-  width:15%;
-  border: 2px solid black;
-  border-radius: 15px;
-  margin-left: auto;
-  margin-right: auto;
+.watchFace{
+  position: relative;
 }
 
-#calculation{
-  color: grey;
-  width: 95%;
-  text-align: right;
-  direction:ltr;
-  font-size: 50px;
-  padding-right:10px;
-  border-style:inset;
-  border: 1px solid grey;
-  border-radius: 15px;
-  height:relative;
-  box-shadow: -1px -1px 1px 1px grey;
-  
+.hands{
+  position: absolute;
+}
+.face{
+  position: absolute;
 }
 
 button{
