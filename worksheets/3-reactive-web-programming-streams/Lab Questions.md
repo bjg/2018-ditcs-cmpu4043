@@ -2,23 +2,36 @@
 
 ## Excercise 1
 
-Explain what is meant by the stream abstraction. 
+##### Explain what is meant by the stream abstraction. 
+Streams can be simplified down into 4 fundemental types:
+-Transform
+-Duplex
+-Writable
+-Readale
 
+The last two, Writable & Readable are the two that can be an abstraction from a source. This source can be anything, as anything can be _anything_ can be a stream of data.
 
-Streams can be simplified down into 4 fundemental types;
-- Transform
-- Duplex
-- Writable
-- Readale
+##### What is the relationship between streams and the observer pattern? 
+The observer pattern provides a subriber to an event _tigger_. In traditional JAvaScript, an onclick event handler would be a clear comparison. However, as we move towards 
 
-What is the relationship between streams and the observer pattern?  
-
-What are streams useful for modeling and when might you use them in Rich Web development?
+##### What are streams useful for modeling and when might you use them in Rich Web development?
 
 ## Excercise 2
 
-Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. 
+##### Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. 
 
-In your opinion, what are the benefits to using a streams library for networking over, say, promises? 
+Handling the api request, we need to first create a fromEvent Observer in order to kick things off. So either a button click, or keypress up event. From this, we can use a map function grab only the details we're interested in, or if our api call already had the details mapped out for us. From my research into the React Documentation, I have found that concatMap would be ideal for this interface. ConcatMap retains order in which a query may come down the pipeline for the subscribed hanlder.
 
-And what do you think are the downsides?
+Error handling:
+Here I'd make use of debounce, this will allow me to set in miiliseconds the offset time for a user's keyboard inputs
+Furthermore, we could use filter function to ensure only numericals, alphabeticle, or alphanumeric data is entered
+
+Extras:
+If there are two streams, or more, from the API call, we can make use of merge, to combine all streams into one.
+
+##### In your opinion, what are the benefits to using a streams library for networking over, say, promises? 
+
+The key advantage is the use of calling data asynchronously.
+
+
+##### And what do you think are the downsides?
