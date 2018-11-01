@@ -44,18 +44,7 @@
     margin-left: 5px;
     box-shadow: 2px 2px;
     font-size: small;
-}
+    
 
-.Operand{
-    padding: 20px 20px 20px 20px;
-    background-color: grey;
-    border-radius: 15px;
-    width: 75px;
-    height: 5px;
-    border: 3px solid grey;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    box-shadow: 2px 2px;
-    font-size: small;
 }
 
