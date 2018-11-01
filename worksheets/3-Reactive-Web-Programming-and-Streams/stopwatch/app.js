@@ -14,76 +14,25 @@ var endAngle = 2 * Math.PI;
 var counterClockwise = false;
 
 
-function clockMinutes() {
-    var ang;
-    var num;
-    context.font = radius*0.25 + "px arial";
-    context.textBaseline="middle";
-    context.textAlign="center";
+function clock_face_intervals(angle_of_rotation, line_length, line_width, colour) {
     context.translate(x,y);
-    for(num= 1; num < 13; num++){
-        ang = num * Math.PI / 6;
+    for(i= 1; i < 120; i++){
+        let ang = i * angle_of_rotation;
         let x1 = Math.cos(ang);
         let y1 = Math.sin(ang);
         context.rotate(ang);
         context.translate(0, -radius*0.85);
         context.beginPath();
-        context.moveTo(x1,y1-10);
-        context.lineTo(x1,y1+10);
-        context.lineWidth = 5;
-        context.strokeStyle = 'black';
-        context.stroke();
-        context.translate(0, radius*0.85);
-        context.rotate(-ang);
-    }
-    context.translate(-x,-y);
-}
-
-
-function clockSeconds() {
-    var ang;
-    var num;
-    context.translate(x,y);
-    for(num= 1; num < 60; num++){
-        ang = num * Math.PI / 30;
-        let x1 = Math.cos(ang);
-        let y1 = Math.sin(ang);
-        context.rotate(ang);
-        context.translate(0, -radius*0.85);
-        context.beginPath();
-        context.moveTo(x1,y1-10);
-        context.lineTo(x1,y1);
-        context.lineWidth = 3;
-        context.strokeStyle = 'black';
+        context.moveTo(x1,y1-line_length);
+        context.lineTo(x1,y1+line_length/2);
+        context.lineWidth = line_width;
+        context.strokeStyle = colour;
         context.stroke();
         context.translate(0, radius*0.85);
         context.rotate(-ang);
     }
     context.translate(-x,-y);
 
-}
-
-
-function clockMiliSeconds() {
-    var ang;
-    var num;
-    context.translate(x,y);
-    for(num= 1; num < 120; num++){
-        ang = num * Math.PI / 60;
-        let x1 = Math.cos(ang);
-        let y1 = Math.sin(ang);
-        context.rotate(ang);
-        context.translate(0, -radius*0.85);
-        context.beginPath();
-        context.moveTo(x1,y1-6);
-        context.lineTo(x1,y1);
-        context.lineWidth = 1;
-        context.strokeStyle = 'black';
-        context.stroke();
-        context.translate(0, radius*0.85);
-        context.rotate(-ang);
-    }
-    context.translate(-x,-y);
 }
 
 
@@ -94,9 +43,9 @@ function clockFace() {
     // line color
     context.strokeStyle = 'black';
     context.stroke();   
-    clockMinutes();
-    clockSeconds();
-    clockMiliSeconds(); 
+    clock_face_intervals(Math.PI / 60, 6, 1, 'red');   
+    clock_face_intervals(Math.PI / 30, 10, 3, 'black');   
+    clock_face_intervals(Math.PI / 6, 20, 5, 'black');
 }
 
 clockFace();
