@@ -16,11 +16,32 @@
         canvas {
            background-color: aquamarine;
         }
+        section {
+            display: inline;
+        }
+        #buttons-left {
+            float: left;
+            left: 1em;
+        }
+        #buttons-right {
+            float: right;
+        }
+        button {
+            margin-left: 5em;
+            margin-right: 5em;
+        }
     </style>
 </head>
+
+
 <body>
+    <section id="buttons-left">
+        <button id="start">Start</button><button id="stop">Stop</button>
+    </section>
+    <section id="buttons-right">
+        <button id="split">Split</button><button id="reset">Reset</button>
+    </section>
     <h1 id="heading">Stopwatch</h1>
     <canvas></canvas>
 </body>
-<script src="./app.js"></script>
 </html>
