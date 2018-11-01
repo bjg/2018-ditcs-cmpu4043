@@ -2,6 +2,7 @@ let canvas;
 let canvas2d;
 const tick_movement = (2 * Math.PI) / 60;
 const resting_pos = (1.5 * Math.PI);
+let ticks = 0;
 let circleCenteX;
 let circleCentreY;
 let radius = 100;
@@ -36,6 +37,11 @@ function drawMinuteHand(minutes){
     canvas2d.lineTo(circleCenteX + ((radius-30) * Math.cos(resting_pos + tick_movement * minutes)),
                     circleCentreY + ((radius-30) * Math.sin(resting_pos+ tick_movement * minutes)));
     canvas2d.stroke();
+}
+
+function tick(){
+    ticks += 1;
+    draw(ticks);
 }
 
 function draw(ticks){
@@ -77,24 +83,23 @@ function digitalTime(ticks){
 function start(){
     if(time == null){
         time = Rx.Observable.interval(100);
-        subscription = time.subscribe(t => draw(t));
+        subscription = time.subscribe(() => tick());
     }
 }
 
 function stop(){
     if(subscription != null) subscription.dispose();
     time = null;
-    draw(0);
 }
 
 function reset(){
-    if(time != null){
+    if(ticks != 0){
         if(subscription != null) subscription.dispose();
-        time = Rx.Observable.interval(100);
-        subscription = time.subscribe(t => draw(t));
+        ticks = 0;
+        document.getElementById("splits").innerHTML = "";
+        draw(0);
     }
-    
-    document.getElementById("splits").innerHTML = "";
+
 }
 
 function split(){
