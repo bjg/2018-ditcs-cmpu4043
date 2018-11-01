@@ -9,7 +9,7 @@ var y = canvas.height / 2;
 var radius = 200;
 var start_angle = 0;
 var end_angle = 2 * Math.PI;
-var counterClockwise = false;
+var counter_clockwise = false;
 
 
 function clock_face_intervals(angle_of_rotation, num_iterations, line_length, line_width, colour) {
@@ -36,7 +36,7 @@ function clock_face_intervals(angle_of_rotation, num_iterations, line_length, li
 
 function clockFace() {
     context.beginPath();
-    context.arc(x, y, radius, start_angle, end_angle, counterClockwise);
+    context.arc(x, y, radius, start_angle, end_angle, counter_clockwise);
     context.lineWidth = 10;
     context.strokeStyle = 'black';
     context.stroke();  
