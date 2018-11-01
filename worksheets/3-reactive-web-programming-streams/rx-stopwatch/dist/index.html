@@ -1,0 +1,43 @@
+<!--------------------------------------------*\
+    index.html
+    HTML in response to Lab Question 3.2
+
+    Author: Ciarán O'Brien
+    Lecture: Brian Gillespie
+    Student Number: C15765215
+    Date: 25/10/18
+\*-------------------------------------------*/-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Stopwatch</title>
+</head>
+<body>
+<div class="stopwatch">
+    <div class="col left-col">
+    <div  id="watchFace">
+      <canvas class="hands" id="canvas" width="192" height="192"></canvas>
+    </div>
+      
+      <h1 id="timer">00:00:00</h1>
+      <div class="button-container">
+        <button id="start-button">Start</button>
+        <button id="stop-button">Stop</button>
+        <button id="split-button">Split</button>
+        <button id="reset-button">Reset</button>
+      </div>
+    </div>
+    <div id="time-container">
+    </div>
+  </div>
+
+
+<script src="main.js"></script>
+</body>
+</html>
+
+
