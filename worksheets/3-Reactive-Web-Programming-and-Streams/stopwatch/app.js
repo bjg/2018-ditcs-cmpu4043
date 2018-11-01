@@ -14,7 +14,7 @@ var counterClockwise = false;
 
 function clock_face_intervals(angle_of_rotation, num_iterations, line_length, line_width, colour) {
     context.translate(x,y);
-    for(i= 1; i < num_iterations; i++){
+    for(i= 1; i <= num_iterations; i++){
         let angle = i * angle_of_rotation;
         let x1 = Math.cos(angle);
         let y1 = Math.sin(angle);
@@ -42,7 +42,7 @@ function clockFace() {
     context.stroke();  
     clock_face_intervals(Math.PI / 60, 120, 6, 1, 'red'); //half second
     clock_face_intervals(Math.PI / 30, 60, 10, 3, 'black'); //second
-    clock_face_intervals(Math.PI / 6, 24, 20, 5, 'black'); //minute
+    clock_face_intervals(Math.PI / 6, 12, 20, 5, 'black'); //minute
 }
 
 clockFace();
