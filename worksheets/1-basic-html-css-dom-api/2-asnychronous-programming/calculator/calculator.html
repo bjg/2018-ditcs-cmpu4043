@@ -1,0 +1,145 @@
+<!--
+    Rich web application lab1 and 2
+    Calculator task (layout + functionality)
+    Author: Dimiter Dinkov
+    Student Number: C15334276
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <!-- Css for the calculator layout-->
+    <style>
+        .calcFrame {
+            background: #f2f2f2;
+            border-radius: 10px;
+            border: 1px solid black;
+            width: 30%;
+            margin: auto;
+        }
+
+        .calcScreen {
+            background: white;
+            height: 50px;
+            width: 90%;
+            margin: 10px auto 10px auto;
+            border: 1px solid grey;
+            border-radius: 5px;
+            box-shadow: inset 0 0 2px black;
+        }
+
+        .row {
+            width: 90%;
+            margin: auto;
+        }
+
+        button {
+            border-radius: 5px;
+            width: 24%;
+            padding: 5px;
+            margin: 5px auto 5px auto;
+            font-size: 12px;
+        }
+
+        #screenText {
+            margin-left: 1%;
+            margin-top: 0px;
+            color: grey;
+        }
+
+        #equation {
+            margin-left: 1%;
+            margin-top: 1px;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <!--The calculator -->
+    <div class="calcFrame">
+        <div class="calcScreen">
+            <h3 id="screenText">0</h3>
+
+        </div>
+        <div class="keyPad">
+            <div class="row">
+                <button id="(" onclick="concat(this.id)">(</button>
+                <button id=")" onclick="concat(this.id)">)</button>
+                <button id="+-" onclick="add(this.id)">+-</button> <!--find out what this button does -->
+                <button id="/" onclick="concat(this.id)">÷</button>
+            </div>
+            <div class="row">
+                <button id="7" onclick="concat(this.id)">7</button>
+                <button id="8" onclick="concat(this.id)">8</button>
+                <button id="9" onclick="concat(this.id)">9</button>
+                <button id="*" onclick="concat(this.id)">*</button>
+            </div>
+            <div class="row">
+                <button id="4" onclick="concat(this.id)">4</button>
+                <button id="5" onclick="concat(this.id)">5</button>
+                <button id="6" onclick="concat(this.id)">6</button>
+                <button id="-" onclick="concat(this.id)">-</button>
+            </div>
+            <div class="row">
+                <button id="1" onclick="concat(this.id)">1</button>
+                <button id="2" onclick="concat(this.id)">2</button>
+                <button id="3" onclick="concat(this.id)">3</button>
+                <button id="+" onclick="concat(this.id)">+</button>
+            </div>
+            <div class="row">
+                <button id="0" onclick="concat(this.id)">0</button>
+                <button id="." onclick="concat(this.id)">.</button>
+                <button id="C" onclick="concat(this.id)">C</button>
+                <button id="=" onclick="concat(this.id)">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    //create an empty string
+    let str = '';
+
+    //On any button click calls this function and passes the id of the button clicked
+    function concat(id){
+        //switch statement that checks the id of the button clicked
+        //for buttons 0-9,-,+,.,*,/,(,) append the id value to the empty string
+        //if = is clicked then pass the string to the js function eval and it will return the result of the calculation
+        switch (id) {
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '-':
+            case '+':
+            case '0':
+            case '.':
+            case '*':
+            case '(':
+            case ')':
+                str = str + id;
+                document.getElementById("screenText").innerText = str;
+                break;
+            case 'C': //delete last character entered
+                str = str.substr(0 , str.length-1);
+                document.getElementById("screenText").innerText = str;
+                break;
+            case '=':
+                str = eval(str);
+                console.log(str);
+                document.getElementById("screenText").innerText = str;
+                str = '';
+                break;
+            default:
+                document.getElementById("screenText").innerText = "Error";
+                break;
+        }
+    }
+</script>
+</html>

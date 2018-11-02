@@ -1,0 +1,53 @@
+<!--
+    Rich Web Applications
+    Lab 2 part 2
+    jsonplaceholder api
+    Author: Dimiter Dinkov
+    Student Number: C15334276
+
+    NOTE: All the outputs are logged in the browser console
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //Once the page loads call getUsers() and getPosts() functions
+    window.onload = function () {
+        getUsers();
+        getPosts();
+    };
+
+    //Get users function fetches the /user data from the api
+    function getUsers() {
+        fetch('http://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(function (data) {
+                //using the map function on the data json array you get from the fetch log the username, city and zip code of the users
+                //to the console of the browser
+                console.log(data.map(x => "Username: " + x.username + " City: " + x.address.city + " ZipCode: " + x.address.zipcode));
+                //using the filer function on the data json array , log the zip codes that start with 5 and 2 to the broswer's console
+                console.log(data.filter(x => x.address.zipcode.charAt(0) === '5' || x.address.zipcode.charAt(0) === '2'));
+            })
+    }
+
+    //Get post function fetches the /post data from the api
+    function getPosts() {
+        fetch('http://jsonplaceholder.typicode.com/posts')
+            .then(response => response.json())
+            .then(function (data) {
+                //using the filter command log the posts that have more than 6 words in their title
+                console.log(data.filter(x => x.title.split(" ").length > 6));
+                //using the map command only log the word frequency from the body of each object
+                console.log(data.map(x => "Word Frequency " + x.body.split(" ").length));
+            })
+    }
+
+</script>
+</html>
