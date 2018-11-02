@@ -1,0 +1,17 @@
+.container{
+  position: relative;
+
+}
+.left{
+width: 80%;
+float: left;
+text-align: center;
+}
+.right{
+  margin-top: 10%;
+  width: 20%;
+  float: right;
+}
+#splits{
+  border:1px splid black;
+}
