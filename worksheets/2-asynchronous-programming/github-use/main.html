@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub API</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div class="search">
+        <input id="usernameSearch" type="text" placeholder="Username">
+        <button id="searchButton" onclick="getUser()">Search</button>
+    </div>
+    <div id="container">
+        <div class="profile" id="info">
+            <strong class="section">User Profile</strong>
+            <div class="heading"><img id="avatar" src="https://zcoin.io/wp-content/uploads/2017/01/blank-avatar-300x300.png"/>
+            </div>
+            <div class="heading">
+                <strong>Name</strong><br>
+                <div id="name"><br></div>
+            </div>
+            <div class="heading">
+                <strong>Username</strong><br>
+                <div id="username"><br></div>
+            </div>
+            <div class="heading">
+                <strong>Email</strong><br>
+                <div id="email"><br></div>
+            </div>
+            <div class="heading">
+                <strong>Location</strong><br>
+                <div id="location"><br></div>
+            </div>
+            <div class="heading">
+                <strong>Number of Gists</strong><br>
+                <div id="num gists"><br></div>
+            </div>
+        </div>
+        <div class="profile" id="repos">
+            <strong class="section">User Repositories</strong>
+            <div id="repo-list">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

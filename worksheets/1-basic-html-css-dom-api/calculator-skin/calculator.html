@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="calculator.js"></script>
+</head>
+<main>
+    <div id='container'>
+        <div id='result'>
+            0
+        </div>
+        <ul>
+            <li class='button button_operators'>(</li>
+            <li class='button button_operators'>)</li>
+            <li class='button'>&#177;</li>
+            <li class='button button_operators'>/</li>
+        </ul>
+        <ul>
+            <li class='button button_numbers'>7</li>
+            <li class='button button_numbers'>8</li>
+            <li class='button button_numbers'>9</li>
+            <li class='button button_operators'>*</li>
+        </ul>
+        <ul>
+            <li class='button button_numbers'>4</li>
+            <li class='button button_numbers'>5</li>
+            <li class='button button_numbers'>6</li>
+            <li class='button button_operators'>-</li>
+        </ul>
+        <ul>
+            <li class='button button_numbers'>1</li>
+            <li class='button button_numbers'>2</li>
+            <li class='button button_numbers'>3</li>
+            <li class='button button_operators'>+</li>
+        </ul>
+        <ul>
+            <li class='button button_numbers'>0</li>
+            <li class='button button_operators'>.</li>
+            <li class='button button_clear' onClick="clearScreen()">C</li>
+            <li class='button' onClick="calculate()">=</li>
+        </ul>
+    </div>
+</main>
+</html>

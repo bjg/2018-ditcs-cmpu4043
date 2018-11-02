@@ -1,0 +1,40 @@
+h1 {
+    font-style: italic;
+}
+
+body {
+    font-family: arial,sans-serif;
+}
+#content {
+    margin-left: 5px;
+    width: 40%;
+    height: 60%;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    padding-top:10px;
+    padding-left: 10px;
+}
+
+#content header {
+    font-style: italic;
+}
+
+#sidebar {
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    position: relative;
+    vertical-align: top;
+    padding-top:10px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+aside ul {
+    list-style-type: none;
+}
+
+footer {
+    position:absolute;
+}
