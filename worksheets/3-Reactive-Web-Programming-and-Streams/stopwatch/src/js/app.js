@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs/Rx';
-import {Stopwatch} from './Stopwatch.js';
+import {Stopwatch} from './Stopwatch';
 import css from '../css/style.css';
 //create variables
 const canvas = document.querySelector('canvas');
@@ -12,10 +12,10 @@ const radius = 200;
 //set canvas width and height
 header.style.height = "36px";
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - (parseFloat(header.style.height)+50); 
+canvas.height = window.innerHeight - (parseFloat(header.style.height)+50); //got value through trial and error, not sure why it needed the +50 and wouldn't work with just the header height value
 const analogue_display_x = canvas.width /2;
 const analogue_display_y = canvas.height / 2;
-const digital_display_x = 100;
+const digital_display_x = 100; //had trouble working out 4 correct values here. these work for my laptop screen but not tv screen (possibly due to pixal width and height of tv)
 const digital_display_y = 350;
 const splits_x = 1100;
 const splits_y = 100;
