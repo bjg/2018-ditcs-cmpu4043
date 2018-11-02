@@ -18,7 +18,7 @@ const analogue_display_y = canvas.height / 2;
 const digital_display_x = 100;
 const digital_display_y = 350;
 const splits_x = 1100;
-const splits_y = 200;
+const splits_y = 100;
 const context = canvas.getContext('2d');
 const stopwatch = new Stopwatch(context, canvas.width, canvas.height, analogue_display_x, analogue_display_y, digital_display_x, digital_display_y, splits_x, splits_y, radius);
 //init frame
