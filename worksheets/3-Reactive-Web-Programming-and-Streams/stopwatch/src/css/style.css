@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+	background-color: #38D717;
+}
+h1 {
+    text-align: center;
+}
+canvas {
+    background-color: black;
+}
+section {
+    display: inline;
+}
+#buttons-left {
+    float: left;
+    left: 1em;
+}
+#buttons-right {
+    float: right;
+}
+button {
+    margin-left: 5em;
+    margin-right: 5em;
+}   
+@font-face {
+    font-family: 'Digital';
+    src: url('../assets/digital-7.ttf')
+}
+h1 {
+    font-family: Digital;
+}
