@@ -1,4 +1,5 @@
 import {Observable} from 'rxjs/Rx';
+import digitalClockFont from '../assets/digital-7.ttf';
 
 let canvas = document.querySelector('canvas');
 let header = document.querySelector('#heading');
@@ -56,17 +57,20 @@ function analogue_display(x,y,radius,start_angle,end_angle,counter_clockwise) {
     context.beginPath();
     context.arc(x, y, radius, start_angle, end_angle, counter_clockwise);
     context.lineWidth = 10;
-    context.strokeStyle = 'black';
-    context.stroke();  
+    context.strokeStyle = '#FF9F00';
+    context.stroke(); 
     analogue_display_intervals(Math.PI / 60, 120, 6, 1, 'red', x, y); //half second
-    analogue_display_intervals(Math.PI / 30, 60, 10, 3, 'black', x, y); //second
-    analogue_display_intervals(Math.PI / 6, 12, 20, 5, 'black', x, y); //minute
+    analogue_display_intervals(Math.PI / 30, 60, 10, 3, '#E0A800', x, y); //second
+    analogue_display_intervals(Math.PI / 6, 12, 20, 5, '#AC6B00', x, y); //minute
     let tenth_angle = (Math.PI / 60)*tenth_seconds%121;
     let sec_angle = (Math.PI / 30)*get_seconds();
     let min_angle = (Math.PI / 30)*get_mins();
-    analogue_display_hand(x,y, tenth_angle, radius, 1, 'gold');
-    analogue_display_hand(x,y, sec_angle, radius, 2, 'black');
-    analogue_display_hand(x,y, min_angle, radius*0.9, 3, 'red');
+    analogue_display_hand(x,y, tenth_angle, radius, 1, '#985B00');
+    analogue_display_hand(x,y, sec_angle, radius, 2, '#DAB500');
+    analogue_display_hand(x,y, min_angle, radius*0.9, 3, '#AC6B00'); 
+    context.arc(x,y,10,start_angle,end_angle);
+    context.fillStyle = '#B87900';
+    context.fill();
 }
 
 
@@ -78,7 +82,7 @@ const reset = document.querySelector('#reset');
 let tenth_seconds = 0;
 
 const tick = () => tenth_seconds+=1;
-const get_tenths = () => tenth_seconds % 11;
+const get_tenths = () => tenth_seconds % 10;
 const get_seconds = () => Math.floor((tenth_seconds / 10) % 60);
 const get_mins = () => Math.floor((tenth_seconds / 600) % 61);
 const display_tenths = () => get_tenths() < 10? "0"+get_tenths().toString() : get_tenths().toString();
@@ -89,8 +93,8 @@ const digital_display = () => {
     let digital_display_x = 50;
     let digital_display_y = 300;
     let watch_val = display_mins()+":"+display_seconds()+":"+display_tenths();
-    context.font = '80px serif';
-    context.strokeStyle = 'red';
+    context.font = '80px Arial';
+    context.strokeStyle = '#800E0E';
     context.strokeText(watch_val, digital_display_x, digital_display_y, 1000, 1000);
 }
 
