@@ -32,7 +32,7 @@ const subscription = source.subscribe(
             timer.innerHTML = "0" + minutes + ":" + seconds + ":" + (time % 10) + "0";
         } else {
             timer.innerHTML = "0" + minutes + ":" + "0" + seconds + ":" + (time % 10) + "0";
-        }
+        }   
         draw(time);
     });
 
