@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs/Rx';
-import {Stopwatch} from './watch_face.js';
+import {Stopwatch} from './Stopwatch.js';
 import css from '../css/style.css';
 //create variables
 const canvas = document.querySelector('canvas');
