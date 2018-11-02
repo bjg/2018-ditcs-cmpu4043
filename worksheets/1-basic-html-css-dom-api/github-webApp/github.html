@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="github.css">
+    </head>
+
+    <form onsubmit="return false">
+        <input id="search" type="text" placeholder="Username">
+        <input id="searchButton" type="button" value="Search" onclick="getUser()">
+    </form>
+
+    <section>
+        <header><h3>User Profile</h3></header>
+        <table id="profile">
+            <tr>
+                <td colspan="2"><img id="profilePic"></td>
+            </tr>
+            <tr class="userInfo">
+                <td class="bold">Name</td>
+                <td id="name"></td>
+            </tr>
+            <tr class="userInfo">
+                <td class="bold">Username</td>
+                <td id="username"></td>
+            </tr>
+            <tr class="userInfo">
+                <td class="bold">Email</td>
+                <td id="email"></td>
+            </tr>
+            <tr class="userInfo">
+                <td class="bold">Location</td>
+                <td id="location"></td>
+            </tr>
+            <tr class="userInfo">
+                <td class="bold">Number of Gists</td>
+                <td id="gists"></td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <header><h3>User Repos</h3></header>
+        <div id="repoDiv">
+            <table id="repos">
+            </table>
+        </div>
+    </section>
+
+    <script src="github.js"></script>
+
+</html>
