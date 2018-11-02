@@ -1,0 +1,46 @@
+
+header {
+  font-family: Arial;
+  font-style: italic;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+#content, #sidebar {
+  border: 1px solid grey;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#content header, #sidebar header {
+  font-size: 18px;
+}
+
+#content {
+	width: 400px;
+  height: 300px;
+}
+
+#content section {
+  padding-left: 5px;
+}
+
+#sidebar {
+  width: 100px;
+  height: 100px;
+  padding-right: 10px;
+}
+
+footer{
+  margin-top: 5px;
+}
+
+li{
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+address{
+  font-weight: bold;
+}

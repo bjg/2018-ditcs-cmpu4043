@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="githubapi.css">
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="searchbar">
+    <input type="text" id="input" placeholder="Username" value=""></input>
+    <input type="button" id="submit" value="Search" onclick="findUser()"></input>
+  </div>
+
+  <div id="info">
+    <div id="profile">User Profile
+      <div class="profile" id="pic"><img id="avatar"></img></div>
+      <div class="profile" id="name">Name: </div>
+      <div class="profile" id="username">Username: </div>
+      <div class="profile" id="email">Email: </div>
+      <div class="profile" id="location">Location: </div>
+      <div class="profile" id="gists">Number of Gists: </div>
+    </div>
+
+    <div id="repos">User Repos
+      <div class="repos">
+        <ul id="repoList">
+          <li>Name: <p> Description: </li>
+          <li>Name: <p> Description: </li>
+          <li>Name: <p> Description: </li>
+          <li>Name: <p> Description: </li>
+          <li>Name: <p> Description: </li>
+          <li>Name: <p> Description: </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="githubapi.js"></script>
+
+</html>
