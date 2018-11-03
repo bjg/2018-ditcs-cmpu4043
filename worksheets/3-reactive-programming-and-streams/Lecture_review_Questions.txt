@@ -1,0 +1,37 @@
+Rich Web Application Technologies - Week 3
+Lecture Review Questions
+Shona Doran, C15342806, DT282/4
+
+Q1)Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?  
+What are streams useful for modeling and when might you use them in Rich Web development?
+
+	A stream is a technique used to process data when you don't know its potential size or or when it will arrive into the application, examples including video data and log files. Streams implement the 
+	observer pattern, meaning that the data in them is realised by the subscribe operation.
+
+	The subscribe operation works by extracting data from a stream using the subscribe operation. A stream can be subscribed 0 or more times and can provide up to three function to be called, depending
+	on the state of the stream. These states are : "Next" meaning a new data item is available  for processing, "Error", meaning an error has occured in the stream and "Complete", meaning that
+	there is no longer any data left to process on the stream. The functions of the stream are Map(), mapping values to others, Merge(),merge two streams and Filter(), get a stream with only the 
+	result you're interested in. The listening stream is called subscribing and teh sream is the object (or observable) being observed.
+
+	The streams are useful for reactive programming, also known as programming with asynchrous streams. This allows you to focus on the int	erdependence of events that define business logic,
+	rather than work onimplementation details, which allows for more concise code. It also allows for real time responces in  applications.
+
+
+Q2)Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. 
+In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+	
+	With the RXJS library, nearly everything can be used as a stream, including our request, eg
+	
+	var requestStream = just('insert_api_url_here.com');
+	
+	I would then subscribe to that stream and use the reuturned promise as an observable. 
+	
+	var stream = fromPromise(promise)
+	
+	The difference between promises and observables being that promises will only emit one responce while streams can have more. I would use map to get the value of the promise to a string.
+	I would then use subscribe to render the data.
+	
+	I think the streams library is prefferable to promises as it allows the same fucntions as promises but but will allow multiple events. It can also cancel a subscription while promises
+	must wait for a callback. It also allows array operators like forEach and operators like retry().
+	
+	The downside to an observable would be that they cannot be chained together like promises can be.
