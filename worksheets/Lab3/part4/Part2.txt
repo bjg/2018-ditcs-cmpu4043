@@ -1,0 +1,46 @@
+* For reading input from the user 
+	o instead of using onClick(), I would instead use a ‘fromEvent’ observable 
+	o with ‘click’ for mouse clicks 
+	o with ‘keyup’ for keyboard input
+* For getting more then one input will be need from the clicks/keyboard
+	o Use ‘subscribe’ observable so that it will be constantly listening for new clicks and won’t be executed till the user subscribes(clicks) to it
+* The users request requires a network request
+	o Use a request stream to get URL 
+	o URL will return a promise using ‘fromPromise’ observable
+	o Promise will return a stream of data (accessible through ‘subscribe’ observable
+	o Using subscribe – render it to the DOM
+* For if two streams were requested by the user
+	o Use the ‘merge’ observable to merge the two streams
+* For functions
+	o Use the ‘mapTo’ observable to get the function
+	o Use ‘scan’ observable which applies a function to the first item emitted by the source observable and then emits the result
+	of that function as its own first emission, then feeds the result back into the function along with the second, and so on
+* For error handling
+	o Use the ‘onError’ observer
+	
+A promise is a value that is a contract for delivering a value in the future. As it is a value,
+it can be assigned to a variable, it can be passed to a function or can be returned from a function.
+Promises can be used to get data, then give it a value of either success or error. 
+To get better overall performance, we can parallelise the load request and promises can be composed together and processed in groups.
+For this reason, promises can be beneficial for cases such as image loading. Nested call-backs are a problem in JavaScript,
+every subsequent call back requires the previous one to be resolved before the next one can be called.
+Promise handlers can be chained together to provide equivalent functionality to the nested call back pattern.
+By chaining them together we get the same functionality, but we can do it in a way to avoid the deeply nested structure.
+These are much easier to understand then nested call backs. 
+In my opinion from what I understand of promises and streams.
+Even though promises solve the call back issues, promises don’t really help with the larger data synchronisation problem that
+is faced in UI design and implementation. Promises are always running; the executer is called as soon as the promise is created.
+However, streams are lazier, the subscriber function is only called when a client subscribes to an observable.
+This can be seen as good or bad depending on what you are using it for.
+Promises can be used once and will have the same output; however, streams have separate result values for each subscriber.
+So therefore, a stream would be more beneficial for something like reading in mouse clicks, or an event where you do not know what will happen.
+If an event may need to be cancelled streams would be more beneficial.
+For promises, once they are called and the execution is running, they can’t be cancelled.
+However, streams can be cancelled by using ‘unsubscribe’ method.
+This would be useful for something like a timer. You can stop and start the timer by cancelling the request.
+This can be done with streams, but not promises. Also, streams can emit a number of values, unlike promises, which can only return a single value.
+This again is beneficial for getting a user’s input from a number of buttons, for example on a calculator. 
+Streams are not built into JavaScript, so not as easy to use, unless you are using RSJX in your application.
+So, promises are more easily accessible. A third-party application is needed to use streams in a browser.
+Even though promises only return one value, this may be beneficial if you want a retrieve something like a URL.
+This only needs a single value return of either success or fail.
