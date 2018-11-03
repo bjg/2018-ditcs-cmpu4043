@@ -1,0 +1,31 @@
+.calculator{
+	padding: 2%;
+	border: 0.1em solid #000000;
+	margin: auto;
+	width: 60%;
+	height: 50%;
+	border-radius: 10px;
+}
+#screen{
+	text-align: right;
+	font-family: Arial;
+	font-size: 2em;
+	color: #adacac;
+	padding: 3%;
+	width: 90%;
+	border: 0.1em solid #adacac;
+	border-radius: 10px;
+	box-shadow: inset 1px 2px 0px 0px #838282;
+}
+.button {
+	cursor: pointer;
+	font-family: Arial;
+	font-weight: bold;
+	margin-top: 0.5em;
+	padding: 1%;
+	display: inline-block;
+	border: 0.1em solid #808080;
+	width: 24%;
+	border-radius: 10px;
+	box-shadow: 1px 2px 0px 0px;
+}
