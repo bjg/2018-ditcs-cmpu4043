@@ -6,15 +6,16 @@ const clockAnalogue = document.getElementById('clockFace');
 const digClock = document.getElementById('digiClock');
 clockAnalogue.style.width 
     = digClock.style.width 
-    = clockAnalogue.style.height = digClock.style.height 
-    = (document.body.clientWidth / 2) + "px";
+    = clockAnalogue.style.height
+    = digClock.style.height 
+    = document.body.clientHeight + "px";
 
 // draw clock
 const canvas = document.getElementById('clockCanvas');
 var ctx = canvas.getContext('2d');
 canvas.width
     = canvas.height
-    = (document.body.clientWidth / 2);
+    = document.body.clientHeight;
 let centre = canvas.width / 2;
 
 let angle = -90;
