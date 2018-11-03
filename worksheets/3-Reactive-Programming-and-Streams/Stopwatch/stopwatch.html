@@ -1,19 +1,11 @@
 <html>
 <head>
-    <link rel="stylesheet" href="stopwatch.css"/>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.async.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.coincidence.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.binding.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.time.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs-dom/2.0.7/rx.dom.js"></script>
-    <script src="stopwatch.js"></script>
 </head>
 <body>
     <div id="stopwatch_div">
-        <canvas id="stopwatch" onload="init()"></canvas>
+        <canvas id="stopwatch"></canvas>
         <div id="digital"></div>
-        <div id="controls"><button onclick="start()">Start</button><button onclick="stop()">Stop</button><button onclick="split()">Split</button><button onclick="reset()">Reset</button></div>
+        <div id="controls"><button id="start">Start</button><button id="stop">Stop</button><button id="split">Split</button><button id="reset">Reset</button></div>
         <div id="splits"></div>
     </div>
 

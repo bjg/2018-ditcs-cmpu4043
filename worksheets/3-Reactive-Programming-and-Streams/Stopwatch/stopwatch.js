@@ -1,3 +1,8 @@
+import { interval, fromEvent } from 'rxjs';
+import {map} from 'rxjs/operators';
+
+import '../stopwatch.css';
+
 let canvas;
 let canvas2d;
 const tick_movement = (2 * Math.PI) / 60;
@@ -8,6 +13,25 @@ let circleCentreY;
 let radius = 100;
 let time;
 let subscription;
+const input = fromEvent(document, 'click');
+const keys = input.pipe(map(event => event.target.id));
+
+keys.subscribe(function(button){
+    switch(button){
+        case "start":
+            start();
+            break;
+        case "stop":
+            stop();
+            break;
+        case "split":
+            split();
+            break;
+        case "reset":
+            reset();
+            break;
+    }
+})
 
 window.onload = function(){
     canvas = document.getElementById("stopwatch");
@@ -82,19 +106,19 @@ function digitalTime(ticks){
 
 function start(){
     if(time == null){
-        time = Rx.Observable.interval(100);
+        time = interval(100);
         subscription = time.subscribe(() => tick());
     }
 }
 
 function stop(){
-    if(subscription != null) subscription.dispose();
+    if(subscription != null) subscription.unsubscribe();
     time = null;
 }
 
 function reset(){
     if(ticks != 0){
-        if(subscription != null) subscription.dispose();
+        if(subscription != null) subscription.unsubscribe();
         ticks = 0;
         document.getElementById("splits").innerHTML = "";
         draw(0);
