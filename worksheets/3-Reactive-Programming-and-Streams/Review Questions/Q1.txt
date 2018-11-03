@@ -1,0 +1,6 @@
+Streams are an abstraction used to model data sources best used to
+process asynchronous data sources. The steam bahaves like a time ordered array where
+each element in the array is positioned accord to what time it was added.
+It uses the Observer pattern where it notifies dependent objects of any state change.
+It do this by allowing objects to subscribe to it using subscribe() method.
+Data sources include pulling data from other web sources and keyboard input.
