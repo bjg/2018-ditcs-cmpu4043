@@ -221,7 +221,7 @@ function subscribeInit() {
 	).subscribe(ticks => constClock(ticks));
 }
 
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 
 // Initalise the clock
 drawBasicClock(ctx, centre, radius);
