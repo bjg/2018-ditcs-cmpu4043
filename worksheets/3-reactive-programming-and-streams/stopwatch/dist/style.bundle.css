@@ -1,0 +1,37 @@
+/*
+	Name: Robert Vaughan
+	StudentNo: C15341261
+*/
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.center {
+	width: 550px;
+	height: 550px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#canvas {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#split-container {
+	align-self: flex-start;
+	max-height: 550px;
+}
+
+button {
+	align-self: flex-end;
+}
+
+#time {
+	border-bottom: 1px solid black;
+}
