@@ -1,7 +1,49 @@
 body {
-  background: #f9fafb;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  margin: 0;
-  padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+#controls {
+    margin: 25px;
+}
+
+#controls > button {
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    border: 1px solid green;
+    color: green;
+    font-size: 150%;
+}
+
+#controls > button:hover {
+    color: black;
+    background-color: green;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 200%;
+    width: 150px;
+    height: 50px;
+    margin: 25px;
+    background-color: black;
+    color: green;
+    border: solid 1px green;
+}
+
+#splits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 200%;
+    width: 150px;
+    margin: 15px;
+    background-color: black;
+    color: green;
 }
