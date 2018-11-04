@@ -1,3 +1,7 @@
+/*
+Config file referenced from https://stanko.github.io/webpack-babel-react-revisited/
+Modified to suit this lab
+*/
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
