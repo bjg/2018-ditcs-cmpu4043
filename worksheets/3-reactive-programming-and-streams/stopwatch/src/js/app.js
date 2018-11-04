@@ -13,9 +13,10 @@
 	Two mutable variables are used within the codebase. I wanted my solution to follow
 	functional standards and be immutable as possible
 */
+
 import "../css/style.css";
-import { Observable, range, interval, fromEvent, merge, empty } from 'rxjs';
-import { map, mapTo, startWith, switchMap, scan } from 'rxjs/operators'; 
+import { Observable, range, interval, fromEvent, merge, empty } from "rxjs";
+import { map, mapTo, startWith, switchMap, scan } from "rxjs/operators"; 
 
 // Buttons
 const startButton = document.getElementById("Start");
@@ -39,7 +40,7 @@ const source = interval(10);
 let splits = [];
 const totalTimer = 0;
 
-const canvas = document.getElementById('canvas');
+const canvas = document.getElementById("canvas");
 canvas.width="550";
 canvas.height="550";
 

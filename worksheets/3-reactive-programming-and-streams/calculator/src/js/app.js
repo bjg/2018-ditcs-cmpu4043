@@ -1,6 +1,6 @@
 import "../css/style.css";
-import { Observable, fromEvent } from 'rxjs';
-import { map, filter, merge } from 'rxjs/operators';
+import { Observable, fromEvent } from "rxjs";
+import { map, filter, merge } from "rxjs/operators";
 
 /*
 	Name: Robert Vaughan
