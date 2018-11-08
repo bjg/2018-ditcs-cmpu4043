@@ -1,0 +1,37 @@
+header > h1 {
+    font-style: oblique;
+}
+
+#content {
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+    float: left;
+    border: 2px solid black;
+}
+
+#content > header {
+    font-size: 24px;
+    font-style: oblique;
+}
+
+#sidebar {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid black;
+    margin-left: 440px;
+}
+
+#sidebar > header {
+    font-size: 24px;
+    font-style: oblique;
+}
+
+#sidebar > ul {
+    list-style: none;
+}
+
+footer {
+    clear: both;
+}
