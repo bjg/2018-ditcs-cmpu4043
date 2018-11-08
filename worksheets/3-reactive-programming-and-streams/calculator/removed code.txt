@@ -1,0 +1,30 @@
+/*
+//function has become invalid with streams. Rx.Observable.fromEvent(document, 'keypress')
+.pluck('key') does the same thing. 
+//function to detect key press
+function detectKey(key){
+  if (key == '='|| key == 'Enter')
+  {
+    //try catch to stop invlaid input from being executed. example a+b;
+    try{
+      doCalculation();
+    }catch(err){
+      displayToScreen("Invalid input");
+    }
+  } else {
+    addToCalc(key);
+    displayToScreen(calculation);
+  }
+}
+*/
+
+/*
+//Event listener has become invalid with the above stream. 
+//Button event listener to take in button clicks on then screen.
+document.addEventListener('click', function (event) {
+  //if the button click exists do the following
+	if (event.target.matches('.btn')){
+    displayToScreen('');
+    //takes the value of the button clicked as the value input
+    value = event.target.value;
+    */
