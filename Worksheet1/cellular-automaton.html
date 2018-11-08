@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+  
+<body>
+  
+  <script>
+	/* 
+  Generate a row having 101 cells across made from <div> tags
+  of size 8px by 8px. Each cell will have a randomly initialised state
+  of ‘active’ or ‘inactive’. If active, give it one fill color of your choice.
+  If inactive give it another fill color of your choice.
+  Generate the next row of cells based on the state of the ancestors
+  in the previous row according to the following rule.
+
+  Ciara Sastre 27/09/2018
+
+*/
+
+//Variables for, for loop:
+var rowLength = 101;
+var colLength = 49; //+0
+var i = 0;
+var j = 0;
+var k = 0;
+
+var result;
+
+var firstRow = [];
+var newRow = [];
+
+var firstCell = 0;
+var lastCell = 100;
+
+
+//First loop controls first row (random row) and calls functions to create a cell.
+for(i; i < rowLength; i++) //columns
+  {
+    //Randomize numbers 0 and 1
+    result = Math.floor(Math.random() * Math.floor(2));
+    //console.log(result);
+    
+    // If cell is active
+    if(result === 0)
+      {
+        no = createInactiveCell();
+        document.body.appendChild(no);
+      }
+    
+    // If cell is inactive
+    if(result === 1)
+      {
+        yes = createActiveCell();
+        document.body.appendChild(yes);
+      }
+    
+    //The number must be stored in an array to compare active/inactive
+    firstRow[i] = result;
+  }
+
+for(k=0; k<colLength; k++)
+  {
+    //Create a new line
+	var linebreak = document.createElement("div");
+	linebreak.style.clear = "both";
+	document.body.appendChild(linebreak);
+		  
+	//Add First cell return new cell
+	for(i=0; i<1; i++)
+	{
+		result = ruleFirstCell(i);
+        newRow[i] = result;
+        //console.log("New row is = " + newRow);
+	}
+		
+	//Every other cell can compare
+	//Skip very first cell and very last cell
+	for(i = 1; i<rowLength-1; i++) //position of row
+	{
+		result = rule60(i);
+        newRow[i] = result;
+	}
+    
+	  
+	//Add Last cell return new cell
+	for(j = 0; j<1; j++)
+	{
+		result = ruleLastCell(i);
+        newRow[i] = result;
+        //console.log("BOT New row is = " + result);
+	}
+	
+	//Have a loop that enters rows new array into first row
+    
+    for(i=0; i<rowLength; i++)
+    {
+      firstRow[i] = newRow[i];
+    }
+  }
+
+
+
+function rule60(i)
+{
+    // RULE 1
+	if(firstRow[i-1] === 1 && firstRow[i] === 1 && firstRow[firstCell] === 1 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        return(0);
+	}
+	  
+	// RULE 2
+	if(firstRow[i-1] === 1 && firstRow[i] === 1 && firstRow[firstCell] === 0 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        return(0);
+	}
+	  
+	// RULE 3
+	if(firstRow[i-1] === 1 && firstRow[i] === 0 && firstRow[firstCell] === 1 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        return(1);
+	}
+	
+	// RULE 4
+	if(firstRow[i-1] === 1 && firstRow[i] === 0 && firstRow[firstCell] === 0 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        return(1);
+	}
+	
+	//RULE 5
+	if(firstRow[i-1] === 0 && firstRow[i] === 1 && firstRow[firstCell] === 1 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        return(1);
+	}
+	
+	// RULE 6
+	if(firstRow[i-1] === 0 && firstRow[i] === 1 && firstRow[firstCell] === 0 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        return(1);
+	}
+	
+	// RULE 7
+	if(firstRow[i-1] === 0 && firstRow[i] === 0 && firstRow[firstCell] === 1 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        return(0);
+	}
+	
+	//RULE 8
+	if(firstRow[i-1] === 0 && firstRow[i] === 0 && firstRow[firstCell] === 0 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        return(0);
+	}
+}
+
+
+function ruleFirstCell(i)
+{
+	// RULE 1
+	if(firstRow[lastCell] === 1 && firstRow[i] === 1 && firstRow[i+1] === 1 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        //console.log("Rule 1");
+        return(0);
+	}
+	  
+	// RULE 2
+	if(firstRow[lastCell] === 1 && firstRow[i] === 1 && firstRow[i+1] === 0 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        //console.log("Rule 2");
+        return(0);
+	}
+	  
+	// RULE 3
+	if(firstRow[lastCell] === 1 && firstRow[i] === 0 && firstRow[i+1] === 1 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        //console.log("Rule 3");
+        return(1);
+	}
+	
+	// RULE 4
+	if(firstRow[lastCell] === 1 && firstRow[i] === 0 && firstRow[i+1] === 0 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        //console.log("Rule 4");
+        return(1);
+	}
+	
+	//RULE 5
+	if(firstRow[lastCell] === 0 && firstRow[i] === 1 && firstRow[i+1] === 1 )
+	{
+		yes = createActiveCell();
+        document.body.appendChild(yes);
+        //console.log("Rule 5");
+        return(1);
+	}
+	
+	// RULE 6
+	if(firstRow[lastCell] === 0 && firstRow[i] === 1 && firstRow[i+1] === 0 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+        //console.log("Rule 6");
+        return(1);
+	}
+	
+	// RULE 7
+	if(firstRow[lastCell] === 0 && firstRow[i] === 0 && firstRow[i+1] === 1 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        //console.log("Rule 7");
+        return(0);
+	}
+	
+	//RULE 8
+	if(firstRow[lastCell] === 0 && firstRow[i] === 0 && firstRow[i+1] === 0 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+        //console.log("Rule 8");
+        return(0);
+	}
+}
+
+function ruleLastCell(i)
+{
+	// RULE 1
+	if(firstRow[i-1] === 1 && firstRow[i] === 1 && firstRow[firstCell] === 1 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+		//console.log("Rule 1");
+        return(0);
+	}
+	  
+	// RULE 2
+	if(firstRow[i-1] === 1 && firstRow[i] === 1 && firstRow[firstCell] === 0 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+		//console.log("Rule 2");
+        return(0);
+	}
+	  
+	// RULE 3
+	if(firstRow[i-1] === 1 && firstRow[i] === 0 && firstRow[firstCell] === 1 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+		//console.log("Rule 3");
+        return(1);
+	}
+	
+	// RULE 4
+	if(firstRow[i-1] === 1 && firstRow[i] === 0 && firstRow[firstCell] === 0 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+		//console.log("Rule 4");
+        return(1);
+	}
+	
+	//RULE 5
+	if(firstRow[i-1] === 0 && firstRow[i] === 1 && firstRow[firstCell] === 1 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+		//console.log("Rule 5");
+        return(1);
+	}
+	
+	// RULE 6
+	if(firstRow[i-1] === 0 && firstRow[i] === 1 && firstRow[firstCell] === 0 )
+	{
+		yes = createActiveCell();
+		document.body.appendChild(yes);
+		//console.log("Rule 6");
+        return(1);
+	}
+	
+	// RULE 7
+	if(firstRow[i-1] === 0 && firstRow[i] === 0 && firstRow[firstCell] === 1 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+		//console.log("Rule 7");
+        return(0);
+	}
+	
+	//RULE 8
+	if(firstRow[i-1] === 0 && firstRow[i] === 0 && firstRow[firstCell] === 0 )
+	{
+		no = createInactiveCell();
+		document.body.appendChild(no);
+		//console.log("Rule 8");
+        return(0);
+	}
+}
+
+function createActiveCell()
+{
+  //Create active cell
+  var cellActive = document.createElement("div");
+  cellActive.style.width = "8px";
+  cellActive.style.height = "8px";
+  cellActive.style.background = "HotPink";
+  cellActive.style.color = "black";
+  cellActive.style.border = "1px solid black";
+  cellActive.style.float = "Left"
+  cellActive.style.display = "block"
+  return cellActive;
+}
+
+function createInactiveCell()
+{
+  //Create inactive cell
+  var cellInactive = document.createElement("div");
+  cellInactive.style.width = "8px";
+  cellInactive.style.height = "8px";
+  cellInactive.style.background = "black";
+  cellInactive.style.color = "black";
+  cellInactive.style.border = "1px solid black";
+  cellInactive.style.float = "Left"
+  cellInactive.style.display = "block"
+  return cellInactive;
+}
+
+  </script>
+  
+</body>
+
+</html>
