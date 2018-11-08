@@ -1,0 +1,39 @@
+h1
+{
+	font: italic bold 30px arial;
+}
+
+header
+{
+	font: italic 20px arial;
+}
+
+#content
+{
+	display: inline-block;
+	float: left;
+	width:50%;
+	height: 40%;
+	border-style: solid;
+
+}
+
+#sidebar
+{
+	display: inline-block;
+	float: : left;
+	margin-left: 10px;
+	width:25%;
+	border-style: solid;
+}
+
+footer
+{
+	position: fixed;
+	top: 55%; 
+}
+
+ul
+{
+	list-style-type: none;
+}

@@ -1,0 +1,32 @@
+#main
+{
+	border: solid;
+	border-radius: 10px;
+	position: relative;
+	width: 250px;
+	height: 50%;
+}
+
+#row
+{
+	display: block;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+input[type=text]
+{
+	display: inline-block;
+	border-radius: 3px;
+	width: 90%;
+	margin: 5px;
+	text-align: right;
+}
+
+input[type=button]
+{
+	display: inline-block;
+	border-radius: 10px;
+	width: 20%;
+ 	margin: 3px;
+}
