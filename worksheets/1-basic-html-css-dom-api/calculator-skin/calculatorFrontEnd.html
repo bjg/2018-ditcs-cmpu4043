@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		::placeholder
+		{
+			color:lightGray;
+		}
+		#calc-contain
+		{
+			position: relative;
+			width: 300px;
+			border: 2px solid black;
+			border-radius: 12px;
+			margin: 0px auto;
+			padding: 20px 20px 20px 20px;
+			background-color: #F8F8F8;
+		}
+		
+		<!-- Create a CSS value for buttons since they are all same size-->
+		.button
+		{
+		}
+		.button1
+		{
+			width: 70px;
+			height:30px; 
+			font-size: 16px;
+			background: #D0D0D0;
+			font-weight: BOLD;
+			border-radius: 7px;
+			margin-top: 10px;
+			margin-bottom: 1px;
+			box-shadow: 1px 1px #888888;
+		}
+	</style>
+</head>
+<body>
+	<div id='calc-contain'>
+	
+		<form name="calculator">
+            
+            <input type="text" style=" margin-bottom: 8px; width:290px; height:50px; border-radius: 10px; text-align: right; font-size: 38px;" placeholder="0" />
+            <br>
+            
+			<button class="button button1">(</button>
+			<button class="button button1">)</button>
+			<button class="button button1">±</button>
+			<button class="button button1">÷</button>
+			<br>
+			
+			<button class="button button1">7</button>
+			<button class="button button1">8</button>
+			<button class="button button1">9</button>
+			<button class="button button1">x</button>
+			<br>
+			
+			<button class="button button1">4</button>
+			<button class="button button1">5</button>
+			<button class="button button1">6</button>
+			<button class="button button1">-</button>
+			<br>
+			
+			<button class="button button1">1</button>
+			<button class="button button1">2</button>
+			<button class="button button1">3</button>
+			<button class="button button1">+</button>
+			
+			<button class="button button1">0</button>
+			<button class="button button1">.</button>
+			<button class="button button1">C</button>
+			<button class="button button1">=</button>
+			<br>
+
+		</form>
+	
+	</div>
+
+</body>
+
+</html>
