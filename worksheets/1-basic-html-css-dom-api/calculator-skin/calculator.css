@@ -1,0 +1,41 @@
+section {
+	width: 400px;
+	height: 350px;
+	border: 2px solid Gray;
+	background-color: Black;
+	border-radius: 10px;
+}
+#displayValue {
+	border: 2px solid Tomato;
+	border-radius: 10px;
+	height: 14%;
+	width: 87.5%;
+	margin-left: 20px;
+	margin-top: 30px;
+	text-align: right;
+	font-size: 275%;
+	color: Black;
+	font-family: arial;
+	background-color: LightGray;
+}
+button {
+	width: 20%;
+	height: 10%;
+	border: 2px solid Gray;
+	border-radius: 10px;
+	font-family: arial;
+}
+button.firstCol {
+	margin-left: 5%;
+	margin-top: 1.5%;
+}
+button.newCol {
+	display: inline;
+	margin-left: 1.5%;
+	margin-top: 1.5%;
+}
+button.lastCol {
+	display: inline-block;
+	margin-left: 1.5%;
+	margin-top: 1.5%;
+}
