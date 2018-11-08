@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script language = "javascript">
+var width = 101;
+var cells = [];
+var ruleset = [0, 0, 1, 1, 1, 1, 0, 0];
+var height = 0;
+
+initialise();
+
+function initialise(){
+  for (var i =0; i < width; i++){
+    cells[i] = Math.floor(Math.random() * 2);
+  }
+  draw();
+}
+
+function draw(){
+  document.write("<p style = \"line-height: 0px; margin:0px\"><br>");
+  for(var i = 0; i < width; i++)
+    {
+      if(cells[i] == 1)
+      {
+        document.write("<div style = \"border-style: solid; background-color: black; float: left; height : 8px; width : 8px;\"></div>");
+      }
+      else {
+        document.write("<div style = \"border-style: solid; background-color: white; float: left; height : 8px; width : 8px;\"></div>");
+      }
+    }
+    document.write("</p>");
+    if(height < 50)
+    {
+      generate();
+    }
+}
+
+function generate(){
+  var nextRow = Array(cells.length);
+  var left;
+  var current;
+  var right;
+
+  for(var i = 0; i < cells.length - 1; i++)
+  {
+    if(i == 0)
+    {
+      left = cells[100];
+      current = cells[i];
+      right = cells[i+1];
+    }
+    else if (i == 100)
+    {
+      right = cells[0];
+      current = cells[i];
+      left = cells[i-1];
+    }
+    else{
+      left = cells[i-1];
+      current = cells[i];
+      right = cells[i+1];
+    }
+  nextRow[i] = rules(left, current, right);
+  }
+  cells = nextRow;
+  height++;
+  draw();
+}
+
+function rules(a,b,c){
+  if(a==1&&b==1&&c==1) return ruleset[0];
+  if(a==1&&b==1&&c==0) return ruleset[1];
+  if(a==1&&b==0&&c==1) return ruleset[2];
+  if(a==1&&b==0&&c==0) return ruleset[3];
+  if(a==0&&b==1&&c==1) return ruleset[4];
+  if(a==0&&b==1&&c==0) return ruleset[5];
+  if(a==0&&b==0&&c==1) return ruleset[6];
+  if(a==0&&b==0&&c==0) return ruleset[7];
+  return 0;
+}
+</script>
+
+</body>
+</html>
