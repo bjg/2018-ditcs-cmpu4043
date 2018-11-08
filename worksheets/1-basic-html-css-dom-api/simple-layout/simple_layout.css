@@ -1,0 +1,54 @@
+/* Author: Nicola Mahon C15755031 */
+
+body
+{
+  background: #F8F8FF;
+}
+
+header
+{
+  font-family: Verdana;
+  font-style: italic;
+}
+
+#content, #sidebar
+{
+  font-size: 15px;
+  border: 1px solid grey;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#content
+{
+  height: 250px;
+  width: 400px;
+}
+
+#content, h1
+{
+  margin-left: 10px;
+}
+
+#sidebar
+{
+  height: 100px;
+  width: 100px;
+}
+
+li
+{
+  list-style-type: none;
+}
+
+li:last-child
+{
+  text-transform: lowercase;
+}
+
+footer
+{
+  font-weight: bold;
+  padding-top: 15px;
+}
