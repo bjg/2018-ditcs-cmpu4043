@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+        
+<script>
+    
+    var state = [];
+    
+    //Generating the first 101 random cubes
+    for (var index = 0; index < 101; index++) {
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.title = Math.floor(Math.random() * 2).toString();
+                div.style.overflow = "hidden";
+                if (div.title == "1") {
+                    div.style.background = "black";
+                    state.push("1");
+                }else{
+                    div.style.background = "red";
+                    state.push("0");
+                }
+                div.style.float = "left";
+
+            document.body.appendChild(div);
+    } 
+
+    //Creating the next 50 lines based off the conditions
+    for(index1 = 0; index1 < 101 * 50; index1++){
+
+        if(state[index1] == "1" && state[index1+1] == "1" && state[index1+2] == "1"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "red";
+                div.style.float = "left";
+                state.push("0"); //pushing the new cell state into the array
+                document.body.appendChild(div);  
+        }else if (state[index1] == "1" && state[index1+1] == "1" && state[index1+2] == "0"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "red";
+                div.style.float = "left";
+                state.push("0");
+                document.body.appendChild(div); 
+        }else if (state[index1] == "1" && state[index1+1] == "0" && state[index1+2] == "1"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "black";
+                div.style.float = "left";
+                state.push("1");
+                document.body.appendChild(div); 
+        }else if (state[index1] == "1" && state[index1+1] == "0" && state[index1+2] == "0"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "black";
+                div.style.float = "left";
+                state.push("1");
+                document.body.appendChild(div); 
+        }else if (state[index1] == "0" && state[index1+1] == "1" && state[index1+2] == "1"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "black";
+                div.style.float = "left";
+                state.push("1");
+                document.body.appendChild(div); 
+        }else if (state[index1] == "0" && state[index1+1] == "1" && state[index1+2] == "0"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "black";
+                div.style.float = "left";
+                state.push("1");
+                document.body.appendChild(div); 
+        }else if (state[index1] == "0" && state[index1+1] == "0" && state[index1+2] == "1"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "red";
+                div.style.float = "left";
+                state.push("0");
+                document.body.appendChild(div); 
+        }else if (state[index1] == "0" && state[index1+1] == "0" && state[index1+2] == "0"){
+            var div = document.createElement("div");
+                div.style.width = "10px";
+                div.style.height = "10px";
+                div.style.background = "red";
+                div.style.float = "left";
+                state.push("0");
+                document.body.appendChild(div); 
+        }
+
+        if (index1 % 101 == 0)
+        {
+            var div1 = document.createElement("div");
+                div1.style.clear = "left";
+                document.body.appendChild(div1);
+        }
+}
+
+</script>
+</body>
+</html>
