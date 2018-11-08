@@ -1,0 +1,54 @@
+/*
+	Name: Robert Vaughan
+	StudentNo: C15341261
+*/
+
+/*Floats content section left and sets the height according to the size of the browser*/
+#content {
+	float: left;
+	border: 1px solid black;
+	height: 80%;
+	width: 76%;
+	margin-left: 2%;
+}
+
+/*Floats sidebar to the right of the page and sets a width that is 
+dependent of the size of the browser window*/
+#sidebar {
+	float: right;
+	width: 20%;
+	border: 1px solid black;
+}
+
+/*Change to more rounded font with a nice italic*/
+header {
+	font-style: italic;
+	font-family: sans-serif;
+	font-size: 130%;
+}
+
+/*Gives h1 text bigger and thicker font*/
+h1 {
+	font-size: 200%;
+	font-weight: bold;
+}
+
+/*Pushes content away from border*/
+p, header, ul {
+	margin-left: 10px;
+}
+
+/*Prevents content from pushing up the clear-space*/
+footer {
+	clear:both;
+}
+
+/*Removes un-oredered list buttet points*/
+ul {
+	list-style: none;
+}
+
+/*Pushes list items back to the left*/
+li {
+	margin-left: -10px;
+}
