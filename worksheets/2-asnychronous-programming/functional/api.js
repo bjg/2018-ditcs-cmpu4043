@@ -35,7 +35,6 @@ postFetched.then((response) => {
     //is stored as a key in the object allWords with the value of one. Every time that word
     //appers again, the frequency value is increased.
     var wordMap = words.reduce(function (allWords, word) {
-      console.log(allWords);
       if (word in allWords) {
         allWords[word]++;
       }

@@ -1,4 +1,4 @@
-buttons = document.body.getElementsByClassName('button1');
+buttons = document.body.getElementsByClassName('button');
 screen = document.body.getElementsByClassName('screen')[0];
 
 var operation = '';
