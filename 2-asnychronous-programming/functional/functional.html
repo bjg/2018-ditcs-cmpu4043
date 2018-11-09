@@ -1,0 +1,97 @@
+<html>
+
+
+<head>
+
+</head>
+
+<body>
+	
+	<script>
+		// Create a request variable and assign a new XMLHttpRequest object to it.
+		var request = new XMLHttpRequest();
+
+		// Open a new connection, using the GET request on the URL endpoint
+		request.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+
+		request.onload = function () 
+        {
+		  // Begin accessing JSON data here
+		  console.log('\nAccessing Users Data');
+          
+          // We want a sample user to get info off of
+          //fetch('https://jsonplaceholder.typicode.com/users/1')
+          //.then(response => response.json())
+          //.then(json => console.log(json))
+ 
+          //First questions getting user Username/City/Zipcode
+          console.log('\n PART 1 USERNAME/CITY/ZIPCODE');
+          var userData = JSON.parse(this.response);
+
+          userData.forEach(users => {
+          console.log(users.username);
+          console.log(users.address.city);
+          console.log(users.address.zipcode);
+          });
+
+          // Users whos zipcode starts with 2 or 5
+          console.log('\nPART 2 ZIPCODE STARTING WITH 2 || 5');
+          var ZipCodeData = JSON.parse(this.response);
+
+          var zipcode2 = ZipCodeData.filter((users) => users.address.zipcode.startsWith("2"));
+          console.log(zipcode2)
+          
+          var zipcode5 = ZipCodeData.filter((users) => users.address.zipcode.startsWith("5"));
+          console.log(zipcode5)
+          
+        }
+
+		// Send request
+		request.send();
+
+
+        // Create a request variable and assign a new XMLHttpRequest object to it.
+		var request = new XMLHttpRequest();
+
+		// Open a new connection, using the GET request on the URL endpoint
+		request.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+
+		request.onload = function () 
+        {
+          
+          // We want a sample user to get info off of
+          //fetch('https://jsonplaceholder.typicode.com/posts/1')
+          //.then(response => response.json())
+          //.then(json => console.log(json))
+          
+          //Get all titles that are 6 words or less
+          console.log('\n PART 3: TITLES MORE THAN 6');
+          var postTitleData = JSON.parse(this.response);
+          
+          postTitleData.forEach(posts => {
+           
+          //Find how many spaces are in the string
+          var spaces = (posts.title.split(" ").length - 1)
+          //6 words 5 spaces -- length -1
+          
+          // If spaces is greater than 5 there is greater than 6 words
+            if (spaces > 5) {
+              console.log(posts.title);
+            }
+            
+          });
+          
+        }
+		// Send request
+		request.send();
+	</script>
+
+</body>
+
+<footer>
+
+</footer>
+
+
+
+</html>
