@@ -26,17 +26,14 @@ function draw(obj) {
     drawSplit(time, obj.splitNo);
     drawFace();
     drawHours();
-    drawHand(seconds, radius * 0.65);
+    drawHand(seconds, radius * 0.7);
     drawHand(minutes, radius * 0.75);
+    drawHand(deciseconds, radius * 0.65)
 }
 
 function drawDigital(time) {
     ctx.textAlign = 'center';
     ctx.fillText(time,canvas.width/2,canvas.height/1.5);
-}
-
-function clearSplits(){
-
 }
 
 function drawSplit(time, splitNo) {
