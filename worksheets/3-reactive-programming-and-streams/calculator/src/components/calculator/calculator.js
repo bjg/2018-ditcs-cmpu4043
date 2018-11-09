@@ -19,7 +19,6 @@ function doPressed(value){
         leftBracketPlaced = false;
         list = ['0']
     } else if (value === '=') {
-        //doCalculation()
         if (isValueSpecial(list[list.length-1])){
             removeFromEnd()
         }
@@ -32,7 +31,6 @@ function doPressed(value){
 
     if (list.length === 0)
         list = ['0'];
-
     updateDisplay(list)
 }
 
