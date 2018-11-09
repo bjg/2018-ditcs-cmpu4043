@@ -1,0 +1,67 @@
+/* Author: Nicola Mahon C15755031 */
+
+#calculator
+{
+	border: 1px solid black;
+	max-width: 300px;
+	min-width: 300px;
+}
+
+#input.input
+{
+	height: 50px;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	border: 1px solid black;
+	display: block;
+}
+
+
+#input
+{
+	text-align: right;
+	color: grey;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	display: block;
+	height: 50px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	font-size: 30px;
+	text-align: center vertical;
+	direction: rtl;
+	unicode-bidi: plaintext;
+}
+
+.sym, .op, #change, #eq, #clr, .num
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 56px;
+	height:23px;
+	text-align: center;
+	background-color: lightgrey;
+}
+
+.row
+{
+	padding-top: 5px;
+}
+
+#calculator, #input, .sym, .op, #change, #eq, #clr, .num
+{
+	border-radius: 5px;
+}
+
+#input, .sym, .op, #change, #eq, #clr, .num
+{
+	border: 3px solid lightgrey;
+	border-radius: 5px;
+	border-style: outset;
+	font-family: Verdana;
+}
+
+#calculator, .sym, .op, #change, #eq, #clr, .num
+{
+	padding: 5px;
+}
