@@ -6,10 +6,10 @@
 
 2) Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
         
-        An example of using RxJS to handle network responses would be when a user is searching for data using a search box. 
-        First we would create a variable which holds the observable.fromEvent. Most likely this observable would also
-        map to the data we are using to search with (searchbox value). Then we would map the request to the observable,
-        then we subscribe the response handler.
+        An example of using RxJS to handle network responses would be when a user is searching 
+        for data using a search box. First we would create a variable which holds the observable.fromEvent. 
+        Most likely this observable would also map to the data we are using to search with (searchbox value). 
+        Then we would map the request to the observable, then we subscribe the response handler.
         
         Pseudo code might look like
         var = Observable
@@ -18,8 +18,8 @@
                 .map((value)=> make http request with value)
                 .subscribe(handle http response)
                 
-        Streams provide a possible solution to synchronise problems. It provides to ability to merge, for example, button clicks
-        with network requests and responses. 
+        Streams provide a possible solution to synchronise problems. It provides to ability to merge, for example, 
+        button clicks with network requests and responses. 
         
         One of the downside to observables is that they can't be chained. you cant says observe this then observe that. 
         Whereas promises can return another promise allowing for chaining.
