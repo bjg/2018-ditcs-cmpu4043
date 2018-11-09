@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300');
+
+container {
+	text-align: center;
+}
+
+canvas {
+  width: 600px;
+  height: 300px;
+  margin-left: 29%;
+}
+
+#app{
+  padding: 10px;
+  margin-left: 30px;
+}
+
+#Display {
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 300px;
+  height: 50px;
+  font-size: 60px;
+  text-align: center;
+  margin-left: 38%;
+  margin-bottom: 20px;
+}
+
+button{
+  font-size: 20px;
+  background-color: white;
+  border-radius: 12px;
+  margin: 20px;
+  width: 15%;
+  height: 50px;
+}
+
+#Start{
+  margin-left: 15%;
+  color: darkseagreen;
+  border-color: darkseagreen;
+}
+
+#Stop{
+  color: darkred;
+  border-color: darkred;
+}
+
+#Reset{
+  color: cadetblue;
+  border-color: cadetblue;
+}
+
+#Split{
+  color: cadetblue;
+  border-color: cadetblue;
+}
+
+.Split{
+  margin-left: 45%;
+  font-size: 30px;
+}
