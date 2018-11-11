@@ -104,7 +104,7 @@
       <path value="$PROJECT_DIR$/worksheets/3-reactive-programming-and-streams/stopwatch/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="709" />
