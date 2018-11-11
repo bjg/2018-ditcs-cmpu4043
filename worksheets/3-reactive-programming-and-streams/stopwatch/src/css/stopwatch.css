@@ -1,0 +1,46 @@
+#clockFace {
+    float: left;
+}
+
+#buttons {
+    height: 20%;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+button {
+    width: 20%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border: none;
+    padding: 0px;
+    margin-top: 9%;
+    height: 50%;
+    font-size: 20px
+}
+
+#digiClock {
+    display: inline-block;
+}
+
+table {
+    height: 100%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+tr:first-child {
+    height: 50%;
+    font-size: 250%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+tr:not(:first-child) {
+    font-size: 150%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+p {
+    float: left;
+}
