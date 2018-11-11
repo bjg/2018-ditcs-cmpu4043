@@ -1,0 +1,35 @@
+.row{
+    width: 100%;
+    white-space: nowrap;
+}
+
+.column_grid{
+    display: inline-grid;
+    grid-template-columns: auto;
+    width: 45%;
+    vertical-align: top;
+}
+
+.digital{
+    border: 1px solid black;
+    position: sticky;
+    padding: 10px;
+    width: 15%;
+}
+.splits{
+    border: 1px solid black;
+    width: 35%;
+    height: 120px;
+}
+.button_container{
+    display: table;
+    padding: 5px;
+    margin: auto;
+}
+.buttons{
+    color: white;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 4px;
+    color: blue;
+}
