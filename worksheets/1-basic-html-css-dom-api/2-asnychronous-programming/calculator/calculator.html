@@ -131,7 +131,11 @@
                 document.getElementById("screenText").innerText = str;
                 break;
             case '=':
-                str = eval(str);
+                try {
+                    str = eval(str);
+                }catch{
+                    str = "error";
+                }
                 console.log(str);
                 document.getElementById("screenText").innerText = str;
                 str = '';

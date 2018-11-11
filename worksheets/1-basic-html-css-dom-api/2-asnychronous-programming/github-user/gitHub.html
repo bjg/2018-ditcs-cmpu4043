@@ -152,9 +152,6 @@
         let email = document.getElementById("email");
         let location = document.getElementById("location");
         let numberOfGits = document.getElementById("numOfGists");
-        //Here we just remove the last 10 characters from the gists url
-        let gistURL = data.gists_url.slice(0, data.gists_url.length - 10);
-        let gists = countGists(gistURL);
 
         //attach all the data to their corresponding elements
         image.src = data.avatar_url;
@@ -162,7 +159,7 @@
         username.innerText = data.login;
         email.innerText = data.email;
         location.innerText = data.location;
-        numberOfGits.innerText = gists;
+        numberOfGits.innerText = data.public_gists;
 
         //call a function to populate the repository section of the web page
         //pass the users unique repository link
