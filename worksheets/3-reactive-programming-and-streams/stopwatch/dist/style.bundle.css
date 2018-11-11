@@ -3,12 +3,18 @@
 	StudentNo: C15341261
 */
 
+/*
+	Makes the body into a beautiful flexbox
+*/
 body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+/*
+	Intialises wrapper for canvas
+*/
 .center {
 	width: 550px;
 	height: 550px;
@@ -17,21 +23,33 @@ body {
 	justify-content: center;
 }
 
+/*
+	Centers canvas
+*/
 #canvas {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+/*
+	Places splits container to the top left
+*/
 #split-container {
 	align-self: flex-start;
 	max-height: 550px;
 }
 
+/*
+	Aligns buttons to the bottom right
+*/
 button {
 	align-self: flex-end;
 }
 
+/*
+	Places a line below timer to show splits
+*/
 #time {
 	border-bottom: 1px solid black;
 }
