@@ -106,3 +106,11 @@ venv.bak/
 # Node Modules
 worksheets/3-reactive-web-programming-streams/rx-calculator-skin/node_modules
 worksheets/3-reactive-web-programming-streams/rx-stopwatch/node_modules
+
+elm-stuff
+.DS_Store
+# node_modules
+.vscode
+solutions
+.next
+/dist/main.js
