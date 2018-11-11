@@ -1,7 +1,8 @@
 const path = require("path");
 
-module.exports = {
-    entry: "./src/index.js",
+module.exports = 
+{
+    entry: "./src/lab3q1.js",
     devtool: "inline-source-map",
     devServer: {
         contentBase: "./dist"
