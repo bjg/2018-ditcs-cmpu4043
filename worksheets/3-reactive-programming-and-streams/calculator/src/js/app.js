@@ -1,4 +1,4 @@
-import { fromEvent, merge, pipe, subscribe } from "rxjs";
+import { fromEvent, merge} from "rxjs";
 import { map } from "rxjs/operators";
 
 let expression = ''
@@ -126,7 +126,6 @@ const validateTypedInput = (inputVal, inputType) => {
 
 }
 
-
 const solve = () => {
     const validation = validateParentheses(expression, true)
 
@@ -163,11 +162,19 @@ merge(
         }
     })),
 
+
 ).subscribe(obj => {
     if (obj.type === 'button') {
-        if (obj.value === '=') solve()
-        else if (obj.value === 'C') clearInput()
-        else updateExpression(obj.value)
+        switch(obj.value) {
+            case '=':
+                solve()
+                break;
+            case 'C':
+                clearInput()
+                break;
+            default:
+                updateExpression(obj.value)
+        }
 
     } else if (obj.type === 'input') {
         validateTypedInput(obj.value, obj.inputType)
