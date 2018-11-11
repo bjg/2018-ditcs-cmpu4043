@@ -1,0 +1,24 @@
+
+.container {
+  width: 100%;
+  white-space: nowrap;
+  position: center;
+}
+
+.timeEntries {
+	margin: 2px;
+	padding: 2px;
+	border : 2px solid #6219c1;
+	width: 200px;
+	margin-right: 24px;
+	text-align: center;
+	float: left;
+  
+}
+
+.buttons{
+	width: 200px;
+	display: inline-block;
+  min-width: 64px;
+  float: left;
+}

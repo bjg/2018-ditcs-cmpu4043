@@ -1,0 +1,58 @@
+#app {
+  margin: 150px;
+}
+.counter * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+#container 
+{
+	width: 400px;
+	height: 350px;
+	background: white;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+#btnSection
+{
+	text-align:center;
+}
+
+#btnResult
+{
+	width: 350px;
+	height: 50px;
+	background: white;
+	border-radius: 10px;
+	
+	margin-top: 15px;
+	margin-left: 20px;
+	
+	text-align: right;
+	position:center;
+	color: grey;
+	font-size: 35px;
+	font-family: Lucida Console;
+}
+
+button
+{ 
+	width: 70px;
+	height: 35px;
+	
+	list-style-type: none;
+	background: #b3bbc9;
+	text-align:center;
+	border-radius: 10px;
+	
+	margin: 10px;
+	padding: 10px;
+	
+	display: inline;
+	font-size: 18px;
+	font-family: Lucida Console;
+}
