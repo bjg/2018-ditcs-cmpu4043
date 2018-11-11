@@ -1,0 +1,1 @@
+In creating the webtimer, i was unable to get RxJS application NodeJS running on my laptop, so i coded the timer using JS, HTML and CSS instead of streams. 
