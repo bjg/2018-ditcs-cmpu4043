@@ -1,0 +1,85 @@
+﻿3 - Reactive Web Programming and
+Streams
+
+
+(1-2 paragraphs/bullets, etc) answers for the following. It is important that you have reviewed
+the module material in advance
+
+
+
+
+1.Explain what is meant by the stream abstraction. What is the relationship
+between streams and the observer pattern? What are streams useful for
+modeling and when might you use them in Rich Web development?
+
+
+
+
+* Stream Abstraction:
+A Stream is an abstraction of a sequence of data, which is distributed in time. Usually we know sequences as arrays and lists, data distributed in space. First, we load the whole sequence into memory and then process the data. Streams allow us to process data chunk-by-chunk, as data appears in memory, pass it further and then to forget it immediately. In this case we don’t need much memory, ideally just enough to hold one single chunk and the result of its transformation
+
+
+* The stream is the subject which being observed.
+* The observer pattern is a design pattern in which an object has a list of dependents, called the observers, and notifies all them automatically when any of the state changes, usually by calling one of their methods.
+* Streams extends this observer pattern, instead of firing one action on a single event, with streams, you can create and subscribe for such events, and set multiple actions to run based on the events that occur in that stream.
+* In Reactive programming, observer subscribes to an Observable. Then that observer reacts to whatever item or sequence of items the Observable emits.
+* stream is a possible solution to  state synchronisation problem as it provides a unified abstraction of everything.
+* Using stream everywhere will be useful as application architecture is reduced to a stream processing problem on a combined set of one or more data streams.
+* state changes can be processed within the same logical structure using the same semantics.
+* Streams would be useful in rich web development when you're processing data with unknown potential size and/or you don't know when it will arrive in your application.
+* Streams would be useful in things such as video data and log files.
+
+
+
+
+
+
+
+
+
+2.Assume that you are building an interface to an API in your Rich Web App.
+Describe in detail how you could use the RxJS library to handle asynchronous
+network responses to API requests. In your opinion, what are the benefits to
+using a streams library for networking over, say, promises? And what do you
+think are the downsides?
+
+
+*RxJS library can be used to handle asynchronous network responses to API requests by
+creating the observable stream which interacts with any events going on with the interface: a HTTP request firing off.
+
+*You can stream any response to a file stream.
+
+*You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions to content-types and use the proper content-type in the PUT request (if the headers don’t already provide one).
+
+*Request can also pipe to itself. When doing so, content-type and content-length are preserved in the PUT headers.
+
+*Request emits a "response" event when a response is received. The response argument will be an instance of http.IncomingMessage.
+
+*To easily handle errors when streaming requests, listen to the error event before piping:
+
+*You can also pipe() from http.ServerRequest instances, as well as to http.ServerResponse instances. The HTTP method, headers, and entity-body data will be sent. Which means that, if you don't really care about security, you can do:
+
+*And since pipe() returns the destination stream in ≥ Node 0.5.x you can do one line proxying.
+
+Also, none of this new functionality conflicts with requests previous features, it just expands them.
+
+
+*RxJS provides many functions that can create observables out of promises (fromPromise), counters (interval) or events (fromEvent).
+There are multiple operators which are functions that build on the observables foundations that enables manipulation of data. For example, there are map(), filter(), concat() and flatMap().
+Another extremely helpful function is called "pipe()", which links operators together.
+
+RxJS is a library for transforming, composing and querying streams of data.
+RxJS is useful for handling network responses for an interface to an API by 
+There is also error handling provided by RxJS, "error()". 
+
+The benefits of using stream libraries :
+	-consume much less memory
+	-more efficient, in more than one way
+        -code sharing and reuse
+        -error handling functions
+	
+        
+The downside of stream libraries are:
+        -Callback hell
+        -Single-threaded environment
+        -Difficult
