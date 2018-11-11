@@ -1,0 +1,30 @@
+{
+  "name": "react-calculator",
+  "version": "1.0.0",
+  "description": "Lab 3 - Question 1 - React Calculator",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open --config ./webpack.config.js --mode development"
+  },
+  "keywords": [],
+  "author": "Gabriel Grimberg",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3"
+  }
+}
