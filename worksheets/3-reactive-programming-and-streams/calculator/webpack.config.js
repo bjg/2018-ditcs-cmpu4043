@@ -25,9 +25,6 @@ module.exports = {
                 'babel-loader',
             ],
         },
-        // CSS loader to CSS files -> ADDED IN THIS STEP
-        // Files will get handled by css loader and then passed to the extract text plugin
-        // which will write it to the file we defined above
         {
             test: /\.css$/,
             use: ["style-loader", "css-loader"],

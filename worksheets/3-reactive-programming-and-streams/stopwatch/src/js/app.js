@@ -24,9 +24,43 @@ const stop$ = fromEvent(stopBtn,'click');
 const reset$ = fromEvent(resetBtn,'click');
 const split$ = fromEvent(splitBtn,'click');
 
-
+const timeInterval = interval(100);
 
 const radius = c.height/2;
+
+let timeStarted = false;
+let display = "00:00:00";
+digital.innerHTML = display;
+
+
+const eventObserver = {
+  next: (id) => {
+  if (id === 'start')
+  {
+    timeStarted = true;
+  }
+  if (id === 'stop')
+  {
+    timeStarted = false;
+  }
+}}
+
+timeInterval.subscribe(time =>{
+  if(!timeStarted){
+    return;
+  }
+  else {
+    curTime++;
+    let minutes = Math.floor(curTime / 600);
+    let seconds = Math.floor((curTime / 10) % 60);
+    let millisecs= curTime % 10;
+
+    display = padIt(minutes)+":"+padIt(seconds) +":"+millisecs+"0";
+    display.innerHTML = display;
+
+    runClock(minutes, seconds, millisecs);
+  }
+});
 
 function drawWatch(argument) {
 	
