@@ -1,0 +1,58 @@
+Rich Web Application Technologies - Worksheet
+
+Exercise 1:
+A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result. It is not a data structure, it takes input from the collections, arrays or I/O channels. They don’t change the original data structure, they only provide a result from a pipe method. Some streams include map, filter and sorted. An observable is an object which notifies observers about the change in its state.
+
+forEach: The forEach method is used to iterate through every element of the stream.
+
+reduce: The reduce method is used to reduce the elements of a stream to a single value.
+
+collect: The collect method is used to return the result of the intermediate operations performed on the stream.
+
+map: The map method is used to map the items in the collection to other objects according to the Predicate passed as argument.
+
+filter: The filter method is used to select elements as per the Predicate passed as argument.
+
+sorted: The sorted method is used to sort the stream.
+
+
+Exercise 2:
+
+The RxJS library to handle asynchronous network responses to API requests by making an observer able to handle the event like so 
+
+let userClicksSearchButton = Rx.Observable.fromEvent(
+        $("#search-button"),
+        'click'
+    )
+    .map((event) => {
+        return $("#search-box").val();
+    });
+
+userClicksSearchButton
+    .flatMap((searchTerm) => {
+        return Rx.Observable.fromPromise(
+            $.get('https://api.github.com/users/' + searchTerm)
+        );
+    })
+    .subscribe((response) => {
+        renderUser(
+            response.login,
+            response.html_url,
+            response.avatar_url
+        );
+    });
+
+function renderUser(login, href, imgSrc) {
+    let searchResult = $("#search-result");
+    searchResult.show();
+    searchResult.attr("href", href);
+    $("#search-result__avatar").attr('src', imgSrc);
+    $('#search-result__login').text(login);
+}
+
+Benefits: 
+Allows us to flatten all of those promise resolutions into a single observable stream, and when we subscribe to it
+
+Disadvantages:
+Bad naming conventions make it hard to learn like falsePromises being used instead of the map function
+
