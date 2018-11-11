@@ -4,18 +4,20 @@
 
 ##### Explain what is meant by the stream abstraction. 
 Streams can be simplified down into 4 fundemental types:
--Transform
--Duplex
--Writable
--Readale
+- Transform
+- Duplex
+- Writable
+- Readale
 
-The last two, Writable & Readable are the two that can be an abstraction from a source. This source can be anything, as anything can be _anything_ can be a stream of data.
+The last two, Writable & Readable are the two that can be an abstraction from a source. This source can be anything, as _anything_ can be a stream of data.
 
 ##### What is the relationship between streams and the observer pattern? 
-The observer pattern provides a subriber to an event _tigger_. In traditional JavaScript, an onclick event handler would be a clear comparison. However, as we move towards vast contaties of data potentially coming in from data sources, we need a method of dealing with the data. 
+The observer pattern provides a subscriber to an event _tigger_. In traditional JavaScript, an onclick event handler would be a clear comparison. However, as we move towards vast contaties of data potentially coming in from data sources, we need a method of dealing with the data. 
 
 ##### What are streams useful for modeling and when might you use them in Rich Web development?
 Stream modelling can be compared to Business Layer Logic. We sparate out each separate task from each other, de-coupling, and easily manange each _component_ of our Rich Web Application. Each compement can be contained inside of a modlue. These modules will contain function specific code, say getters for API calls.
+
+Furthermore, when we are dealling with data streams, we often don't know how large, or what sort of data is incoming from said stream. Therefore, using streams allows us to dynamically adjust our handler, whereas this could not be posible with, say, traditional arrays which are defined during runtime, but must be manually casted to be changed.
 ## Excercise 2
 
 ##### Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. 
@@ -106,3 +108,7 @@ get("/countries")
 ##### And what do you think are the downsides?
 
 Handling a stream input can be quite complex. When dealing with mulitple inputs, nested merge/map/filter/pipe functions, it can become cumbersome to figure out what's going on to your subcriber.
+
+A third party library is requried for streams, whereas promises are natively supported within ES6, thus adding an extr alayer of overhead on your application.
+
+Also, promises only requirea a single return value, success or failure. Streams can be built into a much more complexe set of return values that each need to be dealt with individually.
