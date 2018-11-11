@@ -1,0 +1,43 @@
+#border {
+  max-width: 360px;
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+#input {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 3px solid #EEEEEE;
+  border-top-color: #9A9A9A;
+  border-left-color: #9A9A9A;
+  padding: 3px;
+  text-align: right;
+  font-size: 40px;
+  font-family: Comic Sans MS;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  color: #A9A9A9;
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+#buttons {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+.button {
+  padding: 5px;
+  margin: 3px;
+  background: #C0C0C0;
+  display: inline-block;
+  width: 81px;
+  text-align: center;
+  border: 3px solid #C0C0C0;
+  border-radius: 10px;
+  border-bottom-color: #6C6C6C;
+  border-right-color: #6C6C6C;
+  font-size: 18px;
+  font-family: Arial;
+}
