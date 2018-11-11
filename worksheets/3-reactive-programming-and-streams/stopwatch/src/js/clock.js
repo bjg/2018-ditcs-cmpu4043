@@ -1,3 +1,9 @@
+/**
+ *
+ * @param ctx - canvas context
+ * @param r - radius of clock
+ * @param options - takes in options for circle. such as which fill and border color
+ */
 const drawCircle = (ctx, r, options) => {
     ctx.beginPath();
     ctx.arc(0, 0, r, 0 , 2*Math.PI);
@@ -14,6 +20,10 @@ const drawCircle = (ctx, r, options) => {
     }
 }
 
+/**
+ * Draw lines around circle
+ * Every 4 line we draw a big line
+ */
 const drawLinesAroundClock = (ctx, radius) => {
     let smallHands = 4
 
@@ -37,16 +47,31 @@ const drawLinesAroundClock = (ctx, radius) => {
     }
 }
 
-const drawTime = (ctx, radius, seconds, minutes) => {
-
+/**
+ * Taking the time for seconds and minutes we will position the clock hands
+ * @param ctx - canvas context
+ * @param radius - radius of clock
+ * @param seconds - second duration
+ * @param minutes - minutes duration
+ */
+const positionClockHands = (ctx, radius, seconds, minutes) => {
     const secs=(seconds*Math.PI/30);
-    drawHand(ctx, secs, radius*0.7, 1);
+    drawClockHand(ctx, secs, radius*0.7, 1);
 
     const mins=(minutes*Math.PI/30)+(seconds*Math.PI/(30*60));
-    drawHand(ctx, mins, radius*0.8, 2);
-
+    drawClockHand(ctx, mins, radius*0.8, 2);
 }
 
+
+/**
+ * 
+ * @param ctx - canvas context
+ * @param startX - starting X cord for line
+ * @param startY - starting Y cord for line
+ * @param endX - ending Y cord for line
+ * @param endY - ending Y cord for line
+ * @param width - width of the line
+ */
 const drawLine = (ctx, startX, startY, endX, endY, width) => {
     ctx.beginPath();
     ctx.lineWidth = width;
@@ -56,7 +81,14 @@ const drawLine = (ctx, startX, startY, endX, endY, width) => {
     ctx.stroke();
 }
 
-const drawHand = (ctx, pos, length, width) => {
+/**
+ * 
+ * @param ctx - canvas context
+ * @param pos - position of hand in degrees
+ * @param length - length of the line
+ * @param width - width of the line
+ */
+const drawClockHand = (ctx, pos, length, width) => {
     ctx.beginPath();
     ctx.lineWidth = width;
     ctx.lineCap = "round";
@@ -67,11 +99,18 @@ const drawHand = (ctx, pos, length, width) => {
     ctx.rotate(-pos);
 }
 
+/**
+ * Draw the clock, with hands positioned according to the times
+ * @param ctx - canvas context 
+ * @param radius - radius of clock
+ * @param seconds - second duration
+ * @param minutes - minutes duration
+ */
 export const drawClock = (ctx, radius, seconds, minutes) => {
     ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
     drawCircle(ctx, radius*0.98, {border: '#a4a6ab', fill: 'white'});
     drawCircle(ctx, radius*0.95, {border: '#a6adbc', fill: 'white'});
     drawCircle(ctx, 5, {fill: 'white'});
     drawLinesAroundClock(ctx, radius*0.85);
-    drawTime(ctx, radius, seconds, minutes);
+    positionClockHands(ctx, radius, seconds, minutes);
 }
