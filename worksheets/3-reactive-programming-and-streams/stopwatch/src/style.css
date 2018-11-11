@@ -1,0 +1,29 @@
+body, html{
+  height: 99%
+}
+
+canvas{
+border: 1px solid black;
+float:left;
+}
+
+#buttons{
+clear: both;
+}
+
+.button{
+border-radius: 15px;
+background-color: #cccc00;
+margin: 0 0 0 1%;
+width: 11.5%;
+}
+
+#list{
+overflow:scroll;
+height: 52%;
+padding: 0 0 0 1%;
+}
+
+.split_item{
+background-color: #ffff80;
+}
