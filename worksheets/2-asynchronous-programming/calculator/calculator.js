@@ -68,7 +68,7 @@ function addToScreen(key) {
         else {
             result.innerText += key;
         }
-    }    
+    }
 }
 
 // If an Operator is pressed
@@ -102,7 +102,7 @@ function addToScreenOps(key) {
             }
         }
     }    
-}
+};
 
 // Check if string is a letter
 function isAlpha(str) {
@@ -115,4 +115,4 @@ function isAlpha(str) {
         }
     }
     return true;
-  };
+};

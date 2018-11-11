@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch</title>
+
+</head>
+<body>
+<div class="container">
+  <div class="left">
+    <canvas id="stopwatch" width="300" height="300"></canvas>
+    <h1 id="digital">
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>:
+        <span id="tenths">00</span>
+    </h1>
+    <div>
+      <button type="button" id="start">Start</button>
+      <button type="button" id="stop">Stop</button>
+      <button type="button" id="split">Split</button>
+      <button type="button" id="reset">Reset</button>
+    </div>
+  </div>
+  <div class="right">
+    <div id="splits">
+    </div>
+  </div>
+</div>
+  <script src="./dist/app.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "calculator-app",
+  "version": "1.0.0",
+  "description": "Reactive Calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "build": "webpack-dev-server --open --config ./webpack.config.js --mode development"
+  },
+  "keywords": [],
+  "author": "Yit Chee Chin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
