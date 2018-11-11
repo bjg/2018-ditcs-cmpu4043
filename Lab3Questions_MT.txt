@@ -1,0 +1,40 @@
+***Explain what is meant by the stream abstraction. 
+What is the relationship between streams and the observer pattern?  
+Why are streams useful for modeling and when might you use them in Rich Web development?****
+
+Streams are collections of data in JS like arrays or strings. Streams might not always be available at once and they don't necessarily have to fit in memory.
+In this case, streams are a very powerful tool when it comes to working with large amounts of data or data that is coming from an
+external source.
+
+---Stream Abstraction---
+Streams are an abstraction that is used for reading and writing files. These are also very useful abstractions for describing files.
+When using streams, you don't have to worry about the source of the data and how it exists when it comes to extracting such data.
+
+--Streams and observer pattern--
+The Observer pattern provides a subscription model where objects can "subscribe" to an event and be notified when that event occurs.
+It facilitates good object-oriented design and promotes loose coupling. Observers lets you write event handlers which are functions 
+that are notified when an event occurs. 
+
+
+--Why are streams useful for modelling--
+Using streams in our code is useful for reducing application architecture into a stream processing problem on a set of one or more data streams.
+In this way, we can process changes in state within the same logical structure using the same semantics.
+Streams also provides a unified abstraction of everything and this can solve problems in state synchronization.
+
+
+
+***Assume that you are building an interface to an API in your Rich Web App. 
+Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. 
+In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?***7
+
+RxJS is a library we can use to transform and query streams of data. It provides many functions which can generate observables instead of promises, 
+counters and events. There are also functions which builds on observable functions, enabling data manipulation. Examples would be:
+concat(), map(), pipe(), filter(), etc.
+
+Advantages of stream libraries:
+- ability to share and reuse code
+- functions for handling error
+
+Disadvantages:
+- single-threaded
+- tedious callbacks
