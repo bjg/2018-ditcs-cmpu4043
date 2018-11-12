@@ -1,0 +1,30 @@
+Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?
+What are streams useful for modelling and when might you use them in Rich Web development?
+
+Stream abstraction refers to a way of modelling asynchronous data sources. A stream is essentially a collection
+of data, which can be formed from any sort of data source and can observe and react to changes in that data which
+is subscribed to that stream.
+
+The definition of an observer pattern is a software design pattern in which an object, called the subject,
+maintains a list of its dependents, called observers, and notifies them automatically of any state changes,
+usually by calling one of their methods. In this sense the subject is observed by the stream and components
+of the application are notified and possibly changed as a result of a change in the subject. Streams can be
+useful in situations where data is changed from a source, for example an API, a stream monitoring this API
+is informed and transformed based on the changed data.
+
+
+
+
+
+Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use
+the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits
+to using a streams library for networking over, say, promises? And what do you think are the downsides?
+
+I would create an observer to monitor the changes of a data source, in this case the data being from the API request. I would
+then subscribe to the observer to interact with the data that has been passed in asynchronously to manipulate/display it in some
+way.
+
+Stream libraries such as rxjs or other have the benefit of reading in data in chunks as opposed to all in one, abstracting
+the need to worry about synchronisation problems that promises would have to deal with. One big downside however is the
+need for large external packages required to implement streams, as they are not part of the core javascript API, as well as the
+need for a mode bundler like webpack to allow these packages to be imported in the first place.

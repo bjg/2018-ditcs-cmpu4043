@@ -1,0 +1,40 @@
+body {
+  width: 98%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  clear: both;
+}
+
+.functionPanel {
+  width: 400px;
+  float: right;
+}
+
+h1 {
+  padding: 2em 0 1em 0;
+  text-align: center;
+}
+
+li{
+  text-align: center;
+  list-style: none;
+  padding: 1em;
+}
+
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
+#splitTimes {
+  height: 300px;
+}
+
+button {
+  padding: 10px 28px;
+}
