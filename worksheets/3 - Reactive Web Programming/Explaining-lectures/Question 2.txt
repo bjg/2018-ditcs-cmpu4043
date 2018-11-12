@@ -1,0 +1,40 @@
+Question:	Assume that you are building an interface to an API in your Rich Web App. 
+			Describe in detail how you could use the RxJS library to handle asynchronous 
+			network responses to API requests. In your opinion, what are the benefits 
+			to using a streams library for networking over, say, promises? 
+			And what do you think are the downsides?
+			
+Answer:
+
+The RxJS library can be useful in many different ways to handle asynchronous network
+responses to API requests. You can use the observer pattern provided by RxJS to 
+handle network responses as the observer pattern specialises in dealing with
+handling the "steam" of information that will be passed into your API that could be
+out of sequence (async).
+
+The RxJS library contains a lot of different kinds of observables that can be
+used to process streams of information being sent to your API, such as the interval
+observable that fires a "chunk" of information in specified time intervals into
+API parameters.
+
+Observers work in tandem with observables. They implement these "chunks" of data
+with the "next", "error" or "complete" methods. Next is passed a value which can be
+executed on the next value provided by the observable. Error is given a parameter
+but does not log the next value passed by the observable. Complete stops further
+calls to the observable.
+
+As mentioned in question 1, subscribe simply links the observable and observer allowing
+the observable to be executed.
+
+Those are just some examples of the wide range of functionalities in the RxJS library
+that could handle asynchronous network responses.
+
+
+Benefits to using a streams library for networking over promises:
+	streams help to cut down on lines of code as promises tend to be heavily nested.
+	RxJS handle asynchronous events more efficiently.
+	RxJS streams have many functions for filtering, cutting unwanted data.
+
+Downsides to using RxJS
+	Observables become abundant in the codebase. Data becomes heavily wrapped in observables.
+	Can make client side time travel debugging etc more complicated if heavily wrapped.

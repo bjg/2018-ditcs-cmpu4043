@@ -1,0 +1,21 @@
+Question:	Explain what is meant by the stream abstraction. 
+			What is the relationship between streams and the observer pattern?  
+			What are streams useful for modeling and when might you use them in 
+			Rich Web development?
+			
+Answer:	
+
+Streams are an abstraction (general idea) used to model asynchronous data sources.
+The general idea is that you can request more than one thing in a sequence. Whenever
+you ask for another one, you'll get another one, until they all run out. (like water stream)
+Each element in the stream is positioned according to what time it was added.
+
+The observer pattern is to define a one-to-many dependency between objects so that
+when one object changes state, all its dependents are notified and updated automatically.
+
+The relationship between streams and the observer pattern is that streams use the
+observer pattern to notify dependent objects of any change in state. The substribe()
+method is used to facilitate this.
+
+Streams come in handy during rich web development in the event of processing keyboard
+input, mouse clicks, network responses, timers etcetera.
