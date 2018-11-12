@@ -1,0 +1,49 @@
+form{
+	width: 250px;
+	height: 270px;
+	padding: 10px;
+	margin-Left: auto;
+	margin-Right:auto;
+	font-Family: Verdana;
+	font-Size: 100%;
+	border-Radius: 7px;
+	background: #f9f9f9;
+	border-color:black;
+	border-width: 1px;
+	border-style: solid;
+	display: inline-flex;
+	flex-Flow: row wrap;
+	justify-Content: space-between;
+}
+
+input[type=textfield]{
+	font-Size: 2em;
+	text-Align: right;
+	border-Radius: 5px;
+	width: 250px;
+	height: 45px;
+	margin-Bottom: 10px;
+	padding: 1%;
+}
+
+.button{
+	font-Size: 1.1em;
+	border-Radius: 5px;
+	width:46px;
+	text-Align: center;
+	padding: .5em;
+	font-Size: 1em;
+	flex-Grow: 1;
+	margin: 0 5px 5px 0;
+}
+
+input[type=reset]{
+	font-Size: 1.1em;
+	border-Radius: 5px;
+	width:46px;
+	text-Align: center;
+	padding: .5em;
+	font-Size: 1em;
+	flex-Grow: 1;
+	margin: 0 5px 5px 0;
+}
