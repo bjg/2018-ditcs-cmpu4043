@@ -1,0 +1,98 @@
+/***
+ *	Name: Gabriel Grimberg
+ *	Module: Rich Web Applications
+ *	Lab: 2
+ *	Question: 3
+ *	Type: Main CSS for file "gitHub-repo-pull.html"
+ ***/
+
+/* The container for the HTML page */
+section {
+	
+	font-family: "Arial", Times, serif;
+	padding-left: 15%;
+	padding-right: 15%;
+	background-color: white;
+}
+
+/* Rows fit to size */
+.rows {
+	
+	display: flex;
+}
+
+/* Columns fit to size */
+.columns {
+	
+	flex: 1;
+	padding: 1em;
+}
+
+/* Text attributes, where the user types the username */
+input[type="text"] {
+	
+	float: left;
+	height: 30px;
+	width: 70%;
+	text-indent: 10px;
+}
+
+/* Button attributes, where the user clicks the search button */
+input[type="button"] {
+	
+	float: right;
+	border: none;
+	background-color: white;
+	font-size: 14px;
+	height: 35px;
+	width: 160px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+}
+
+/* How the image is dispalyed */
+img {
+	
+	display: block;
+	margin: auto;
+	height: 20em;
+	width: 20em;
+	padding: 2em;
+}
+
+/* Outer user profile section */
+.profileSection {
+	
+	border: 1px solid;
+}
+
+/* Inner user profile section */
+.profileSection div:not(:last-child) {
+	
+	border-bottom: 1px solid;
+	padding: 5px;
+	font-weight: bold;
+}
+
+/* Editing "Number of Gists" field */
+div #noOfGistID {
+	
+	padding: 5px;
+	font-weight: bold;
+}
+
+/* Border around each div created for repos */
+.repoSection div {
+	
+	border-top: 1px solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	padding: 20px;
+}
+
+/* Finishing off the border on the last div for repos */
+.repoSection div:last-child {
+	
+	border-bottom: 1px solid;
+}
