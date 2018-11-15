@@ -1,0 +1,32 @@
+header {
+  font-family: sans-serif;
+  font-style: italic;
+}
+
+#content {
+  position: absolute;
+  padding: 15px;
+  border-style: solid;
+  width: 55%;
+  height: 40%;
+
+}
+
+#sidebar {
+  position: absolute;
+  left: 60%;
+  padding: 15px;
+  border-style: solid;
+  width: 15%;
+}
+ul {
+  list-style: none;
+}
+footer {
+  position: absolute;
+  bottom: 40%;
+}
+
+body {
+
+}
