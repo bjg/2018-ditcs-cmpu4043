@@ -1,0 +1,41 @@
+#content{
+    width: 350px;
+    min-height: 250px;
+}
+
+#sidebar{
+    width: 100px;
+}
+
+#sidebar, #content{
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 6px;
+    padding: 8px 5px;
+}
+
+#sidebar header, #content header{
+    font-family: Arial;
+    font-style: italic;
+    font-weight: 500;
+}
+
+address{
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+h1{
+    font-family: Arial;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li:nth-child(2)::first-letter{
+    text-transform: lowercase;
+}
