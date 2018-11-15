@@ -1,0 +1,45 @@
+<!--
+Author: Gabriel Grimberg
+
+Module: Rich Web Application
+
+Type: Lab 3/5
+
+Question: 2/3
+
+Instructions: 
+	- Create a stopwatch as shown in the insturctions in ReactJS.  
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Rich Web - Lab 3/5</title>
+	</head>
+	<body>
+				
+	<div style="text-align:center; margin-top: 100px;">
+		<!-- To draw the clock. -->
+		<canvas id="canvasID" width="500" height="500"></canvas>
+	</div>
+	
+	<div style="text-align:center; margin-right: 100px;" >
+		<h1 id="displayTime">0:0:00</h1>
+		<!-- Buttons for the stopwatch. -->
+		<div id="buttons">
+			<button id="btn-startID">Start</button>
+			<button id="btn-stopID">Stop</button>
+			<button id="btn-splitID">Split</button>
+			<button id="btn-resetID">Reset</button>
+		</div>
+		
+		<!-- Used to show the splits. -->
+		<div class="splitNumber" id="splitNumberID"></div>
+		
+	</div>
+	
+	<!-- JavaScript must be loaded after the canvas. -->
+	<script src="main.js"></script>
+		
+	</body>
+</html>
