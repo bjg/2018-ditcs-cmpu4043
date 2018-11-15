@@ -1,0 +1,77 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    width: 700px;
+    margin: auto;
+    height: auto;
+    padding: 0;
+    border: 2px solid black;
+}
+.row{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.column-6{
+    display: inline-block;
+    width: 49.3%;
+    vertical-align: top;
+}
+.analog{
+    width: 350px;
+    height: 350px;
+    margin: auto;
+}
+.digital{
+    border: 2px solid black;
+    padding: 5px;
+    width: 110px;
+    margin: auto;
+    border-radius: 25px;
+}
+.minicontainer{
+    display: table;
+    margin: auto;
+}
+body > div > div:nth-child(2){
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+.splits{
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-left: 10px;
+    width: 105px;
+    line-height: 22px;
+    margin: auto;
+    margin-top: 15px;
+    min-height: 210px;
+}
+.button-start,
+.button-stop,
+.button-split,
+.button-reset{
+    color: white;
+    border-radius: 15px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 10px;
+}
+
+.button-start{
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-stop{
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-split{
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-reset{
+    background: rgb(66, 184, 221); /* this is a light blue */
+}

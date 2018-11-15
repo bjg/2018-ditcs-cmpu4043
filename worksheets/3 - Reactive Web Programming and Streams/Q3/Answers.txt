@@ -1,0 +1,50 @@
+1) Explain what is meant by the stream abstraction. 
+What is the relationship between streams and the observer pattern?  
+Why are streams useful for modeling and when might you use them in Rich Web development?
+
+Streams are similar to an array or strings, they are a collection of data. 
+The main difference is that streams might not be available all at the same time, and so they don't have to fit in memory.
+This is useful when working with large amounts of data, as we can process them one chunk at a time. 
+
+What is meant by the stream abstraction?
+An abstraction kind of means it's a general idea, rather than a specific thing. 
+Streams are an abstraction used when reading or writing files. 
+Streams is a useful abstraction due to it being able to describe files, but also terminal input/output.
+So for example, you can write something to get data and you don't care where it came from and how it got here, or you'll produce data and you don't care what your caller will do to it.
+
+What is the relationship between streams and the observer pattern?
+The observer pattern is a design pattern in which an object has a list of dependents, called the oberservers, and notifies all them automatically when any of the state changes, usually by calling one of their methods.
+Streams extends this observer pattern, instead of firing one action on a single event, with streams, you can create and subscribe for such events, and set multiple actions to run based on the events that occur in that stream.
+
+Why are streams useful for modeling and when might you use them in Rich Web development?
+If there is state synchronisation problem, streams is a possible solution to this problem, by providing a unified abstraction of everything.
+If we use stream everywhere, the application architecture is reduced to a stream processing problem on a combined set of one or more data streams.
+We can then process state changes within the same logical structure using the same semantics.
+
+Streams would be useful in rich web development when you're processing data that you don't know its potential size and/or you don't know when it will arrive in your application.
+Streams would be useful in things such as video data and log files.
+
+
+2) Assume that you are building an interface to an API in your Rich Web App. 
+Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. 
+In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+
+RxJS is a library for transforming, composing and querying streams of data.
+RxJS is useful for handling network responses for an interface to an API by creating the observable stream that interacts with any events going on with the interface, for example, a HTTP request firing off.
+RxJS provides many functions that can create observables out of promises (fromPromise), counters (interval) or events (fromEvent).
+There are also multiple operators which are functions that build on the observables foundations that enables manipulation of data. For example, there are map(), filter(), concat() and flatMap().
+Another extremely helpful function is called "pipe()", which links operators together.
+There is also error handling provided by RxJS, "error()". 
+
+As I have previously mentioned, promises can actually be used with streams using the RxJS library.
+Promises kills the purpose of asynchronous non-blocking i/o and so in a process with many steps, you have to make multiple synchronous calls one after the other.
+
+The advantages of using stream libraries are:
+	-handles aynchronous network responses and requests elegantly
+	-code sharing and reuse
+	-error handling functions
+	
+The disadvantages of stream libraries are:
+	-Callback hell
+	-Single-threaded environment
+	-Difficult
