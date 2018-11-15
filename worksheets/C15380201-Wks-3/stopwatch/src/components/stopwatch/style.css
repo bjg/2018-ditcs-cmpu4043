@@ -1,0 +1,39 @@
+body{
+  font-family: fantasy;
+}
+
+.row {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.col {
+  margin: 8px 8px;
+  display: inline-block;
+  min-width: 64px;
+}
+
+.left-col {
+  float: left;
+  width: 200px;
+  margin-right: 24px;
+  text-align: center;
+}
+
+.right-col {
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button1 {background-color: #4CAF50; margin-left: 5px;}
+.button2 {background-color: #008CBA; margin-left: 5px;} /* Blue */
+.button3 {background-color: #f44336; margin-left: 5px;}
+.button4 {background-color: #56474f; margin-left: 5px;}
