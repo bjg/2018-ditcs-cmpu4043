@@ -1,0 +1,24 @@
+#content {
+  width: 75%;
+  height: 400px;
+  border: 1px solid grey;
+  display: inline-block;
+}
+
+#sidebar {
+  width: 20%;
+  border: 1px solid grey;
+  float: right;
+}
+
+#sidebar li {
+  list-style: none;
+}
+
+header {
+  font-style: italic;
+}
+
+section, aside{
+  padding: .5em;
+}
