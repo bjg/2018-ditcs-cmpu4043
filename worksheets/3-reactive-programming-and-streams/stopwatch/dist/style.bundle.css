@@ -1,0 +1,68 @@
+/* Author: Nicola Mahon C15755031 */
+
+.col
+{
+        float: left;
+        width: 200px;
+        margin-right: 24px;
+}
+
+.col, #min, #sec, #ms, .colon, .split_title, .split
+{
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+}
+
+#min, #sec, #ms, .colon, .split_title, .split
+{
+        margin-top: 10px;
+}
+
+#min, #sec, #ms, .colon, .split_title
+{
+        font-weight: bold;
+}
+
+#min, #sec, #ms, .colon
+{
+        font-size: 20px;
+        margin-bottom: 10px;
+}
+
+#min, #sec, #ms
+{
+        width: 50px;
+}
+
+.buttons, .split_title, .split
+{
+        border-radius: 5px;
+}
+
+.buttons
+{
+        user-select: none;
+}
+
+:focus
+{
+        outline: none !important;
+}
+
+.split_title, .split
+{
+        padding: 5px;
+}
+
+.split_title
+{
+        color: white;
+        margin-right: 10px;
+        background-color: #3CB371;
+}
+
+.split
+{
+        background-color: #98FB98;
+}
