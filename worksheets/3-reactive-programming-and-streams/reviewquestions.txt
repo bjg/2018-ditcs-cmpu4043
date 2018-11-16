@@ -1,0 +1,20 @@
+1) - Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?  What are streams useful for modelling and when might you use them in Rich Web development?
+
+Stream abstraction is described as a way of model async data sources. A good representation of a Stream is that it can feed in any data of any size, which it can handle for anything can be a Stream. To modify a Stream (our data), we simple transform the Stream, similar to how we process data in functional programming paradigms. 
+
+Streams and the Observer pattern go hand in hand in reality. An Observer pattern is defined as when a subject is modified, its dependent subjects are thus informed and appropriately respond. When applying this to Streams, we can treat a subscribe as the observer to our Stream (for it is 'observing' the Stream), and if something occurs within our Stream, the subscribe will notify the relevant components of our application. A good example of this and how a Stream can be modelled would be when a Steam monitors change in API data at certain intervals, when a change occurs, the subscribe will the relevant events to occur.
+
+
+2) - Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+
+To create an API interface, similar to our GitHub Parser in Lab 02, we could create an Observer on a button to monitor when a user clicks a button. Once the user hits said button, we check if there is data in an input field, if so we use the filter operator to ensure that the data is to our standards and then pass it to a HTTP request. To monitor the HTTP request, we shall subscribe to the request and if anything occurs in the Stream, we will map the returned data to parse out key features and display them to the UI.
+
+The benefit of using a Stream over a Promise is that you are providing what some refer to as a conveyer belt to our data stream with a high level of abstraction so you do not have to worry about what the data is until filtering. You are essentially providing a time ordered async generic data array of data to the user, whereas a promise requires more attention to such a timeouts for async actions to occur. The issues I find with Streams are is that you are essentially heavily abstracting the data flow of your application. Not only that, but Streams in best practise tend to be immutable state that use functional practises to filter and transform, which abstracts us from modifying the data. Some will see this as a blessing for all things should be immutable as others tend to enjoy full data control.
+
+
+REFERENCES
+	Lectures 21 - 24 (Shall not provide links since this is hosted on a public repo)
+	https://www.tutorialspoint.com/design_pattern/observer_pattern.htm
+	https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+	https://hackernoon.com/using-rxjs-to-handle-http-requests-what-ive-learned-4640aaf4646c
+	https://blog.codecentric.de/en/2014/05/streams-javascript-versatile-tool/
