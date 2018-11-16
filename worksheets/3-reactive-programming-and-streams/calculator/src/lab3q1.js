@@ -13,7 +13,7 @@
 	const btn$ = Observable.fromEvent(buttons, 'click').pluck('target', 'value');
 	const key$ = Observable.fromEvent(document, 'keydown').pluck('key');
 	
-	const keyStream$ = btn.merge(key);
+	const keyStream$ = btn$.merge(key$);
 	
     keyStream$.subscribe(k => 
 	{
