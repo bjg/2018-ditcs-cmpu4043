@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Digital';
+    src: url('../assets/digital-7.ttf')
+}
+body {
+    margin: 0;
+    padding: 0;
+	background-color: #38D717;
+}
+h1 {
+    padding: 0;
+    font-size: 34px;
+    font-family: Digital;
+    text-align: center;
+}
+canvas {
+    background-color: black;
+}
+section {
+    display: inline;
+}
+#buttons-left {
+    float: left;
+}
+#buttons-right {
+    float: right;
+}
+button {
+    margin-left: 4em;
+    margin-right: 4em;
+    width: 10em;
+    height: 3em;
+    font-family: Digital;
+    font-size: 15px;
+    background-color: black;
+    color: #38D717;
+}
