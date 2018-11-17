@@ -22,11 +22,11 @@ export class Stopwatch {
     tick(){ this.tenth_seconds+=1; } // increase the timer variable by one
     get_tenths(){ return this.tenth_seconds % 10; } // returns the int 10th second value to be displayed
     get_seconds(){ return Math.floor((this.tenth_seconds / 10) % 60); } // returns the int second value to be displayed
-    get_mins(){ return Math.floor(this.tenth_seconds / 600); } //returns the int minute value to be displayed
-    display_tenths(){ return "0"+this.get_tenths().toString(); } //converts the int value to text value with prefix 0 for asthetics
+    get_mins(){ return Math.floor(this.tenth_seconds / 600); } // returns the int minute value to be displayed
+    display_tenths(){ return "0"+this.get_tenths().toString(); } // converts the int value to text value with prefix 0 for asthetics
     display_seconds(){ return this.get_seconds() < 10? "0"+this.get_seconds().toString() : this.get_seconds().toString(); } // returns the text value for seconds prefixing with 0 if nessecary
-    display_mins(){ return this.get_mins() < 10? "0"+this.get_mins().toString() : this.get_mins().toString(); } //returns the text value for minutes same logic as seconds
-    display_time(){ return this.display_mins()+":"+this.display_seconds()+":"+this.display_tenths(); } //returns a string for the digital clock display and split times
+    display_mins(){ return this.get_mins() < 10? "0"+this.get_mins().toString() : this.get_mins().toString(); } // returns the text value for minutes same logic as seconds
+    display_time(){ return this.display_mins()+":"+this.display_seconds()+":"+this.display_tenths(); } // returns a string for the digital clock display and split times
 
     //draws a single watch hand
     analogue_display_hand(x1, y1, angle, length, width, colour) {

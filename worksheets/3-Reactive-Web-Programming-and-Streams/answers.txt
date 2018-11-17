@@ -1,0 +1,47 @@
+Explain what is meant by the stream abstraction. 
+What is the relationship between streams and the observer pattern?  
+What are streams useful for modeling and when might you use them in Rich Web development?
+
+
+"A stream is a sequence of data elements made available over time".
+The stream abstraction in programming, is a method of feeding data into an
+application that is unknown or likely to change. Streams work by feeding data through
+a stream object, one piece of data at a time in a conveyor belt like manner. 
+This is in contrast with other asynchronous type patters such as Promises
+in JavaScript, which wait for all data to be loaded into the Promise object
+before data is fed into the main application. 
+The Observer Pattern is a design pattern in software engineering used to notify
+multiple child nodes (known as observers) of application state changes communicated
+through a single parent object (known as the subject). In JavaScript, any data type
+or object can be set as an Observable. The an observable can be a UI element or it
+can be a structure such as an array. Either way, the job of the observable is
+to communicate data changes to elements of the application which are dependant 
+on this data. 
+Streams are useful for modelling asynchronous data control in Rich Web Development. 
+This is because there can be many state change sources or data values (e.g. for communicating 
+with A.P.Is where the size of the JSON file returned can change size during run time,
+or also, where the order of user interaction with UI elements is ambigeous). 
+
+
+
+Assume that you are building an interface to an API in your Rich Web App. 
+Describe in detail how you could use the RxJS library to handle asynchronous 
+network responses to API requests. 
+In your opinion, what are the benefits to using a streams library for networking over, 
+say, promises? And what do you think are the downsides?
+
+To explain I will use the example of the GitHub API sanbox application we built
+for lab 2. An Observable can be set to moitor the search input box. A stream can then be set up
+to capture the search term, process it, make the request to the API, process the data returned
+and finally render this data to the application interface. 
+An advantage to using Observables 
+over promises for making API calls in this way is that requests made can be cancelled via the unsubscribe function. 
+RXJS also provides numerous operators which can be called on Observables which are unavailable to Promise objects
+or other JS libraries. Unlike promises, Observables do not omit default values. This frees up
+processing time which will work in favor of larger, more complex applications. 
+A disadvantage of the RXJS library is due to the level of complexity involved in streams, 
+debugging is often difficult. An error can occur, for example, in the middle of a merge of
+streams and it is not often always obvious at which point in the data processing change, this 
+error has occured. 
+
+
