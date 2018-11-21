@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Message } from './components/Message';
+import { Message } from './Message';
 import firebase from 'firebase';
 
 
@@ -8,7 +8,7 @@ export class UserInput extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          user: '',
+          user: 'Tim',
           message: '',
           listOfMessages: [],
         };
@@ -49,8 +49,9 @@ export class UserInput extends React.Component{
                 <div>
                 {   
                     this.state.listOfMessages.map((item, index) =>
-                        <Message key={index} message={item} />
+                        <Message key={index} messageFromDB={item} />
                 )}
+                
                 </div>
                 <div>
                 <input
