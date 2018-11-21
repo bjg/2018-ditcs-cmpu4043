@@ -9,8 +9,9 @@ import { UserInput } from './components/UserInput';
 
 
   // Initialize Firebase
+const API_KEY = process.env.FIRE_BASE_KEY;
 var config = {
-    apiKey: "AIzaSyACVkUIo0P6x3XfwRyfSfUUu908qoRMnAA",
+    apiKey: API_KEY,
     authDomain: "richwebreactjs.firebaseapp.com",
     databaseURL: "https://richwebreactjs.firebaseio.com",
     projectId: "richwebreactjs",
