@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="./Calculator.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display"></div>
+
+    <button onclick="keyPressedEventHandler('0')" class="num0">0</button>
+    <button onclick="keyPressedEventHandler('1')" class="num1">1</button>
+    <button onclick="keyPressedEventHandler('2')" class="num2">2</button>
+    <button onclick="keyPressedEventHandler('3')" class="num3">3</button>
+    <button onclick="keyPressedEventHandler('4')" class="num4">4</button>
+    <button onclick="keyPressedEventHandler('5')" class="num5">5</button>
+    <button onclick="keyPressedEventHandler('6')" class="num6">6</button>
+    <button onclick="keyPressedEventHandler('7')" class="num7">7</button>
+    <button onclick="keyPressedEventHandler('8')" class="num8">8</button>
+    <button onclick="keyPressedEventHandler('9')" class="num9">9</button>
+
+    <button onclick="keyPressedEventHandler('.')" class="btnDot">.</button>
+    <button onclick="keyPressedEventHandler('c')" class="btnC">C</button>
+
+    <button onclick="keyPressedEventHandler('/')" class="btnDiv">÷</button>
+    <button onclick="keyPressedEventHandler('*')" class="btnMult">X</button>
+    <button onclick="keyPressedEventHandler('-')" class="btnSub">-</button>
+    <button onclick="keyPressedEventHandler('+')" class="btnAdd">+</button>
+    <button onclick="keyPressedEventHandler('=')" class="btnEq">=</button>
+    <button onclick="keyPressedEventHandler('(')" class="btnOB">(</button>
+    <button onclick="keyPressedEventHandler(')')" class="btnCB">)</button>
+    <button class="btnAddSub">±</button>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
