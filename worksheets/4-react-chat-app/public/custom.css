@@ -1,0 +1,11 @@
+.login {
+    margin-top: 25%;
+}
+
+.signup {
+    margin-top: 15%;
+}
+
+.login-form, .signup-form {
+    text-align: left;
+}

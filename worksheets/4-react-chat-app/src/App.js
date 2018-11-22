@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import * as ROUTES from './constants/routes';
+
+// Pages as Components
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import Chat from './components/Chat';
+
+// Firebase
+import { withFirebase } from '../src/components/Firebase';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React kjdnaskjndkasn
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+// Auth User Context to access the users session
+import { AuthUserContext, withAuthentication } from './components/Session';
 
-export default App;
+const App = () => (
+  <Router>
+    <div>
+      <Route exact path={ROUTES.LOGIN} component={Login} />
+      <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
+      <Route exact path={ROUTES.CHAT} component={Chat} />
+    </div>
+  </Router>
+);
+
+export default withAuthentication(App);
