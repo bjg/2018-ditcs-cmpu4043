@@ -1,0 +1,61 @@
+.num0 { grid-area: num0; }
+.num1 { grid-area: num1; }
+.num2 { grid-area: num2; }
+.num3 { grid-area: num3; }
+.num4 { grid-area: num4; }
+.num5 { grid-area: num5; }
+.num6 { grid-area: num6; }
+.num7 { grid-area: num7; }
+.num8 { grid-area: num8; }
+.num9 { grid-area: num9; }
+
+.display {
+  grid-area: display;
+  border-radius: 10px;
+  height: 50px;
+  padding: 5px;
+  box-shadow: inset 0px 0px 3px 2px #888888;
+  font: 35px arial;
+  color: grey;
+  text-align: right;
+  line-height: 50px;
+  margin-bottom: 10px;
+  overflow: scroll;
+}
+
+.error {
+  color: red;
+}
+
+.btnDot { grid-area: btnDot; }
+.btnC { grid-area: btnC; }
+
+.btnDiv { grid-area: btnDiv }
+.btnMult { grid-area: btnMult }
+.btnSub { grid-area: btnSub }
+.btnAdd { grid-area: btnAdd }
+.btnEq { grid-area: btnEq }
+.btnOB { grid-area: btnOB }
+.btnCB { grid-area: btnCB }
+.btnAddSub { grid-area: btnAddSub }
+
+.calculator {
+  display: grid;
+  grid-template-areas:
+    'display display display display'
+    'btnOB btnCB btnAddSub btnDiv'
+    'num7 num8 num9 btnMult'
+    'num4 num5 num6 btnSub'
+    'num1 num2 num3 btnAdd'
+    'num0 btnDot btnC btnEq';
+  grid-gap: 10px;
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 500px;
+}
+
+button {
+  border-radius: 10px;
+  height: 50px;
+}
