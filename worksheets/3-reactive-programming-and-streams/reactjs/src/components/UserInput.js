@@ -2,19 +2,25 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Message } from './Message';
 import firebase from 'firebase';
+import { runInThisContext } from "vm";
 
 
 export class UserInput extends React.Component{  
     constructor(props) {
         super(props);
         this.state = {
-          user: 'Tim',
+          user: props.user,
+          userName:props.userName,
           message: '',
           listOfMessages: [],
         };
 
+
+        //this.messageRef = firebase.database().ref().child('messages');
         this.messageRef = firebase.database().ref().child('messages');
+
         this.displayNewMessages();
+
     }
 
     sendMessage(){
@@ -25,6 +31,13 @@ export class UserInput extends React.Component{
               message: this.state.message,
             }
             this.messageRef.push(newItem);
+            
+            /*
+            this.messageRef.child(this.state.userName).set({
+            
+                message: this.state.message
+            });
+            */
             this.setState({ message: '' });
           }
     }

@@ -34,8 +34,11 @@ class App extends React.Component {
         super();
         this.state = {
             user: null,
-            loggedIn: false
+            loggedIn: false,
+            userName: null
         };
+
+        //this.setUserNameFromEmail = this.setUserNameFromEmail.bind(this);
     }
 
     
@@ -43,7 +46,10 @@ class App extends React.Component {
         firebase.auth().onAuthStateChanged(user => {
             if(user){
                 console.log(user);  
-                this.setState({loggedIn: true});
+                this.setState({
+                    loggedIn: true
+                });
+                  
             }else
             {
                 this.setState({loggedIn: false});
@@ -51,6 +57,15 @@ class App extends React.Component {
             }
             
         });
+    }
+
+    setUserNameFromEmail(){
+        /*
+        this.setState({
+            userName: this.state.user.substring(0, this.state.user.indexOf("@"))
+        });
+        */
+       console.log("Hello");
     }
     
 
@@ -66,12 +81,21 @@ class App extends React.Component {
     logInUser(){
         const promise = auth.signInWithEmailAndPassword(this.state.user,this.state.password);
         promise.catch(e => console.log(e.message));
-        console.log("Signed in");
+
+        
+        this.setState({
+            userName: 'test'
+        })
+        
+        //this.setUserNameFromEmail;
+        console.log("Signed in");//
+        console.log(this.state.userName);
 
     }
 
     signUpUser(){
-        const promise = auth.createUserWithEmailAndPassword(this.state.user,this.state.password);
+        const promise = auth.createUserWithEmailAndPassword(this.state.user,this.state.password)
+
         promise.catch(e => console.log(e.message));
         console.log("Signed up and Signed in");
         
@@ -85,7 +109,11 @@ class App extends React.Component {
 
         
     }
-
+    /*
+    deleteMessages(){
+        firebase.database().ref('messages').child(this.state.user).removeItem();
+    }
+    */
     render(){
         
         return(
@@ -117,15 +145,20 @@ class App extends React.Component {
                     </div>
                     ):(
                     <div>
-                    <button onClick={this.signOut.bind(this)} className="btn btn-primary">Log Out</button>
+                        <div>
+                            <UserInput user={this.state.user} userName={this.state.userName}></UserInput>
+                        </div>
+                        <div>
+                        <button onClick={this.signOut.bind(this)} className="btn btn-primary">Log Out</button>
+                        {/*<button onClick={this.deleteMessages.bind(this)} className="btn btn-primary">Delete All My Messages</button>*/}
+
+                        </div>
                     </div>
                     )}
                 </div>
 
                 
-                <div>
-                    <UserInput user={this.state.user}></UserInput>
-                </div>
+
                 
                 
             </div>
