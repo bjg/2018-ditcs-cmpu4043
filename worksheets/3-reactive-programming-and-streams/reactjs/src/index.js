@@ -59,19 +59,9 @@ class App extends React.Component {
         });
     }
 
-    setUserNameFromEmail(){
-        /*
-        this.setState({
-            userName: this.state.user.substring(0, this.state.user.indexOf("@"))
-        });
-        */
-       console.log("Hello");
-    }
-    
 
     onEmailInput(ev){
         this.setState({user: event.target.value});
-        //console.log(this.state.user);
     }
 
     onPasswordInput(ev){
@@ -81,16 +71,6 @@ class App extends React.Component {
     logInUser(){
         const promise = auth.signInWithEmailAndPassword(this.state.user,this.state.password);
         promise.catch(e => console.log(e.message));
-
-        
-        this.setState({
-            userName: 'test'
-        })
-        
-        //this.setUserNameFromEmail;
-        console.log("Signed in");//
-        console.log(this.state.userName);
-
     }
 
     signUpUser(){
@@ -109,11 +89,7 @@ class App extends React.Component {
 
         
     }
-    /*
-    deleteMessages(){
-        firebase.database().ref('messages').child(this.state.user).removeItem();
-    }
-    */
+
     render(){
         
         return(
@@ -146,7 +122,7 @@ class App extends React.Component {
                     ):(
                     <div>
                         <div>
-                            <UserInput user={this.state.user} userName={this.state.userName}></UserInput>
+                            <UserInput user={this.state.user}></UserInput>
                         </div>
                         <div>
                         <button onClick={this.signOut.bind(this)} className="btn btn-primary">Log Out</button>

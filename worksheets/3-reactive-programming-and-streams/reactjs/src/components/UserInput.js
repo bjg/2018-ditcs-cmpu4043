@@ -5,57 +5,133 @@ import firebase from 'firebase';
 import { runInThisContext } from "vm";
 
 
-export class UserInput extends React.Component{  
+export class UserInput extends React.Component{ 
+    //NOTE: If you refresh the page and dont log out and log back in this state doesnt work for deleting 
     constructor(props) {
         super(props);
         this.state = {
           user: props.user,
-          userName:props.userName,
           message: '',
           listOfMessages: [],
+          userName:''
         };
 
+       
 
-        //this.messageRef = firebase.database().ref().child('messages');
-        this.messageRef = firebase.database().ref().child('messages');
+
+        this.chatRoomsRef = firebase.database().ref().child('chatrooms');
+        //this.chatRoomsRef = firebase.database().ref().child('messages');
+
+        this.deleteMessages = this.deleteMessages.bind(this);
+ 
+        //this.chatRoomNumber = Math.floor(Math.random() * 1000); 
+        this.chatRoomNumber = 10;
+        this.chatRoomNumRef = this.chatRoomsRef.child(this.chatRoomNumber);
 
         this.displayNewMessages();
 
     }
 
+    componentDidMount(){
+        let email = this.state.user;
+        //console.log(email);
+        //this will be null if you refresh the page with out logging out
+        if(email === null){
+            console.log("TODO: log out to fix null email")
+        }
+        else{
+            let userNameParsed = email.substring(0, email.indexOf("@"));
+            //onsole.log(userName);
+            this.setState({
+                userName:userNameParsed
+            })
+        }
+
+    }
+
     sendMessage(){
-        //if ther is a message to put in database
+        //if there is a message to put in database
+        console.log("userName:" + this.state.userName);
         if (this.state.message) {
-            var newItem = {
-              userName: this.state.user,
-              message: this.state.message,
-            }
-            this.messageRef.push(newItem);
-            
-            /*
-            this.messageRef.child(this.state.userName).set({
-            
+            let userRef = this.chatRoomNumRef.child('/users').child(this.state.userName);
+            let newMessageRef = userRef.push();
+
+            newMessageRef.set({
                 message: this.state.message
-            });
-            */
+            })
+
             this.setState({ message: '' });
           }
     }
 
+    /*START HERE! NOTE DISPLAYING*/
     displayNewMessages() {
-        this.messageRef
+
+        /*
+        this.chatRoomsRef
           .limitToLast(10)
           .on('value', message => {
             this.setState({
-                listOfMessages: Object.values(message.val()),
+                //listOfMessages: Object.values(message.val()),
+                //listOfMessages: Object.values,
+
             });
+            console.log(message);
           });
+          */
+
+         
+         this.chatRoomNumRef.child('users').on('value',snapshot => {
+            snapshot.forEach(function(userSnapshot){
+                //console.log(userSnapshot.key +": " + userSnapshot.val());
+                userSnapshot.forEach(function(messageSnapshot){
+                    //console.log(messageSnapshot.val());
+                    let msgRef = messageSnapshot.child('message');
+                    console.log(msgRef.val());
+                    this.setState({ listOfMessages: [...this.state.listOfMessages, 'new value'] }) 
+ 
+                })
+            });
+         });
+        
     }
+            
 
     onTextInput(ev){
         this.setState({message: event.target.value});
-        console.log(this.state.message);
+        //console.log(this.state.message);
     }
+
+
+    
+    deleteMessages(event){
+        let messageKeysFromUser = [];
+
+        let userNameFromState = this.state.user;
+
+        
+        //get ids for each entry by a user(email), put them in an array so they can be deleted
+        this.chatRoomsRef.on('value', function (messagesSnapshot) {
+            messagesSnapshot.forEach(function(message){
+
+                let messageEntry = message.val();
+                console.log(messageEntry);
+                
+                if(messageEntry.userName === userNameFromState){
+                    messageKeysFromUser.push(message.key);
+                    //console.log(message.key);
+                    //console.log(messageEntry.message);
+                    //console.log(messageEntry.userName);
+
+                }
+            })
+        });
+        for(let i = 0; i < messageKeysFromUser.length; i++){
+            console.log(messageKeysFromUser[i]);   
+            this.chatRoomsRef.child(messageKeysFromUser[i]).remove();     
+        }
+    }
+    
     render(){
         return(
             <div>
@@ -75,7 +151,9 @@ export class UserInput extends React.Component{
                     />
 
                 <button className="btn btn-primary"onClick={this.sendMessage.bind(this)}>send</button>
+                <button onClick={this.deleteMessages} className="btn btn-primary">Delete All My Messages</button>
                 </div>
+
             </div>
         );
     }
