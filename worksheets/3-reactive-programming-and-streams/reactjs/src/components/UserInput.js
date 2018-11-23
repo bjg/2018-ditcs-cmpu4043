@@ -27,6 +27,8 @@ export class UserInput extends React.Component{
         //this.chatRoomNumber = Math.floor(Math.random() * 1000); 
         this.chatRoomNumber = 10;
         this.chatRoomNumRef = this.chatRoomsRef.child(this.chatRoomNumber);
+        this.usersRef = this.chatRoomsRef.child(this.chatRoomNumber).child('users');
+
 
         this.displayNewMessages();
 
@@ -66,21 +68,7 @@ export class UserInput extends React.Component{
 
     /*START HERE! NOTE DISPLAYING*/
     displayNewMessages() {
-
-        /*
-        this.chatRoomsRef
-          .limitToLast(10)
-          .on('value', message => {
-            this.setState({
-                //listOfMessages: Object.values(message.val()),
-                //listOfMessages: Object.values,
-
-            });
-            console.log(message);
-          });
-          */
-
-         
+         /*
          this.chatRoomNumRef.child('users').on('value',snapshot => {
             snapshot.forEach(function(userSnapshot){
                 //console.log(userSnapshot.key +": " + userSnapshot.val());
@@ -93,6 +81,24 @@ export class UserInput extends React.Component{
                 })
             });
          });
+         */
+        let messageFromDB = {
+            
+        }
+        this.usersRef.on('value',userSnapshot =>{
+            //console.log(userSnapshot.key);
+            userSnapshot.forEach(messageSnapshot =>{
+                messageSnapshot.forEach(message =>{
+                    console.log(message.val());
+                    this.setState({
+                        listOfMessages: this.state.listOfMessages.concat([message.val().message])
+                        //listOfMessages: Object.values(message.val()),
+
+                    })
+                })
+            })
+        })
+
         
     }
             
