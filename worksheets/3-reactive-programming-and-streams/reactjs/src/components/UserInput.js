@@ -68,38 +68,28 @@ export class UserInput extends React.Component{
 
     /*START HERE! NOTE DISPLAYING*/
     displayNewMessages() {
-         /*
-         this.chatRoomNumRef.child('users').on('value',snapshot => {
-            snapshot.forEach(function(userSnapshot){
-                //console.log(userSnapshot.key +": " + userSnapshot.val());
-                userSnapshot.forEach(function(messageSnapshot){
-                    //console.log(messageSnapshot.val());
-                    let msgRef = messageSnapshot.child('message');
-                    console.log(msgRef.val());
-                    this.setState({ listOfMessages: [...this.state.listOfMessages, 'new value'] }) 
- 
-                })
-            });
-         });
-         */
-        let messageFromDB = {
-            
-        }
+
+
         this.usersRef.on('value',userSnapshot =>{
             //console.log(userSnapshot.key);
             userSnapshot.forEach(messageSnapshot =>{
+                console.log(messageSnapshot.key);
                 messageSnapshot.forEach(message =>{
-                    console.log(message.val());
-                    this.setState({
-                        listOfMessages: this.state.listOfMessages.concat([message.val().message])
-                        //listOfMessages: Object.values(message.val()),
+                    //console.log(message.val());
 
+                    this.setState({
+                        //listOfMessages: this.state.listOfMessages.concat([message.val().message])
+                        //listOfMessages: Object.values(message.val()),
+                        listOfMessages: this.state.listOfMessages.concat({
+                            userName: messageSnapshot.key,
+                            message:message.val().message
+                        })
+                        
                     })
                 })
             })
         })
 
-        
     }
             
 
@@ -144,7 +134,7 @@ export class UserInput extends React.Component{
                 <div>
                 {   
                     this.state.listOfMessages.map((item, index) =>
-                        <Message key={index} messageFromDB={item} />
+                        <Message key={index} messageFromDB={item} userName={this.state.userName} />
                 )}
                 
                 </div>
