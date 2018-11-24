@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rich Web - Stopwatch</title>
+</head>
+<body>
+    <style>
+        #clock-container
+        {
+            height: 300px;
+            width: 150px;
+            margin: auto;
+        }
+        
+        #splits
+        {
+            height: 200px;
+            width: 150px;
+            padding-top: 30px;
+        }
+        
+        .split
+        {
+            display:block;
+            margin: auto;
+        }
+        
+        canvas
+        {
+            border: 1px solid black;
+        }
+
+    </style>
+    
+     <canvas id="clock-canvas" width="200" height="200">
+    </canvas>
+    
+    <button id="splitButton">Create Split</button>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+    <button id="resetButton">Reset</button>
+    
+   
+    
+    <div id="clock-container">
+        <span id="minutes">00</span> :
+        <span id="seconds">00</span> 
+        (<span id="tenth-seconds">000</span>)
+        <div id="splits"> 
+        </div>
+    </div>
+    
+    
+    
+    <script src="/bundle.js"></script>
+</body>
+</html>

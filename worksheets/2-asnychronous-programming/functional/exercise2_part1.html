@@ -1,0 +1,17 @@
+<!--
+    Auther: Keith Chambers
+    Gets and prints username, city and zipcode from users api endpoint
+-->
+
+<html>
+<body>
+  <script>
+  fetch('https://jsonplaceholder.typicode.com/users/')
+    .then(response => response.json())
+    .then(result => result.map(result => user = {	username: result.username,
+                                city: result.address.city,
+                                zipcode: result.address.zipcode}))
+    .then(result => document.write("<pre><code>" + JSON.stringify(result, null, '     ') + "</code></pre>"));
+  </script>
+</body>
+</html>

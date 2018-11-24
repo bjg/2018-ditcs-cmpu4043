@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rich Web - Calculater</title>
+</head>
+<body>
+    <style>
+
+			#calculater
+			{
+				height: 400px;
+				width: 400px;
+				border: 1px solid black;
+				border-radius: 15px;
+				margin: auto;
+				background-color: #cccccc;
+			}
+
+			#search-bar-container
+			{
+				height: 60px;
+				width: 350px;
+				border: 1px solid black;
+				border-radius: 5px;
+				margin: auto;
+				margin-top: 30px;
+				box-shadow: inset 4px 4px 2px 0px grey;
+				margin-bottom: 30px;
+			}
+
+			#input-bar
+			{
+                margin-top: 3px;
+                margin-left: 3px;
+				height: 57px;
+				width: 347px;
+				/* direction:RTL; */
+				font-size: 30px;
+			}
+
+			.row
+			{
+				height: 50px;
+				width: 345px;
+				margin: auto;
+			}
+
+			.column
+			{
+				height: 35px;
+				width: 82px;
+				border-radius: 8px;
+				background-color: #f2f2f2;
+				box-sizing: border-box;
+				box-shadow: inset -1px -1px 1px 0px grey;
+			}
+
+		</style>
+		<div id="calculater">
+			<div id="search-bar-container">
+				<input id="input-bar" type="text"/>
+			</div>
+
+			<div class="row">
+				<button class="column">(</button>
+				<button class="column">)</button>
+				<button class="column">±</button>
+				<button class="column">÷</button>
+			</div>
+			<div class="row">
+				<button class="column">7</button>
+				<button class="column">8</button>
+				<button class="column">9</button>
+				<button class="column">x</button>
+			</div>
+			<div class="row">
+				<button class="column">4</button>
+				<button class="column">5</button>
+				<button class="column">6</button>
+				<button class="column">-</button>
+			</div>
+			<div class="row">
+				<button class="column">1</button>
+				<button class="column">2</button>
+				<button class="column">3</button>
+				<button class="column">+</button>
+			</div>
+			<div class="row">
+				<button class="column">0</button>
+				<button class="column">.</button>
+				<button class="column">C</button>
+				<button class="column">=</button>
+			</button>
+		</div>
+
+    <script src="/bundle.js"></script>
+</body>
+</html>
