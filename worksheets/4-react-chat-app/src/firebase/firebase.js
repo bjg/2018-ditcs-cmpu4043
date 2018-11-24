@@ -1,27 +1,16 @@
 import app from 'firebase/app'
 import 'firebase/auth';
 
-const prodConfig = {
-    apiKey: 'AIzaSyBjT19b2eIHf3ZupAM5U8vb2is4ljS3pCw',
-    authDomain: 'react-chat-app-3d7d5.firebaseapp.com',
-    databaseURL: 'https://react-chat-app-3d7d5.firebaseio.com',
-    projectId: 'react-chat-app-3d7d5',
-    storageBucket: 'react-chat-app-3d7d5.appspot.com',
-    messagingSenderId: '41737086563'
-};
+console.log(process.env.REACT_APP_API_KEY);
 
-const devConfig = {
-    apiKey: 'AIzaSyBjT19b2eIHf3ZupAM5U8vb2is4ljS3pCw',
-    authDomain: 'react-chat-app-3d7d5.firebaseapp.com',
-    databaseURL: 'https://react-chat-app-3d7d5.firebaseio.com',
-    projectId: 'react-chat-app-3d7d5',
-    storageBucket: 'react-chat-app-3d7d5.appspot.com',
-    messagingSenderId: '41737086563'
+const config = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
-
-const config = process.env.NODE_ENV === 'production'
-    ? prodConfig
-    : devConfig;
 
 class Firebase {
     constructor() {

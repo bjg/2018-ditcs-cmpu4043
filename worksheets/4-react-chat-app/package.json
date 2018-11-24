@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",
+    "dotenv": "^6.1.0",
     "firebase": "^5.5.8",
     "grpc": "^1.16.1",
     "jquery": "^3.3.1",

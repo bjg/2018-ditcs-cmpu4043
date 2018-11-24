@@ -17,6 +17,11 @@ import './App.css';
 // Auth User Context to access the users session
 import { AuthUserContext, withAuthentication } from './components/Session';
 
+// Configure dotenv
+require('dotenv').config();
+
+console.log(process);
+
 const App = () => (
   <Router>
     <div>
