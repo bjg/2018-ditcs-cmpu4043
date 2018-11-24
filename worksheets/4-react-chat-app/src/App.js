@@ -20,8 +20,6 @@ import { AuthUserContext, withAuthentication } from './components/Session';
 // Configure dotenv
 require('dotenv').config();
 
-console.log(process);
-
 const App = () => (
   <Router>
     <div>

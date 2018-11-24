@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import SignOut from '../SignOut';
 
 import NavBar from '../NavBar';
+import Users from '../Users';
+import ChatWindow from '../ChatWindow';
+
 
 import { AuthUserContext } from '../Session';
 
@@ -14,6 +17,10 @@ const Chat = () => (
         {authUser => (
             <div>
                 <NavBar loggedInAs={authUser.email}/>
+                <div className="row">
+                    <Users loggedInAs={authUser.email}/>
+                    <ChatWindow />
+                </div>
             </div>
         )}
     </AuthUserContext.Consumer>

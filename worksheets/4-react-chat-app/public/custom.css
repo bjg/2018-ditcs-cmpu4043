@@ -2,6 +2,10 @@
     margin-top: 25%;
 }
 
+.list-group-item:first-child {
+    color: black;
+}
+
 .signup {
     margin-top: 15%;
 }

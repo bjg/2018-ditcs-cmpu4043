@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "bootstrap": "^4.1.3",
     "dotenv": "^6.1.0",
     "firebase": "^5.5.8",
@@ -31,5 +32,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.5.0"
+  }
 }

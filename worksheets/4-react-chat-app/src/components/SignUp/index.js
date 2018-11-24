@@ -45,11 +45,24 @@ class SignUpFormBase extends Component {
 
         this.props.firebase.doCreateUserWithEmailAndPassword(email, password)
             .then(authUser => {
-                // Set the state back to the intial default values
-                this.setState({ ...INITIAL_FORM_STATE });
+                // Create the user in the real time database
+                this.props.firebase
+                    .user(authUser.user.uid)
+                    .set({
+                        username,
+                        email,
+                    })
+                    .then(() => {
+                        // Set the state back to the intial default values
+                        this.setState({ ...INITIAL_FORM_STATE });
 
-                // Redirect now to the chat app
-                this.props.history.push(ROUTES.CHAT);
+                        // Redirect now to the chat app
+                        this.props.history.push(ROUTES.CHAT);
+                    })
+                    .catch(error => {
+                        this.setState({ error });
+                    });
+                    
             })
             .catch(error => {
                 this.setState({ error });
