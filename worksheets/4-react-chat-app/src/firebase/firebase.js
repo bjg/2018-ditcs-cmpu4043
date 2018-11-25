@@ -44,6 +44,9 @@ class Firebase {
     // Create a message
     messages = () => this.db.ref('messages');
 
+    // For deleting a message
+    message = messageId => this.db.ref(`messages/${messageId}`);
+
     // Create a group
     group = () => this.db.ref('groups');
 }

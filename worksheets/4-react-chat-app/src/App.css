@@ -6,6 +6,15 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
+
+.enterMessage {
+  padding: 30px;
+}
+
+.submitMessageButton {
+  padding-top: 10px;
+}
+
 .messages {
   padding: 30px;
   overflow: scroll;

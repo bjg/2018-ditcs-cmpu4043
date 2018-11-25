@@ -55,6 +55,7 @@ class ChatWindow extends Component {
 
             let messages = Object.keys(messagesObject).map(key => ({
                 ...messagesObject[key],
+                messageId: key
             }));
 
             this.setState({
@@ -79,22 +80,23 @@ class ChatWindow extends Component {
 
             return (
                 <div className="col-md-8" style={{ marginLeft: '0px', paddingLeft: '0px' }}>
-                    <div className="messages" >
+                    <div className="messages">
                         {
                             userMessages.map(message => (
                                 <Message message={message} loggedInAs={this.props.loggedInAs} users={this.props.users} currentlySelectedUser={this.props.currentlySelectedUser}/>
                             ))
                         }
                     </div>
-                    <div style={{ float: "left", clear: "both" }}
-                        ref={(elem) => (console.log(elem))}>
+                    <div className="enterMessage">
+                        <form onSubmit={this.sendMessage}>
+                            <div className="form-group">
+                                <textarea onChange={this.onChange} className="form-control" placeholder="Type a message..." value={this.state.message}></textarea>
+                                <div className="submitMessageButton">
+                                    <button type="submit" className="btn btn-success btn-block">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <form onSubmit={this.sendMessage}>
-                        <div className="form-group">
-                            <textarea onChange={this.onChange} className="form-control" placeholder="Type a message..." value={this.state.message}></textarea>
-                            <button type="submit" className="btn btn-success btn-block">Send Message</button>
-                        </div>
-                    </form>
                 </div>
             )
         }
