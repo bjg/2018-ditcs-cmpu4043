@@ -16,8 +16,6 @@ class ChatWindow extends Component {
     constructor(props) {
         super(props);
 
-        console.log(this.props.loggedInAsUsername);
-
         // Set the state to blank
         this.state = {...INITIAL_STATE};
     }
@@ -65,8 +63,6 @@ class ChatWindow extends Component {
         });
     }
 
-
-
     render () {
         if(this.props.currentlySelectedUser == 0) {
             return (
@@ -86,7 +82,7 @@ class ChatWindow extends Component {
                     <div className="messages" >
                         {
                             userMessages.map(message => (
-                                <Message message={message} currentlySelectedUser={this.props.currentlySelectedUser}/>
+                                <Message message={message} loggedInAs={this.props.loggedInAs} users={this.props.users} currentlySelectedUser={this.props.currentlySelectedUser}/>
                             ))
                         }
                     </div>

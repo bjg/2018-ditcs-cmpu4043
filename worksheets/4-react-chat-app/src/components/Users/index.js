@@ -45,16 +45,10 @@ class Users extends Component {
                 groupId: key,
             }));
 
-            console.log(groups);
-
             // Filter the groups so only the ones with this user in it is displayed
             groups = groups.filter(group => group.members.includes(this.props.loggedInAsID));
 
-            console.log(groups);
-
             this.setState({groups: groups});
-
-            console.log(this.state.groups);
         });
     }
 
@@ -72,7 +66,7 @@ class Users extends Component {
                     <CreateGroup loggedInAsID={this.props.loggedInAsID} users={this.state.users}/>
                     {
                         this.state.groups.map(group => (
-                            <a onClick={() => this.props.changeWhoUserIsChattingTo(group.uid)} className={"list-group-item list-group-item-action " + (this.props.currentlySelectedUser == group.uid ? 'active' : '')} style={{ borderRadius: '0px' }}><h5><i className="fa fa-users"></i> {group.name}<br /></h5></a>
+                            <a onClick={() => this.props.changeWhoUserIsChattingTo(group.groupId)} className={"list-group-item list-group-item-action " + (this.props.currentlySelectedUser == group.groupId ? 'active' : '')} style={{ borderRadius: '0px' }}><h5><i className="fa fa-users"></i> {group.name}<br /></h5></a>
                         ))
                     }
                     {

@@ -19,6 +19,7 @@ class Chat extends Component {
         super(props);
 
         this.state = {
+            users: [],
             currentlySelectedUser: 0
         }
     }
@@ -26,6 +27,25 @@ class Chat extends Component {
     // Use state to keep track of who the user is talking to
     changeWhoUserIsChattingTo = id => {
         this.setState({ currentlySelectedUser: id });
+    }
+
+    componentDidMount() {
+        this.setState({ loading: true });
+
+        // Get all of the users from Firebase.
+        this.props.firebase.users().orderByChild('email').on('value', snapshot => {
+            const usersObject = snapshot.val();
+
+            // Filter the users first
+            let users = Object.keys(usersObject).map(key => ({
+                ...usersObject[key],
+                uid: key,
+            }));
+
+            this.setState({
+                users: users
+            });
+        });
     }
 
     render() {
@@ -36,7 +56,7 @@ class Chat extends Component {
                         <NavBar loggedInAs={authUser.email} />
                         <div className="row">
                             <Users loggedInAs={authUser.email} loggedInAsID={authUser.uid} changeWhoUserIsChattingTo={this.changeWhoUserIsChattingTo} currentlySelectedUser={this.state.currentlySelectedUser} />
-                            <ChatWindow loggedInAs={authUser.uid} loggedInAsUsername={authUser} currentlySelectedUser={this.state.currentlySelectedUser}/>
+                            <ChatWindow users={this.state.users} loggedInAs={authUser.uid} loggedInAsUsername={authUser} currentlySelectedUser={this.state.currentlySelectedUser}/>
                         </div>
                     </div>
                 )}
