@@ -76,7 +76,7 @@ class ChatWindow extends Component {
             )
         } else {
             // Everytime we re-render (when props change and when we change user, then we must filter that users messages out)
-            const userMessages = this.state.messages.filter(message => message.from == this.props.currentlySelectedUser || message.to == this.props.currentlySelectedUser);
+            const userMessages = this.state.messages.filter(message => (message.from == this.props.currentlySelectedUser && message.to == this.props.loggedInAs) || (message.to == this.props.currentlySelectedUser && message.from == this.props.loggedInAs));
 
             return (
                 <div className="col-md-8" style={{ marginLeft: '0px', paddingLeft: '0px' }}>
