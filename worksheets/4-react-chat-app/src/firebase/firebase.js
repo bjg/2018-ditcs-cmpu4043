@@ -1,6 +1,7 @@
 import app from 'firebase/app'
 import 'firebase/auth';
 import 'firebase/database';
+import { fromRenderProps } from 'recompose';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -39,6 +40,9 @@ class Firebase {
 
     // Return the users
     users = () => this.db.ref('users');
+
+    // Create a message
+    messages = () => this.db.ref('messages');
 }
 
 

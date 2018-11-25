@@ -6,6 +6,10 @@
     color: black;
 }
 
+h1 {
+    color: red;
+}
+
 .chat-window {
     margin-left: 0px;
 }

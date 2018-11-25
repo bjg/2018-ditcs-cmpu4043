@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
+import CreateGroup from '../CreateGroup';
 
 class Users extends Component {
 
@@ -8,7 +9,8 @@ class Users extends Component {
         super(props);
         this.state = {
             users: [],
-            loading: false
+            loading: false,
+            currentlySelectedUser: null,
         }
     }
 
@@ -40,11 +42,13 @@ class Users extends Component {
 
     render () {
         return (
-            <div className="col-md-4">
+            <div className="col-md-4" style={{ marginRight: '0px', paddingRight: '0px' }}>
                 <ul className="list-group" style={{ borderRadius: '0px' }}>
+
+                    <CreateGroup users={this.state.users}/>
                     {
                         this.state.users.map(user => (
-                            <li class="list-group-item" style={{ borderRadius: '0px' }}><h5>{user.username}<br/><small>{user.email}</small></h5></li>
+                            <a onClick={() => this.props.changeWhoUserIsChattingTo(user.uid)} className={"list-group-item list-group-item-action " + (this.props.currentlySelectedUser == user.uid ? 'active' : '')} style={{ borderRadius: '0px' }}><h5>{user.username}<br /><small>{user.email}</small></h5></a>
                         ))
                     }
                 </ul>

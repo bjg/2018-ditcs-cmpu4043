@@ -6,6 +6,33 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
+.messages {
+  padding: 30px;
+  overflow: scroll;
+  max-height: 470px;
+}
+
+.to-message {
+  word-wrap: break-word;
+  color: white;
+  background-color: #28A745;
+  width: 420px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.from-message {
+  word-wrap: break-word;
+  color: white;
+  background-color: #6C757D;
+  width: 420px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .App-header {
   background-color: #282c34;

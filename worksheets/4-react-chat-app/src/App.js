@@ -14,6 +14,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
 
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+
 // Auth User Context to access the users session
 import { AuthUserContext, withAuthentication } from './components/Session';
 
