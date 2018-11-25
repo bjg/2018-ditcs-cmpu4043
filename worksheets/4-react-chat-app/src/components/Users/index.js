@@ -9,6 +9,7 @@ class Users extends Component {
         super(props);
         this.state = {
             users: [],
+            groups: [],
             loading: false,
             currentlySelectedUser: null,
         }
@@ -17,7 +18,7 @@ class Users extends Component {
     componentDidMount() {
         this.setState({ loading: true });
 
-        // Get the all of the users from Firebase.
+        // Get all of the users from Firebase.
         this.props.firebase.users().orderByChild('email').on('value', snapshot => {
             const usersObject = snapshot.val();
 
@@ -34,10 +35,33 @@ class Users extends Component {
                 users: users
             });
         });
+
+        // Get all of the groups from Firebase.
+        this.props.firebase.group().on('value', snapshot => {
+            const groupsObject = snapshot.val();
+
+            let groups = Object.keys(groupsObject).map(key => ({
+                ...groupsObject[key],
+                groupId: key,
+            }));
+
+            console.log(groups);
+
+            // Filter the groups so only the ones with this user in it is displayed
+            groups = groups.filter(group => group.members.includes(this.props.loggedInAsID));
+
+            console.log(groups);
+
+            this.setState({groups: groups});
+
+            console.log(this.state.groups);
+        });
     }
 
     componentWillUnmount() {
+        // Turn off users and groups when component unmounts
         this.props.firebase.users().off();
+        this.props.firebase.group().off();
     }
 
     render () {
@@ -45,10 +69,15 @@ class Users extends Component {
             <div className="col-md-4" style={{ marginRight: '0px', paddingRight: '0px' }}>
                 <ul className="list-group" style={{ borderRadius: '0px' }}>
 
-                    <CreateGroup users={this.state.users}/>
+                    <CreateGroup loggedInAsID={this.props.loggedInAsID} users={this.state.users}/>
+                    {
+                        this.state.groups.map(group => (
+                            <a onClick={() => this.props.changeWhoUserIsChattingTo(group.uid)} className={"list-group-item list-group-item-action " + (this.props.currentlySelectedUser == group.uid ? 'active' : '')} style={{ borderRadius: '0px' }}><h5><i className="fa fa-users"></i> {group.name}<br /></h5></a>
+                        ))
+                    }
                     {
                         this.state.users.map(user => (
-                            <a onClick={() => this.props.changeWhoUserIsChattingTo(user.uid)} className={"list-group-item list-group-item-action " + (this.props.currentlySelectedUser == user.uid ? 'active' : '')} style={{ borderRadius: '0px' }}><h5>{user.username}<br /><small>{user.email}</small></h5></a>
+                            <a onClick={() => this.props.changeWhoUserIsChattingTo(user.uid)} className={"list-group-item list-group-item-action " + (this.props.currentlySelectedUser == user.uid ? 'active' : '')} style={{ borderRadius: '0px' }}><h5><i className="fa fa-user"></i> {user.username}<br /><small>{user.email}</small></h5></a>
                         ))
                     }
                 </ul>

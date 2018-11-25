@@ -35,7 +35,7 @@ class Chat extends Component {
                     <div>
                         <NavBar loggedInAs={authUser.email} />
                         <div className="row">
-                            <Users loggedInAs={authUser.email} changeWhoUserIsChattingTo={this.changeWhoUserIsChattingTo} currentlySelectedUser={this.state.currentlySelectedUser} />
+                            <Users loggedInAs={authUser.email} loggedInAsID={authUser.uid} changeWhoUserIsChattingTo={this.changeWhoUserIsChattingTo} currentlySelectedUser={this.state.currentlySelectedUser} />
                             <ChatWindow loggedInAs={authUser.uid} loggedInAsUsername={authUser} currentlySelectedUser={this.state.currentlySelectedUser}/>
                         </div>
                     </div>

@@ -43,6 +43,9 @@ class Firebase {
 
     // Create a message
     messages = () => this.db.ref('messages');
+
+    // Create a group
+    group = () => this.db.ref('groups');
 }
 
 
