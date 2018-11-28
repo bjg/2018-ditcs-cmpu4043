@@ -1,0 +1,42 @@
+input
+{
+  font-size: 32px;
+  text-align: right;
+  border-radius: 10px;
+  width: 260px;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 1%;
+}
+
+button {
+  font-size: 1.1px;
+  border-radius: 5px;
+  width: 50px;
+}
+
+.flex-container {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  text-align: center;
+  padding: .13em;
+  font-size: 2em;
+  flex-grow: 5;
+  margin: 0 5px 5px 0;
+}
+
+
+#calculator {
+  width: 270px;
+  font-size: 130%;
+  border: 3px solid black;
+  padding: 10px;
+  border-radius: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana;
+}
