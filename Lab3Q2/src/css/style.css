@@ -1,0 +1,42 @@
+.container{
+    border: none;
+    width: 700px;
+	height: auto;
+	position: absolute;
+    top:100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.row{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.col{
+    display: inline-block;
+    width: 49.4%;
+    border: 1px solid grey;
+    vertical-align: top;
+	background-color: #C6DEFF;
+}
+.timer{
+    border: 1px solid grey;
+    padding: 7px;
+    width: 110px;
+	margin: auto;
+	text-align: center;
+}
+.split{
+    border: 1px solid grey;
+    width: 99.7%;
+    min-height: 294px;
+	margin: auto;
+	text-align: center;
+}
+.btnContainer{
+    border: none;
+	padding: 10px;
+    display: table;
+    margin: auto;
+}
