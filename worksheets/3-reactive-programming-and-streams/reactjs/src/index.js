@@ -6,26 +6,25 @@ import * as firebase from 'firebase';
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 import { UserInput } from './components/UserInput';
-import { throws } from 'assert';
+import { creds } from './keys';
+
 
 
 // Initialize Firebase
-//const API_KEY = process.env.FIRE_BASE_KEY;
-//!!!REMOVE THIS!!!!
-const API_KEY = "AIzaSyACVkUIo0P6x3XfwRyfSfUUu908qoRMnAA";
-
 var config = {
-    apiKey: API_KEY,
-    authDomain: "richwebreactjs.firebaseapp.com",
-    databaseURL: "https://richwebreactjs.firebaseio.com",
-    projectId: "richwebreactjs",
-    storageBucket: "richwebreactjs.appspot.com",
-    messagingSenderId: "370447802903"
+    apiKey: creds.REACT_APP_API_KEY,
+    authDomain: creds.REACT_APP_AUTH_DOMAIN,
+    databaseURL: creds.REACT_APP_DATABASE_URL,
+    projectId: creds.REACT_APP_PROJECT_ID,
+    storageBucket: creds.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: creds.REACT_APP_MESSAGING_SENDER_ID
 };
 
 firebase.initializeApp(config);
 
 const auth = firebase.auth();
+
+
 
 
 class App extends React.Component {
@@ -38,14 +37,13 @@ class App extends React.Component {
             userName: null
         };
 
-        //this.setUserNameFromEmail = this.setUserNameFromEmail.bind(this);
     }
 
     
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             if(user){
-                console.log(user);  
+                //console.log(user);  
                 this.setState({
                     loggedIn: true
                 });
@@ -58,7 +56,7 @@ class App extends React.Component {
             
         });
     }
-
+    
 
     onEmailInput(ev){
         this.setState({user: event.target.value});
@@ -71,6 +69,21 @@ class App extends React.Component {
     logInUser(){
         const promise = auth.signInWithEmailAndPassword(this.state.user,this.state.password);
         promise.catch(e => console.log(e.message));
+
+        let email = this.state.user;
+        //console.log("index component");
+        //console.log(this.state);
+
+        if(email === null){
+            console.log("TODO: log out to fix null email")
+        }
+        else{
+            let userNameParsed = email.substring(0, email.indexOf("@"));
+            this.setState({
+                userName:userNameParsed,
+            })
+                
+        }
     }
 
     signUpUser(){
@@ -78,6 +91,20 @@ class App extends React.Component {
 
         promise.catch(e => console.log(e.message));
         console.log("Signed up and Signed in");
+
+        let email = this.state.user;
+        //console.log(email);
+
+        if(email === null){
+            console.log("TODO: log out to fix null email")
+        }
+        else{
+            let userNameParsed = email.substring(0, email.indexOf("@"));
+            this.setState({
+                userName:userNameParsed,
+
+            })
+        }
         
 
     }
@@ -86,12 +113,18 @@ class App extends React.Component {
         const promise = auth.signOut();
         promise.catch(e => console.log(e.message));
         console.log("Signed out");
+        //console.log("index component");
+        //console.log(this.state);
 
         
     }
 
+    componentDidUpdate(prevProps) {
+        //console.log("did update index");
+        //console.log(prevProps);    
+    }
+
     render(){
-        
         return(
             <div className="App">
                 <div>
@@ -122,7 +155,7 @@ class App extends React.Component {
                     ):(
                     <div>
                         <div>
-                            <UserInput user={this.state.user}></UserInput>
+                            <UserInput  user={this.state.user} userName={this.state.userName}></UserInput>
                         </div>
                         <div>
                         <button onClick={this.signOut.bind(this)} className="btn btn-primary">Log Out</button>
