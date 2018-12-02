@@ -1,0 +1,76 @@
+.container{
+    display: inline-block;
+    width: 50%;
+    margin: 5px;
+}
+
+#userProfile {
+    float: left;
+    display: inline-block;
+    border: black solid 1px;
+    padding: 1px;
+    width: 48%;
+    height:450px;
+}
+
+#userRepo{
+    display: inline-block;
+    border: black solid 1px;
+    padding: 1px;
+    width: 48%;
+    height:450px;
+}
+
+#userImage{
+    display:block;
+    margin:auto;
+    width: 70%;
+}
+
+#searchBar{
+    margin: 3px;
+    width: 75%;
+    height: 25px;
+}
+
+.userInfo{
+    border-bottom: black solid 1px;
+    padding: 8px;
+}
+
+#searchButton{
+    width: 20%;
+    height: 30px;
+    border-radius: 10px;
+}
+
+#repos{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.repos{
+    border-bottom: black solid 1px;
+    padding: 6.5px;
+    height: 20%;
+}
+
+.repoName{
+    padding: 5px;
+}
+
+.repoDesc{
+    padding: 5px;
+}
+
+.header{
+    float: left;
+    width: 50%;
+}
+
+#scroll{
+    height: 390px;
+    overflow: scroll;
+}

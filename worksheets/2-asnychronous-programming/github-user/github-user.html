@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="github-user.css">
+</head>
+<body>
+<div class="container">
+    <input id="searchBar" placeholder="Username" value="">
+    <button id="searchButton" onclick="searchUser()">Search</button>
+</div>
+
+<div class="container" style="display: none">
+    <div id="userProfile">
+        <h3> User Profile</h3>
+        <img id="userImage" src="">
+        <div id="name" class="userInfo"> Name: </div>
+        <div id="username" class="userInfo"> Username: </div>
+        <div id="email" class="userInfo"> Email: </div>
+        <div id="location" class="userInfo"> Location: </div>
+        <div id="gist" class="userInfo"> Gist: </div>
+    </div>
+
+    <div id="userRepo">
+        <h3> User Repos</h3>
+        <div id="scroll">
+            <ul id="repos">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="github-user.js"></script>
+</body>
+</html>
