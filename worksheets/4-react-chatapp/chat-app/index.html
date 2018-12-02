@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./src/components/chatApp.css">
+</head>
+
+<body>
+    <div id="chatapp"></div>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDTVdApZ1aPsMRu8wdOJz57I6n1uNUv3qg",
+            authDomain: "chatdemo-d68e0.firebaseapp.com",
+            databaseURL: "https://chatdemo-d68e0.firebaseio.com",
+            projectId: "chatdemo-d68e0",
+            storageBucket: "chatdemo-d68e0.appspot.com",
+            messagingSenderId: "506960110578"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="dist/build/bundle.js"></script>
+</body>
+
+</html>
