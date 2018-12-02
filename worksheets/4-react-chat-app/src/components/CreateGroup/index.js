@@ -3,6 +3,7 @@ import { withFirebase } from '../Firebase';
 
 import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
+// This is the "Extra Credit" part of the lab, being able to create groups of people.
 
 class CreateGroup extends Component {
 

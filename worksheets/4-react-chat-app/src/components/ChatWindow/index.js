@@ -75,8 +75,27 @@ class ChatWindow extends Component {
                 </div>
             )
         } else {
+            let userMessages = [];
+            // This is the part of the lab that is the "Extra Credit Feature"
+            // It filters messages based on groups and private messages.
+            // The user can create groups with selected users in it.
+            
+            for(let i=0; i<this.state.messages.length; i++) {
+                // Its a group that's selected
+                console.log(this.props.currentlySelectedUser);
+                if (this.props.currentlySelectedUser.startsWith('-LS')) {
+                    if(this.props.currentlySelectedUser == this.state.messages[i].to) {
+                        userMessages.push(this.state.messages[i]);
+                    }
+                } 
+                // It's not a group
+                else {
+                    if ((this.state.messages[i].from == this.props.currentlySelectedUser && this.state.messages[i].to == this.props.loggedInAs) || (this.state.messages[i].to == this.props.currentlySelectedUser && this.state.messages[i].from == this.props.loggedInAs)) {
+                        userMessages.push(this.state.messages[i]);
+                    }
+                }
+            }
             // Everytime we re-render (when props change and when we change user, then we must filter that users messages out)
-            const userMessages = this.state.messages.filter(message => (message.from == this.props.currentlySelectedUser && message.to == this.props.loggedInAs) || (message.to == this.props.currentlySelectedUser && message.from == this.props.loggedInAs));
 
             return (
                 <div className="col-md-8" style={{ marginLeft: '0px', paddingLeft: '0px' }}>
