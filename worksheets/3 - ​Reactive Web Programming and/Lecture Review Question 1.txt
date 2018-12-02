@@ -1,0 +1,17 @@
+Question:
+
+Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?  What are streams useful for modeling and when might you use them in Rich Web development?
+
+Answer:
+
+Streams are a sequence of values over time. A stream is an abstraction used to model asynchronous sources, which can be used over variables, user inputs, caches, data structures and so forth. Streams behave like time ordered lists which can be read and transformed into other streams and values in an application specific order. Streams are not dissimilar to arrays but offer other operations to deal with time ordered semantics. 
+
+Streams implement what is known as the Observer Pattern where data is realised via a subscribe operation. An obvious use of streams within rich web development would be as a means of abstraction for asynchronous events. A possible solution to synchronisation would be to model all application state as streams. Using streams everywhere allows the application architecture to create a unified stream process for a merged set of streams. This means that DOM state changes, mouse clicks, keyboard input and timer responses etc… could all be processed using the same logical structure using the same semantics.
+
+References:
+
+https://codecraft.tv/courses/angular/reactive-programming-with-rxjs/streams-and-reactive-programming/
+https://cycle.js.org/streams.html
+https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+https://freecontent.manning.com/reactive-fundamentals-thinking-in-streams/
+

@@ -1,0 +1,45 @@
+body {
+    background-color: #DFDDFC;
+
+}
+
+h1 {
+    color: black;
+    margin-left: 0px;
+	font-family: "Verdana", Verdana, serif;
+	font-style: italic;
+}
+
+header {
+    color: black;
+    margin-left: 20px;
+	font-family: "Verdana", Verdana, serif;
+	font-style: italic;
+}
+
+#content {
+	float: left;
+    width: 400px;
+    margin: 10;
+	padding: 1em;
+    border: 1px solid darkgray;
+	height: 355px;
+}
+
+#sidebar {
+	float: left;
+    width: 150px;
+    margin: 10;
+    padding: 1em;
+	border: 1px solid darkgray;
+	height: 150px;
+	
+}
+
+footer {
+	clear: both;
+}
+
+section {
+	margin-left: 20px;
+}

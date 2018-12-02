@@ -1,0 +1,56 @@
+body {
+	background-color: white;
+	font-family: "Lucida Sans Unicode", Lucida Grande, sans-serif;
+}
+
+ul {
+	background: lightblue;
+	padding: 20px;
+}
+
+ul li {
+	background: black;
+	margin: 1px;
+	color: lightblue;
+	border-radius;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: white;
+	background: black;
+	opacity: 1;
+	/* Firefox */
+}
+
+#textInput {
+	background-color: black;
+	margin: 18px;
+	width: 43%;
+	height: 20px;
+}
+
+.breaking {
+	width: 500px;
+	word-wrap: break-word;
+}
+
+#messages {
+	width: 95%;
+}
+
+h2 {
+	font-family: "Lucida Sans Unicode", Lucida Grande, sans-serif;
+	text-align: center;
+}
+
+#chatapp {
+	width: 30%;
+	background-color: lightblue;
+	border-style: solid;
+	border-width: 2px;
+	padding-top: 10px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+}
