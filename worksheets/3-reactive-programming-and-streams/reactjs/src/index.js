@@ -71,8 +71,6 @@ class App extends React.Component {
         promise.catch(e => console.log(e.message));
 
         let email = this.state.user;
-        //console.log("index component");
-        //console.log(this.state);
 
         if(email === null){
             console.log("TODO: log out to fix null email")
@@ -92,8 +90,8 @@ class App extends React.Component {
         promise.catch(e => console.log(e.message));
         console.log("Signed up and Signed in");
 
+        //Parse the email for the chars before @ to be used for username
         let email = this.state.user;
-        //console.log(email);
 
         if(email === null){
             console.log("TODO: log out to fix null email")
@@ -112,16 +110,7 @@ class App extends React.Component {
     signOut(){
         const promise = auth.signOut();
         promise.catch(e => console.log(e.message));
-        console.log("Signed out");
-        //console.log("index component");
-        //console.log(this.state);
-
-        
-    }
-
-    componentDidUpdate(prevProps) {
-        //console.log("did update index");
-        //console.log(prevProps);    
+        console.log("Signed out");        
     }
 
     render(){
@@ -159,7 +148,6 @@ class App extends React.Component {
                         </div>
                         <div>
                         <button onClick={this.signOut.bind(this)} className="btn btn-primary">Log Out</button>
-                        {/*<button onClick={this.deleteMessages.bind(this)} className="btn btn-primary">Delete All My Messages</button>*/}
 
                         </div>
                     </div>

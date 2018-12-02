@@ -18,10 +18,10 @@ export class UserInput extends React.Component{
         
 
         this.chatRoomsRef = firebase.database().ref().child('chatrooms');
-        //this.chatRoomsRef = firebase.database().ref().child('messages');
 
         this.deleteMessages = this.deleteMessages.bind(this);
  
+        //Set chat room
         //this.chatRoomNumber = Math.floor(Math.random() * 1000); 
         this.chatRoomNumber = 10;
         this.chatRoomNumRef = this.chatRoomsRef.child(this.chatRoomNumber);
@@ -38,18 +38,10 @@ export class UserInput extends React.Component{
             user: this.props.user,
             userName:this.props.userName
         })
-        console.log("UserInput component");
-        console.log(this.state);
     }
     
-    
-    componentDidUpdate(prevProps) {
-        //console.log("did update");
-    }
-
     sendMessage(){
         //if there is a message to put in database
-        //console.log("userName:" + this.state.userName);
         if (this.state.message) {
             let userRef = this.chatRoomNumRef.child('/users').child(this.state.userName);
             let newMessageRef = userRef.push();
@@ -60,28 +52,17 @@ export class UserInput extends React.Component{
 
             this.setState({ message: '' });
           }
-
-          console.log("sendMessage()");
-          console.log(this.state);
-          console.log("---------------------------------------");
     }
 
     //Not working correctly: It will work until you log out and back in as another user then it will just keep displaying the last users last message
-    //But it will still updatethe db correctly
+    //But it will still update the db correctly
     displayNewMessages() {
 
 
         this.usersRef.on('value',userSnapshot =>{
-            //console.log(userSnapshot.key);
             userSnapshot.forEach(messageSnapshot =>{
-                //console.log(messageSnapshot.key);
                 messageSnapshot.forEach(message =>{
-                    //console.log(message.val());
-
-                    this.setState({
-                        //listOfMessages: this.state.listOfMessages.concat([message.val().message])
-                        //listOfMessages: Object.values(message.val()),
-                        
+                    this.setState({                        
                         listOfMessages: this.state.listOfMessages.concat({
                             userName: messageSnapshot.key,
                             message:message.val().message
@@ -92,15 +73,11 @@ export class UserInput extends React.Component{
                 })
             })
         })  
-        console.log("displayMessages()");
-        console.log(this.state);
-        console.log("---------------------------------------");
     }
             
 
     onTextInput(ev){
         this.setState({message: event.target.value});
-        //console.log(this.state.message);
     }
 
 
@@ -113,19 +90,6 @@ export class UserInput extends React.Component{
         console.log(userNameRef.key);
 
         userNameRef.remove();
-
-        //find a way to update the list array so it will re render with set state
-        /*
-       for(let i = 0;i < this.state.listOfMessages.length;i++){
-            
-        if(this.state.listOfMessages[i].userName = userNameRef.key){
-            let newList = listOfMessages.splice(i, 1);
-            console.log(this.state.listOfMessages[i]);
-            this.setState({
-                listOfMessages: newList
-            })
-        }
-        */
     }
 
     
