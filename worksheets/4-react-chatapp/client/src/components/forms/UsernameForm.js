@@ -13,7 +13,6 @@ class UsernameForm extends React.Component {
 
     submitName = async (e) => {
         e.preventDefault()
-        console.log(this.state.username)
         let error = this.validateUsername(this.state.username)
 
         if (error) {

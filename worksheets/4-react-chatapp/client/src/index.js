@@ -22,10 +22,8 @@ firebase.auth().signInAnonymously().then(function(data) {
 const username = localStorage.chatroom_username
 
 if (username){
-    console.log('username',username)
     store.dispatch(saveUserID(username))
 }else {
-    console.log('no username')
     store.dispatch(saveUserID(null))
 }
 
