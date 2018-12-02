@@ -1,0 +1,68 @@
+div.message {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1%;
+}
+
+div.left {
+    margin-top: 0;
+    width: 40%;
+}
+
+div.right {
+    margin-top: 0;
+    margin-left: auto;
+    width: 45%;
+}
+
+p.nameLeft {
+    text-align: left;
+    display: block;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 5%;
+}
+
+p.messageLeft {
+    text-align: left;
+    width: 100%;
+    word-wrap: break-word;
+    margin-top: 2%;
+    border-radius: 10px;
+    padding: 2%;
+    background-color: Gainsboro;
+}
+
+p.nameRight {
+    text-align: right;
+    display: block;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    margin-right: 5%;
+}
+
+span.deleteRight {
+    float: left;
+}
+
+p.messageRight {
+    text-align: right;
+    width: 88%;
+    margin-left: auto;
+    margin-top: 1%;
+    word-wrap: break-word;
+    border-radius: 10px;
+    background-color: DodgerBlue;
+    color: white;
+    padding: 2%
+}
+
+#del {
+    background: none;
+    border: none;
+}
+
+#del:hover {
+    color: red;
+    cursor: pointer
+}
