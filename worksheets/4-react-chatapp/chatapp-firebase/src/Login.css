@@ -1,0 +1,40 @@
+form.login_reg_Form 
+{
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2%
+}
+
+input.loginInfo 
+{
+    display: block;
+	font-family:'calibri';
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 20px;
+	margin-top:15px;
+    border: none;
+    border-bottom: 2px double gray;
+}
+
+button.defaultButton 
+{
+    border: none;
+    font-family: 'Calibri';
+    border-radius: 5px;
+    height: 5vh;
+    font-size: 90%;
+    width: 20%;
+}
+
+#login 
+{
+    margin-right: 5%;
+}
+
+#register 
+{
+	color: white;
+    background-color: green;
+}
