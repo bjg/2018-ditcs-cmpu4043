@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			//rows and columns variables
+			var r = 50;
+			var c = 101;
+		
+			var y;
+			
+			//1D array to hold states of positions (0 or 1)
+			var statearr = [];
+			
+			function onload(){
+				//iterate through r number of rows
+				//create row div
+				for(i=0;i<r;i++){
+					var row = document.createElement('div');
+					row.style.display = "table";
+					row.style.margin= "-4.5px";
+					document.body.appendChild(row);
+					//iterate through c number of columns
+					//create column divs
+					for(j=0;j<c;j++){
+						var col = document.createElement('div');
+						col.style.width = "8px";
+						col.style.height = "8px";
+						col.style.border = "0.5px solid black";
+						col.style.display = "inline-block";
+						//for the first row, make all columns random state using randomstate()
+						if(i==0){
+							y = randomstate();
+							if(y==0){
+								col.style.background = "white";
+								document.body.appendChild(col);
+							}
+							if(y==1){
+								col.style.background = "black";
+								document.body.appendChild(col);
+							}
+							statearr.push(y);
+						}
+						//otherwise see what the state of the parent left and above is
+						//right parent state does not matter
+						else{
+							var above = statearr[((i-1)*c)+j];
+							//if column is first in a row the go to position just before it
+							//in state array for left parent
+							if(j==0){
+								var left = statearr[(i*c)+(j-1)];
+								//use rules() to decide what state the current column is
+								y = rules(left, above);
+								if(y==0){
+								col.style.background = "white";
+								document.body.appendChild(col);
+								}
+								if(y==1){
+									col.style.background = "black";
+									document.body.appendChild(col);
+								}
+							}
+							else{
+								var left = statearr[((i-1)*c)+(j-1)];
+								//use rules() to decide what state the current column is
+								y= rules(left, above);
+								if(y==0){
+									col.style.background = "white";
+									document.body.appendChild(col);
+								}
+								if(y==1){
+									col.style.background = "black";
+									document.body.appendChild(col);
+								}
+							}
+							
+							//push state of current column onto statearray[]
+							statearr.push(y);
+						}
+					}
+				}
+			}
+			
+			//function to randomly decide state of divs in first row
+			function randomstate(){
+				var x = Math.floor((Math.random() * 10) + 1);
+				var z;
+				//if random number is even, its dead
+				if(x%2==0){
+					//dead
+					z=0;
+					return z;
+				}
+				//if random number is odd, its alive
+				if(x%2!=0){
+					//alive
+					z=1;
+					return z;
+				}
+			}
+			
+			function rules(left, above){
+				//excluded right parent as it was made no difference to the state of the child				div
+				//if left and above parents are both alive
+				if(left==1 && above==1){
+					return 0;
+				}
+				//if left parent is alive and above parent is dead
+				if(left==1 && above==0){
+					return 1;
+				}
+				//if left parent is dead and above parent is alive
+				if(left==0 && above==1){
+					return 1;
+				}
+				//if left and above parent are both dead
+				if(left==0 && above==0){
+					return 0;
+				}
+			}
+		</script>
+	</head>
+	<body onload = "onload()">
+	</body>
+</html>
