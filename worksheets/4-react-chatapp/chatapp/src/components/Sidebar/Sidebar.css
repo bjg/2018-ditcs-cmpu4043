@@ -1,0 +1,56 @@
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  background: darkslategray;
+  color: #fff;
+  text-align: left;
+  padding: 20px 20px 0 20px;
+}
+
+.header {
+  padding-top:20px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #fff;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: rgba(150, 150, 100, 1);
+}
+
+.user-search {
+  height: 22px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.user-search:focus {
+  background-color: rgba(245, 243, 243, 0.5);
+}
+
+.sidebar-users ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
