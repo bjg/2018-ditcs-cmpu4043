@@ -1,0 +1,28 @@
+.login-container {
+  background-color: darkslategray;
+  height: 100vh;
+}
+
+.login-button {
+  padding: 10px;
+  background-color: rgba(255, 0, 0, .8);
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: red;
+}
+
+.login-card{
+  width: 25vw;
+  position: relative;
+  top: 25%;
+}
+
+.login-card-body {
+  background-color: white;
+}
