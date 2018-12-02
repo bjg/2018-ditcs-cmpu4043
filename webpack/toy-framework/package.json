@@ -1,0 +1,31 @@
+{
+  "name": "toy-framework",
+  "version": "1.0.0",
+  "description": "A simple demonstration web framework and counter app",
+  "private": true,
+  "scripts": {
+    "build": "webpack -p",
+    "start": "webpack-dev-server --open --config ./webpack.config.js --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
+    "flow-bin": "^0.84.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.2.2",
+    "typescript": "^3.1.4",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  }
+}
