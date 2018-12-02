@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    const getUser = () => {
+        fetch('http://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => {
+                data.map(function(users){
+                    userData = {}
+
+                    userData.username = users.username
+                    userData.city = users.address.city
+                    userData.zipcode = users.address.zipcode
+
+                    console.log(userData)
+                })
+                console.log(data.filter(user => (user.address.zipcode[0] === '2' || user.address.zipcode[0] === '5' )))
+            })
+    }
+
+    const getPost = () => {
+        fetch('http://jsonplaceholder.typicode.com/posts')
+            .then(response => response.json())
+            .then(posts => {
+                console.log(posts.filter(post => post.title.split(" ").length > 6))
+
+                console.log(posts.filter(post => post.body.split(" ".length)))
+            })
+    }
+    getUser()
+    getPost()
+</script>
+</html>
