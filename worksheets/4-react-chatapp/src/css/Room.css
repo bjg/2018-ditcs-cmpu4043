@@ -1,14 +1,25 @@
+/*
+  Allows for a scrollable messages and users list
+*/
 .Messages, .Users {
   overflow-y: scroll;
   max-height: 475px;
   height: 475px;
 }
 
+/*
+  Formats the delete button on messages just a small bit
+*/
 .Delete-Button {
   padding-left: 1% 
 }
 
-/*https://css-tricks.com/almanac/properties/s/scrollbar/*/
+/*
+  Customising the scrollbar to look nice
+
+  Reference:
+    https://css-tricks.com/almanac/properties/s/scrollbar
+*/
 .Messages::-webkit-scrollbar {
   width: 10px;
 }
@@ -22,7 +33,6 @@
   outline: 1px solid slategrey;
 }
 
-/*https://css-tricks.com/almanac/properties/s/scrollbar/*/
 .Users::-webkit-scrollbar {
   width: 10px;
 }
@@ -32,10 +42,16 @@
   outline: 1px solid slategrey;
 }
 
+/*
+  Pushing down the Spotify input a bit
+*/
 .SPInput {
   margin-top: 15px;
 }
 
+/*
+  Configuring the Spotify iFrame
+*/
 .IFrame {
   width: 100%;
   height: 475px;
@@ -43,6 +59,9 @@
   overflow-y: scroll;
 }
 
+/*
+  Setting borders to seperate key areas of the application
+*/
 .Grid {
   border-left-style: solid;
   border-right-style: solid;
