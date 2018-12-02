@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="myscript.js"></script> 
+<link rel="stylesheet" href="index_style.css">
+<title>Github Users</title>
+</head>
+<body>
+
+    <div id="searchBar">
+        <input id="search" type="text" placeholder="Search..">
+        <button onclick="searchUser()">Search</button>
+    </div>
+    <div id = "header">
+        <h1 id ="userTitles">User Profile</h1>
+        <h1 id ="userTitles">User Repos</h1>
+    </div>
+
+    <div id="userProfileBox">
+        <div id="userPhotoBorder">
+            <img src="https://assets-cdn.github.com/images/modules/open_graph/github-logo.png" id="userPhoto" />
+        </div>
+        <div id="userDetails">
+                <div class="Details">
+                    Name <span id="userFullName"></span>
+                </div>
+                <div class="Details">
+                    Username <span id="userName"></span>
+                </div>
+                <div class="Details">
+                    Email <span id="userEmail"></span>
+                </div>
+                <div class="Details">
+                    Location <span id="userLocation"></span>
+                </div>
+                <div class="Details">
+                    Number Of Gists <span id="userGistCount"></span>
+                </div>
+        </div>
+    </div>
+
+    
+    <div id="list">
+            <ul id="repoList">
+                <!--Append to a list element when you have repos-->
+                <li></li>
+                
+            </ul>
+    </div>
+
+
+</body>
+</html>
+
+
+
