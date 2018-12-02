@@ -1,0 +1,18 @@
+.cssMessage {
+    position: relative;
+    padding: 10px 60px 10px 20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6); 
+
+    background-color: lavender;
+    text-align: left;
+    line-height: 1.7;
+}
+.cssMessage:nth-child(even) {
+    background-color: lavenderblush;
+}
+.cssUsername {
+    font-weight: 600;
+    margin-right: 10px;
+    color: rgba(0, 0, 0, 1);
+}

@@ -1,0 +1,74 @@
+.form 
+{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputMessegeRow 
+{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 20px;
+}
+
+.typeMessage 
+{
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.typeMessage:focus 
+{
+    background-color: rgba(245, 243, 243, 0.5);
+}
+
+.messageBtn 
+{
+    padding: 0 30px;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.messegeList 
+{
+    width: 100%;
+    padding: 0 20px;
+}
+
+.inputName
+{
+    width: 50%;
+    padding: 10px 20px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.inputName:focus 
+{
+    background-color: rgba(245, 243, 243, 0.5);
+}
+
+.nameBtn 
+{
+    margin: 10px;
+    padding: 10px 30px;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    outline: 0;
+    cursor: pointer;
+}
