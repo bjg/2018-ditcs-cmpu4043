@@ -24,9 +24,6 @@ firebase.initializeApp(config);
 
 const auth = firebase.auth();
 
-
-
-
 class App extends React.Component {
 
     constructor(){
@@ -39,7 +36,6 @@ class App extends React.Component {
 
     }
 
-    
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             if(user){
@@ -53,7 +49,6 @@ class App extends React.Component {
                 this.setState({loggedIn: false});
                 
             }
-            
         });
     }
     
@@ -79,8 +74,7 @@ class App extends React.Component {
             let userNameParsed = email.substring(0, email.indexOf("@"));
             this.setState({
                 userName:userNameParsed,
-            })
-                
+            })    
         }
     }
 
@@ -103,8 +97,6 @@ class App extends React.Component {
 
             })
         }
-        
-
     }
 
     signOut(){
