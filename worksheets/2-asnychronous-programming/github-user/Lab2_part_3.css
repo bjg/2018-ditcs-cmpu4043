@@ -1,0 +1,60 @@
+input[type="text"]{
+    font-weight: lighter;
+    width: 40%;
+    color: grey;
+    margin-left: 10%;
+}
+
+input[type=button] {
+  width: 10%;
+  font-size: 20px;
+  border-radius: 7px;
+  margin-left: 3%;
+}
+
+input[type=button]:hover {
+  color: white;
+}
+
+h1{
+    font-size: 1.675em;
+    font-family: Arial, sans-serif;
+}
+
+#profile{
+    text-align: left;
+    float: left;
+    margin-left: 10%;
+    display: inline;
+    width: 40%;
+}
+
+#repo{
+    text-align: right;
+    float: right;
+    margin-right: 10%;
+    width:40%;
+}
+
+.a{
+    display: inline-block;
+    width:50%;
+}
+
+.b{
+    display: inline-block;
+    width:40%;
+}
+
+.d{
+    border: groove;
+}
+
+#repoinfo{
+    height:500px;
+    overflow-y: auto;
+}
+
+.answer{
+    float: right;
+}
