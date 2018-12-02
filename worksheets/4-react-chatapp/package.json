@@ -1,0 +1,25 @@
+{
+  "name": "react_chat_app",
+  "version": "1.0.0",
+  "description": "A chap application built using react",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdul-Ismail/React_Chat_App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdul-Ismail/React_Chat_App/issues"
+  },
+  "homepage": "https://github.com/Abdul-Ismail/React_Chat_App#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4"
+  }
+}
