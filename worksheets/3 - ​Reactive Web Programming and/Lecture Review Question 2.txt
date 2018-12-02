@@ -1,0 +1,34 @@
+Question:
+
+Assume that you are building an interface to an API in your Rich Web App. Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+
+
+Answer:
+
+RxJS (Reactive Extensions for JavaScript) is a library for reactive programming that makes it easier to compose asynchronous code. 
+
+To use this library you need to import it within the script/program:
+
+import { Observable, fromEvent } from 'rxjs';
+import { map, filter, merge } from 'rxjs/operators';
+
+Then an API call can be made:
+
+this.http.get('/someurl')
+
+Once a response has been rendered, the incoming stream is subscribed to: 
+
+.subscribe
+
+An observable is then created:
+
+var observable = Observable.create();
+
+Observables are similar to promises used in Javascript but unlike promises, observables can emit more than one value, which makes it suitable for the abstract way that streams work and ideal for dealing with unknown future streams. Promises can also be converted to observables by using var stream = Rx.Observable.fromPromise(promise). One downside of using observables is that they can ‘t be chained together unlike promises. 
+
+References:
+
+https://hackernoon.com/using-rxjs-to-handle-http-requests-what-ive-learned-4640aaf4646c
+https://ieftimov.com/build-weather-widget-rxjs
+https://auth0.com/blog/rxjs-advanced-tutorial-with-angular-web-speech-part-2/
+https://coursetro.com/posts/code/148/RxJS-Observables-Tutorial---Creating-&-Subscribing-to-Observables

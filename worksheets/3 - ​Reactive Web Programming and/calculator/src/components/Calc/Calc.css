@@ -1,0 +1,31 @@
+body{
+	border: 1px solid black;
+	height:350px;
+	width:500px;
+	background-color: #white;
+}
+
+input[type="button"]{
+	background-color: gray;
+	margin: 5px;
+	height: 40px;
+	width: 111px;
+	font-size: 20px;
+	border: 1px solid black;
+}
+
+input[type="text"]{
+	background-color: white;
+	margin: 5px;
+	height:80px;
+	width: 485px;
+	border: 1px solid black;
+	padding: 5px;
+	font-size: 60px;
+	text-align: right;
+}
+.clear{
+    background-color: gray;
+    border-color: black;
+    color: black;
+}
