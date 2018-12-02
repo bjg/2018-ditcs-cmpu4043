@@ -1,0 +1,45 @@
+/***
+ * Name: App.css
+ *
+ * Description: - CSS Stylesheet for the app.
+ **/
+
+html, body, .app {
+
+    height: 100vh;
+    background: whitesmoke;
+    padding: 1em;
+}
+
+/* Messages */
+.messages {
+    height: 350px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* Messages Form */
+.messagesForm {
+
+    position: fixed !important;
+    bottom: 1em;
+    margin-left: 300px !important;
+    left: 0;
+    right: 1em;
+    z-index: 200;
+
+}
+
+/* Message Content */
+.messageSelf {
+    border-left: 2px solid blue;
+    padding-left: 8px;
+}
+
+/* Channels */
+.menu {
+    padding-bottom: 2em;
+}
