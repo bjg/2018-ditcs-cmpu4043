@@ -1,0 +1,45 @@
+body{
+    background-color: #fafafa;
+}
+
+
+#usernameFieldContainer{
+    text-align: center;
+    /*width: calc(100vh - 400px);*/
+    width: 300px;
+    /*margin-top: 100px;*/
+    margin: 100px auto 0 auto;
+    padding: 50px 20px;
+}
+
+.sidebarChatName{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: 15px;
+    overflow: hidden;
+    outline: none;
+    color: rgb(202,196,201);
+    text-align: left;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.sidebarUsername{
+    color: white;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.sidebarChatName:hover{
+    background-color: rgba(0,0,0, 0.3);
+    /*border: none;*/
+}
+
+.sidebarHeading {
+    color: rgb(202,196,201);
+    font-size: 20px;
+    padding: 10px 10px 5px 10px;
+    margin: 0;
+
+}
