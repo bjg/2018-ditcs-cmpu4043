@@ -1,0 +1,45 @@
+h1 {
+  font-style: italic;
+  font-family: Verdana;
+  margin: 10px;
+}
+
+aside {
+  display: inline-block;
+  padding: 5px;
+  padding-right: 25px;
+}
+
+header {
+  font-family: Verdana;
+  font-style: italic;
+  font-size: 16px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li:last-child {
+    text-transform: lowercase;
+}
+
+#content {
+  width: 350px;
+  height: 230px;
+  vertical-align: top;
+  display: inline-block;
+  outline-style: solid;
+  padding: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#sidebar {
+  margin: 10px;
+  outline-style: solid;
+}
+
+address {
+  font-weight: bold;
+}
