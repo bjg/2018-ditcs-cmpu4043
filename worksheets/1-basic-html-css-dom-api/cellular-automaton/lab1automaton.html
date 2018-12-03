@@ -1,0 +1,86 @@
+<!--I'm afraid I didn't get this task finished. 
+I am not that familiar with Javascript and the learning curve 
+combined with the time I had available for this lab worked against me-->
+
+<html>
+<head>
+	<title>Automaton</title>
+</head>
+<body>
+
+	<script>
+	
+		function setup()
+		{
+
+			var column = 101;
+			var row = 50;
+			var colors = ["black", "white"];
+
+			var table = document.createElement("table");
+
+			for (var i = 0; i < row; i++)
+			{
+					var row = document.createElement("tr");
+
+					for (var k = 0; j < column; k++)
+					{
+						var element = document.createElement("td");
+							element.style.width = '8px';
+							element.style.height = '8px';
+							element.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+							element.addEventListener("load", load);
+							row.appendChild(element);
+					}
+
+					table.appendChild(row);
+			}
+
+			document.body.appendChild(table);
+
+			generateNewColour();
+
+		}
+
+	function automatonStart()
+		{
+
+		for (var j = 1; j < cells.length-1; j++) {
+			var left = cell[j-1];
+			var direct = cell[j];
+			var right = cell[j+1];
+			nextgen[j] = automatonRules(left, direct, right);
+		}
+
+		cell = nextcell;
+		next++; 			
+			
+		}
+		
+	function automatonRules()
+		{
+
+//work out automaton rules here
+
+//if left, direct, right are active, next row inactive
+if (left === black && direct === black && right === black) return white
+//if left and direct are active right inactive, next row inactive
+if (left === black && direct === black && right === white) return black
+//if left active, direct inactive, right active next row active
+if (left === black && direct === white && right === black) return black
+//if left active, direct and right inactive, next row active
+if (left === black && direct === white && right === white) return black
+//if left inactive, direct and right active, next row active
+if (left === white && direct === black && right === black) return white
+//if left inactive, direct active, right inactive, next row active
+if (left === white && direct === black && right === white) return black
+//if left and direct inactive, right active, next row inactive
+if (left === white && direct === white && right === black) return white		
+//if left, direct and right inactive, next row inactive
+if (left === white && direct === white && right === white) return white
+			
+		}	
+		
+	</script>
+</body>
+</html>
