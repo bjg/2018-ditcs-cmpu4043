@@ -1,0 +1,46 @@
+<!-- Part 3 of Lab 2 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Part 3</title>
+
+	<link rel="stylesheet" type="text/css" href="part3.css">
+	
+	
+</head>
+<body>
+	<script src="part3.js"></script>
+
+	<div class="top-nav">
+			<input type="text" placeholder="Username" id="search">
+			<button onClick="fetchData()">Search</button>
+	</div>
+	
+	<div class="container">
+		<!-- left side of the page -->
+		<div class="column">
+			<h3>User Profile</h3>
+			<div class="content">
+				<img class="profile" id='picture'></div>
+				<div class="profile" id="name"><span>Name:</span></div>
+				<div class="profile" id="username"><span>Username:</span></div>
+				<div class="profile" id="email"><span>E-mail:</span></div>
+				<div class="profile" id="location"><span>Location:</span></div>
+				<div class="profile" id="gist"><span>No. of Gists:</span></div>
+			</div>
+		</div>
+		
+		<!-- right hand side of the page -->
+		<div class="column">
+			<h3>User Repos</h3>
+			<div class="aside" id="repo">
+				<div class="reposit"><span>Name:</span></div>
+				<div class="reposit"><span>Description:</span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

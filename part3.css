@@ -1,0 +1,59 @@
+body {
+	font-family: "Geneva";
+}
+
+#search {
+	float: left
+    padding: 6px;
+    width: 300px;
+    height: 20px;
+    border: 1px solid black;
+    margin-top: 8px;
+}
+
+.container {
+	width: 700px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#picture {
+	width: 200px;
+	height: 200px;
+	display: block;
+	padding: 2px;
+	border: 1px solid black;
+}
+
+.column {
+	float: left;
+	padding: 15px;
+	border-style: 1px solid black;
+	width: 300px;
+	height: 
+}
+
+.profile {
+	float: left;
+	margin: 0;
+	padding-bottom: 8px;
+	width: 300px;
+	border: 1px solid black;
+}
+
+.content {
+	border: 1px solid black;
+	padding-top: 12px;
+	height: 220px;
+	width: 320px
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+
+.aside {
+	height: 400px;
+	border: 1px solid black;
+	padding-top: 8px;
+	overflow: auto;
+}

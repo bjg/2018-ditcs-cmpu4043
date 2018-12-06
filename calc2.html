@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="calc2.css">
+  <script src="calc2.js"></script>
+</head>
+
+<body>
+
+<div class="calc-container">
+    <form name="form">
+        <input class="textview" id="text" value="0" name="0">
+    </form>
+
+  <div class="grid-container">
+    <input class="grid-item" type="button" value="(" onclick="insert('(')">
+    <input class="grid-item" type="button" value=")" onclick="insert(')')">
+    <input class="grid-item" type="button" value="±" onclick="insert('-')">
+    <input class="grid-item" type="button" value="÷" onclick="insert('/')">
+    <input class="grid-item" type="button" value="7" onclick="insert(7)">
+    <input class="grid-item" type="button" value="8" onclick="insert(8)">
+    <input class="grid-item" type="button" value="9" onclick="insert(9)">
+    <input class="grid-item" type="button" value="x" onclick="insert('*')">
+    <input class="grid-item" type="button" value="4" onclick="insert(4)">
+    <input class="grid-item" type="button" value="5" onclick="insert(5)">
+    <input class="grid-item" type="button" value="6" onclick="insert(6)">
+    <input class="grid-item" type="button" value="-" onclick="insert('-')">
+    <input class="grid-item" type="button" value="1" onclick="insert(1)">
+    <input class="grid-item" type="button" value="2" onclick="insert(2)">
+    <input class="grid-item" type="button" value="3" onclick="insert(3)">
+    <input class="grid-item" type="button" value="+" onclick="insert('+')">
+    <input class="grid-item" type="button" value="0" onclick="insert(0)">
+    <input class="grid-item" type="button" value="." onclick="insert('.')">
+    <input class="grid-item" type="button" value="c" onclick="clr()">
+    <input class="grid-item" type="button" value="=" onclick="equal()">
+  </div>
+</div>
+
+</body>
+</html>
