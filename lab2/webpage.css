@@ -1,0 +1,51 @@
+/* A web application for querying user information from the Github API */
+
+.navbar {
+	float: center;
+	padding: 6px;
+	margin-top: 8px;
+	margin-right: 16px;
+}
+
+[type~=search] {
+	margin-left: 25%;	
+}
+
+[name~=Username] {
+	margin-left: 35%;
+	width: 300px;	
+}
+
+.profile {
+	display: inline-block;
+	margin-left: 21%;
+}
+
+.repos {
+	margin-left: 5%;
+	float: left;
+}
+
+table {
+	border-collapse: collapse;
+	margin-left: 20%;
+}
+
+repo_table {
+	border-collapse: collapse;
+	margin-left: 10%;
+	border: 2px solid black;
+	height: 30%;
+}
+
+.table, td {
+	width: 23%;
+	margin-left: 20%;
+	height: 30%;
+	border: 2px solid black;
+}
+
+img {
+	width: 55%;
+	margin-left: 23%
+}
