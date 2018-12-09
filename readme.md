@@ -1,4 +1,4 @@
-**_What is web component abstraction?_**
+**_What is web component abstraction?_**  
 Web components are custom, re-usable elements which allow a developer to
 create their own abstract functionality, including control of how they are
 rendered in the DOM.
@@ -8,7 +8,7 @@ separate from the regular DOM, which in turn means that they can
 be accessed and processed onlywhen necessary through inclusion in dynamically 
 generated content as part of templates.
 
-**_What is JavaScript Object Notation (JSON)?_**
+**_What is JavaScript Object Notation (JSON)?_**  
 JSON is a data interchange format built on dictionaries/associative arrays and
 ordered lists. It is actually language agnostic but very popular on the web,
 since the format has an equivalent in many C-based languages.
@@ -19,17 +19,18 @@ the simplest approach is setting up a dictionary in JS then converting it using
 JSON.stringify(dictionary).
 
 e.g
-
-`let example = {
+```
+let example = {
     some: "thing",
     foo: "bar"
 };
 
-let output = JSON.stringify(example);`
+let output = JSON.stringify(example);
+```
 
 The opposite (JSON to JS) is `JSON.parse(output).`
 
-**_In functional programming, what does the term functor mean?_**
+**_In functional programming, what does the term functor mean?_**  
 A functor is some kind of mapping function or something that itself can be
 mapped over. It can transform one thing into another when mapped over, and
 behaves consistently when functioning.
@@ -37,7 +38,7 @@ behaves consistently when functioning.
 `[40, 13, 0].map(x => x+9)
 = [49, 22, 9]`
 
-**_Briefly describe a bundler, loader and asset minimiser_**
+**_Briefly describe a bundler, loader and asset minimiser_**  
 A bundler is a tool used to package together all of the requirements to run a
 project which includes libraries and their dependencies. They also tend to
 integrate loaders and asset minimisers.
@@ -50,7 +51,7 @@ An asset minimiser is one example of a preprocessor, which can be used to
 reduce a file by removing all unnecessary spacing, automatically resizing image
 files or replacing local library links with remote CDN equivalents.
 
-**_Describe the process when a page is loaded into a browser_**
+**_Describe the process when a page is loaded into a browser_**  
 The first thing that happens when a page is loaded into a web browser is that
 the domain name is processed to find the server it is mapped to, which then
 begins a HTTP request. On an ordinary web page HTML is loaded first and is read
@@ -61,20 +62,75 @@ over others, the latter of which are safest to execute once the DOM has loaded.
 You can control when JS is loaded by observing the state of the window or
 container which is a necessary concern of asynchronously loading assets.
 
-**_Mention an advantage and disadvantage of callsbacks, promises and streams_**
+**_Mention an advantage and disadvantage of callsbacks, promises and streams_**  
+A callback is an implicit part of the promise, but the main difference is that
+promises work better for asynchronous operations by managing states, where a
+callback might instead be nested in a large series of checks.
 
+Promises can simplify the nesting issue, but are much more difficult for handle
+errors for since state management means that they can be prone to deadlocking.
+Streams are optionally used with promises and readily allow the use of the
+observer pattern to manage data.
 
 **_Why does try-catch not help with asynchronous errors, and what alternatives
-are there?_**
+are there?_**  
+When code runs synchronously it is easy to use try-catch to deal with errors
+because everything is processed linearly, while in asynchronous processes
+multiple things could be occuring concurrently.
 
+If the success of one function is dependent on the state or return values from
+another, a try-catch is not robust enough to check for this. It's where
+promises come in, as they can be perceived as a placeholder value which handle
+the state of data being processed asynchronously and include functionality to
+resolve or reject operations as a result.
 
-**_Describe JSX using code fragments to illustrate your answer_**
+**_Describe JSX using code fragments to illustrate your answer_**  
+JSX an extension to JavaScript which is statically instead of dynamically
+typed, allowing for optimisations in compiling code while also enabling more
+thorough debugging. Unfortunately it ends up looking similar to Java.
 
+```
+class Example {
+    var a: string;
+    var b = new Date();
+    var c = number;
+}
+```
+
+Its types are also nullable, and it includes classes and interfaces.
 
 **_Describe the Elm language architecture and the problems it is attempting to
-solve_**
+solve_**  
+Elm is a functional language which transpiles to JavaScript, and attempts to
+avoid runtime errors while providing verbose debugging and
+modeling itself over common patterns in code.
 
+It's an alternative to React or TypeScript and similar to these tools and
+others is trying to make JavaScript development easier and more robust by
+introducing features generally found as part non-web languages.
 
 **_Describe the CSS Flex-Box model using code fragments to illustrate your
-answer_**
+answer_**  
+CSS Flexbox is a new way of handling page layout by allowing a container to
+define how elements within it will be sized or distributed, and directionally
+agnostic. This includes alignment, justification and wrapping.
 
+In plain english, it allows a developer to manage the parameters of a
+container to define exactly how its children will behave instead of trying to
+lay elements out through hard coded values.
+
+```
+.container {
+    display: flex;
+    height: 500px;
+}
+
+.element {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+}
+```
+
+The above example shows how to perfectly center an element horizontally and
+vertically, the latter of which was previously incredibly difficult.
