@@ -1,0 +1,19 @@
+.container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.column {
+    margin: 8px 8px;
+    display: inline-block;
+    min-width: 64px;
+}
+
+.split {
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+    text-align: center;
+}
