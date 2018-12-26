@@ -1,0 +1,24 @@
+.container {
+    text-align: center;
+    font-family: ariel, sans-serif;
+}
+
+canvas {
+    display: inline;
+}
+
+
+button {
+    background-color: #8da8d3;
+    font-size: 20px;
+    border: 1px solid #6f84a5;
+    padding: 0.5%;
+    display: inline-block;
+    width: 10%;
+    
+   
+}
+
+button:hover {
+    background-color: #6983ad;   
+}
