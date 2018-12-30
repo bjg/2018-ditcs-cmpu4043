@@ -1,0 +1,101 @@
+html, body{
+    height:98%
+}
+
+/* FORM */
+#name{
+    width: 60%;
+    margin: 3% 2% 2% 3%;
+    padding: 2% 2% 1% 2%;
+    font-size: 75%;
+    font-weight: bold;
+    opacity: 0.5;
+    border: 1px solid black;
+}
+
+#submit{
+    padding: 2% 8% 2% 8%;
+    background-color: white;
+    border-radius: 20px;
+    float: right;
+    margin: 2% 3% 2% 2%;
+    color: #525252;;
+    font-size: 75%;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+/* FORM END */
+
+/* LEFT SIDE */
+
+#left{
+    height: 80%;
+    width: 46%;
+    margin-left: 3%;
+    float:left;
+}
+
+
+#left-border{
+    border:1px solid black;
+    height: 85%;
+}
+
+#imagewrapper{
+    clear: both;
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+    width: 95%;
+    height: 50%;
+    margin-left: 1%;
+}
+
+
+img{
+    border-radius: 10px;
+    width: 85%;
+    height: 100%;
+    margin-left:7%;
+}
+
+.text{
+    border: 1px solid #ccccb3;
+    padding: 3% 0 0 3%;
+    font-size: 120%;
+    color: #525252;;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+/* LEFT SIDE END */
+
+/* RIGHT SIDE */
+
+#right{
+    height: 80%;
+    width: 46%;
+    margin-right: 2%;
+    float:right;
+}
+
+
+
+#repos{
+    overflow: scroll;
+    height: 85%;
+    border: 1px solid black;
+    color: #525252;;
+    font-size: 100%;
+}
+
+
+
+.header{
+    color: #525252;;
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+
+/* RIGHT SIDE END */

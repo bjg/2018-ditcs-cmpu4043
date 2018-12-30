@@ -1,0 +1,11 @@
+button{
+    margin-left: 2%;
+    border-radius: 10px;
+    padding: 2%;
+    background-color: #4CAF50;
+    font-family: 'Lobster', Georgia, Times, serif;;
+}
+
+.title{
+    font-family: 'Lobster', Georgia, Times, serif;
+}

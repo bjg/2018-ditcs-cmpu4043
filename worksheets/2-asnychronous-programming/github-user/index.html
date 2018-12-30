@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <form id="getGit">
+        <input id= "name" type ="text" placeholder="Username">
+        <input type="submit" value ="Search" id="submit">
+    </form>
+    
+    <div id = 'left'>
+        
+        <div class="header"> 
+            User Profile
+        </div>
+        <div id= "left-border">
+            <div id= "imagewrapper">
+                <img id="image"
+                src="https://filmshotfreezer.files.wordpress.com/2011/07/untitled-1.jpg">
+            </div>
+
+
+            <div class="text" id="disname">Name: </div>
+            <div class="text" id="username">Username: </div>
+            <div class="text" id="email"> Email: </div>
+            <div class="text" id="loc">Location: </div>
+            <div class="text" id="noGist">Number of Gists: </div>
+        </div>
+    </div>
+    
+    <div id="right">
+        <div class="header"> 
+                User Repos
+        </div>   
+        <div id='repos'>
+        </div> 
+    </div>
+
+    <script src="app.js"> </script>
+</body>
+</html>
