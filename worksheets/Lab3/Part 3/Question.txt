@@ -1,0 +1,20 @@
+Steam abstraction is using streams everywhere in an applications architecture. It is a possible 
+solution to the synchronisation problems between the persistent storage, server and the serialised 
+data stream (between the client and the server). Modelling all application states as streams, then 
+provides a unified abstraction of everything.  This is because it allows the application architecture to 
+reduce to a stream processing problem, operating on one or more merged set of data frames. For 
+example, mouse clicks can be merged with network responses or timers etc, allowing these to be 
+processed within the same logical structure using the same stream semantics.
+Streams are similar to arrays in that they behave like time-ordered lists of data. However, you always 
+know what is in an array and how big it is, when with a stream you do not.  A stream is an 
+abstraction for some data which may or not exist yet, and may or may not come in the future.  When 
+a streams data arrives, it can be operated on and transformed into new streams. The observer 
+pattern is when an object maintains a list of its dependents, called observers and notifies them 
+automatically of any state changes, usually by calling one of their methods. Streams use this pattern 
+where data is realised using the subscribe operation. 
+Streams are used to model asynchronous data sources. They are very useful when the developer 
+does not know how big the data coming in is, or if any at all. Streams are new to javascript and can 
+be used to process videos or a text file. Before the whole file would have to be downloaded and wait 
+till its fully downloaded till it can be processed. Now with streams you can process data bit by bit as 
+soon as it is available client side. You can also use it to create a timer, like the one we made earlier in 
+this lab. It reads in the time bit by bit then you can display it to the screen or console. 
