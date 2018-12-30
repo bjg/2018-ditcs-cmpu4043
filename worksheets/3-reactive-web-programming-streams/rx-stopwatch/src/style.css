@@ -1,0 +1,26 @@
+/*-------------------------------------------*\
+    style.css
+    Style sheet in response to Lab Question 3.2
+
+    Author: Ciarán O'Brien
+    Lecture: Brian Gillespie
+    Student Number: C15765215
+    Date: 25/10/18
+\*-------------------------------------------*/
+.watchFace{
+  position: relative;
+}
+
+.hands{
+  position: absolute;
+}
+.face{
+  position: absolute;
+}
+
+button{
+  border-radius: 8px;
+  width: 20%;
+  box-shadow:1px 1px 1px 1px #ccc;
+  margin: 5px 5px 5px 5px;
+}
