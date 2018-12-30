@@ -1,0 +1,103 @@
+<!--
+    Keith Chambers (c15324461)
+    
+    Rich Web Technologies: labsheet 1, exercise 2
+-->
+
+<html>
+	<head></head>
+	<body>
+		<style>
+			#calculater
+			{
+				height: 400px;
+				width: 400px;
+				border: 1px solid black;
+				border-radius: 15px;
+				margin: auto;
+				background-color: #cccccc;
+			}
+			
+			#search-bar-container
+			{
+				height: 60px;
+				width: 350px;
+				border: 1px solid black;
+				border-radius: 5px;
+				margin: auto;
+				margin-top: 30px;
+				box-shadow: inset 4px 4px 2px 0px grey;
+				margin-bottom: 30px;
+			}
+			
+			#search-bar
+			{
+                margin-top: 3px;
+                margin-left: 3px;
+				height: 57px;
+				width: 347px;
+				direction:RTL;
+				font-size: 30px;
+			}
+			
+			.row
+			{
+				height: 50px;
+				width: 345px;
+				margin: auto;
+			}
+			
+			.column
+			{
+				height: 35px;
+				width: 82px;
+				border: 1px solid black;
+				border-radius: 8px;
+				display: inline-block;
+				background-color: #f2f2f2;
+				box-sizing: border-box;
+				padding-top: 6px;
+				padding-left: 35px;
+				box-shadow: inset -3px -3px 2px 0px grey;
+			}
+			
+		</style>
+		<div id="calculater">
+			<div id="search-bar-container">
+				<input id="search-bar" type="text">
+			</div>
+			
+			<div class="row">
+				<div class="column">(</div>
+				<div class="column">)</div>
+				<div class="column">±</div>
+				<div class="column">÷</div>
+			</div>
+			<div class="row">
+				<div class="column">7</div>
+				<div class="column">8</div>
+				<div class="column">9</div>
+				<div class="column">x</div>
+			</div>
+			<div class="row">
+				<div class="column">4</div>
+				<div class="column">5</div>
+				<div class="column">6</div>
+				<div class="column">-</div>
+			</div>
+			<div class="row">
+				<div class="column">1</div>
+				<div class="column">2</div>
+				<div class="column">3</div>
+				<div class="column">+</div>
+			</div>
+			<div class="row">
+				<div class="column">0</div>
+				<div class="column">.</div>
+				<div class="column">C</div>
+				<div class="column">=</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
