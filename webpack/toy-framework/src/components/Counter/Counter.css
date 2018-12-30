@@ -1,0 +1,10 @@
+.counter * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    margin: 5px;
+    border-radius: 10px;
+}
+.display {
+    width: 150px;
+    text-align: right;
+}
