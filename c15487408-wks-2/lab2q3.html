@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+section {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+    -webkit-flex: ;
+    -ms-flex: 3;
+    flex: 3;
+   
+    padding: 8px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style the content */
+article {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+   
+    padding: 8px;
+}
+.article2 {
+    flex: 1;
+    text-align: -webkit-center;
+}
+    
+#user {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#user td, #user th {
+    border: 1px solid #ddd;
+    padding: 8px;width: 50%;
+}
+
+.no_hover
+{
+  background-color: #ffffff !important;
+}
+
+#user tr:nth-child(even){background-color: #ffffff;}
+
+#user tr:hover {background-color: #f1f1f1;}
+
+
+
+#user th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+}
+
+<style>
+body {
+    font-family: Arial;
+    color: white;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: #111;
+     width: 80%;
+}
+
+.right {
+    right: 0;
+    background-color: red;
+     width: 20%;
+}
+.second_section
+{
+    border: 4px black solid;
+    
+    
+}
+p {    margin-top: 2px;
+    margin-bottom: 2px;}
+.nav2 { 
+    flex: 1;text-align: -webkit-center;
+    }
+.centered {
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    text-align: center;
+}
+
+.centered img {
+    width: 150px;
+    border-radius: 0%;
+}
+input {
+
+    width: -webkit-fill-available;
+    padding:7px;
+}
+
+table.repos1 {
+height:200px;
+    overflow-y:auto;
+    width: 100%;
+}
+</style>
+</style>
+</head>
+<body>
+
+<section>
+  <nav>
+   <div class="centered">    
+    <form autocomplete="off" action="/action_page.php">
+	  <div class="autocomplete" style="width:300px;">
+		<input id="searchUsernameInput" type="text" name="myCountry" placeholder="Username">
+	  </div>
+    </form>
+  </div>  
+  </nav>
+  
+  <article>
+     <input type="submit" id="searchSubmit" value="Search" onclick="getData()" style="width: -webkit-fill-available;">
+  </article>
+</section>
+
+
+<section class="second_section">
+  <nav class="nav2">
+	  <h3>User Profile</h3>
+	   <div class="centered">
+		<img src="http://www.vibro.no/wp-content/uploads/2018/01/default-user-image.png" id="profilephoto" alt="Avatar woman">
+	   </div>
+	  <table id="user" >
+	  
+		  <tr class="no_hover">
+			<td> Name</td>
+			<td id = "name"></td>
+			
+		  </tr>
+		  <tr class="no_hover">
+			<td>Username</td>
+			<td id = "username"></td>
+		   
+		  </tr >
+		  <tr class="no_hover">
+			<td>Email</td>
+			<td id = "email"></td>
+		  </tr>
+		  <tr class="no_hover">
+			<td>Location</td>
+			<td id = "location"></td>
+		  </tr>
+		  <tr class="no_hover">
+			<td>No. of Gists</td>
+			<td id = "gists"></td>
+		  </tr>
+		  
+	  </table>  
+  </nav>
+  
+  <article class="article2">
+     <h3>User Repos</h3>
+	 <div style="overflow-y:auto; max-height:400px">
+      <table class="repos1" id="repos">
+		<tr><th>Name</th><th>Description</th></tr>
+			
+	  	</table>
+	</div	
+  </article>
+</section>
+
+<script>
+var users = [];
+
+fetch('https://api.github.com/users')
+  .then(response => response.json())
+  .then(function(users){
+ console.log(users)
+ this.users = users;
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+
+var searchUsernameInput = users.map(a => a.login);
+console.log(searchUsernameInput)
+var usernames = searchUsernameInput;
+/*initiate the autocomplete function on the "searchUsernameInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("searchUsernameInput"), usernames);
+
+
+//Fill the data inside users data table
+
+
+  } 
+  )
+function getData() {
+
+var userEntered = document.getElementById("searchUsernameInput").value;
+
+var userData = users.filter(user => user.login == userEntered);
+	console.log(userData);
+  fetch(userData[0].url)
+  .then(response => response.json())
+  .then(function(data){
+ console.log(data); 
+ document.getElementById("name").innerHTML = data.name;
+ document.getElementById("username").innerHTML = data.login;
+ document.getElementById("email").innerHTML = data.email;
+ document.getElementById("location").innerHTML = data.location;
+ document.getElementById("gists").innerHTML = data.public_gists;
+ document.getElementById("profilephoto").src = data.avatar_url; 
+ 
+ fetch(data.repos_url)
+  .then(response => response.json())
+  .then(function(repos_data){
+	var repos = document.getElementById("repos");
+	console.log(repos_data)
+	for(var i = 0; i < repos_data.length; i++)
+           {
+               // create a new row
+               var newRow = repos.insertRow(i+1);
+              
+                   // create a new cell
+                   var cell = newRow.insertCell(0);
+                   
+                   // add value to the cell
+                   cell.innerHTML = repos_data[i].name;
+				    // create a new cell
+                   var cell = newRow.insertCell(1);
+                   
+                   // add value to the cell
+                   cell.innerHTML = repos_data[i].description;
+               
+           }
+ })
+ 
+ 
+ })
+}
+  
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<html>
+<head>
+</head>
+
+<body>
+<div id="calculator" role="application">
+	<!-- Screen -->
+	<div class="top">
+		<input type="text" disabled placeholder="0" class="screen">
+	</div>
+	
+	<div class="keys" aria-labelledby="inputKeys">
+		<!-- operators and other keys -->
+		<button tabindex="0" class="button">7</button>
+		<button tabindex="0" class="button">8</button>
+		<button tabindex="0" class="button">9</button>
+		<button tabindex="0" class="operator button">+</button>
+		<button tabindex="0" class="button">4</button>
+		<button tabindex="0" class="button">5</button>
+		<button tabindex="0" class="button">6</button>
+		<button tabindex="0" class="operator button">-</button>
+		<button tabindex="0" class="button">1</button>
+		<button tabindex="0" class="button">2</button>
+		<button tabindex="0" class="button">3</button>
+		<button tabindex="0" class="operator button">x</button>
+		<button tabindex="0" class="clear button">C</button>
+		<button tabindex="0" class="button">0</button>
+		<button tabindex="0" class="button">.</button>
+		<button tabindex="0" class="operator button">/</button>
+		<button tabindex="0" class="eval button">=</button>
+		<button tabindex="0" class="operator button">^</button>
+	</div>
+
+<style>
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  text-align:center;
+}
+
+/* Calculator */
+#calculator {
+	width: 325px;
+	height: auto;
+	margin: 100px auto;
+	padding: 20px 20px 9px;
+	border-radius: 5px;
+}
+
+
+
+.top .screen {
+  height:90px;
+	width: 100%;
+	padding: 0 10px;
+	background: rgba(154, 185, 188, 0.8);
+	border-radius: 5px;
+    margin-bottom:10px;	
+	font-size: 30px;
+	line-height: 90px;
+	color: white;
+	text-align: right;
+  overflow:auto;
+}
+
+
+
+.keys button, .top button.clear {
+	float: left;
+	position: relative;
+	top: 0;
+	font-size:27px;
+	cursor: pointer;
+	width: 66px;
+	height: 46px;
+	margin: 0 7px 11px 0;
+	line-height: 46px;
+	text-align: center;
+	user-select: none;
+    border: 1px solid;
+
+
+}
+
+
+.keys button.operator {
+	margin-right: 0;
+}
+
+.keys button.operator sup {
+  font-size: 50%;
+  vertical-align: top;
+  color:#f1c851;
+}
+
+.keys button.eval {	
+  width: 212px;
+}
+
+</style>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.8/Rx.min.js'></script>
+<script>
+
+let result = 0;
+let operation = '';
+let displayRefresh = false;
+const btns = document.getElementsByClassName("button");
+
+const stream$ = Rx.Observable.from(btns)
+  .map(btn => Rx.Observable.fromEvent(btn, 'click')
+    .mapTo(btn.textContent))
+  .mergeAll()
+  .merge(Rx.Observable.fromEvent(document, 'keypress')
+    .pluck('key'));
+
+document.onkeydown = function(event) {
+if (event.keyCode === 8 || event.keyCode==46) {
+    result = 0;
+    operation = '';
+    document.getElementsByTagName('input')[0].value = '0';
+  }
+}
+	
+stream$.subscribe(key => {
+  if (/\d/.test(key) || key === '.') {
+    // If the button is a number
+    if (displayRefresh) {
+      document.getElementsByTagName('input')[0].value = key;
+      displayRefresh = false;
+    } else {
+      document.getElementsByTagName('input')[0].value += key;
+    }
+  } else if (key === 'C') {
+    result = 0;
+    operation = '';
+    document.getElementsByTagName('input')[0].value = '0';
+  } else {
+    const v = parseFloat(document.getElementsByTagName('input')[0].value);
+    if (operation === '+') {
+      result += v;
+    } else if (operation === '-') {
+      result -= v;
+    } else if (operation === 'x' || operation === '*') {
+      result *= v;
+    } else if (operation === '/') {
+      result /= v;
+    } else if (operation === '^') {
+      result **= v;
+    } 
+	else {
+      result = v;
+    }
+    document.getElementsByTagName('input')[0].value = result;
+    operation = key;
+    displayRefresh = true;
+  }
+});
+</script>
+</body>
+</html>
