@@ -1,0 +1,50 @@
+<!-- 
+/*-------------------------------------------*\
+    index.html
+    HTML in response to Lab Question 2.3
+
+    Author: Ciarán O'Brien
+    Lecture: Brian Gillespie
+    Student Number: C15765215
+    Date: 04/10/18
+\*-------------------------------------------*/ 
+-->
+<!doctype html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>GitHub Search</title>
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <div id="github">
+        <div class="search-container">
+            <input class="search-username" id="search-username" type="text" placeholder="Username">
+            <button class="userSearch" id="userSearch" type="">Search</button>
+        </div>
+        <div class="container">
+            <div class="user-repos-container" id="user-repos-container">
+                <p class="repo_descriptions">User Repos</p>
+                <div class="repos-info-container" id="repos-info-container">
+                    <textarea class="repoDescriptor" rows="3" cols="100" disabled readonly>Name&#x0a;&#x0a;Description</textarea>
+                    <textarea class="repoDescriptor" rows="3" cols="100" disabled readonly>Name&#x0a;&#x0a;Description</textarea>
+                    <textarea class="repoDescriptor" rows="3" cols="100" disabled readonly>Name&#x0a;&#x0a;Description</textarea>
+                    <textarea class="repoDescriptor" rows="3" cols="100" disabled readonly>Name&#x0a;&#x0a;Description</textarea>
+                    <textarea class="repoDescriptor" rows="3" cols="100" disabled readonly>Name&#x0a;&#x0a;Description</textarea>
+                    <textarea class="repoDescriptor" rows="3" cols="100" disabled readonly>Name&#x0a;&#x0a;Description</textarea>
+                </div>
+            </div>
+            <div class="user-profile-container">
+                <p class="profile_text">User Profile</p>
+                <img id="profile_image"  class="image_container" src="https://via.placeholder.com/460x460">
+                <input id="name" class="name" type="text" placeholder="Name" disabled>
+                <input id="username" class="username" type="text" placeholder="Username" disabled>
+                <input id="email" class="email" type="text" placeholder="Email" disabled>
+                <input id="location" class="location" type="text" placeholder="Location" disabled>
+                <input id="num_of_gists" class="num_of_gists" type="text" placeholder="Number of gists" disabled>
+            </div>
+        </div>
+    </div>
+</body>

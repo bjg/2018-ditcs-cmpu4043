@@ -1,0 +1,60 @@
+/*-------------------------------------------*\
+    style.css
+    Style sheet in response to Lab Question 1.1
+
+    Author: Ciarán O'Brien
+    Lecture: Brian Gillespie
+    Student Number: C15765215
+    Date: 20/09/18
+\*-------------------------------------------*/
+
+/**
+* Header Section
+*/
+header{
+  font-style: italic;
+  
+}
+
+/**
+* Footer Section
+*/
+footer{
+  clear:left;
+}
+
+/**
+* Body Section
+*/
+body{
+    background-color: light-grey; 
+}
+
+/**
+* Content Div
+*/
+#content {
+    width: 60%;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid black;
+    float: left;
+}
+
+/**
+* Sidebar Div
+*/
+#sidebar{
+  float: right;
+    width: 30%;
+    padding: 10px;
+    border: 1px solid black;
+    
+}
+
+/**
+* li Section
+*/
+li {
+    list-style-type: none;
+}
