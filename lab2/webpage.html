@@ -1,0 +1,44 @@
+<!--A web application for querying user information from the Github API -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="webpage.css">
+</head>
+</body>
+	<div class="navbar">
+		<input type="text" placeholder="Username" id = "user" name="Username">
+		<button id="search">Search</button> 
+	</div>
+
+	<div class="w3-row-padding">
+		<h3 class="profile"> User Profile </h3>
+		<h3 class="profile"> User Repos </h3>
+		<table id = "user_table" width ="23%">
+			<tr>
+				<td><img id="avatar"></td>
+			</tr>
+			<tr>				
+				<td><span id = "name"> Name : </span></td>
+			</tr>
+			<tr>
+				<td><span id = "username"> Username : </span></td>
+			</tr>
+			<tr>
+				<td><span id = "email"> Email : </span></td>
+			</tr>
+			<tr>
+				<td><span id = "location"> Location : </span></td>
+			</tr>
+			<tr>
+				<td><span id = "gist"> No. of Gists : </span> </td>
+			</tr>
+		</table>
+		
+		<div id = "repo_table">
+		
+		</div>
+		<script type="text/javascript" src="webpage.js"></script>
+	</div>
+</body>
+</html>

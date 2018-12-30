@@ -1,0 +1,44 @@
+/* Stylesheet for the caluclator2 html file */
+
+[name~=calc_display] {
+	width: 44%;
+	height: 10%;
+	float: center;
+	text-align: right;
+	font-size: 26px;
+}
+
+[type~=button] {
+	width: 10%;
+	padding: 12px 28px;
+	text-align: center;
+    display: inline-block;
+    font-size: 16px;
+	margin: 4px 2px;
+	background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;	
+}
+
+.calculator {
+  width: 300px;
+  position: fixed;
+  clear:both;
+  float: center;
+}
+
+.button {
+	width: 10%;
+	padding: 12px 28px;
+	text-align: center;
+    display: inline-block;
+    font-size: 16px;
+	margin: 4px 2px;
+	background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.button:hover {
+	background-color: #e7e7e7;
+}

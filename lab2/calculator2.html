@@ -1,0 +1,53 @@
+<!--Calculator with mouse and keyboard inputs
+	Note: I couldn't get the brackets or negate working-->
+
+<html>
+	<head>
+		<link rel="stylesheet" href="calculator2.css" type="text/css">
+	</head>
+	
+	<body>
+		<form name="calculator2">
+			<div class = "input_screen">
+				<input type="text" name="calc_display" id="input">
+			</div>
+	
+			<!--Rows of the calculator divided into sections with separate ids -->
+			<section id="row1">
+				<input class="button" type="button" value="(" onclick="openpara(this.value)">
+				<input class="button" type="button" value=")" onclick="closepara(this.value)">
+				<input class="button_op" type="button" name="pm" value="±" onclick="plusmin()">
+				<input class="button_op" type="button" name="div" value="/" onclick="calculator2.input.value += '/'">
+			</section>
+
+			<section id="row2">
+				<input class="button_no" type="button" name="7" value="7" onclick="calculator2.input.value += '7'">
+				<input class="button_no" type="button" name="8" value="8" onclick="calculator2.input.value += '8'">
+				<input class="button_no" type="button" name="9" value="9" onclick="calculator2.input.value += '9'">
+				<input class="button_op" type="button" name="times" value="*" onclick="calculator2.input.value += '*'">
+			</section>
+
+			<section id="row3">
+				<input class="button_no" type="button" name="4" value="4" onclick="calculator2.input.value += '4'">
+				<input class="button_no" type="button" name="5" value="5" onclick="calculator2.input.value += '5'">
+				<input class="button_no" type="button" name="6" value="6" onclick="calculator2.input.value += '6'">
+				<input class="button_op" type="button" name="sub" value="-" onclick="calculator2.input.value += '-'">
+			</section>
+
+			<section id="row4">
+				<input class="button_no" type="button" name="1" value="1" onclick="calculator2.input.value += '1'">
+				<input class="button_no" type="button" name="2" value="2" onclick="calculator2.input.value += '2'">
+				<input class="button_no" type="button" name="3" value="3" onclick="calculator2.input.value += '3'">
+				<input class="button_op" type="button" name="add" value="+" onclick="calculator2.input.value += '+'">
+			</section>
+
+			<section id="row5">
+				<input class="button_no" type="button" name="0" value="0" onclick="calculator2.input.value += '0'">
+				<input class="button_op" type="button" name="decimal" value="." onclick="calculator2.input.value += '.'">
+				<input class="button_op" type="button" id="clear" name="cancel" value="C" onclick="calculator2.input.value = ''">
+				<input class="button_op" type="button" id ="equal" name="equals" value="=" onclick="calculator2.input.value = eval(calculator2.input.value)">
+			</section>
+		</form>
+		<script type="text/javascript" src="calculator2.js"></script>
+	</body>
+</html>
