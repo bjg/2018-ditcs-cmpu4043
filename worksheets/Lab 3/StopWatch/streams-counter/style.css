@@ -1,0 +1,12 @@
+body {
+	font-size: 1.5em;
+}
+#display {
+	margin-bottom: 20px;
+	padding: 5px;
+	width: 50px;
+	text-align: right;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
