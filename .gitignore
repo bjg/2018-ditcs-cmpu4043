@@ -5,3 +5,4 @@ node_modules
 solutions
 .next
 /dist/main.js
+build/
