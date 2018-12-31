@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Fetching Data</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+	<div id="container">
+		<div class="center" id="searchFunctionality">
+			<input type="text" id="search" placeholder="Search username.." title="Use random letters to get a 404">
+			<button type="button" id="searchButton" onClick="fetchUser()">Search</button>
+		</div>
+
+		<div id="searchContent">
+			<div class="center" id="errorMessage"></div>
+			<div class="content">
+				<div id="userProfile">	
+					<div id="userImageContainer"> <img id="userImage" src="" onerror="this.style.display='none'"> </div>
+					<div id="detailsContainer">
+						<div class="cell" id="name"></div>
+						<div class="cell" id="username"></div>
+						<div class="cell" id="email"></div>
+						<div class="cell" id="location"></div>
+						<div class="cell" id="publicGists"></div>
+					</div>
+				</div>
+
+				<div id="userRepos"><ul id="repos"></ul></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="script.js"></script>
+</html>

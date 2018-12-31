@@ -1,0 +1,94 @@
+html {
+	padding: 0%;
+	margin: 0%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+	max-height: 76vh;
+	min-width: 40vw;
+	width: 40vw;
+	overflow-y: auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 1%;
+}
+
+li {
+	height: 15vh;
+	min-height: 80px;
+	border-bottom: 1px solid gray;
+}
+
+.center {
+	text-align: center;
+}
+
+.cell {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	text-align: left;
+	min-width: 10vw;
+}
+
+#container {
+	width: 100%;
+}
+
+#search {
+	width: 30vw;
+	height: 30px;
+	margin-right: 1vw;
+	display: inline-block;
+}
+
+#searchButton {
+	min-width: 20px;
+	height: 30px;
+	display: inline-block;
+}
+
+#searchFunctionality {
+	margin-bottom: 3vh;
+}
+
+#userRepos, #userProfile {
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+}
+
+#userProfile {	
+	margin-right: 5vw;
+	margin-left: 20vw;
+}
+
+#userRepos {
+	position: absolute;
+}
+
+#content {
+	margin: auto;
+	width: 70%;
+}
+
+#userImage {
+	height: 15vw;
+	width: 100%;
+}
+
+#repoName {
+	margin-top:2;
+	margin-bottom: 2%;
+}
+
+#repoDescription {
+	overflow-y: hidden;
+	height: 10vh;
+}
+
+#repo {
+	padding: 1%;
+	max-width: 40vw;
+}
