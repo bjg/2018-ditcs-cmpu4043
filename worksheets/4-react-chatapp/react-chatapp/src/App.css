@@ -1,0 +1,16 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 100%;
+}
+
+body, #root {
+    height: 100%
+}
+
+input {
+    display: block
+}
+
+button {
+    display: inline
+}
