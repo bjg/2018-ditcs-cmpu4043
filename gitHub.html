@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="github.js"></script>
+    <link rel="stylesheet" type="text/css" href="github.css">
+</head>
+<body>
+    <div id="searchBar">
+        <input type="text" id="userInput" placeholder="Username"/>
+        <button onclick="search(userInput.value)" id="submit">Search</button>
+    </div>
+
+
+    <div class="containers">
+        <div class="container">
+            <div class="title">User Profile</div>
+            <div class="flex-item"><img src="" id="avatar"></div>
+            <div class="flex-item"><strong>Name:</strong><span id="name"></span></div>
+            <div class="flex-item"><strong>Username:</strong><span id="username"></span></div>
+            <div class="flex-item"><strong>Email:</strong><span id="email"></span></div>
+            <div class="flex-item"><strong>Location:</strong><span id="location"></span></div>
+            <div class="flex-item"><strong>Number of gists:</strong><span id="gist"></span></div>
+        </div>
+        <ul class="container" id="repos">
+            <div class="title">User Repos</div>
+            <li class="flex-item"><strong>Name: </strong><br/><br/><strong>Description: </strong></li>
+        </ul>
+    </div>
+</body>
+</html>

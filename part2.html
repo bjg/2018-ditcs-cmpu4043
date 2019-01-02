@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script src="part2.js"></script>
+</head>
+<body>
+<button onClick="loadJSON('http://jsonplaceholder.typicode.com/users',function(data){parse(data)},
+                            function(xhr) { console.error(xhr); })">click</button>
+</body>
+</html>
