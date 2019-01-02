@@ -1,0 +1,204 @@
+<style>
+    .container{
+        width: 600px;
+        height: auto;
+        border: 2px solid pink;
+        margin-left: 50px;
+    }
+    .row{
+        display: block;
+    }
+    body > div > div:nth-child(1){
+        margin-top: 10px;
+    }
+    .username{
+        display: inline-block;
+        height: 25px;
+        width: 215px;
+        border: 1px solid black;
+        margin-right: 25px;
+    }
+    .search{
+        display: inline-block;
+        height: 25px;
+        width: 95px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    body > div > div:nth-child(2){
+        margin-top: 10px;
+    }
+    .user_profile, .user_repos{
+        display: inline-block;
+        width: 49.5%;
+        font-weight: bold;
+        height: 35px;
+    }
+    .user_profile{
+        width: 39.5%;
+    }
+    .col{
+        display: inline-block;
+        width: 155px;
+        padding: 0 20px 0 0;
+        vertical-align: top;
+    }
+    body > div > div:nth-child(3) > div:nth-child(2){
+        padding: 0;
+        margin-left: 60px;
+    }
+    .block{
+        width: 95%;
+        border: 1px solid black;
+    }
+    .block2{
+        width: 210px;
+        border: 1px solid black;
+    }
+    .text{
+        display: block;
+        padding: 5px 0 0 5px;
+    }
+    .image{
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 190px;
+    }
+    .repos_area{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 300px;
+        height: 350px;
+    }
+    body > div > div:nth-child(1) > button:hover{
+        background-color: lightskyblue;
+    }
+</style>
+<html>
+    <body>
+        <div class="container">
+            <div class="row">
+                <input class="username" id="inputUser" placeholder="Username"></input>
+                <button class="search" onclick="look_up_data()"> Search</button>
+            </div>
+            <div class="row">
+                <div class="user_profile">User Profile
+                </div>
+                <div class="user_repos"> User Repos
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img class="image" id="pic" src="https://picsum.photos/180/180/?random">
+                    <div class="block2"><span class="text" id="name">Name</span></div>
+                    <div class="block2"><span class="text" id="username">Username</span></div>
+                    <div class="block2"><span class="text" id="email">Enail</span></div>
+                    <div class="block2"><span class="text" id="location">Location</span></div>
+                    <div class="block2"><span class="text" id="gists">Number of Gists</span></div>
+                <!----></div>
+                <div id="repos_area" class="col repos_area">
+                        <div class="block" id="block1" ><span class="text" id="name1">Project Name</span><span class="text" id="desc1">Project Description</span></div>
+                        <div class="block" id="block2"><span class="text" id="name2">Project Name</span><span class="text" id="desc2">Project Description</span></div>
+                        <div class="block" id="block3"><span class="text" id="name3">Project Name</span><span class="text" id="desc3">Project Description</span></div>
+                        <div class="block" id="block4"><span class="text" id="name4">Project Name</span><span class="text" id="desc4">Project Description</span></div>
+                        <div class="block" id="block5"><span class="text" id="name5">Project Name</span><span class="text" id="desc5">Project Description</span></div>
+                        <div class="block" id="block6"><span class="text" id="name6">Project Name</span><span class="text" id="desc6">Project Description</span></div>
+                        <div class="block" id="block7"><span class="text" id="name7">Project Name</span><span class="text" id="desc7">Project Description</span></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    
+    function get_user(username){
+        
+        let user_url = 'https://api.github.com/users/'+username;
+        let repo_url = user_url+'/repos';
+        
+        // User info
+        fetch(user_url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('username').innerHTML = data['login'];
+            if(data['name'] == null){
+                document.getElementById('name').innerHTML = "null";
+            }else{
+                document.getElementById('name').innerHTML = data['name'];
+            } 
+            document.getElementById('pic').src = data['avatar_url'];
+            if(data['email'] == null){
+                document.getElementById('email').innerHTML = "null";
+            }else{
+                document.getElementById('email').innerHTML = data['email'];
+            }
+            
+            if(data['location'] == null){
+                document.getElementById('location').innerHTML = "null";
+            }else{
+                document.getElementById('location').innerHTML = data['location'];
+            }
+            document.getElementById('gists').innerHTML = data['public_gists'];
+            
+            console.log(data) // Prints result from `response.json()` in getRequest
+        })
+        .catch(error => console.error(error))
+        //Repo info
+        fetch(repo_url)
+        .then(response => response.json())
+        .then(data2 => {
+            let repo_area= document.getElementById('repos_area');
+                
+            // removing the placeholders
+            document.getElementById('block1').parentNode.removeChild(document.getElementById('block1'));
+            document.getElementById('block2').parentNode.removeChild(document.getElementById('block2'));
+            document.getElementById('block3').parentNode.removeChild(document.getElementById('block3'));
+            document.getElementById('block4').parentNode.removeChild(document.getElementById('block4'));
+            document.getElementById('block5').parentNode.removeChild(document.getElementById('block5'));
+            document.getElementById('block6').parentNode.removeChild(document.getElementById('block6'));
+            document.getElementById('block7').parentNode.removeChild(document.getElementById('block7'));
+
+
+
+
+            for(let i=0; i<data2.length; i++){
+                // Creating the block to hold the two spans
+                let index = i + 1;
+                let element = document.createElement("div");
+                element.classList +="block";
+                element.id="block"+index;
+                repo_area.appendChild(element);
+                
+                let text1 = document.createElement("div");
+                let text2 = document.createElement("div");
+                text1.classList.add("text");
+                text2.classList.add("text");
+                text1.id="name"+index;
+                text2.id="desc"+index;
+                element.appendChild(text1);
+                element.appendChild(text2);
+
+                if(data2[i]['description']){
+                    text1.innerHTML=data2[i]['name'];
+                    text2.innerHTML=data2[i]['description'];
+                }else{
+                    text1.innerHTML=data2[i]['name'];
+                    text2.innerHTML="No description";
+                }
+            }
+            //console.log(data2[0]['name']) // Prints result from `response.json()` in getRequest
+        })
+        .catch(error => console.error(error))
+    }
+    function look_up_data(){
+        let inputName= document.getElementById('inputUser').value;
+        if(inputName){
+            get_user(inputName);
+        }else{
+            alert("Write something");
+        }  
+    }
+</script>
