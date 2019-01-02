@@ -1,0 +1,165 @@
+<!--
+    Auther: Keith Chambers
+    Basic web frontend for Github
+-->
+
+<html>
+<head></head>
+<body>
+  <style>
+    #avatar{
+      position: relative;
+      width: 200px;
+      height: 200px;
+      left: 50px;
+      border: 1px solid black;
+    }
+
+    #search-area
+    {
+        position: relative;
+        top: 15px;
+        left: 15px;
+    }
+
+    #user-profile
+    {
+      position: relative;
+      height: 100%;
+      top: 30px;
+      float: left;
+      width: 300px;
+    }
+
+    #user-fields
+    {
+      position: relative;
+      top: 30px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    #repo-heading
+    {
+      position: relative;
+      margin-left: 50%;
+    }
+
+    #repo-description
+    {
+      height: 85%;
+      width: 500;
+      margin-right: 15px;
+      float: right;
+      overflow: scroll;
+    }
+
+    #main-content
+    {
+      height: 500px;
+      width: 850px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+
+    .repo
+    {
+      height: 100px;
+      width: 95%;
+      border: 1px solid black;
+    }
+
+    #userprofile-heading
+    {
+      position: relative;
+      left: 100px;
+      top: 15px;
+    }
+
+  </style>
+  <div id="main-content">
+    <div id="search-area">
+      <input type="text" id="user-search"><button id="search-button">Search</button>
+    <div>
+      <span id="userprofile-heading">User Profile</span>
+      <span id="repo-heading">User Repos</span>
+    <div id="user-profile">
+
+      <img id="avatar" src="default.png">
+      <div id="user-fields">
+          Name: <span id="profile-name"></span><br/>
+          Username: <span id="profile-username"></span><br/>
+          Email: <span id="profile-email"></span><br/>
+          Location: <span id="profile-location"></span><br/>
+          Number of Gists: <span id="profile-numgists"></span><br/>
+      </div>
+    </div>
+    <div id="repo-description">
+    </div>
+
+  </div>
+  <script>
+    document.getElementById("search-button").addEventListener("click", function()
+    {
+      var inputBar = document.getElementById("user-search");
+      var username = inputBar.value;
+
+      if(! username)
+      {
+        console.log("No username");
+        return;
+      }
+
+      inputBar.value = "";
+      var repoDescDiv = document.getElementById("repo-description");
+          
+      // Remove previous repos
+      while (repoDescDiv.hasChildNodes()) 
+        repoDescDiv.removeChild(repoDescDiv.lastChild);
+
+      fetch("https://api.github.com/users/" + username)
+      .then(response => response.json())
+      .then(response =>
+        {
+          console.log(response);
+          document.getElementById("avatar").src = response.avatar_url;
+          var nameSpan = document.getElementById("profile-name");
+          var usernameSpan = document.getElementById("profile-username");
+          var emailSpan = document.getElementById("profile-email");
+          var locationSpan = document.getElementById("profile-location");
+          var numGistsSpan = document.getElementById("profile-numgists");
+
+          nameSpan.innerHTML = response.name;
+          usernameSpan.innerHTML = response.login;
+          emailSpan.innerHTML = response.email;
+          locationSpan.innerHTML = response.location;
+          numGistsSpan.innerHTML = response.public_gists;
+        });
+
+        fetch("https://api.github.com/users/" + username + "/repos")
+        .then(response => response.json())
+        .then(response => response.forEach(repo => {
+          var repoName = repo.name;
+          var repoDesc = repo.description;
+
+          var repoDiv = document.createElement('div');
+          repoDiv.className = 'repo';
+
+          var repoNameSpan = document.createElement('span');
+          repoNameSpan.innerHTML = "Name: " + repoName + "<br/>";
+
+          var repoDescSpan = document.createElement('span');
+          repoDescSpan.innerHTML = "Desc: " + repoDesc;
+
+          repoDiv.appendChild(repoNameSpan);
+          repoDiv.appendChild(repoDescSpan);
+
+          var repoDescDiv = document.getElementById("repo-description");
+          
+          repoDescDiv.appendChild(repoDiv);
+        }));
+    });
+
+  </script>
+</body>
+</html>
