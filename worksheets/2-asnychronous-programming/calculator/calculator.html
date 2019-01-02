@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+
+<div id="wrapper">
+    <input id="input" type="text" placeholder="0" oninput="validateTypedInput(value)">
+
+    <div class="buttons">
+        <button onclick="updateExpression('(')"> ( </button>
+        <button onclick="updateExpression(')')"> ) </button>
+        <button onclick="updateExpression('&#247')"> &#177 </button>
+        <button onclick="updateExpression('&#247')"> &#247 </button>
+        <button onclick="updateExpression('7')"> 7 </button>
+        <button onclick="updateExpression('8')"> 8 </button>
+        <button onclick="updateExpression('9')"> 9 </button>
+        <button onclick="updateExpression('x')"> x </button>
+        <button onclick="updateExpression('4')"> 4 </button>
+        <button onclick="updateExpression('5')"> 5 </button>
+        <button onclick="updateExpression('6')"> 6 </button>
+        <button onclick="updateExpression('-')"> - </button>
+        <button onclick="updateExpression('1')"> 1 </button>
+        <button onclick="updateExpression('2')"> 2 </button>
+        <button onclick="updateExpression('3')"> 3 </button>
+        <button onclick="updateExpression('+')"> + </button>
+        <button onclick="updateExpression('0')"> 0 </button>
+        <button onclick="updateExpression('.')"> . </button>
+        <button onclick="clearInput()"> C </button>
+        <button onclick="solve()"> = </button>
+    </div>
+</div>
+
+<p id="error" style="color: red;"></p>
+
+
+<script src="calculator.js"></script>
+</body>
+</html>

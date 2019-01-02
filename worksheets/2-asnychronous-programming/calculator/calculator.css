@@ -1,0 +1,30 @@
+#wrapper{
+    background: rgb(247, 247, 247);
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+input{
+    text-align: right;
+    font-size: 42px;
+    width: calc(100% - 10px);
+    padding: 8px 3px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: rgb(169, 169, 169);
+    border-color: rgba(143, 143, 143, 0.6) rgb(238, 238, 238) rgb(238, 238, 238) rgba(143, 143, 143, 0.6);
+    border-width: 3px;
+}
+
+button{
+    padding: 8px 0;
+    width: 90px;
+    margin: 3px;
+    font-size: 18px;
+    background: rgb(192, 192, 192);
+    border-color: rgb(214, 214, 214) rgb(108, 108, 108) rgb(108, 108, 108) rgb(214, 214, 214);
+    border-width: 3px;
+    border-radius: 7px;
+}
