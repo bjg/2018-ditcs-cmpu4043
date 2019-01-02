@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Github User Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="fetchusers.js">
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <input id="username" type="text" placeholder="Username">
+        <button id="searchButton" onclick="fetchUser()">Search</button>
+      </div>
+      <div class="column">
+        <h4>User Profile</h4>
+        <div class="gridContainer">
+          <img id="pic"class="item">
+          <div class="item" id="name"><b>Name:</b></br></div>
+          <div class="item" id="userName"><b>Username:</b></br></div>
+          <div class="item" id="email"><b>Email:</b></br></div>
+          <div class="item" id="location"><b>Location:</b></br></div>
+          <div class="item" id="gists"><b>No. of Gists:</b></br></div>
+        </div>
+      </div>
+      <div class="column">
+          <h4>User Repos</h4>
+          <div class="gridContainer2" id="gridCont">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

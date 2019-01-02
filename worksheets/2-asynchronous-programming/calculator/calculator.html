@@ -1,0 +1,149 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="calcstyle.css">
+</head>
+<body>
+  <script language="javascript" type="text/javascript">
+
+  var calcString = "";
+  var answer = "";
+  var symbols = ["(",")","+","-","/","*"];
+  var validKeyCodes = [18,48,49,50,51,52,53,54,55,56,57,109,110,190,219,221];
+
+  function updateScreen()
+  {
+    document.getElementById("display").innerHTML = answer;
+  }
+
+  //Detecting keyboard input
+  document.addEventListener("keydown", function(event)
+  {
+    if(event.keyCode == 8) //backspace
+    {
+      calcString = calcString.substring(0,calcString.length - 1);
+      answer = calcString;
+    }
+    else if(event.shiftKey) //if shift key pressed
+    {
+      if(event.keyCode == 57) //opening bracker
+      {
+        calcString += "(";
+        answer = calcString;
+      }
+      else if(event.keyCode == 48) //closing bracket
+      {
+        calcString += ")";
+        answer = calcString;
+      }
+      else if(event.keyCode == 187) //plus
+      {
+        calcString += "+";
+        answer = calcString;
+      }
+      else if(event.keyCode == 56) //multiply
+      {
+        calcString += "*";
+        answer = calcString;
+      }
+    }
+    else if(validKeyCodes.includes(event.keyCode)) //if keycode in list of valid inputs
+    {
+      calcString += String.fromCharCode(event.keyCode);
+      answer = calcString;
+    }
+    else if(event.keyCode == 189) //minus
+    {
+      calcString += "-";
+      answer = calcString;
+    }
+    else if(event.keyCode == 191) //forward slash
+    {
+      calcString += "/";
+      answer = calcString;
+    }
+    else if(event.keyCode == 13 || event.keyCode == 187) //enter or equal sign
+    {
+      calculate();
+    }
+    updateScreen();
+  });
+
+  function buildString(val)
+  {
+    if (val == "C")
+    {
+      calcString = "";
+      answer = "";
+    }
+    else if(val == "=")
+    {
+      calculate();
+    }
+    else if(val == "plusminus")
+    {
+      negate();
+    }
+    else
+    {
+      calcString += val;
+      answer = calcString;
+    }
+
+    updateScreen();
+  }
+
+  function calculate()
+  {
+    try
+    {
+      answer = eval(calcString);
+      calcString = answer;
+    }
+    catch(e)
+    {
+      alert("Invalid input. Please try again.");
+      calcString = "";
+      answer = "";
+    }
+    updateScreen();
+  }
+
+  function negate()
+  {
+    for(var i = 0; i < calcString.length; i++)
+    {
+      if(symbols.includes(calcString[i]))
+      {
+        calculate();
+      }
+    }
+    answer = calcString * (-1);
+    calcString = answer;
+    updateScreen();
+  }
+
+  </script>
+
+  <div class = "grid-container">
+    <div class = "display" type="text" height = 20px id="display"></div>
+    <button value = "(" onclick="buildString(this.value)" class = "grid-item" id="openbracket">(</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="closebracket" value=")">)</button>
+    <button onclick="buildString(this.value)" class = "grid-item" id="plusminus" value="plusminus">±</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="divide" value="/">÷</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="seven" value="7">7</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="eight" value="8">8</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="nine" value="9">9</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="mult" value="*">X</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="four" value="4">4</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="five" value="5">5</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="six" value="6">6</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="minus" value="-">-</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="one" value="1">1</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="two" value="2">2</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="three" value="3">3</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="plus" value="+">+</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="zero" value="0">0</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="decimal" value=".">.</button>
+  	<button onclick="buildString(this.value)" class = "grid-item" id="clear" value="C">C</button>
+  	<button onclick="calculate()" class = "grid-item" id="equals" value="=">=</button>
+  </div>
+</body>
