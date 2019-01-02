@@ -1,0 +1,48 @@
+body {
+	width: 1000px;
+	overflow: hidden;
+}
+
+h1 {
+	margin: 5px 0 20px 0;
+}
+
+header {
+	font-size: 21px;
+}
+
+h1, header {
+	font-style: italic;
+	font-weight: bold;
+}
+
+h1, #content {
+	margin-left: 10px;
+}
+
+ul {
+	list-style: none;
+}
+
+footer {
+	clear: both;
+}
+
+#content {
+	height: 350px;
+	width: 500px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+#sidebar {
+	bottom: 800px;
+	width: 100px;
+	overflow: hidden;
+}
+
+#content, #sidebar {
+	border: 1px solid black;
+	padding: 5px;
+}
