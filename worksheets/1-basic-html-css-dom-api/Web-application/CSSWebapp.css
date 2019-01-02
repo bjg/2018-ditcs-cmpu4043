@@ -1,0 +1,77 @@
+/*
+Kevin Furlong, 
+C14710491
+Calculator for form breaks
+
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+	align: centre;
+	height: 90%;
+	width: 90%;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 10px;
+	background-color:#e6e6e6; 
+}
+form {
+	align: centre;
+	width: 99%;
+	height: 80%;
+	border: 2px solid;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+form[name ="gitRepo"] {
+	display: -webkit-flex;
+    display: flex;	
+	border: 2px solid;
+	border-radius: 10px;
+	padding: 5px;
+}
+	
+input[type="Submit"] {
+	width: 20%;
+	text-align: center;
+    font-size: 15px;
+	background-color: #b3b3b3;
+    color: black;
+    border: 2px solid #b3b3b3;
+	border-radius: 15px;
+	margin: 5px;
+	box-shadow: 5px 5px #999999;
+	
+}
+
+input[name="GitSearch"] {
+	width: 75%;
+	text-align: left;
+    font-size: 15px;
+	background-color: #ffffff;
+    border: 2px solid #b3b3b3;
+	border-radius: 15px;
+	margin: 5px;
+	box-shadow: 5px 5px #999999;
+}
+div{
+	-webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+	border: 2px;
+	border-radius: 10px;
+	padding: 5px;
+	background-color:#f2f2f2;
+}
+div1{
+	-webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+	border: 2px;
+	border-radius: 10px;
+	padding: 5px;
+	background-color:#f2f2f2;
+}

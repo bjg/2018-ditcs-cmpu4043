@@ -1,0 +1,39 @@
+/*
+Kevin Furlong, 
+C14710491
+Calculator CSS
+
+*/
+body {
+	width: 90%;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 10px;
+	background-color:#e6e6e6; 
+}
+
+	
+input[type=button] {
+	width: 20%;
+	text-align: center;
+    font-size: 15px;
+	background-color: #b3b3b3;
+    color: black;
+    border: 2px solid #b3b3b3;
+	border-radius: 15px;
+	margin: 5px;
+	box-shadow: 5px 5px #999999;
+	
+}
+input[name="display"] {
+	width: 254px;
+	height: 60px;
+	text-align: right;
+    font-size: 30;
+	background-color: #b3b3b3;
+    color: black;
+    border: 2px solid #b3b3b3;
+	border-radius: 8px;
+	margin: 3px;
+	box-shadow: 5px 5px #999999;*/
+}
