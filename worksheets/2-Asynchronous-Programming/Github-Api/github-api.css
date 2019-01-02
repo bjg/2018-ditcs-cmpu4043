@@ -1,0 +1,47 @@
+body{
+    width:50%;
+    margin:auto;
+}
+#search_toolbar{
+    margin:auto;
+    clear:both;
+}
+
+#search_text{
+    width:60%;
+    margin:auto;
+}
+
+#search{
+    width:30%;
+    margin: auto;
+}
+
+#user{
+    width:40%;
+    float:left;
+}
+
+#user_repos{
+    width:40%;
+    float:right; 
+}
+
+#repos{
+    height:50%;
+    overflow: scroll;
+}
+.profile{
+    margin:auto;
+    border: 1px solid black;
+}
+
+.repo{
+    border: 1px solid black;
+}
+
+#user_image{
+    height: 270px;
+    width: 270px;
+    margin:auto;
+}

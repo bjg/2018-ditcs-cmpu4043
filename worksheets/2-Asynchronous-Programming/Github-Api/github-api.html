@@ -1,0 +1,24 @@
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="github-api.css"/>
+        
+    </head>
+    <body>
+        <script src="github-api.js"></script>
+        <div id="search_toolbar">
+            <input id="search_text" type="text" placeholder="search for a user"/>
+            <button id="search" onclick="searchUser()">SEARCH</button>
+        </div>
+        <div id="user">
+            <h2>User Profile</h2>
+            <div class="profile"><image id="user_image"></image></div>
+            <div class="profile" id="name"><b>Name</b></div>
+            <div class="profile" id="user_name"><b>UserName</b></div>
+            <div class="profile" id="email"><b>Email</b></div>
+            <div class="profile" id="location"><b>Location</b></div>
+            <div class="profile" id="gists"><b>Number of Gists</b></div>
+        </div>
+        <div id="user_repos"><h2>User Repos</h2><div id="repos"></div></div>
+    </body>
+</html>
