@@ -1,0 +1,32 @@
+header {
+	font-style: italic;
+	margin-left: 10px;
+}
+
+#content {
+	border: 1px solid black;
+	height: 250px;
+	width: 400px;
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#content header {
+	margin-left: 0px;
+}
+
+#sidebar {
+	border: 1px solid black;
+	float: left;
+	width: 110px;
+	height: 100px;
+}
+
+ul {
+  list-style: none;
+}
+
+footer {
+	clear: both;
+}

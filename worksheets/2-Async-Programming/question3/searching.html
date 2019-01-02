@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="searching.css">
+	</head>
+	
+	<body>
+		<script src="searching.js"></script>
+
+		<div id="top">
+
+			<input type="text" id="searchable" placeholder="Enter Github user name here...">
+
+			<button type="button" onClick="listen(searchable.value)">Search</button>
+		
+		</div>
+
+
+
+		<div id="returnedInfo">
+			<div id="userColumn">
+				<h2>User Profile</h2>
+				
+				<div id="innerUser">
+				</br>
+					<img id="theImg" width="150" height="150" class="center">
+				</br>
+					<div id="uName" style="border:1px solid;">
+						Name:
+					</div>
+				</br>
+					<div id="uUserName" style="border:1px solid;">
+						Username:
+					</div>
+				</br>
+					<div id="uEmail" style="border:1px solid;">
+						Email:
+					</div>
+				</br>
+					<div id="uLoc" style="border:1px solid;">
+						Location:
+					</div>
+				</br>
+					<div id="uGist" style="border:1px solid;">
+						Number of Gists:
+					</div>
+				</br>
+				</div>
+			</div>
+		</div>
+
+		<div id="repos">
+
+			<div id="userRepos">
+
+				<h2>User Repos</h2>
+				<div id="content">
+
+					<dl id="theList">
+					  <!-- 
+					  <dt></dt>
+					  	<dd></dd> 
+					  -->
+					</dl>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
