@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Commenting in between style classes seems to mess up classes for some reason
+		 All the style sheet is just setting up the design of the page
+		 Starting from the top of the design downwards
+		 
+		 repositoryLines has a separate div class to make sure the heading is not in a bracket
+		 
+		 for some reason image class breaks if class named anything other than 'img'
+	-->
+	<style>
+		.containerGithub
+		{
+			position: relative;
+			margin: auto;
+			width:700px;
+		}
+		.userProfile
+		{
+			float: left;
+			width: 53%;
+		}
+		.repositoryList
+		{
+			float: right;
+			width: 43%;
+		}
+		.searchBar
+		{
+			float: left;
+			width: 65%;
+			height: 25px;
+		}
+		.searchButton
+		{
+			float: right;
+			height: 30px;
+			width: 20%;
+			border-radius: 10px;
+			background-color: white;
+		}
+		.userInfoLines div, .repositoryLines div
+		{
+			border: 1px solid grey;
+			padding: 5px 5px 5px 10px;
+		}
+		.repositoryLines
+		{
+			height: 400px;
+			overflow-y: auto;
+			border: 1px solid grey;
+		}
+		div img
+		{
+			width: auto;
+			height: 240px;
+			margin: 0 auto;
+			display: block;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	//Calling function when user clicks the search button
+	function searchGithub()
+	{
+		//store user searched
+		var user= document.getElementById('searchUser').value;
+		//Creating request to the github api 
+		fetch('https://api.github.com/users/' + user ).then(function(response) 
+		{
+			return response.json();
+		//Function for collecting user data and assigning it to html
+		}).then(function(placingInHtml) 
+		{
+			//Incase the info is not there, convert to text for GUI, else place value in html (applies to below)
+			
+			//Placing name into html with error checking
+			if(placingInHtml.name == null)
+			{
+				document.getElementById("name").innerHTML = "Info doesn't exist";
+			}else
+			{
+				document.getElementById("name").innerHTML = placingInHtml.name;
+			}
+			//Placing username into html with error checking
+			if(placingInHtml.username == null)
+			{
+				document.getElementById("username").innerHTML = "Info doesn't exist";
+			}else
+			{
+				document.getElementById("username").innerHTML = placingInHtml.username;
+			}
+			//placing email into html with error checking
+			if(placingInHtml.email == null)
+			{
+				document.getElementById("email").innerHTML = "Info doesn't exist";
+			}else
+			{
+				document.getElementById("email").innerHTML = placingInHtml.email;
+			}
+			//Placing location into html with error checking
+			if(placingInHtml.location == null)
+			{
+				document.getElementById("location").innerHTML = "Info doesn't exist";
+			}else
+			{
+				document.getElementById("location").innerHTML = placingInHtml.location;
+			}
+			//Placing number of gists into html with error checking
+			if(placingInHtml.noOfGists == null)
+			{
+				document.getElementById("noOfGists").innerHTML = "Info doesn't exist";
+			}else
+			{
+				document.getElementById("noOfGists").innerHTML = placingInHtml.public_gists;
+			}
+			//Placing profile picture into html (will have default github pic if not existing) 
+			document.getElementById('img').src = placingInHtml.avatar_url;
+		});
+		//Function for collecting user repositories
+		fetch('https://api.github.com/users/' + user + '/repos' ).then(function(response) 
+		{
+			// Convert to JSON
+			return response.json();
+		}).then(function(placingInHtml) 
+		{
+			//Iterate through the repositories
+			for(let i in placingInHtml)
+			{
+				//Create DIV 
+				var repositories = document.createElement("DIV");
+				//Getting the repositories and displaying them in bold with line breaks
+				repositories.innerHTML = '<b>'+ placingInHtml[i].name +'</b></br></br>' + placingInHtml[i].description;
+				//append current iteration of loop to scrollable DIV
+				document.getElementById('repositories').appendChild(repositories);
+			}
+		});
+   }
+  </script>
+</head>
+<body>
+  
+	<div class = "containerGithub">
+		<input class = "searchBar" id = "searchUser" type = "text" placeholder = "Username">
+		<button class = "searchButton" type = "submit" onclick = "searchGithub()">Search</button>
+		<div class = "userProfile">
+			<h3>User Profile</h3>
+			<div class = "userInfoLines">
+				<div><image id = "img" src = "myimage.png"></div>
+				<div id = "name">Name</div>
+				<div id = "username">Username</div>
+				<div id = "email">Email</div>
+				<div id = "location">Location</div>
+				<div id = "noOfGists">Number of Gists</div>
+			</div>
+		</div>
+		<div class = "repositoryList">
+			<h3>User Repos</h3>
+			<div class = "repositoryLines" id = "repositories">
+			</div>
+		
+		</div>
+	</div>
+</body>
+</html>

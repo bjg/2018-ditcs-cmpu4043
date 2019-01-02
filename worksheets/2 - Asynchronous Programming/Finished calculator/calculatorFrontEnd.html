@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		::placeholder
+		{
+			color:lightGray;
+		}
+		#calc-contain
+		{
+			position: relative;
+			width: 300px;
+			border: 2px solid black;
+			border-radius: 12px;
+			margin: 0px auto;
+			padding: 20px 20px 20px 20px;
+			background-color: #F8F8F8;
+		}
+		
+		<!-- Create a CSS value for buttons since they are all same size-->
+		.button
+		{
+		}
+		.button1
+		{
+			width: 70px;
+			height:30px; 
+			font-size: 16px;
+			background: #D0D0D0;
+			font-weight: BOLD;
+			border-radius: 7px;
+			margin-top: 10px;
+			margin-bottom: 1px;
+			box-shadow: 1px 1px #888888;
+		}
+	</style>
+	
+	<script type = "text/javascript">
+		//Stores result after hitting equals
+		var result;
+		function enteredValue(value)
+		{
+			//switch statement for adding entered value to calculator textbox
+			switch(parseInt(value))
+			{
+				case 0:
+					document.getElementById("currentScreen").value += 0;
+					break;
+				case 1:
+					document.getElementById("currentScreen").value += 1;
+					break;
+				case 2:
+					document.getElementById("currentScreen").value += 2;
+					break;
+				case 3:
+					document.getElementById("currentScreen").value += 3;
+					break;
+				case 4:
+					document.getElementById("currentScreen").value += 4;
+					break;
+				case 5:
+					document.getElementById("currentScreen").value += 5;
+					break;
+				case 6:
+					document.getElementById("currentScreen").value += 6;
+					break;
+				case 7:
+					document.getElementById("currentScreen").value += 7;
+					break;
+				case 8:
+					document.getElementById("currentScreen").value += 8;
+					break;
+				case 9:
+					document.getElementById("currentScreen").value += 9;
+					break;
+				//Just incase somehow an incorrect value is added (keyboard input)
+				default:
+			}//End case
+		}//End function enteredValue
+		
+		//Function for calculating which sign was pressed and inputting it onto calculator textbox
+		function enteredOperator(value)
+		{
+			//Variable for retrieving current screen value (for appending operator)
+			var currentScreen = document.getElementById("currentScreen").value;
+			
+			//Like above; mapping values based on clicked area
+			switch(value)
+			{
+				case '(':
+					document.getElementById("currentScreen").value += '(';
+					break;
+				case ')':
+					document.getElementById("currentScreen").value += ')';
+					break;
+				//± sign makes positive number negative vice versa
+				//indexOf gets to the first number in an array
+				case '±':
+					var number = input.indexOf("-");
+					
+					if (n == 0)
+					{
+						document.getElementById("currentScreen").value = Math.abs(input);
+					}else
+					{
+						document.getElementById("currentScreen").value = '-' + input;
+					}
+					break;
+				case '÷':
+					document.getElementById("currentScreen").value += '/';
+					break;
+				case 'x':
+					document.getElementById("currentScreen").value += '*';
+					break;
+				case '-':
+					document.getElementById("currentScreen").value += '-';
+					break;
+				case '+':
+					document.getElementById("currentScreen").value += '+';
+					break;
+				case '.':
+					document.getElementById("currentScreen").value += '.';
+				default:
+			}//End switch
+		}//End function
+		
+		//Function for clearing screen
+		function clearScreen()
+		{
+			document.getElementById("currentScreen").value = "";
+			result = "";
+		}//end function
+		
+		function calculate()
+		{
+			var sum = document.getElementById("currentScreen").value;
+			//Assigning result to evaluated input
+			result = eval(sum);
+			//clearing screen before printing answer
+			document.getElementById("currentScreen").value = "";
+			document.getElementById("currentScreen").value = result;
+		}//end function
+		
+		//Event listener for keyboard input
+		document.addEventListener('keypress', (event) =>
+		{
+			//Assigning key entered from keyboard to pressedKey
+			var pressedKey = String.fromCharCode(event.keyCode);
+			var keyEntered = event.key;
+			
+			//Checking if the input was any of the recognised values
+			//Could be more compact but is still simple
+			if (pressedKey == 1)
+			{
+				document.getElementById("currentScreen").value += 1;
+			}
+			else if (pressedKey == 2)
+			{
+				document.getElementById("currentScreen").value += 2;
+			}
+			else if (pressedKey == 3)
+			{
+				document.getElementById("currentScreen").value += 3;
+			}
+			else if (pressedKey == 4)
+			{
+				document.getElementById("currentScreen").value += 4;
+			}
+			else if (pressedKey == 5)
+			{
+				document.getElementById("currentScreen").value += 5;
+			}
+			else if (pressedKey == 6)
+			{
+				document.getElementById("currentScreen").value += 6;
+			}
+			else if (pressedKey == 7)
+			{
+				document.getElementById("currentScreen").value += 7;
+			}
+			else if (pressedKey == 8)
+			{
+				document.getElementById("currentScreen").value += 8;
+			}
+			else if (pressedKey == 9)
+			{
+				document.getElementById("currentScreen").value += 9;
+			}
+			else if (pressedKey == 0)
+			{
+				document.getElementById("currentScreen").value += 0;
+			}
+			else if (keyEntered == '(')
+			{
+				document.getElementById("currentScreen").value += '(';
+			}
+			else if (keyEntered == ')')
+			{
+				document.getElementById("currentScreen").value += ')';
+			}
+			else if (keyEntered == '/')
+			{
+				document.getElementById("currentScreen").value += '/';
+			}
+			else if (keyEntered == 'x' || pressedKey == 'X')
+			{
+				document.getElementById("currentScreen").value += 'x';
+			}
+			else if (keyEntered == '-')
+			{
+				document.getElementById("currentScreen").value += '-';
+			}
+			else if (keyEntered == '+')
+			{
+				document.getElementById("currentScreen").value += '+';
+			}
+			else if (keyEntered == '=')
+			{
+				calculate();
+			}
+			else if (keyEntered == 'c' || pressedKey == 'C')
+			{
+				clearScreen();
+			}
+			else if (keyEntered == '.')
+			{
+				document.getElementById("currentScreen").value += '.'
+			}
+		});
+	</script>
+</head>
+<body>
+	<div id='calc-contain'>
+	
+            
+            <input id="currentScreen" type="text" style=" margin-bottom: 8px; width:290px; height:50px; border-radius: 10px; text-align: right; font-size: 38px;" placeholder="0" disabled />
+            <br>
+            
+			<button class="button button1" value="(" onclick="enteredOperator(this.value)">(</button>
+			<button class="button button1" value=")" onclick="enteredOperator(this.value)">)</button>
+			<button class="button button1" value="±" onclick="enteredOperator(this.value)">±</button>
+			<button class="button button1" value="÷" onclick="enteredOperator(this.value)">÷</button>
+			<br>
+			
+			<button class="button button1" value="7" onclick="enteredValue(this.value)">7</button>
+			<button class="button button1" value="8" onclick="enteredValue(this.value)">8</button>
+			<button class="button button1" value="9" onclick="enteredValue(this.value)">9</button>
+			<button class="button button1" value="x" onclick="enteredOperator(this.value)">x</button>
+			<br>
+			
+			<button class="button button1" value="4" onclick="enteredValue(this.value)">4</button>
+			<button class="button button1" value="5" onclick="enteredValue(this.value)">5</button>
+			<button class="button button1" value="6" onclick="enteredValue(this.value)">6</button>
+			<button class="button button1" value="-" onclick="enteredOperator(this.value)">-</button>
+			<br>
+			
+			<button class="button button1" value="1" onclick="enteredValue(this.value)">1</button>
+			<button class="button button1" value="2" onclick="enteredValue(this.value)">2</button>
+			<button class="button button1" value="3" onclick="enteredValue(this.value)">3</button>
+			<button class="button button1" value="+" onclick="enteredOperator(this.value)">+</button>
+			
+			<button class="button button1" value="0" onclick="enteredValue(this.value)">0</button>
+			<button class="button button1" value="." onclick="enteredOperator(this.value)">.</button>
+			<button class="button button1" value="c"onclick="clearScreen()">C</button>
+			<button class="button button1" value="="onclick="calculate()">=</button>
+			<br>
+
+	
+	</div>
+
+</body>
+
+</html>
