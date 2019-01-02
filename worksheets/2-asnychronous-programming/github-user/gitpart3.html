@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="gitlab3.css">
+		<script>
+			var data = {};
+			var counter = 0;
+			
+			function searchButton(){
+				counter++;
+				var input = document.getElementById("searchbar").value;
+				var image = document.getElementById('useravtr');
+				var location = document.getElementById('location');
+				var name = document.getElementById('name');
+				var username = document.getElementById('login');
+				var email = document.getElementById('email');
+				var gists = document.getElementById('gists');
+				
+				fetch('https://api.github.com/users/' + input)
+				.then(response => response.json())
+				.catch(error => console.error('Error:', error))
+				.then(json => data = 
+					{avatar:json.avatar_url, name:json.name,login:json.login,email:json.email,
+					location:json.location,nogists: json.public_gists, repos: json.repos_url})
+
+				image.src = data.avatar;
+				if(data.name == null){
+					name.innerHTML = "-";
+				}else{
+					name.innerHTML = data.name;
+				}
+				if(data.login == null){
+					if(counter%2==0){
+						alert("User Doesn't Exist!");
+					}
+					username.innerHTML = "-";
+				}else{
+					username.innerHTML = data.login;
+				}
+				if(data.email == null){
+					email.innerHTML = "-";
+				}else{
+					email.innerHTML = data.email;
+				}
+				if(data.location == null){
+					location.innerHTML = "-";
+				}else{
+					location.innerHTML = data.location;
+				}
+				if(data.nogists == null){
+					location.innerHTML = "-";
+				}else{
+					gists.innerHTML = data.nogists;
+				}
+				
+				findrepos();
+			}
+			
+			function findrepos(){
+				var myList = document.querySelector('ul');
+				document.getElementById("repolist").innerHTML = "";
+				
+				fetch(data.repos)
+				.then(response => response.json())
+				.then(json => json.map(singleEntity => repository =
+					{name:singleEntity.name, url:singleEntity.html_url, desc:singleEntity.description}))
+				.then(mappedJson => mappedJson.forEach(function(repository,index){
+					//repositories.push(mappedJson[index]);
+					var listItem = document.createElement('li');
+					listItem.innerHTML = '<a href="' + repository.url +'">' +'<b>' + repository.name + '</b>' + '</a>' + '</br>' + repository.desc;
+					myList.appendChild(listItem);
+				}))
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+		  <input type="text" onfocus="this.value=''" value="Username" id="searchbar">
+		  <button type="button" id="submitbutton" onclick="searchButton()">Search</button>
+		</header>
+		</br>
+		<section>
+			<header>
+			User Profile
+			</header>
+			<div class="wrapper">
+				<img id="useravtr" alt="Users Avatar"></img>
+				<div class="row">
+					<div class="col">Name:</div>
+					<div class="col" id="name"></div>
+				</div>
+				<div class="row">
+					<div class="col">Username:</div>
+					<div class="col" id="login"></div>
+				</div>
+				<div class="row">
+					<div class="col">Email:</div>
+					<div class="col" id="email"></div>
+				</div>
+				<div class="row">
+					<div class="col">Location:</div>
+					<div class="col" id="location"></div>
+				</div>
+				<div class="row">
+					<div class="col">Number of Gists:</div>
+					<div class="col" id="gists"></div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<header>
+			User Repos
+			</header>
+			<div class="wrapper">
+				<ul id="repolist">
+				</ul>
+			</div>
+		</section>
+	</body>
+</html>
