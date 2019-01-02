@@ -1,0 +1,17 @@
+.container {
+  border: 1px solid #02c;
+}
+.letterPix {
+  border: 1px solid #888;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-color: black; 
+}
+.letterPix2 {
+  border: 1px solid #888;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-color: red; 
+}	
