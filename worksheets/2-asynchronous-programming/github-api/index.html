@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="author" content="Simon Unsworth">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="main.js"></script>
+        
+        <link rel="stylesheet" href="styles.css">
+       
+        <title>Github API</title>
+        
+    </head>
+    
+    <body>
+        
+        <span>
+            <input type="text" name="searchbar" id="search" placeholder="Username">
+            <button type="button" id="search_button" onclick="main()">Search</button>
+        </span>
+        
+        <div id="user_profile">
+            
+             <h3>User Details</h3>
+            
+            <ul id="user_details">
+                <li><img id="avatar"></li>
+                <li id="name"></li>
+                <li id="username"></li>
+                <li id="email"></li>
+                <li id="location"></li>
+                <li id="gists"></li>
+            </ul>
+            
+        </div>
+        
+        <div id="user_repos">
+            
+            <h3>User Repos</h3>
+            
+            <ul id="repos_list">
+            </ul>
+            
+        </div>
+        
+    </body>
+    
+</html>

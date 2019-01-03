@@ -1,0 +1,53 @@
+#calculator {
+    width: 50vw;
+    height: 96vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 5px outset #696969;
+    border-radius: 25px;
+    background-color: #949594;
+}
+
+#screen {
+    width: 95%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    border: 5px inset gray;
+    border-radius: 25px;
+    background-color: #C0C0C0;
+}
+
+#screen > #prevOutput {
+    height: 50px;
+    font-size: 200%;
+    color: #2F4F4F;
+    margin-top: 3px;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+#screen > #currOutput {
+    font-size: 500%;
+    color: #2F4F4F;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+#keypad {
+    width: 95%;
+    height: 60%;
+    display: grid;
+    grid: repeat(5, 1fr) / repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+#keypad > button {
+    font-size: 200%;
+    font-weight: bolder;
+    border: 2px gray outset;
+    border-radius: 10px;
+}

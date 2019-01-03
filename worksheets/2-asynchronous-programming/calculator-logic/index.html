@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="author" content="Simon Unsworth">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="styles.css">
+        
+        <script src="calculator.js"></script>
+        
+        <title>Calculator</title>
+
+    </head>
+    
+    <body onload="calculator.display()">
+        
+        <div id="calculator">
+            
+            <div id="screen">
+                <div id="prevOutput">
+                </div>
+                <div id="currOutput">
+                </div>
+            </div>
+            
+            <div id="keypad">
+                
+                <button type="button" onclick="calculator.buttonClick('(')">(</button>
+                <button type="button" onclick="calculator.buttonClick(')')">)</button>
+                <button type="button" onclick="calculator.buttonClick('±')">&plusmn;</button>
+                <button type="button" onclick="calculator.buttonClick('/')">&divide;</button>
+                
+                <button type="button" onclick="calculator.buttonClick('7')">7</button>
+                <button type="button" onclick="calculator.buttonClick('8')">8</button>
+                <button type="button" onclick="calculator.buttonClick('9')">9</button>
+                <button type="button" onclick="calculator.buttonClick('*')">x</button>
+                
+                <button type="button" onclick="calculator.buttonClick('4')">4</button>
+                <button type="button" onclick="calculator.buttonClick('5')">5</button>
+                <button type="button" onclick="calculator.buttonClick('6')">6</button>
+                <button type="button" onclick="calculator.buttonClick('-')">-</button>
+                
+                <button type="button" onclick="calculator.buttonClick('1')">1</button>
+                <button type="button" onclick="calculator.buttonClick('2')">2</button>
+                <button type="button" onclick="calculator.buttonClick('3')">3</button>
+                <button type="button" onclick="calculator.buttonClick('+')">+</button>
+                
+                <button type="button" onclick="calculator.buttonClick('0')">0</button>
+                <button type="button" onclick="calculator.buttonClick('.')">.</button>
+                <button type="button" onclick="calculator.clear()">C</button>
+                <button type="button" onclick="calculator.evaluate()">=</button>
+                
+            </div>
+            
+        </div>
+        
+    </body>
+    
+</html>
