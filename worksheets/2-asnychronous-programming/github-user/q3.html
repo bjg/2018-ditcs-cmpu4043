@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="Q3.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  
+  <div class="container">
+    
+    <div class="top">
+      <input class="input" id="userSearch" placeholder="Username"> 
+      <button class="button"  onclick="onClick()">Search</button>
+    </div>
+    
+    <div class="tables-body">
+
+         <div class="left"> User Profile
+
+           <img id ="avatar" src="" alt="avater">
+
+           <table class="usertable">
+            <tr>
+              <td class="name" id="name">Name</td>
+             </tr>
+
+            <tr>
+              <td class="username" id="username">Username</td>
+            </tr>
+
+            <tr>
+              <td class="email" id="email">Email</td>
+            </tr>
+
+             <tr>
+              <td class="location" id='location'>Location</td>
+            </tr>
+
+             <tr>
+              <td class="gists" id="gists">Number of Gists</td>
+            </tr>
+
+           </table> 
+         </div>
+     
+         <div class="right"> User Repos
+           <table class="Userrepostable">
+            
+             <tr>
+              <td id="reponame">Name</td>
+             </tr>
+              
+             <tr>
+              <td id="des">Description</td>
+             </tr>
+           
+             <tr>
+              <td id="repom">Name</td>
+             </tr>
+
+             <tr>
+               <td id="dess">Description</td>
+             </tr>
+
+            <tr>
+              <td id="repomm">Name</td>
+            </tr>
+
+            <tr>
+              <td id="desss">Description</td>
+            </tr> 
+            
+           </table>
+          
+                <button class="Click"onclick="getRepo('Click')">Click here to display repos_url list</button>
+                <div id="showrepo"></div>
+         </div>  
+     </div>       
+  </div>
+</div>
+  
+  <script type="text/javascript" src="Q3.js"></script>
+
+</body>
+</html>

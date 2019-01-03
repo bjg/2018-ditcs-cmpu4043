@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="calcstyle.css">
+    </head>
+   
+        <div class="calculatorbody">
+
+            <div class="display"><h1 id="content"></h1></div>
+        
+            <form name="calculator">
+                <input type="text" name="answer">
+                <br />
+                
+        
+        <div class="row_1_container">
+            <input type="button" value=" 1 " onclick="calculator.answer.value += '1'">
+            <input type="button" value=" 2 " onclick="calculator.answer.value += '2'">
+            <input type="button" value=" 3 " onclick="calculator.answer.value += '3'">
+            <input type="button" value=" + " onclick="calculator.answer.value += '+'">
+        </div>
+            
+        <div class="row_2_container">
+            <input type="button" value=" 4 " onclick="calculator.answer.value += '4'">
+            <input type="button" value=" 5 " onclick="calculator.answer.value += '5'">
+            <input type="button" value=" 6 " onclick="calculator.answer.value += '6'">
+            <input type="button" value=" - " onclick="calculator.answer.value += '-'">
+        </div>
+            
+        <div class="row_3_container">
+            <input type="button" value=" 7 " onclick="calculator.answer.value += '7'">
+            <input type="button" value=" 8 " onclick="calculator.answer.value += '8'">
+            <input type="button" value=" 9 " onclick="calculator.answer.value += '9'">
+            <input type="button" value=" x " onclick="calculator.answer.value += '*'">
+        </div>
+            
+        <div class="row_4_container">
+            <input type="button" value=" C " onclick="calculator.answer.value += ''">
+            <input type="button" value=" 0 " onclick="calculator.answer.value += '0'">
+            <input type="button" value=" = " onclick="calculator.answer.value = eval(calculator.answer.value)">
+            <input type="button" value=" / " onclick="calculator.answer.value += '/'">
+         </div>
+            
+   
+            
+            </form>
+        </div>
+    
+    <body>
+        <script>
+            
+        </script>
+    </body>
+</html>
