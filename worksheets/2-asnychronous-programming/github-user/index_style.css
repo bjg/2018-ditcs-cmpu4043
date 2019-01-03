@@ -1,0 +1,64 @@
+#searchBar{
+    width: 80%;
+    height: 35px;
+    margin-bottom: 25px;
+}
+
+#userTitles{
+    display: inline-block;
+    margin-right: 350px;
+}
+
+#userProfileBox{
+    vertical-align: top;
+    display: inline-block;
+    width: 440px;
+    height: 600px;
+    border: 2px solid black;
+
+    margin-right: 50px;
+    
+}
+
+#userPhotoBorder{
+    border-radius: 25px;
+    width: 390px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px;
+
+}
+
+#userPhoto{
+    width: 340px;
+    height: 250px;
+    margin:20px;
+    border: 1px solid black;
+
+}
+
+#userDetails{
+    display:block;
+}
+
+.Details{
+    width:440px; 
+    height: 50px;
+    border: 1px solid black; 
+    font-size: x-large;
+}
+
+#list{
+    display: inline-block;
+    border: 2px solid black;
+
+}
+
+ul{
+    padding: 0;
+    width: 440px;
+    max-height: 600px;
+    list-style: none;
+    overflow:hidden; 
+    overflow-y:scroll;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "stream-stopwatch-lab3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "canvas": "^2.0.1",
+    "canvg-loader": "^1.0.0",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.4",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.22.0",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "description": ""
+}
