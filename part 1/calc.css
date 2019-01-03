@@ -1,0 +1,47 @@
+.grid-container {
+  height: 550px;
+  width: 500px;
+  border-style: solid;
+  border-radius: 25px;
+  border: 2px solid black;
+  grid-template-rows: 100px auto auto auto;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto auto auto;
+  background-color: white;
+  padding: 10px;
+}
+.screen{
+  grid-column: 1/5;
+  font-family: sans-serif;
+  font-size: 80;
+  text-align: right;
+  color: black;
+  border-style: solid;
+  box-shadow: 0 4px #666;
+  border-radius: 25px;
+  border: 2px solid black;
+
+}
+.grid-item {
+  border-radius: 25px;
+  border: 2px solid black;
+  background-color: lightgrey;
+  border: 1px solid black;
+  box-shadow: 0 4px #666;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.button {
+  border-radius: 25px;
+  border: 2px solid black;
+  background-color: lightgrey;
+  border: 1px solid black;
+  box-shadow: 0 4px #666;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}

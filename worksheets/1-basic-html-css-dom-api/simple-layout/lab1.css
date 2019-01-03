@@ -1,0 +1,32 @@
+#content{
+  position: absolute;
+  border-style: solid;
+  width: 60%;
+  height: 50%;
+}
+
+#sidebar{
+  position: absolute;
+  border-style: solid;
+  left: 70%;
+  width: 20%;
+  height: 30%
+}
+
+header{
+  font-family: sans-serif;
+  font-style: italic;
+}
+
+body{
+font-family: inherit;
+}
+
+ul{
+  list-style: none;
+}
+
+footer{
+  position: absolute;
+  bottom: 35%;
+}

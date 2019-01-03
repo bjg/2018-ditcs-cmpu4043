@@ -1,0 +1,150 @@
+<head>
+  <link rel ="stylesheet" type="text/css" href = "calc.css">
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+
+var AggString = "";
+var operators = ["+", "-", "*", "/", "(", ")"]
+var answer;
+var i;
+var numbercodes = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+
+document.addEventListener("keydown", function(event) //event listener for button pressed
+  {
+    if(event.keyCode == 8)//backspace delete
+       {
+        AggString = AggString.substring(0,AggString.length - 1);
+        document.getElementById("screen").innerHTML = AggString;
+      }
+      else if(event.shiftKey)
+      {
+        if(event.keyCode == 57)
+        {
+          AggString += "(";
+          document.getElementById("screen").innerHTML = AggString;
+        }
+        else if(event.keyCode == 48)
+        {
+          AggString += ")";
+          document.getElementById("screen").innerHTML = AggString;
+        }
+        else if(event.keyCode == 56)
+        {
+          AggString += "*";
+          document.getElementById("screen").innerHTML = AggString;
+        }
+        else if(event.keyCode == 187)
+        {
+          AggString += "+";
+          document.getElementById("screen").innerHTML = AggString;
+        }
+      }
+      else if(numbercodes.includes(event.keyCode))
+      {
+        AggString += String.fromCharCode(event.keyCode);
+        document.getElementById("screen").innerHTML = AggString;
+      }
+      else if(event.keyCode == 191)
+      {
+        AggString += "/";
+        document.getElementById("screen").innerHTML = AggString;
+      }
+      else if(event.keyCode == 189)
+      {
+        AggString += "-";
+        document.getElementById("screen").innerHTML = AggString;
+      }
+      else if(event.keyCode == 67)//C function for deleting
+      {
+        AggString = "";
+        document.getElementById("screen").innerHTML = "";
+      }
+      else if(event.keyCode == 13 || event.keyCode == 187)//call calculation function to calculate string
+      {
+        equalTo();
+      }
+    });
+
+function myFunction(value)//main function
+{
+  if(value == "C")//C delete on screen
+  {
+    AggString = "";
+    document.getElementById("screen").innerHTML = "";
+  }
+  //different operators
+  else if(value == "=")
+  {
+    equalTo();
+  }
+  else if(value == "neg")
+  {
+    for(i=0; i<AggString.length; i++)
+    {
+      var char = AggString[i];
+      if(operators.includes(char));
+      {
+        equalTo();
+      }
+    }
+    AggString = AggString * (-1);
+    document.getElementById("screen").innerHTML = AggString;
+  }
+  else
+  {
+    AggString += value;
+    document.getElementById("screen").innerHTML = AggString;
+  }
+}
+
+
+function equalTo()//equal function that calculated the string using eval
+{
+  try
+  {
+    answer = eval(AggString);
+    document.getElementById("screen").innerHTML = answer;
+    AggString = answer;
+  }
+  catch(e)
+  {
+    if(e instanceof SyntaxError)
+    {
+      alert("error in calculation");
+      AggString = "";
+      document.getElementById("screen").innerHTML = "";
+    }
+  }
+}
+
+</script>
+
+<div class="grid-container" id="calc">
+  <button class="screen" type="text" id="screen">0</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="(" id="leftbrac">(</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value=")" id="rightbrac">)</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="neg" id="negate">±</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="/" id="buttonide">÷</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="7" id="seven">7</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="8" id="eight">8</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="9" id="nine">9</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="*" id="multiply">x</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="4" id="four">4</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="5" id="five">5</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="6" id="six">6</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="-" id="subtract">-</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="1" id="one">1</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="2" id="two">2</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="3" id="three">3</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="+" id="add">+</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="0" id="zero">0</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="." id="dec">.</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="C" id="C">C</button>
+  <button class="grid-item" type="button" onclick="myFunction(this.value)" value="=" id="equals">=</button>
+
+</div>
+
+</body>
+</html>

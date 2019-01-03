@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script type="text/javascript" src="lab2JSON2.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pageTop">
+        <input id="userNameInput" type="text" placeholder="Username">
+      </div>
+      <div class="pageTop">
+        <button id="searchButton" onclick="fetchURL()">Search</button>
+      </div>
+      <div class="column">
+        <h4>User Profile</h4>
+        <div class="grid-container">
+          <img class="item" id="picture">
+          <div class="item" id="name"></div>
+          <div class="item" id="username"></div>
+          <div class="item" id="email"></div>
+          <div class="item" id="location"></div>
+          <div class="item" id="gists"></div>
+        </div>
+      </div>
+      <div class="column">
+          <h4>User Repos</h4>
+          <div class="grid-container2" id="gdCont">
+
+          </div>
+      </div>
+    </div>
+
+  </body>
+</html>
