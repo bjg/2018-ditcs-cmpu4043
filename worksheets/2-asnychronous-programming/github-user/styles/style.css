@@ -1,0 +1,145 @@
+/*
+	Name: Robert Vaughan
+	StudentNo: C15341261
+*/
+
+/*Set height of body*/
+body {
+	height: 98%;
+	font-family: Arial, Helvetica, sans-serif;
+	/*border-style: solid;
+	border-width: 1px;*/
+}
+
+/*Div of the search area
+buttons and input*/
+#searcharea {
+	width: 100%;
+	height: 30px;
+	margin: 0;
+	display: inline-flex;
+	/*border-style: solid;
+	border-width: 1px;*/
+}
+
+/*The sizing of the input bar*/
+#searchbox {
+	width: 80%;
+	border: 1px solid green;
+	border-radius: 4px;
+	padding-left: 1%;
+}
+
+/*Button for the search*/
+#search {
+	width: 18%;
+	height: 30px;
+	margin: auto;
+	border-radius: 8px;
+}
+
+/*Container div for all content 
+below the search area*/
+#content-container {
+	margin-top: 1%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: flex-start;
+	visibility: hidden;
+	/*border-style: solid;
+	border-width: 1px;*/
+}
+
+
+#content-left {
+	margin-right: 1%;
+}
+
+#content-right {
+	margin-left: 1%;
+	align-content: flex-start;
+}
+
+/*Container cell is the left and right
+container*/
+.content-cell {
+	width: 47%;
+	display: flex-inline;
+	flex-direction: column;
+	/*border-style: solid;
+	border-width: 1px;*/
+}
+
+/*Styling of the header*/
+h3 {
+	margin: auto;
+	margin-bottom: 2%;
+}
+
+/*Text area of div*/
+span {
+	text-overflow: ellipsis;
+	padding-left: 1%;
+}
+
+/*The text area and image of the user*/
+#user-profile {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/*User avatar*/
+img {
+	width: 50%;
+	margin-left: 3%;
+	margin-bottom: 3%;
+}
+
+/*Text for user data styling*/
+.user-details {
+	margin-left: 3%;
+	width: 97%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	/*border-style: solid;
+	border-width: 1px;*/
+}
+
+/*List of repos*/
+#user-repos {
+	width: 100%;
+	max-height: 470px;
+	display: flex;
+	flex-direction: column;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	border-style: solid solid solid none;
+	border-width: 1px;
+}
+
+/*Class for info relavent info for
+each repo*/
+.repo-details {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	border-style: none solid none solid;
+	border-width: 1px;
+}
+
+#repo-name {
+	height: 30px;
+	min-height: 30px;
+	font-weight: bold;
+}
+
+#repo-desc {
+	height: 60px;
+	min-height: 60px;
+	border-style: none solid solid solid;
+	border-width: 1px;
+}
