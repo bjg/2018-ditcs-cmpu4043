@@ -1,0 +1,175 @@
+<!-- Apologies for the very late submission - I unfortunately encountered a bug with github pull requests on Sunday night-->
+
+<!-- external CSS link -->
+
+
+<script type="text/javascript">
+
+	window.onload = function()
+	{
+		const calculator = 
+		{
+			displayValue: '0',
+			firstOperand: null,
+			waitingForSecondOperand: false,
+			operator: null,
+		};
+
+		function inputDigit(digit)
+		{
+		  const { displayValue, waitingForSecondOperand } = calculator;
+
+		  if (waitingForSecondOperand === true) 
+		  {
+			calculator.displayValue = digit;
+			calculator.waitingForSecondOperand = false;
+		  } else 
+		  {
+			calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+		  }
+		}
+
+		function inputDecimal(dot) 
+		{
+			if (calculator.waitingForSecondOperand === true) 
+			return;
+		  
+		  // If the `displayValue` does not contain a decimal point
+		  if (!calculator.displayValue.includes(dot))
+		  {
+			// Append the decimal point
+			calculator.displayValue += dot;
+		  }
+		}
+
+		function handleOperator(nextOperator) 
+		{
+		  const { firstOperand, displayValue, operator } = calculator
+		  const inputValue = parseFloat(displayValue);
+
+		  if (operator && calculator.waitingForSecondOperand)  
+		  {
+			calculator.operator = nextOperator;
+			return;
+		  }
+
+		  if (firstOperand == null) 
+		  {
+			calculator.firstOperand = inputValue;
+		  } else if (operator) {
+			const currentValue = firstOperand || 0;
+			const result = performCalculation[operator](currentValue, inputValue);
+
+			calculator.displayValue = String(result);
+			calculator.firstOperand = result;
+		  }
+
+		  calculator.waitingForSecondOperand = true;
+		  calculator.operator = nextOperator;
+		}
+
+		const performCalculation = 
+		{
+		  '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+
+		  '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+
+		  '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+
+		  '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+
+		  '=': (firstOperand, secondOperand) => secondOperand
+		};
+
+		function resetCalculator() 
+		{
+		  calculator.displayValue = '0';
+		  calculator.firstOperand = null;
+		  calculator.waitingForSecondOperand = false;
+		  calculator.operator = null;
+		}
+
+		function updateDisplay() 
+		{
+		  const display = document.querySelector('.calc-screen');
+		  display.value = calculator.displayValue;
+		}
+
+		updateDisplay();
+
+		const keys = document.querySelector('.calc-keys');
+		keys.addEventListener('click', (event) => 
+		{
+		  const { target } = event;
+		  if (!target.matches('button')) 
+		  {
+			return;
+		  }
+
+		  if (target.classList.contains('operator'))
+		  {
+			handleOperator(target.value);
+				updateDisplay();
+			return;
+		  }
+
+		  if (target.classList.contains('decimal')) 
+		  {
+			inputDecimal(target.value);
+				updateDisplay();
+			return;
+		  }
+
+		  if (target.classList.contains('clear')) 
+		  {
+			resetCalculator();
+			updateDisplay();
+			return;
+		  }
+
+		  inputDigit(target.value);
+		  updateDisplay();
+		});
+	}
+</script>
+
+<div class="calculator">
+
+	<!-- Calculator screen disabled -->
+	<input type="text" class="calc-screen" value="" disabled />
+
+	<div class="calc-keys">
+	
+		<!-- First row -->
+		<button type="button" class="operator" value="(">(</button>
+		<button type="button" class="operator" value=")">)</button>
+		<button type="button" class="operator" value="±">&plusmn;</button>
+		<button type="button" class="operator" value="/">&divide;</button>
+		
+		<!-- Second row -->
+		<button type="button" class="number" value="7">7</button>
+		<button type="button" class="number" value="8">8</button>
+		<button type="button" class="number" value="9">9</button>
+		<button type="button" class="operator" value="*">&times;</button>
+		
+		<!-- Third row -->
+		<button type="button" class="number" value="4">4</button>
+		<button type="button" class="number" value="5">5</button>
+		<button type="button" class="number" value="6">6</button>
+		<button type="button" class="operator" value="-">-</button>
+		
+		<!-- Fourth row -->
+		<button type="button" class="number" value="1">1</button>
+		<button type="button" class="number" value="2">2</button>
+		<button type="button" class="number" value="3">3</button>
+		<button type="button" class="operator" value="+">+</button>
+		
+		<!-- Fifth row -->
+		<button type="button" class="number" value="0">0</button>
+		<button type="button" class="decimal" value=".">.</button>
+		<button type="button" class="clear" value="clear">C</button>
+		<button type="button" class="operator" value="=">=</button">
+		
+	</div>
+	
+</div>
