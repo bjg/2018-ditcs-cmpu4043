@@ -1,0 +1,9 @@
+Question:
+Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?  What are streams useful for modeling and when might you use them in Rich Web development?
+
+Answer:
+A stream is essentially an array where the elements are made available over time. Stream abstraction is how a stream is viewed as data flowing in and out of an object rather than the literal sense where it is simply being moved and in and out of a buffer.
+
+The observer pattern works by maintaining a stream and attaching functions that will execute on three possible conditions which are when a value is emitted, an error is emited or a complete is emitted. The stream is subscribed when it is being "listened" to. The item being observed is the stream.
+
+Streams are extremely useful for modelling continuous input and is suitable for handling user input. Can be used for keyboard and button input to be processed as it arrives.
