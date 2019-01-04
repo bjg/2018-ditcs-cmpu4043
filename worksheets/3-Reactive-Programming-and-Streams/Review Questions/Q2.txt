@@ -1,0 +1,4 @@
+Helps avoid the heavily nested code involved in handling promises.
+rxjs streams can filter out unwanted/useless data using filter()
+or create new objects out of said data using map() or do both
+simultaniously using flatMap().
