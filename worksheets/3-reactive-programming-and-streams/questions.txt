@@ -1,0 +1,15 @@
+A stream is an array where the elements are made available over time. Stream abstraction is how a stream is viewed as data is flowing in and out of an object rather than it being moved and in and out of a buffer.
+ The observer pattern works by maintaining a stream and attaching functions that will execute on three possible conditions:
+		 - value emitted
+		 - error emited
+		 - complete emitted
+
+The stream is subscribed when it is being listened to. The item being observed is classed as the stream. Streams are useful for modelling continuous input. They are also suitable for handling user input. This can be used for keyboard and button input to be processed.
+
+
+
+I would group all the calls into one stream. An observable object can be created for each API call. The logic for handlingcan be attached so that it is triggered when the occurence of the API response is made available. 
+
+One option is to have a single observable created and terminate as soon as it has recieved the full networkk response for that specific call The other alternative would be to group all of them into one stream so there is only one stream which needs to be observed. I believe having one stream is a better approach. This is because it is easier to process repsonse, as there is only one area of input. 
+
+ The issue with promises is that they are only capable of handling a single value from a response. This can in turn slow down,  as it waits when expecting multiple responses from promises. Streams are a way to solve this problem. By holding an expandable array of responses and having event handlers ready. Streams also have all the standard array manipulation methods available from javascript so this also improves their usability. One possible negative for the use of streams is that they rely on external libraries. This can lead to compatibility issues  for updates.
