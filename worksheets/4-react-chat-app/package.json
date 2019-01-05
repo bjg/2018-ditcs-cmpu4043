@@ -1,0 +1,40 @@
+{
+  "name": "4-react-chat-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "bootstrap": "^4.1.3",
+    "dotenv": "^6.1.0",
+    "firebase": "^5.5.8",
+    "font-awesome": "^4.7.0",
+    "grpc": "^1.16.1",
+    "jquery": "^3.3.1",
+    "node-libcurl": "^1.3.3",
+    "node-pre-gyp": "^0.12.0",
+    "popper.js": "^1.14.5",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "recompose": "^0.30.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.5.0"
+  }
+}

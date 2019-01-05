@@ -1,0 +1,27 @@
+.login {
+    margin-top: 25%;
+}
+
+.list-group-item:first-child {
+    color: black;
+}
+
+h1 {
+    color: red;
+}
+
+.chat-window {
+    margin-left: 0px;
+}
+
+.users {
+    margin-right: 0px;
+}
+
+.signup {
+    margin-top: 15%;
+}
+
+.login-form, .signup-form {
+    text-align: left;
+}
