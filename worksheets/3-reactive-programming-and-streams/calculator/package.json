@@ -1,0 +1,36 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "RxJS version of the calculator from week 2.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mark-barrett/2018-ditcs-cmpu4043.git"
+  },
+  "author": "Mark Barrett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mark-barrett/2018-ditcs-cmpu4043/issues"
+  },
+  "homepage": "https://github.com/mark-barrett/2018-ditcs-cmpu4043#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  }
+}

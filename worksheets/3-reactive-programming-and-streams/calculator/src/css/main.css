@@ -1,0 +1,59 @@
+/* Import custom font from Google */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+	font-family: Montserrat;
+}
+
+.top {
+	background-color: #4BCC76;
+	margin: -10px;
+	color: #FFFFFF;
+	padding: 2px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+}
+
+.calculator {
+	margin-left: 25%;
+	margin-right: 25%;
+	background-color: #F7F7F7;
+	padding: 20px;
+	border-radius: 15px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.screen {
+	border-style: inset;
+	padding: 0px;
+	text-align: right;
+}
+
+.screen-text {
+	padding-top: 0px;
+	padding-right: 10px;
+	font-size: 50px;
+	color: #A9A9A9;
+	margin: 10px;
+}
+
+.buttons {
+	padding-top: 10px;
+	display: block;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+.button {
+	width: 22%;
+	height: -1%;
+	text-align: center;
+	background: #C0C0C0;
+	margin: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	float: left;
+	border-radius: 10px;
+	border-style: outset;
+}
