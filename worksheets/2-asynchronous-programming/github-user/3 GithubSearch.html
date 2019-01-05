@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body id = "main">
+		<div id="searchbarElement">
+			<form>
+				<input id="searchTextbox" type="text" value = "" placeholder="Username" />
+				<input id="searchButton" type="button" value="Search" onClick="searchUserInfo();">
+			</form>
+		</div>
+		<div name= userprofileANDreposRENAME>
+			<div id="userProfileElement">
+				<h1>UserProfile</h1>
+				<div class="gridList">
+					<img class="gridBox" id="profileAvatar" src=""></div>
+
+					<div class="gridBox"> 
+						<div class="gridLabel">Name</div>
+						<div id="profileName" class="gridContent"></div>
+					</div>
+					<div class="gridBox"> 
+						<div class="gridLabel">Username</div>
+						<div id="profileUsername" class="gridContent"></div>
+					</div>
+					<div class="gridBox"> 
+						<div class="gridLabel">Email</div>
+						<div id="profileEmail" class="gridContent">a</div>
+					</div>
+					<div class="gridBox"> 
+						<div class="gridLabel">Location</div>
+						<div id="profileLocation" class="gridContent"></div>
+					</div>
+					<div class="gridBox"> 
+						<div class="gridLabel">Number of Gists</div>
+						<div id="profileNumberOfGists" class="gridContent"></div>
+					</div>
+
+				</div>
+			</div>
+			<div id="userReposElement">
+				<h1>UserRepos</h1>
+				<div id="reposParent" class="gridList"></div>
+			</div>
+		</div>
+
+	</body>
+	<link rel="stylesheet" type="text/css" href="3 GithubSearch.css">
+	<script src="3 GithubSearch.js"></script>
+</html>
