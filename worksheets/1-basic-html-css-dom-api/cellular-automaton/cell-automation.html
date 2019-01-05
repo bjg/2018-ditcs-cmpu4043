@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+
+<script>
+function load() {
+  document.body.innerHTML += '<h1>Cellular Automaton <small>By Mark Barrett</small></h1>'
+
+  document.body.setAttribute('style', 'font-family: arial;');
+  
+  // Create the main cellsContainer div
+  var cellsContainer = document.createElement('div');
+  cellsContainer.setAttribute('id', "cellsContainer");
+  
+  // Append it to the main body
+  document.body.appendChild(cellsContainer);
+  
+  var rows = 50;
+  var cols = 101;
+  
+  var num = 0;
+  
+  for(var j=0; j<rows; j++) {
+    
+    var row = document.createElement('div');
+    
+    row.setAttribute('id', 'row'+j);
+    row.setAttribute('style', 'width: 808px;');
+    
+    for(var i=0; i<cols; i++) {
+
+    	var state = false;
+
+    	// If we are on the first row ignore, else set the values of the surrounding cells
+    	if(j != 0) {
+
+    		// If its the first column then the end cell is the value
+    		if(i == 0) {
+    			var topLeftCell = document.getElementById('cell'+(j-1)+(cols-1));
+    		} else if(i == (cols-1)) {
+    			var topRightCell = document.getElementById('cell'+(j-1)+0);
+    		} else {
+    			var topLeftCell = document.getElementById('cell'+(j-1)+(i-1));
+    			var topRightCell = document.getElementById('cell'+(j-1)+(i+1));
+    		}
+
+    		// Get the middle cell which is always just above
+    		var topMiddleCell = document.getElementById('cell'+(j-1)+i);
+
+    		// Now that we have all of those cells lets do somechecks to figure out if it should be active or not
+    		if(topLeftCell.style.backgroundColor == 'green' && topMiddleCell.style.backgroundColor == 'green'
+    			|| topLeftCell.style.backgroundColor == 'white' && topMiddleCell.style.backgroundColor == 'white') {
+    			state = false;
+    		} else if(topLeftCell.style.backgroundColor == 'green' && topMiddleCell.style.backgroundColor == 'white'
+    			|| topLeftCell.style.backgroundColor == 'white' && topMiddleCell.style.backgroundColor == 'green') {
+    			state = true;
+    		}
+
+    		var singleCell = document.createElement('div');
+    		singleCell.setAttribute('id', 'cell'+j+''+i);
+    		singleCell.setAttribute('style', 'float: left; height: 8px; width: 8px; '+ (state ? 'background-color: green;' : 'background-color: white;'));
+    		row.appendChild(singleCell);
+    	} else {
+
+    		var state = Math.random() >= 0.5;
+
+    		var singleCell = document.createElement('div');
+    		singleCell.setAttribute('id', 'cell'+j+''+i);
+    		singleCell.setAttribute('style', 'float: left; height: 8px; width: 8px; '+ (state ? 'background-color: green;' : 'background-color: white;'));
+    		row.appendChild(singleCell);
+    	}
+    }
+
+    cellsContainer.appendChild(row);
+  }
+}
+window.onload = load;
+</script>
+
+<body>
+  
+  <div id="main">
+  </div>
+
+</body>
+</html>

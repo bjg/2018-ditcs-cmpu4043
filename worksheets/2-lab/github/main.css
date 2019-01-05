@@ -1,0 +1,95 @@
+/* Import custom font from Google */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+	font-family: Montserrat;
+}
+
+.top {
+	background-color: #4BCC76;
+	margin: -10px;
+	color: #FFFFFF;
+	padding: 2px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+}
+
+.text-input {
+	height: 50px;
+	width: 77%;
+	font-size: 20px;
+	font-family: Montserrat;
+	padding-left: 10px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-default {
+	padding: 15px;
+	margin: 5px;
+	width: 20%;
+	background-color: #4BCC76;
+	border: 0px;
+	border-radius: 7px;
+	color: white;
+	font-size: 20px;
+	font-family: Montserrat;
+}
+
+.message {
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+}
+
+.error-message {
+	background-color: #fc2f41;
+}
+
+.container {
+	padding: 30px;
+	padding-top: 0px;
+	height: 100%;
+}
+
+.profile {
+	padding-top: 20px;
+}
+
+.profile-image {
+	border-radius: 10px;
+	width: 100%;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.left-side {
+	width: 20%;
+	float: left;
+	margin-right: 50px;
+}
+
+.right-side {
+	width: 75%;
+	float: right;
+}
+
+.repo {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.title {
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+.grey {
+	color: #666;
+}
+
+p {
+	padding-
+}
