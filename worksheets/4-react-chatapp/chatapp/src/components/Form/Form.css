@@ -1,0 +1,39 @@
+.form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+}
+.form__row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 20px;
+}
+.form__input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    outline: 0;
+}
+.form__input:focus {
+    background-color: rgba(245, 243, 243, 0.5);
+}
+.form__button {
+    padding: 0 30px;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    outline: 0;
+    cursor: pointer;
+}
+.form__button:hover {
+    background-color: rgba(0, 0, 0, .8);
+}
+.form__message {
+    width: 100%;
+    padding: 0 20px;
+}
