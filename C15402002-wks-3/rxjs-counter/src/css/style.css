@@ -1,0 +1,38 @@
+body{
+  background-color: #fff;
+  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.elapsedtime {
+  background-color: white;
+  width: 5em;
+  padding: 0.25em;
+  margin: auto;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.buttons {
+  margin-bottom: 1em;
+}
+
+#laps li{
+  list-style: none;
+  margin-bottom: 1em;
+}
+
+#title {
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+#stopwatch {
+  display: block;
+  margin: auto;
+}
