@@ -1,0 +1,26 @@
+h1,header{ 
+  font-family: Arial, sans-serif;
+  font-style: italic;
+}
+
+h1{
+  font-style: bold;
+}
+#content,#sidebar {
+  border: 1px solid black;
+  display: inline-block;
+  vertical-align: top;  
+  margin-left:10px;
+  }
+#content{
+  min-width: 300px;
+  min-height:250px;
+  padding:5px;
+}
+#sidebar{
+  min-width: 100px;
+  padding:5px
+}
+ul{
+  list-style-type: none;
+}
