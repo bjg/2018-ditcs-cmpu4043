@@ -1,0 +1,32 @@
+body{
+	border: 1px solid black;
+	width:375px;
+	height:335px;
+  border-radius: 10px;
+	background-color: #f5f5f0;
+}
+input[type="text"]{
+	height:50px;
+	width: 350px;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px;
+	font-size: 50px;
+  text-align: right;
+	letter-spacing: 3px;
+	box-shadow: -2px -2px #888888;
+	background-color: #fff;
+	overflow: hidden;
+}
+/* changed ul and li to input type to get the calculator to look the same*/
+input[type="button"]{
+	height: 40px;
+	width: 80px;
+	margin: 5px;
+	border: 1px solid black;
+  border-radius: 10px;
+	box-shadow: 2px 2px #888888;
+	background-color: #e0e0d1;
+	user-select: none;
+}
