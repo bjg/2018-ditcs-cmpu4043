@@ -1,0 +1,45 @@
+1. Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern?
+What are streams useful for modeling and when might you use them in Rich Web development?
+
+Streams is a concept that represents asynchronous values or events that are emitted over time.Using streams allows the application architecture to reduce to a stream processing
+problem operating on a merged set of one or more streams. They are an abstraction for some data that may or may not arrive in the future.
+For example every click in our application are a stream of values containing the click event.
+* Streams implement what is known as the observer pattern.
+* Streams are handled lazily (items aren’t retrieved until they’re required).
+* Streams can be manipulated in a multitude of different ways.
+
+Observables is a function that actually facilitates the streams by emitting these values and responding to them.
+
+* Facilitates good object-oriented design and promotes loose coupling.
+* They are implemented by Streams.
+* The data is realised using the subscribe operation which means that objects subscribe to an event and get notified when the event occurs.
+* Popular pattern used across all sorts of JS applications.
+* Observables are also known as Publication / Subscription
+
+When building web apps you end up writing many event handlers. Event handlers are functions that will be notified when a certain event fires.
+These notifications optionally receive an event argument with details about the event (for example the x and y position of the mouse at a click event).
+In rich web development we can use streams and observables to achieve this in a more useful way improving code management and potentials for re-use.
+
+
+
+2.Assume that you are building an interface to an API in your Rich Web App.
+Describe in detail how you could use the RxJS library to handle asynchronous network responses to API requests.
+In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+
+
+The RxJS library could be used to handle network responses to an API by creating an observable stream that gets our HTTP request fired off.
+This library contains helpful function like 'fromPromise' to turn our request it into an observable. This function combined with mergeMap enables us to flatten all the promises into a single observable stream
+that we can subscribe to it.
+
+Streams and promises can be used together using the async Rxjs library.
+Promises solve the specific drawbacks with callbacks and are fine but don’t really help with the larger data synchronisation problem we face in UI design.
+
+Streams library for networking
+Advantages:
+* Elegant handling of asynchronous network responses and requests.
+* Includes error handling functions
+* Easy to combine multiple streams into one.
+
+Disadvantages:
+* Little information regarding good practices around this topic.
+* Complex

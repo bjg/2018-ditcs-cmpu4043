@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+  .container{
+    position: relative;
+    margin: auto;
+    width:800px;
+
+  }
+  .user_profile{
+    float:left;
+    width: 47%;
+  }
+  .user_repos{
+    float: right;
+    width: 47%;
+  }
+
+  .iusername{
+    float: left;
+    width: 65%;
+    height: 25px;
+    margin-right: 5%;
+    border: 1px solid black;
+  }
+  .btn_search{
+    float: right;
+    height: 30px;
+    width:20%;
+    border-radius: 5px;
+  }
+  .user_info div, .repos div{
+    border: 1px solid black;
+    padding: 5px 0 5px 10px;
+  }
+  .repos{
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid black;
+  }
+  div img{
+    width: auto;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+  }
+  </style>
+</head>
+<body>
+  <script type="text/javascript">
+  //This function gets calls when the button search is clicked
+  function search(){
+    var user= document.getElementById('input_user').value;//storing the user typed in
+    //Creating request to the github api url plus the user name from the text input
+    fetch('https://api.github.com/users/' + user ).then(function(response) {
+      // Convert to JSON
+      return response.json();
+    }).then(function(j) {
+      //`j` is a JavaScript object
+      //Collect the necessary data and placig it in the desired html tags
+      document.getElementById("name").innerHTML= j.name;
+      document.getElementById("username").innerHTML= j.login;
+      if(j.email == null){
+        document.getElementById("email").innerHTML= "null";
+      }else{
+        document.getElementById("email").innerHTML= j.email;
+      }
+      if(j.location == null){
+        document.getElementById("location").innerHTML= "null";
+      }else{
+        document.getElementById("location").innerHTML= j.location;
+      }
+
+      document.getElementById("gists").innerHTML= j.public_gists;
+      document.getElementById('img').src= j.avatar_url;
+    });
+    //Creating request to the github api to extract the user's repositories
+    fetch('https://api.github.com/users/' + user + '/repos' ).then(function(response) {
+      // Convert to JSON
+      return response.json();
+
+    }).then(function(j) {
+      //`j` is a JavaScript object
+      //iterate through the repositories
+
+      for(let i in j){
+        var repo = document.createElement("DIV");//create DIV
+        repo.innerHTML= '<b>'+ j[i].name +'</b></br>' + j[i].description;//adding the name and desc. of each repo
+        //append child to scrollable div
+        document.getElementById('repositories').appendChild(repo);
+      }
+    });
+
+  }
+  </script>
+  <div class="container">
+
+    <input class="iusername" id="input_user" type="text" placeholder="Username">
+    <button class="btn_search" type="submit" name="search" onclick="search()">Search</button>
+
+    <div class="user_page">
+      <div class="user_profile">
+        <h3>User Profile</h3>
+        <div class="user_info">
+          <div><img id="img" src="no_img.png" alt="No profile picture"></div>
+          <div id="name">Name</div>
+          <div id="username">Username</div>
+          <div id="email">Email</div>
+          <div id="location">Location</div>
+          <div id="gists">Number of Gists</div>
+        </div>
+      </div>
+      <div class="user_repos">
+        <h3>User Repos</h3>
+        <div class="repos" id="repositories">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
