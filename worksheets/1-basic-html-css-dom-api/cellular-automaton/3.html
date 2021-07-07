@@ -1,0 +1,92 @@
+<!--Victor Gonzalez
+DT228
+D16123580-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// Initialise page styles
+var body = document.getElementsByTagName('body')[0];//Getting first element of the document
+body.style.width="808px";
+body.style.height="400px";
+body.style.margin="auto";//center the content of the body
+
+var numberOfCellsInRow = 101;//number of columns
+var rows = 50;//number of rows
+var grid = new Array(numberOfCellsInRow);//Array of cells
+
+createFirstRow();//Call to the function that creates the first
+for (let i = 0; i < rows; i++) {
+	generate();//Call to generate function to create the next row of cells
+	for (let j = 0; j < grid.length; j++) {
+	  	createCell(grid[j]);//Call to createCells function to give styles and status to each cell
+	}
+}
+//This function creates the next row based on the one before
+function generate(){
+	var newcells = [grid.length];
+
+	for (let i = 0; i < grid.length; i++){//iterate through the rray of cells
+		if(i==0){//If we are at the first cell
+			var left  = grid[grid.length-1];//Taking the last cell of the row as the left neighbour
+		}else{
+			var left  = grid[i-1];//left neighbour of the current cell
+		}
+		  	var middle = grid[i];//variable to store the status or the current cell
+
+		if(i==grid.length-1){//If we are at the last cell
+			var right  = grid[0];//Taking the first cell of the row as the right neighbour
+		}else{
+			var right  = grid[i+1];//right neighbour of the current cell
+		}
+		//call to function rules
+		newcells[i] = rules(left,middle,right);//stores the values of the old row into this array
+	}
+	grid = newcells;//Replace the old array of cells with the new one
+	return grid;//return the new array of cells to be generated
+}
+/*This function initialises the styles of the cells and assigns a color
+according to the status: active or inactive */
+function createCell(grid){
+	var cell = document.createElement("DIV");//create DIV tag
+    cell.style.float="left";
+    cell.style.width="8px";
+    cell.style.height="8px";
+
+    if(grid == 1){
+	    		cell.style.backgroundColor="black";
+	    	}else{
+	    		cell.style.backgroundColor="white";
+	    	}
+	document.body.appendChild(cell);//Append div to the body
+}
+
+/*This function takes the status of the left middle and
+right neighbour cells and returns 0 or 1 */
+function rules(left,middle,right){
+		if    	(left == 1 && middle == 1 && right == 1) return 0;
+    else if (left == 1 && middle == 1 && right == 0) return 0;
+    else if (left == 1 && middle == 0 && right == 1) return 1;
+    else if (left == 1 && middle == 0 && right == 0) return 1;
+    else if (left == 0 && middle == 1 && right == 1) return 1;
+    else if (left == 0 && middle == 1 && right == 0) return 1;
+    else if (left == 0 && middle == 0 && right == 1) return 0;
+    else if (left == 0 && middle == 0 && right == 0) return 0;
+
+    return 0;
+}
+/*This function iterates through the array and
+allocates a random value (1-active, 0 -inactive)*/
+function createFirstRow(){
+	for(let i=0;i<grid.length;i++){
+				grid[i] = Math.floor(Math.random()*2);
+		}
+}
+
+</script>
+
+</body>
+</html>
