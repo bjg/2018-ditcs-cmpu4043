@@ -1,0 +1,84 @@
+/* best viewed in full screen */
+
+html, body {
+    height: 97%;
+    background-color: #F7F7F7;
+}
+
+#border {
+    border-radius: 1.8%;
+	border: 1.5px solid black;
+    display: block;
+    height: 87%;
+    margin: 2% 8% 0% 8%;
+	width: 84%;
+}
+
+#screen {
+    background-color: white;
+    border: 3px solid #A2A2A2;
+    border-bottom-color:#EEEEEE;
+    border-right-color: #EEEEEE;
+    border-radius: 10px;
+    color: #B6B6B6;
+    font-size: 250%;
+    font-family: Comic Sans MS;
+    height: 10%;
+    margin: 3% 3% 0 3%;
+    padding: .5%;
+    text-align: right;
+    width: 93%;
+}
+
+#buttons {
+    height: 72%;
+    margin: 3% 3% 0 2%;
+    width: 95.5%;
+} 
+
+button {
+    background: #C0C0C0;
+    border: 3px solid #C0C0C0;
+    border-radius: 10px;
+    border-bottom-color: #6E6E6E;
+    border-right-color: #6E6E6E;
+    display: inline-block;
+    font: 150% Arial;
+    height: 16%;
+    margin: 1% 0% 0% 1%;
+    text-align: center;
+    width: 23.7%;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 1300px){
+
+    button{
+        font: 100% Arial;
+        width: 23%;  
+    }
+
+}
+
+@media screen and (max-height: 540px){
+    button{
+        height:14%;
+        font: 100% Arial;  
+    }
+}
+
+
+@media screen and (max-width: 405px), screen and(max-height:300px){
+    button{
+        font: 75% Arial;
+        width:20%;  
+    }
+}
+
+/* references 
+
+https://html-color-codes.info/colors-from-image/# - to retrieve correct color from image
+
+*/
